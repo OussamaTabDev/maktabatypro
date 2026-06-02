@@ -114,7 +114,9 @@
         <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-tight" data-i18n="hero-title">One workspace for documents, PDFs,<br> <span class="gradient-text">templates and printing.</span></h1>
         <p class="text-gray-600 text-lg mt-6 leading-relaxed max-w-2xl mx-auto" data-i18n="hero-desc">Create legal documents, edit PDFs, design cards and manage deadlines — without subscriptions or cloud storage. 100% offline, bank‑grade encryption.</p>
         <div class="flex flex-wrap justify-center gap-4 mt-8">
-          <a href="https://github.com/OussamaTabDev/TemplateFlow-Landing-Page/releases/latest"
+          <a
+            id="downloadBtn"
+            href="https://github.com/OussamaTabDev/TemplateFlow-Landing-Page/releases/tag/v1.0.0"
             class="btn-primary text-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2 shadow-md"
           >
             <i class="fas fa-download"></i>
@@ -322,7 +324,7 @@
           <ul class="space-y-3 text-sm">
             <li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="trial-feat1">All modules: Documents, PDF, Cards</span></li><li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="trial-feat2">Local IndexedDB storage</span></li><li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="trial-feat3">AR/FR/EN + RTL</span></li><li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="trial-feat4">No credit card required</span></li>
           </ul>
-          <div class="mt-8"><a href="#" class="block text-center border border-gray-300 rounded-xl py-2.5 font-medium hover:bg-gray-50 transition" data-i18n="trial-btn">Start free trial</a></div>
+          <div class="mt-8"><a href="https://github.com/OussamaTabDev/TemplateFlow-Landing-Page/releases/tag/v1.0.0" class="block text-center border border-gray-300 rounded-xl py-2.5 font-medium hover:bg-gray-50 transition" data-i18n="trial-btn">Start free trial</a></div>
         </div>
         <div class="rounded-2xl border-2 border-[#0F3B5C] bg-white p-8 shadow-xl relative">
           <div class="absolute top-0 right-6 -translate-y-3 bg-[#0F3B5C] text-white text-xs px-3 py-1 rounded-full" data-i18n="popular-badge">Lifetime</div>
@@ -481,5 +483,44 @@
     closeBtn.onclick=closeModal; modal.onclick=(e)=> { if(e.target===modal) closeModal(); };
     confirmBtn.onclick=()=>{ const name=document.getElementById('buyerName').value, email=document.getElementById('buyerEmail').value; if(!name||!email){ alert(currentLang==='fr'?'Veuillez remplir nom et email':'Please fill name and email'); return; } alert(currentLang==='fr'?'Demande de licence envoyée. Vous recevrez un lien de paiement sécurisé par email.':'License request received. You will receive a secure payment link by email.'); closeModal(); };
   </script>
+  <script>
+async function setupDownloadButton() {
+  try {
+    const response = await fetch(
+      "https://api.github.com/repos/OussamaTabDev/TemplateFlow-Landing-Page/releases/tag/v1.0.0"
+      
+      
+    );
+
+    const release = await response.json();
+
+    const platform = navigator.platform.toLowerCase();
+
+    let asset = null;
+
+    if (platform.includes("win")) {
+      asset = release.assets.find(a =>
+        a.name.endsWith(".exe")
+      );
+    } else if (
+      platform.includes("linux") ||
+      platform.includes("x11")
+    ) {
+      asset = release.assets.find(a =>
+        a.name.endsWith(".AppImage")
+      );
+    }
+
+    if (asset) {
+      document.getElementById("downloadBtn").href =
+        asset.browser_download_url;
+    }
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+setupDownloadButton();
+</script>
 </body>
 </html>
