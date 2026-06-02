@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>TemplateFlow | Sovereign Document Suite for Professionals</title>
+  <!-- Google Fonts + Tajawal for Arabic elegance -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', 'Tajawal', system-ui, sans-serif;
+      background: #FCFDFE;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #0B2F4E 0%, #1F5E8C 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .btn-primary { background: #0F3B5C; transition: all 0.2s ease; }
+    .btn-primary:hover { background: #072538; transform: translateY(-1px); }
+    .lang-active {
+      background: #0F3B5C;
+      color: white;
+      border-color: #0F3B5C;
+    }
+    .preview-card[dir="rtl"] {
+      text-align: right;
+      direction: rtl;
+    }
+    .preview-card p, .preview-card span, .preview-card strong {
+      font-family: 'Tajawal', 'Inter', sans-serif;
+    }
+    .demo-fields-panel::-webkit-scrollbar {
+      width: 5px;
+    }
+    .demo-fields-panel::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+    .demo-fields-panel::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 10px;
+    }
+    .preview-card {
+      transition: transform 0.2s ease;
+      transform-origin: top left;
+      background: white;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      ring: 2px solid #0F3B5C;
+      border-color: #0F3B5C;
+      box-shadow: 0 0 0 2px rgba(15,59,92,0.2);
+    }
+    .legal-preview-text {
+      line-height: 1.65;
+    }
+    .module-card {
+      transition: all 0.25s ease;
+    }
+    .module-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 30px -12px rgba(0,0,0,0.12);
+    }
+    .hero-screenshot-mock {
+      background: linear-gradient(145deg, #EFF3F8 0%, #FFFFFF 100%);
+      border-radius: 32px;
+      box-shadow: 0 25px 40px -12px rgba(0,0,0,0.2);
+    }
+    [dir="rtl"] .flex-row-reverse-for-rtl {
+      flex-direction: row-reverse;
+    }
+    .transition-transform {
+      transition: transform 0.2s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between flex-wrap gap-3">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl font-bold tracking-tight bg-gradient-to-r from-[#0B2F4E] to-[#276B8F] bg-clip-text text-transparent">TemplateFlow</span>
+      </div>
+      <div class="hidden md:flex gap-6 text-sm font-medium">
+        <a href="#features" class="hover:text-[#0F3B5C] transition" data-i18n="nav-features">Core</a>
+        <a href="#modules" class="hover:text-[#0F3B5C] transition" data-i18n="nav-modules">Modules</a>
+        <a href="#demo" class="hover:text-[#0F3B5C] transition" data-i18n="nav-demo">Live Demo</a>
+        <a href="#pricing" class="hover:text-[#0F3B5C] transition" data-i18n="nav-pricing">Pricing</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="flex bg-gray-100 rounded-full p-0.5">
+          <button data-lang="en" class="lang-switch px-3 py-1 text-xs rounded-full font-medium transition-all">EN</button>
+          <button data-lang="fr" class="lang-switch px-3 py-1 text-xs rounded-full font-medium transition-all">FR</button>
+          <button data-lang="ar" class="lang-switch px-3 py-1 text-xs rounded-full font-medium transition-all">AR</button>
+        </div>
+        <a href="#pricing" class="bg-[#0F3B5C] text-white text-sm px-4 py-2 rounded-full font-medium shadow-sm hover:bg-[#082c46] transition" data-i18n="cta-buy">Get License</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="pt-16 pb-12 px-5 max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1 rounded-full mb-5">
+          <i class="fas fa-database"></i> <span data-i18n="hero-badge">Zero‑cloud · Total Sovereignty</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-tight" data-i18n="hero-title">One workspace for documents, PDFs,<br> <span class="gradient-text">templates and printing.</span></h1>
+        <p class="text-gray-600 text-lg mt-6 leading-relaxed max-w-2xl mx-auto" data-i18n="hero-desc">Create legal documents, edit PDFs, design cards and manage deadlines — without subscriptions or cloud storage. 100% offline, bank‑grade encryption.</p>
+        <div class="flex flex-wrap justify-center gap-4 mt-8">
+          <a href="#demo" class="btn-primary text-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2 shadow-md"><i class="fas fa-download"></i> <span data-i18n="hero-demo-btn">Download Trial</span></a>
+          <a href="#demo" class="border border-gray-300 bg-white px-6 py-3 rounded-xl font-semibold text-gray-800 hover:bg-gray-50 transition"><i class="fas fa-play"></i> <span data-i18n="hero-trial-btn">Watch Demo</span></a>
+        </div>
+      </div>
+      <div class="hero-screenshot-mock w-full overflow-hidden rounded-2xl border border-gray-200/80 shadow-2xl mt-6">
+        <div class="bg-[#F2F5F9] px-4 py-3 border-b border-gray-200 flex items-center gap-2">
+          <div class="w-3 h-3 rounded-full bg-red-400"></div>
+          <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+          <div class="w-3 h-3 rounded-full bg-green-400"></div>
+          <span class="text-xs text-gray-500 ml-2 font-mono">TemplateFlow Suite — Document Sovereignty</span>
+        </div>
+        <img src="assets/landingPage.png" alt="TemplateFlow Dashboard Screenshot" class="w-full object-cover">
+      </div>
+    </section>
+
+    <!-- Trusted by -->
+    <div class="max-w-7xl mx-auto px-5 py-8 border-y border-gray-100 bg-gray-50/40">
+      <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-4 text-sm font-medium text-gray-500 uppercase tracking-wide">
+        <span data-i18n="trust-1">Lawyers</span>
+        <span class="text-gray-300">•</span>
+        <span data-i18n="trust-2">Administrative Offices</span>
+        <span class="text-gray-300">•</span>
+        <span data-i18n="trust-3">Print Shops</span>
+        <span class="text-gray-300">•</span>
+        <span data-i18n="trust-4">Translators</span>
+        <span class="text-gray-300">•</span>
+        <span data-i18n="trust-5">Accountants</span>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <section id="features" class="py-20 px-5">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <span class="text-sm uppercase tracking-wider text-blue-700 font-semibold" data-i18n="features-badge">unified platform</span>
+          <h2 class="text-3xl md:text-4xl font-bold mt-2" data-i18n="features-title">Everything you need, privately</h2>
+          <p class="text-gray-500 max-w-xl mx-auto mt-3" data-i18n="features-sub">No feature bloat. Just powerful offline modules that respect your data.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="rounded-2xl p-6 bg-white shadow-sm border border-gray-100 hover:shadow-md transition">
+            <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4"><i class="fas fa-file-alt text-blue-700 text-xl"></i></div>
+            <h3 class="text-xl font-semibold" data-i18n="feat1-title">Create Documents</h3>
+            <p class="text-gray-600 mt-2 text-sm" data-i18n="feat1-desc">Legal templates, Power of Attorney, contracts — dynamic fields, RTL, instant preview.</p>
+          </div>
+          <div class="rounded-2xl p-6 bg-white shadow-sm border border-gray-100 hover:shadow-md transition">
+            <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4"><i class="fas fa-vector-square text-blue-700 text-xl"></i></div>
+            <h3 class="text-xl font-semibold" data-i18n="feat2-title">Design Cards</h3>
+            <p class="text-gray-600 mt-2 text-sm" data-i18n="feat2-desc">Professional cards & labels. Multi‑image layouts, crop, rotate, skew, full creative control.</p>
+          </div>
+          <div class="rounded-2xl p-6 bg-white shadow-sm border border-gray-100 hover:shadow-md transition">
+            <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4"><i class="fas fa-book text-blue-700 text-xl"></i></div>
+            <h3 class="text-xl font-semibold" data-i18n="feat3-title">Manage PDFs</h3>
+            <p class="text-gray-600 mt-2 text-sm" data-i18n="feat3-desc">Centralized library, smart calendar, reminders, annotations, print queue — all offline.</p>
+          </div>
+          <div class="rounded-2xl p-6 bg-white shadow-sm border border-gray-100 hover:shadow-md transition">
+            <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4"><i class="fas fa-calendar-alt text-blue-700 text-xl"></i></div>
+            <h3 class="text-xl font-semibold" data-i18n="feat4-title">Track Deadlines</h3>
+            <p class="text-gray-600 mt-2 text-sm" data-i18n="feat4-desc">Integrated calendar, renewal alerts, document expiry tracking. Never miss a deadline.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modules -->
+    <section id="modules" class="py-16 px-5 bg-gray-50/60">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <span class="bg-blue-100 text-blue-800 text-xs font-mono px-3 py-1 rounded-full" data-i18n="modules-badge">product suite</span>
+          <h2 class="text-3xl font-bold mt-3" data-i18n="modules-title">Tools that work the way you do</h2>
+        </div>
+        <div class="space-y-20">
+          <div class="grid md:grid-cols-2 gap-10 items-center">
+            <div class="order-2 md:order-1">
+              <div class="bg-white rounded-xl shadow-md border border-gray-200 p-2 inline-block">
+                <img src="assets/cardlayout.png" alt="Card designer preview" class="rounded-lg w-full max-w-md shadow-sm">
+              </div>
+            </div>
+            <div class="order-1 md:order-2">
+              <span class="text-blue-600 text-sm font-semibold uppercase tracking-wide" data-i18n="card-badge">Card Layout Studio</span>
+              <h3 class="text-2xl font-bold mt-2" data-i18n="card-title">Design professional cards & labels</h3>
+              <p class="text-gray-600 mt-3" data-i18n="card-desc">ID cards, loyalty cards, business cards — drag & drop images, free positioning, rotation, skew, crop, and flip. Export to PDF with cut marks. 100% offline, no uploads.</p>
+              <ul class="mt-4 space-y-2 text-sm text-gray-700">
+                <li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="card-feat1">Unlimited images per card · local only</span></li>
+                <li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="card-feat2">Undo/Redo, templates & collages</span></li>
+                <li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="card-feat3">Direct print or batch queue</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <span class="text-amber-600 text-sm font-semibold uppercase tracking-wide" data-i18n="pdf-badge">PDF Library & Smart Calendar</span>
+              <h3 class="text-2xl font-bold mt-2" data-i18n="pdf-title">Centralized PDF vault with planning</h3>
+              <p class="text-gray-600 mt-3" data-i18n="pdf-desc">Encrypted IndexedDB storage, assign date ranges, set reminders, track usage, and bulk print. Built‑in PDF editor for annotations, highlights, and signatures.</p>
+              <ul class="mt-4 space-y-2 text-sm text-gray-700">
+                <li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="pdf-feat1">Drag‑and‑drop import · auto‑indexing</span></li>
+                <li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="pdf-feat2">Calendar view: assign date ranges, shift+click intervals</span></li>
+                <li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="pdf-feat3">Reminders for renewals + desktop notifications</span></li>
+              </ul>
+            </div>
+            <div class="flex justify-end">
+              <div class="bg-white rounded-xl shadow-md border border-gray-200 p-2">
+                <img src="assets/pdflib.png" alt="PDF library preview" class="rounded-lg w-full max-w-md shadow-sm">
+              </div>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-10 items-center">
+            <div class="order-2 md:order-1">
+              <div class="bg-white rounded-xl shadow-md border border-gray-200 p-2 inline-block">
+                <img src="assets/workw.png" alt="Word processor preview" class="rounded-lg w-full max-w-md shadow-sm">
+              </div>
+            </div>
+            <div class="order-1 md:order-2">
+              <span class="text-emerald-600 text-sm font-semibold uppercase tracking-wide" data-i18n="word-badge">Offline Word Processor</span>
+              <h3 class="text-2xl font-bold mt-2" data-i18n="word-title">Write, edit, format — no cloud</h3>
+              <p class="text-gray-600 mt-3" data-i18n="word-desc">Rich text documents with full RTL support, tables, embedded images, and styles. Perfect for reports, letters, and official correspondence. Auto‑save to IndexedDB.</p>
+              <ul class="mt-4 space-y-2 text-sm text-gray-700">
+                <li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="word-feat1">Bilingual paragraphs (AR/FR/EN) + spell‑check</span></li>
+                <li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="word-feat2">Insert tables, lists, local images</span></li>
+                <li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="word-feat3">Export to PDF or direct print</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY OFFLINE -->
+    <section class="py-20 px-5 max-w-5xl mx-auto text-center">
+      <div class="bg-white rounded-3xl shadow-sm border border-gray-200 p-10 md:p-16">
+        <i class="fas fa-shield-alt text-5xl text-[#0F3B5C] opacity-80 mb-4"></i>
+        <h2 class="text-3xl font-bold" data-i18n="offline-title">Why offline?</h2>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4 leading-relaxed" data-i18n="offline-desc">Your documents never leave your machine. No subscriptions. No cloud storage. No internet required. Total sovereignty — compliant with Moroccan data protection and GDPR.</p>
+        <div class="flex flex-wrap justify-center gap-8 mt-8 text-sm text-gray-500">
+          <span><i class="fas fa-microchip text-blue-600"></i> <span data-i18n="offline-local">Local IndexedDB</span></span>
+          <span><i class="fas fa-lock text-blue-600"></i> <span data-i18n="offline-encrypt">Bank‑grade encryption</span></span>
+          <span><i class="fas fa-language text-blue-600"></i> <span data-i18n="offline-bilingual">Arabic, French, English</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE DEMO -->
+    <section id="demo" class="py-16 px-5 bg-gradient-to-b from-white to-gray-50">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-8">
+          <span class="bg-blue-100 text-blue-800 text-xs font-mono px-3 py-1 rounded-full" data-i18n="demo-badge">live template · Power of Attorney</span>
+          <h2 class="text-3xl font-bold mt-3" data-i18n="demo-title">Try the smart template engine</h2>
+          <p class="text-gray-500 max-w-xl mx-auto mt-2" data-i18n="demo-desc">Fill the fields and see the document update instantly in Arabic, French or English — zero cloud, pure offline preview.</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
+          <div class="p-4 border-b border-gray-100 flex flex-wrap items-center justify-between gap-3 bg-gray-50/50">
+            <div class="flex items-center gap-2">
+              <i class="fas fa-gavel text-gray-500"></i>
+              <span class="font-semibold text-sm" data-i18n="demo-template-name">Special Power of Attorney · وكالة خاصة</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="flex rounded-lg bg-gray-100 p-0.5">
+                <button data-preview-lang="ar" class="preview-lang-btn px-3 py-1 text-xs rounded-md transition-all">العربية</button>
+                <button data-preview-lang="fr" class="preview-lang-btn px-3 py-1 text-xs rounded-md transition-all">Français</button>
+                <button data-preview-lang="en" class="preview-lang-btn px-3 py-1 text-xs rounded-md transition-all">English</button>
+              </div>
+              <button id="zoomOutDemo" class="px-2 py-1 text-xs border rounded hover:bg-gray-100"><i class="fas fa-search-minus"></i></button>
+              <span id="zoomValue" class="text-xs w-12 text-center">100%</span>
+              <button id="zoomInDemo" class="px-2 py-1 text-xs border rounded hover:bg-gray-100"><i class="fas fa-search-plus"></i></button>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 divide-x divide-gray-100">
+            <div class="p-6 space-y-5 bg-white max-h-[620px] overflow-y-auto demo-fields-panel">
+              <div><label class="block text-sm font-bold text-gray-700" data-i18n="field-fullname">Full Name</label><input type="text" id="fullName" class="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm" value="فاطمة الزهراء"></div>
+              <div><label class="block text-sm font-bold text-gray-700" data-i18n="field-cin">National ID (CIN)</label><input type="text" id="cin" class="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm font-mono" value="AB678932"></div>
+              <div><label class="block text-sm font-bold text-gray-700" data-i18n="field-address">Address</label><textarea id="address" rows="2" class="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm">12 Mohamed V Street, Casablanca</textarea></div>
+              <div class="border-t pt-3"><p class="text-xs font-semibold text-gray-500 mb-3" data-i18n="agent-label">📌 Agent / Mandataire (Mandatory)</p>
+                <div class="space-y-4"><input type="text" id="agentName" placeholder="Agent full name" class="w-full border rounded-lg px-4 py-2.5 text-sm" value="Ahmed El Fassi"><input type="text" id="agentCin" placeholder="Agent CIN" class="w-full border rounded-lg px-4 py-2.5 text-sm font-mono" value="CD987123"><textarea id="agentAddress" rows="2" placeholder="Agent address" class="w-full border rounded-lg px-4 py-2.5 text-sm">Rabat, Riyad district</textarea></div>
+              </div>
+              <div><label class="block text-sm font-bold text-gray-700" data-i18n="field-authority">Authority / Powers (الصلاحيات)</label><textarea id="authorityText" rows="3" class="mt-1 w-full border rounded-lg px-4 py-2.5 text-sm">في كل ما تصح به النيابة عنا في استخراج النقود من صندوق المحكمة و القيام بجميع الإجراءات التي يتطلبها الأمر و توقيع و إمضاء الوثائق اللازمة بذلك</textarea></div>
+              <div class="grid grid-cols-2 gap-4"><div><label data-i18n="field-city">City</label><input type="text" id="city" class="w-full border rounded-lg px-4 py-2.5 text-sm" value="Khenifra"></div><div><label data-i18n="field-date">Date</label><input type="date" id="dateDoc" class="w-full border rounded-lg px-4 py-2.5 text-sm" value="2026-06-02"></div></div>
+              <div class="text-[11px] text-gray-400 italic border-t pt-3 mt-2"><i class="fas fa-shield-alt"></i> <span data-i18n="demo-footer">live preview · 0 server calls · TemplateFlow engine</span></div>
+            </div>
+            <div class="p-6 bg-gray-50/40 flex justify-center items-start min-h-[620px]">
+              <div class="w-full overflow-auto max-h-[580px] shadow-inner rounded-xl bg-white">
+                <div id="previewCard" class="preview-card p-6 md:p-8 transition-all" style="transform-origin:top left">
+                  <div id="dynamicTemplatePreview" class="legal-preview-text"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-50 px-5 py-2 text-[11px] text-gray-400 border-t flex justify-between"><span><i class="fas fa-database mr-1"></i> <span data-i18n="demo-footer-bottom">Zero cloud · Full local encryption ready</span></span><span class="font-mono">وكالة خاصة | TemplateFlow v3.0</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-20 px-5 max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold" data-i18n="pricing-title">Simple, transparent licensing</h2>
+        <p class="text-gray-500 mt-2" data-i18n="pricing-sub">One‑time payment. No recurring fees. Yours forever.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm hover:shadow-md transition">
+          <h3 class="text-2xl font-bold" data-i18n="trial-title">Free Trial</h3>
+          <div class="mt-2 mb-6"><span class="text-4xl font-black" data-i18n="trial-price">14 days</span><span class="text-gray-500"> / full access</span></div>
+          <ul class="space-y-3 text-sm">
+            <li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="trial-feat1">All modules: Documents, PDF, Cards</span></li><li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="trial-feat2">Local IndexedDB storage</span></li><li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="trial-feat3">AR/FR/EN + RTL</span></li><li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="trial-feat4">No credit card required</span></li>
+          </ul>
+          <div class="mt-8"><a href="#" class="block text-center border border-gray-300 rounded-xl py-2.5 font-medium hover:bg-gray-50 transition" data-i18n="trial-btn">Start free trial</a></div>
+        </div>
+        <div class="rounded-2xl border-2 border-[#0F3B5C] bg-white p-8 shadow-xl relative">
+          <div class="absolute top-0 right-6 -translate-y-3 bg-[#0F3B5C] text-white text-xs px-3 py-1 rounded-full" data-i18n="popular-badge">Lifetime</div>
+          <h3 class="text-2xl font-bold" data-i18n="full-title">Full License</h3>
+          <div class="mt-2 mb-6"><span class="text-4xl font-black">1999 DH</span><span class="text-gray-500"> <span data-i18n="one-time">one‑time</span></span></div>
+          <ul class="space-y-3 text-sm">
+            <li><i class="fas fa-check-circle text-green-600"></i> <span data-i18n="full-feat1">Unlimited local documents & PDFs</span></li><li><i class="fas fa-check-circle text-green-600"></i> <span data-i18n="full-feat2">Advanced PDF editor + signature pad</span></li><li><i class="fas fa-check-circle text-green-600"></i> <span data-i18n="full-feat3">Card designer pro (cut marks, batch)</span></li><li><i class="fas fa-check-circle text-green-600"></i> <span data-i18n="full-feat4">Lifetime updates + future tools (OCR, compress, merge)</span></li><li><i class="fas fa-check-circle text-green-600"></i> <span data-i18n="full-feat5">Priority support, offline activation</span></li>
+          </ul>
+          <div class="mt-8"><button id="openPurchaseModal" class="w-full text-center bg-[#0F3B5C] text-white rounded-xl py-2.5 font-medium hover:bg-[#082c46] transition" data-i18n="buy-now-btn">Purchase License →</button></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="border-t border-gray-200 py-10 px-5 bg-gray-50/40">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+        <span>© 2026 TemplateFlow — <span data-i18n="footer-text">Total document sovereignty for professionals.</span></span>
+        <div class="flex gap-5"><span><i class="fas fa-envelope"></i> support@templateflow.ma</span><span><i class="fas fa-map-marker-alt"></i> Casablanca · Rabat</span></div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Modal -->
+  <div id="purchaseModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 invisible opacity-0 transition-all duration-300 px-4">
+    <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl">
+      <div class="p-6 border-b border-gray-100 flex justify-between items-center">
+        <h3 class="text-xl font-bold" data-i18n="modal-title">Complete Your License</h3>
+        <button id="closeModalBtn" class="text-gray-400 hover:text-gray-600"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="p-6 space-y-4">
+        <div class="bg-gray-50 rounded-xl p-3 flex justify-between"><span class="font-medium" data-i18n="modal-product">TemplateFlow Full License</span><span class="font-bold">1999 DH</span></div>
+        <div><label class="block text-sm font-medium" data-i18n="modal-name">Full Name</label><input type="text" id="buyerName" class="mt-1 w-full border rounded-lg px-3 py-2" placeholder="Ahmed Bennani"></div>
+        <div><label class="block text-sm font-medium" data-i18n="modal-email">Email</label><input type="email" id="buyerEmail" class="mt-1 w-full border rounded-lg px-3 py-2" placeholder="contact@example.com"></div>
+        <div><label class="block text-sm font-medium" data-i18n="modal-phone">Phone (optional)</label><input type="tel" id="buyerPhone" class="mt-1 w-full border rounded-lg px-3 py-2" placeholder="+212 6XX XXX XXX"></div>
+        <button id="confirmPurchaseBtn" class="w-full bg-emerald-700 text-white py-3 rounded-xl font-semibold hover:bg-emerald-800 transition" data-i18n="modal-pay">Pay 1999 DH & Get License</button>
+        <p class="text-[10px] text-gray-400 text-center" data-i18n="modal-secure">🔒 Secure payment · Moroccan partners</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // FULL LOCALIZATION: English, French, Arabic (complete rich translations)
+    const translations = {
+      en: { 
+        "nav-features":"Core","nav-modules":"Modules","nav-demo":"Live Demo","nav-pricing":"Pricing","cta-buy":"Get License",
+        "hero-badge":"Zero‑cloud · Total Sovereignty","hero-title":"One workspace for documents, PDFs,<br> <span class='gradient-text'>templates and printing.</span>","hero-desc":"Create legal documents, edit PDFs, design cards and manage deadlines — without subscriptions or cloud storage. 100% offline, bank‑grade encryption.","hero-demo-btn":"Download Trial","hero-trial-btn":"Watch Demo",
+        "trust-1":"Lawyers","trust-2":"Administrative Offices","trust-3":"Print Shops","trust-4":"Translators","trust-5":"Accountants",
+        "features-badge":"unified platform","features-title":"Everything you need, privately","features-sub":"No feature bloat. Just powerful offline modules.","feat1-title":"Create Documents","feat1-desc":"Legal templates, Power of Attorney, contracts — dynamic fields, RTL.","feat2-title":"Design Cards","feat2-desc":"Professional cards & labels. Multi‑image layouts, crop, rotate, skew.","feat3-title":"Manage PDFs","feat3-desc":"Centralized library, smart calendar, reminders, annotations — all offline.","feat4-title":"Track Deadlines","feat4-desc":"Integrated calendar, renewal alerts, document expiry tracking.",
+        "modules-badge":"product suite","modules-title":"Tools that work the way you do","card-badge":"Card Layout Studio","card-title":"Design professional cards & labels","card-desc":"ID cards, loyalty cards, business cards — drag & drop images, free positioning, rotation, skew, crop, and flip. Export to PDF with cut marks.","card-feat1":"Unlimited images per card · local only","card-feat2":"Undo/Redo, templates & collages","card-feat3":"Direct print or batch queue",
+        "pdf-badge":"PDF Library & Smart Calendar","pdf-title":"Centralized PDF vault with planning","pdf-desc":"Encrypted IndexedDB storage, assign date ranges, set reminders, track usage, and bulk print. Built‑in PDF editor for annotations, highlights, and signatures.","pdf-feat1":"Drag‑and‑drop import · auto‑indexing","pdf-feat2":"Calendar view: assign date ranges, shift+click intervals","pdf-feat3":"Reminders for renewals + desktop notifications",
+        "word-badge":"Offline Word Processor","word-title":"Write, edit, format — no cloud","word-desc":"Rich text documents with full RTL support, tables, embedded images, and styles. Auto‑save to IndexedDB.","word-feat1":"Bilingual paragraphs (AR/FR/EN) + spell‑check","word-feat2":"Insert tables, lists, local images","word-feat3":"Export to PDF or direct print",
+        "offline-title":"Why offline?","offline-desc":"Your documents never leave your machine. No subscriptions. No cloud storage. No internet required. Total sovereignty — compliant with Moroccan data protection and GDPR.","offline-local":"Local IndexedDB","offline-encrypt":"Bank‑grade encryption","offline-bilingual":"Arabic, French, English",
+        "demo-badge":"live template · Power of Attorney","demo-title":"Try the smart template engine","demo-desc":"Fill the fields and see the document update instantly in Arabic, French or English — zero cloud, pure offline preview.","demo-template-name":"Special Power of Attorney · وكالة خاصة","field-fullname":"Full Name","field-cin":"National ID (CIN)","field-address":"Address","agent-label":"📌 Agent / Mandataire (Mandatory)","field-authority":"Authority / Powers (الصلاحيات)","field-city":"City","field-date":"Date","demo-footer":"live preview · 0 server calls · TemplateFlow engine","demo-footer-bottom":"Zero cloud · Full local encryption ready",
+        "pricing-title":"Simple, transparent licensing","pricing-sub":"One‑time payment. No recurring fees.","trial-title":"Free Trial","trial-price":"14 days","trial-feat1":"All modules: Documents, PDF, Cards","trial-feat2":"Local IndexedDB storage","trial-feat3":"AR/FR/EN + RTL","trial-feat4":"No credit card required","trial-btn":"Start free trial","full-title":"Full License","one-time":"one‑time","full-feat1":"Unlimited local documents & PDFs","full-feat2":"Advanced PDF editor + signature pad","full-feat3":"Card designer pro (cut marks, batch)","full-feat4":"Lifetime updates + future tools (OCR, compress, merge)","full-feat5":"Priority support, offline activation","buy-now-btn":"Purchase License →","popular-badge":"Lifetime","footer-text":"Total document sovereignty for professionals.","modal-title":"Complete Your License","modal-product":"TemplateFlow Full License","modal-name":"Full Name","modal-email":"Email","modal-phone":"Phone (optional)","modal-pay":"Pay 1999 DH & Get License","modal-secure":"🔒 Secure payment · Moroccan partners"
+      },
+      fr: { 
+        "nav-features":"Fonctions","nav-modules":"Modules","nav-demo":"Démo","nav-pricing":"Tarifs","cta-buy":"Obtenir la licence","hero-badge":"Zéro cloud · Souveraineté totale","hero-title":"Un espace pour documents, PDFs,<br> <span class='gradient-text'>modèles et impression.</span>","hero-desc":"Créez des documents juridiques, modifiez des PDF, concevez des cartes et gérez des délais — sans abonnements ni stockage cloud. 100% hors ligne, chiffrement bancaire.","hero-demo-btn":"Essai gratuit","hero-trial-btn":"Voir la démo","trust-1":"Avocats","trust-2":"Bureaux admin","trust-3":"Imprimeries","trust-4":"Traducteurs","trust-5":"Comptables","features-badge":"plateforme unifiée","features-title":"Tout ce dont vous avez besoin, en privé","features-sub":"Pas de bloatware. Juste des modules hors ligne puissants.","feat1-title":"Créer des documents","feat1-desc":"Modèles juridiques, procuration, contrats — champs dynamiques, RTL.","feat2-title":"Cartes & étiquettes","feat2-desc":"Mise en page multi‑images, rogner, pivoter, incliner.","feat3-title":"Gérer les PDF","feat3-desc":"Bibliothèque centralisée, calendrier, rappels, annotations hors ligne.","feat4-title":"Suivi des délais","feat4-desc":"Calendrier intégré, alertes renouvellement, expiration docs.","modules-badge":"suite produit","modules-title":"Des outils qui s'adaptent","card-badge":"Studio de cartes","card-title":"Concevez cartes & étiquettes pro","card-desc":"Cartes d'identité, fidélité, business — glisser‑déposer images, rotation, inclinaison, recadrage. Export PDF avec repères.","card-feat1":"Images illimitées par carte · local","card-feat2":"Annuler/Rétablir, modèles, collage","card-feat3":"Impression directe ou lot","pdf-badge":"Bibliothèque PDF & calendrier","pdf-title":"Coffre PDF avec planification","pdf-desc":"Stockage IndexedDB chiffré, plages de dates, rappels, usage, impression groupée. Éditeur PDF intégré (annotations, signatures).","pdf-feat1":"Import glisser‑déposer · auto‑indexation","pdf-feat2":"Vue calendrier : plages de dates","pdf-feat3":"Rappels renouvellement + notifications","word-badge":"Traitement de texte hors ligne","word-title":"Rédigez, modifiez — sans cloud","word-desc":"Documents riches avec support RTL, tableaux, images, styles. Sauvegarde auto IndexedDB.","word-feat1":"Paragraphes bilingues + vérif ortho","word-feat2":"Tableaux, listes, images locales","word-feat3":"Export PDF ou impression directe","offline-title":"Pourquoi hors ligne ?","offline-desc":"Vos documents ne quittent jamais votre machine. Pas d'abonnement, pas de cloud. Souveraineté totale — conforme à la loi marocaine et RGPD.","offline-local":"IndexedDB local","offline-encrypt":"Chiffrement bancaire","offline-bilingual":"Arabe, Français, Anglais","demo-badge":"modèle live · Procuration","demo-title":"Testez le moteur de template","demo-desc":"Remplissez les champs, le document se met à jour en Arabe, Français ou Anglais.","demo-template-name":"Pouvoir Spécial · وكالة خاصة","field-fullname":"Nom complet","field-cin":"CIN","field-address":"Adresse","agent-label":"📌 Mandataire (Obligatoire)","field-authority":"Pouvoirs (الصلاحيات)","field-city":"Ville","field-date":"Date","demo-footer":"aperçu live · 0 appel serveur","demo-footer-bottom":"Zéro cloud · chiffrement local","pricing-title":"Licences simples & transparentes","pricing-sub":"Paiement unique. Sans frais récurrents.","trial-title":"Essai gratuit","trial-price":"14 jours","trial-feat1":"Tous les modules","trial-feat2":"Stockage IndexedDB","trial-feat3":"AR/FR/EN + RTL","trial-feat4":"Sans carte bancaire","trial-btn":"Démarrer l'essai","full-title":"Licence complète","one-time":"unique","full-feat1":"Documents & PDF illimités","full-feat2":"Éditeur PDF avancé + signature","full-feat3":"Design cartes pro (repères, lot)","full-feat4":"Mises à jour à vie + outils futurs","full-feat5":"Support prioritaire","buy-now-btn":"Acheter la licence →","popular-badge":"À vie","footer-text":"Souveraineté documentaire totale.","modal-title":"Finalisez votre licence","modal-product":"Licence complète TemplateFlow","modal-name":"Nom complet","modal-email":"Email","modal-phone":"Téléphone (option)","modal-pay":"Payer 1999 DH & obtenir la licence","modal-secure":"🔒 Paiement sécurisé · partenaires marocains"
+      },
+      ar: { 
+        "nav-features":"المزايا","nav-modules":"الوحدات","nav-demo":"تجربة مباشرة","nav-pricing":"التسعير","cta-buy":"احصل على الترخيص","hero-badge":"بدون سحابة · سيادة كاملة","hero-title":"مساحة عمل واحدة للمستندات وملفات PDF<br> <span class='gradient-text'>والقوالب والطباعة.</span>","hero-desc":"إنشاء عقود وتعديل PDF وتصميم بطاقات وإدارة المواعيد — بدون اشتراكات أو تخزين سحابي. 100% بدون إنترنت، تشفير مصرفي.","hero-demo-btn":"تحميل النسخة التجريبية","hero-trial-btn":"مشاهدة العرض","trust-1":"محامون","trust-2":"مكاتب إدارية","trust-3":"مطابع","trust-4":"مترجمون","trust-5":"محاسبون","features-badge":"منصة موحدة","features-title":"كل ما تحتاجه بسرية تامة","features-sub":"وحدات قوية تعمل بدون إنترنت وتحترم بياناتك.","feat1-title":"إنشاء المستندات","feat1-desc":"قوالب قانونية، توكيل، عقود — حقول ديناميكية، دعم RTL.","feat2-title":"تصميم البطاقات","feat2-desc":"بطاقات احترافية، تخطيط متعدد الصور، قص، تدوير، إمالة.","feat3-title":"إدارة ملفات PDF","feat3-desc":"مكتبة مركزية، تقويم ذكي، تذكيرات، تعليقات — بدون إنترنت.","feat4-title":"تتبع المواعيد","feat4-desc":"تقويم متكامل، تنبيهات التجديد، تتبع انتهاء المستندات.","modules-badge":"حزمة المنتجات","modules-title":"أدوات تعمل بطريقتك","card-badge":"استوديو تخطيط البطاقات","card-title":"تصميم بطاقات وملصقات احترافية","card-desc":"بطاقات هوية، بطاقات ولاء، أعمال — سحب وإفلات صور، تموضع حر، تدوير، قص، قلب.","card-feat1":"صور غير محدودة لكل بطاقة · محلياً","card-feat2":"تراجع/إعادة، قوالب وكولاج","card-feat3":"طباعة مباشرة أو دفعات","pdf-badge":"مكتبة PDF والتقويم الذكي","pdf-title":"خزينة PDF مركزية مع تخطيط","pdf-desc":"تخزين مشفر في IndexedDB، تعيين تواريخ، تذكيرات، تتبع الاستخدام، طباعة جماعية.","pdf-feat1":"استيراد بالسحب والإفلات · فهرسة تلقائية","pdf-feat2":"عرض التقويم: تعيين نطاقات زمنية","pdf-feat3":"تذكيرات للتجديد + إشعارات سطح المكتب","word-badge":"معالج نصوص بدون إنترنت","word-title":"كتابة وتحرير وتنسيق — بدون سحابة","word-desc":"مستندات غنية مع دعم كامل لـ RTL، جداول، صور، أنماط. حفظ تلقائي في IndexedDB.","word-feat1":"فقرات ثنائية اللغة (AR/FR/EN) + تدقيق إملائي","word-feat2":"إدراج جداول وقوائم وصور محلية","word-feat3":"تصدير إلى PDF أو طباعة مباشرة","offline-title":"لماذا بدون إنترنت؟","offline-desc":"مستنداتك لا تغادر جهازك أبداً. لا اشتراكات، لا سحابة، لا حاجة للإنترنت. سيادة كاملة — متوافق مع حماية البيانات المغربية واللائحة العامة لحماية البيانات.","offline-local":"قاعدة بيانات IndexedDB محلية","offline-encrypt":"تشفير مصرفي","offline-bilingual":"العربية، الفرنسية، الإنجليزية","demo-badge":"قالب مباشر · توكيل خاص","demo-title":"جرب محرك القوالب الذكي","demo-desc":"املأ الحقول وشاهد المستند يتحدّث فوراً بالعربية أو الفرنسية أو الإنجليزية — بدون سحابة.","demo-template-name":"توكيل خاص · وكالة خاصة","field-fullname":"الاسم الكامل","field-cin":"رقم البطاقة الوطنية (CIN)","field-address":"العنوان","agent-label":"📌 الوكيل / المندوب (إلزامي)","field-authority":"الصلاحيات","field-city":"المدينة","field-date":"التاريخ","demo-footer":"معاينة مباشرة · 0 اتصال بالخادم","demo-footer-bottom":"بدون سحابة · تشفير محلي كامل","pricing-title":"ترخيص بسيط وشفاف","pricing-sub":"دفعة لمرة واحدة. بدون رسوم متكررة.","trial-title":"نسخة تجريبية مجانية","trial-price":"14 يومًا","trial-feat1":"جميع الوحدات: المستندات، PDF، البطاقات","trial-feat2":"تخزين IndexedDB محلي","trial-feat3":"AR/FR/EN + RTL","trial-feat4":"بدون بطاقة ائتمان","trial-btn":"ابدأ النسخة التجريبية","full-title":"الترخيص الكامل","one-time":"مرة واحدة","full-feat1":"مستندات وPDF غير محدودة محلياً","full-feat2":"محرر PDF متقدم + لوحة توقيع","full-feat3":"مصمم بطاقات احترافي","full-feat4":"تحديثات مدى الحياة + أدوات مستقبلية","full-feat5":"دعم ذو أولوية، تفعيل بدون إنترنت","buy-now-btn":"شراء الترخيص ←","popular-badge":"مدى الحياة","footer-text":"السيادة الكاملة على المستندات للمحترفين.","modal-title":"إكمال الترخيص","modal-product":"الترخيص الكامل لـ TemplateFlow","modal-name":"الاسم الكامل","modal-email":"البريد الإلكتروني","modal-phone":"الهاتف (اختياري)","modal-pay":"ادفع 1999 درهم واحصل على الترخيص","modal-secure":"🔒 دفع آمن · شركاء مغاربة"
+      }
+    };
+    
+    let currentLang = 'en';
+    function updatePageLanguage() { 
+      document.querySelectorAll('[data-i18n]').forEach(el => { 
+        const key = el.getAttribute('data-i18n'); 
+        if(translations[currentLang] && translations[currentLang][key]) {
+          if(key === 'hero-title') el.innerHTML = translations[currentLang][key];
+          else el.innerHTML = translations[currentLang][key];
+        }
+      });
+      document.documentElement.lang = currentLang;
+      if(currentLang === 'ar') document.body.setAttribute('dir', 'rtl');
+      else document.body.setAttribute('dir', 'ltr');
+    }
+    
+    document.querySelectorAll('.lang-switch').forEach(btn => { 
+      btn.addEventListener('click', () => { 
+        currentLang = btn.getAttribute('data-lang'); 
+        updatePageLanguage(); 
+        renderPreview(); // re-render preview with new language context (but previewLang independent)
+      }); 
+    });
+    updatePageLanguage();
+
+    // Enhanced demo script with full i18n for field labels (dynamic re-render not needed for labels as they are static but fine)
+    let previewLang = 'ar';
+    const previewDiv = document.getElementById('dynamicTemplatePreview');
+    const fullNameInp = document.getElementById('fullName'), cinInp = document.getElementById('cin'), addressInp = document.getElementById('address');
+    const agentNameInp = document.getElementById('agentName'), agentCinInp = document.getElementById('agentCin'), agentAddrInp = document.getElementById('agentAddress');
+    const authorityInp = document.getElementById('authorityText'), cityInp = document.getElementById('city'), dateInp = document.getElementById('dateDoc');
+
+    function formatDateLocale(ds, lang){ if(!ds) return ''; const d=new Date(ds); if(lang==='ar') return d.toLocaleDateString('ar-MA',{year:'numeric',month:'long',day:'numeric'}); if(lang==='fr') return d.toLocaleDateString('fr-FR',{year:'numeric',month:'long',day:'numeric'}); return d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});}
+    function escapeHtml(str){ return str.replace(/[&<>]/g, m=> m==='&'?'&amp;': m==='<'?'&lt;':'&gt;'); }
+    
+    function renderPreview(){
+      const name = fullNameInp.value.trim() || '__________';
+      const cinVal = cinInp.value.trim() || '__________';
+      const addr = addressInp.value.trim() || '__________';
+      const agentName = agentNameInp.value.trim() || '__________';
+      const agentCin = agentCinInp.value.trim() || '__________';
+      const agentAddr = agentAddrInp.value.trim() || '__________';
+      let authority = authorityInp.value.trim();
+      if(!authority) authority = "في كل ما تصح به النيابة عنا في استخراج النقود من صندوق المحكمة و القيام بجميع الإجراءات التي يتطلبها الأمر و توقيع و إمضاء الوثائق اللازمة بذلك";
+      const city = cityInp.value.trim() || 'خنيفرة';
+      const dateF = formatDateLocale(dateInp.value, previewLang);
+      
+      let html = '';
+      if(previewLang === 'ar'){
+        html = `<div dir="rtl" style="font-family: 'Tajawal', 'Inter', sans-serif;">`+
+          `<p style="text-align: center;"><span style="font-size: 28px; font-weight: 800;">وكالة خاصـة</span></p>`+
+          `<p style="font-size: 18px; margin-top: 20px;">أنا الموقع(ة) أسفله :</p>`+
+          `<p style="font-size: 18px;">السيد(ة) <strong>${escapeHtml(name)}</strong> الحامل(ة) لبطاقة التعريف الوطنية رقم : <strong>${escapeHtml(cinVal)}</strong> ، الساكن(ة) ب: <strong>${escapeHtml(addr)}</strong>.</p>`+
+          `<p style="font-size: 18px;">&nbsp; &nbsp; &nbsp; &nbsp; أقر و أشهد على نفسي و أنا بحالة جائزة و معتبرة شرعا و قانونا و دون إكراه أو إجبار من أحد ، بأنني أوكل&nbsp; السيد(ة) <strong>${escapeHtml(agentName)}</strong> ، الحامل(ة) لبطاقة التعريف الوطنية رقم : <strong>${escapeHtml(agentCin)}</strong> ، الساكن(ة) ب : <strong>${escapeHtml(agentAddr)}</strong>.</p>`+
+          `<p style="font-size: 18px;"><strong>لينوب عني و يقوم مقامي و يتكلم باسمي&nbsp;&nbsp;</strong>${escapeHtml(authority)}.</p>`+
+          `<p style="font-size: 18px;">و لقد أعطيته هذه الوكالة ليدلي بها عند الحاجة و الاقتضاء.</p>`+
+          `<p style="font-size: 18px;">هذا ما أصرح به على نفسي و يليه توقيعي و السلام.</p>`+
+          `<p style="text-align: left; font-size: 18px; margin-top: 32px;"><strong>حرر ب ${escapeHtml(city)} في : ${dateF}</strong></p>`+
+          `<p style="text-align: center; font-size: 18px;">إمضاء :&nbsp;<strong>${escapeHtml(name)}</strong></p></div>`;
+      } else if(previewLang === 'fr') {
+        html = `<div style="font-family: 'Inter', sans-serif;">`+
+          `<p style="font-size:28px; font-weight:800; text-align:center;">POUVOIR SPÉCIAL</p>`+
+          `<p style="margin-top:20px;">Je soussigné(e) <strong>${escapeHtml(name)}</strong> (CIN: ${escapeHtml(cinVal)}), demeurant à ${escapeHtml(addr)}.</p>`+
+          `<p>Constitué mandataire <strong>${escapeHtml(agentName)}</strong> (CIN:${escapeHtml(agentCin)}), domicilié ${escapeHtml(agentAddr)}.</p>`+
+          `<p><strong>Pouvoirs :</strong> ${escapeHtml(authority)}.</p>`+
+          `<p>Fait à ${escapeHtml(city)}, le ${dateF}.</p>`+
+          `<p style="margin-top:30px;">Signature : ${escapeHtml(name)}</p></div>`;
+      } else {
+        html = `<div style="font-family: 'Inter', sans-serif;">`+
+          `<p style="font-size:28px; font-weight:800; text-align:center;">SPECIAL POWER OF ATTORNEY</p>`+
+          `<p>I, <strong>${escapeHtml(name)}</strong> (ID: ${escapeHtml(cinVal)}), residing at ${escapeHtml(addr)}.</p>`+
+          `<p>Hereby appoint <strong>${escapeHtml(agentName)}</strong> (ID:${escapeHtml(agentCin)}), residing at ${escapeHtml(agentAddr)}.</p>`+
+          `<p><strong>Authority:</strong> ${escapeHtml(authority)}.</p>`+
+          `<p>Executed in ${escapeHtml(city)}, on ${dateF}.</p>`+
+          `<p>Signature: ${escapeHtml(name)}</p></div>`;
+      }
+      previewDiv.innerHTML = html;
+      const cardDiv = document.querySelector('.preview-card');
+      if(previewLang === 'ar') cardDiv.setAttribute('dir', 'rtl');
+      else cardDiv.setAttribute('dir', 'ltr');
+    }
+    
+    document.querySelectorAll('.preview-lang-btn').forEach(btn=>{ btn.addEventListener('click',()=>{ previewLang=btn.getAttribute('data-preview-lang'); renderPreview(); }); });
+    [fullNameInp,cinInp,addressInp,agentNameInp,agentCinInp,agentAddrInp,authorityInp,cityInp,dateInp].forEach(i=>i.addEventListener('input',renderPreview));
+    renderPreview();
+    
+    let zoom=100; const zoomSpan=document.getElementById('zoomValue'), card=document.getElementById('previewCard'); 
+    function updateZoom(){ card.style.transform=`scale(${zoom/100})`; zoomSpan.innerText=zoom+'%'; } 
+    document.getElementById('zoomInDemo').onclick=()=>{ if(zoom<180){ zoom+=10; updateZoom(); } }; 
+    document.getElementById('zoomOutDemo').onclick=()=>{ if(zoom>50){ zoom-=10; updateZoom(); } }; updateZoom();
+    
+    // Modal Logic
+    const modal=document.getElementById('purchaseModal'), openBtn=document.getElementById('openPurchaseModal'), closeBtn=document.getElementById('closeModalBtn'), confirmBtn=document.getElementById('confirmPurchaseBtn');
+    openBtn.onclick=()=>{ modal.classList.remove('invisible','opacity-0'); modal.classList.add('visible','opacity-100'); };
+    function closeModal(){ modal.classList.add('invisible','opacity-0'); modal.classList.remove('visible','opacity-100'); }
+    closeBtn.onclick=closeModal; modal.onclick=(e)=> { if(e.target===modal) closeModal(); };
+    confirmBtn.onclick=()=>{ const name=document.getElementById('buyerName').value, email=document.getElementById('buyerEmail').value; if(!name||!email){ alert(currentLang==='fr'?'Veuillez remplir nom et email':'Please fill name and email'); return; } alert(currentLang==='fr'?'Demande de licence envoyée. Vous recevrez un lien de paiement sécurisé par email.':'License request received. You will receive a secure payment link by email.'); closeModal(); };
+  </script>
+</body>
+</html>
