@@ -3,11 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MaktabatyPro — Offline Moroccan Document Management</title>
+<title data-i18n="meta.title">MaktabatyPro — Offline Moroccan Document Management</title>
+<meta name="description" content="MaktabatyPro fills administrative documents in 2 minutes with smart offline templates, 30 PDF tools, and zero data uploads. Built for Moroccan public writers. One-time payment, no subscription.">
+<meta name="keywords" content="gestion documents hors ligne, public writer software Morocco, PDF tools offline, template administratif Maroc, écrivain public logiciel">
+<link rel="canonical" href="https://maktabatypro.ma/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#050505">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MaktabatyPro">
+<meta property="og:title" content="MaktabatyPro — Fill Documents in 2 Minutes, 100% Offline">
+<meta property="og:description" content="Smart templates, 30 PDF tools, and full document management. Your data never leaves your device. Made in Morocco for public writers and administrative professionals.">
+<meta property="og:image" content="assets/main_image.png">
+<meta property="og:url" content="https://maktabatypro.ma/">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="ar_MA">
+
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MaktabatyPro — Fill Documents in 2 Minutes, 100% Offline">
+<meta name="twitter:description" content="Smart templates, 30 PDF tools, zero uploads. Made in Morocco for public writers and administrative professionals.">
+<meta name="twitter:image" content="assets/main_image.png">
+
+<link rel="icon" href="assets/icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://unpkg.com/lucide@0.469.0"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "MaktabatyPro",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Windows, macOS, Linux, Web (PWA)",
+  "description": "Offline document management software for Moroccan public writers and administrative professionals. Smart templates, 30 PDF tools, and local-only data storage.",
+  "offers": [
+    { "@type": "Offer", "name": "Trial", "price": "0", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "Standard", "price": "30", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "Enterprise", "price": "50", "priceCurrency": "USD" }
+  ]
+}
+</script>
 <script>
 tailwind.config = {
   theme: {
@@ -174,23 +214,60 @@ tailwind.config = {
   .stat-number {
     font-variant-numeric: tabular-nums;
   }
+
+  [dir="rtl"] .font-display,
+  [dir="rtl"] body {
+    font-family: 'Noto Sans Arabic', 'Inter', sans-serif;
+  }
+  [dir="rtl"] .gradient-text {
+    direction: ltr;
+    display: inline-block;
+  }
+  [dir="rtl"] .ml-auto { margin-left: 0; margin-right: auto; }
+  [dir="rtl"] .ml-1 { margin-left: 0; margin-right: 0.25rem; }
+  [dir="rtl"] .ml-2 { margin-left: 0; margin-right: 0.5rem; }
+  [dir="rtl"] .text-left { text-align: right; }
+  [dir="rtl"] .sm\\:text-left { text-align: right; }
+  [dir="rtl"] .space-x-3 > :not([hidden]) ~ :not([hidden]) { margin-left: 0; margin-right: 0.75rem; }
+  [dir="rtl"] i[data-lucide="arrow-right"],
+  [dir="rtl"] i[data-lucide="chevron-down"],
+  [dir="rtl"] i[data-lucide="external-link"] { transform: scaleX(-1); }
+  [dir="rtl"] .tracking-tighter { letter-spacing: -0.01em; }
+  [dir="rtl"] .tracking-tight { letter-spacing: -0.005em; }
+  [dir="rtl"] .uppercase { letter-spacing: 0.02em; }
+  [dir="rtl"] .font-mono { font-family: 'Noto Sans Arabic', 'Courier New', monospace; }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 nav-blur bg-background/70 border border-white/5 rounded-full px-5 py-2.5 flex items-center gap-6" id="nav">
+<nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 nav-blur bg-background/70 border border-white/5 rounded-full px-5 py-2.5 flex items-center gap-6 w-[calc(100%-2rem)] sm:w-auto justify-between sm:justify-start" id="nav">
   <a href="#" class="font-display font-semibold text-sm tracking-tight flex items-center gap-2">
     <span class="w-7 h-7 rounded-lg flex items-center justify-center"><img src="assets/icon.png" alt="M" class="w-full h-full object-contain"></span>
-    MaktabatyPro
+    <span data-i18n="nav.brand">MaktabatyPro</span>
   </a>
   <div class="hidden md:flex items-center gap-5">
-    <a href="#features" class="text-xs text-muted hover:text-white transition-colors">Features</a>
-    <a href="#privacy" class="text-xs text-muted hover:text-white transition-colors">Privacy</a>
-    <a href="#pricing" class="text-xs text-muted hover:text-white transition-colors">Pricing</a>
+    <a href="#features" class="text-xs text-muted hover:text-white transition-colors" data-i18n="nav.features">Features</a>
+    <a href="#privacy" class="text-xs text-muted hover:text-white transition-colors" data-i18n="nav.privacy">Privacy</a>
+    <a href="#pricing" class="text-xs text-muted hover:text-white transition-colors" data-i18n="nav.pricing">Pricing</a>
   </div>
-  <a href="#" class="download-btn btn-primary text-xs font-medium px-4 py-2 rounded-full text-white ml-2">Start Free Trial</a>
+  <a href="#" class="download-btn btn-primary text-xs font-medium px-4 py-2 rounded-full text-white ml-2 hidden sm:inline-flex" data-i18n="nav.startFreeTrial">Start Free Trial</a>
+  <button id="mobileNavToggle" type="button" class="md:hidden flex items-center justify-center w-8 h-8 text-white" aria-expanded="false" aria-controls="mobileNavMenu" aria-label="Open menu">
+    <i data-lucide="menu" class="w-5 h-5"></i>
+  </button>
 </nav>
+
+<!-- MOBILE NAV MENU -->
+<div id="mobileNavMenu" class="fixed inset-0 z-40 hidden md:!hidden">
+  <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" id="mobileNavOverlay"></div>
+  <div class="absolute top-24 left-4 right-4 bg-surface border border-white/10 rounded-2xl p-6 flex flex-col gap-1">
+    <a href="#features" class="mobile-nav-link text-sm text-muted hover:text-white transition-colors py-3 border-b border-white/5" data-i18n="nav.features">Features</a>
+    <a href="#privacy" class="mobile-nav-link text-sm text-muted hover:text-white transition-colors py-3 border-b border-white/5" data-i18n="nav.privacy">Privacy</a>
+    <a href="#pricing" class="mobile-nav-link text-sm text-muted hover:text-white transition-colors py-3 border-b border-white/5" data-i18n="nav.pricing">Pricing</a>
+    <a href="#faq" class="mobile-nav-link text-sm text-muted hover:text-white transition-colors py-3" data-i18n="nav.faq">FAQ</a>
+    <a href="#" class="download-btn btn-primary text-sm font-medium px-4 py-3 rounded-full text-white text-center mt-4" data-i18n="nav.startFreeTrial">Start Free Trial</a>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="relative min-h-screen flex flex-col px-6 pt-32 pb-0 overflow-hidden">
@@ -201,43 +278,43 @@ tailwind.config = {
   <div class="relative z-10 max-w-4xl mx-auto text-center">
     <div class="reveal inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-8">
       <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
-      <span class="text-xs text-muted font-medium">100% Offline · Made in Morocco</span>
+      <span class="text-xs text-muted font-medium" data-i18n="hero.badge">100% Offline · Made in Morocco</span>
     </div>
 
     <h1 class="reveal reveal-delay-1 font-display font-medium text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tighter leading-[0.9] mb-6">
-      <span class="gradient-text-vertical">Fill Documents</span><br>
-      <span class="gradient-text">in 2 Minutes</span>
+      <span class="gradient-text-vertical" data-i18n="hero.title1">Fill Documents</span><br>
+      <span class="gradient-text" data-i18n="hero.title2">in 2 Minutes</span>
     </h1>
 
-    <p class="reveal reveal-delay-2 text-muted text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10 drop-shadow-xl" style="text-shadow: 0 4px 30px rgba(0,0,0,0.8), 0 2px 10px rgba(0,0,0,0.5);">
+    <p class="reveal reveal-delay-2 text-muted text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10 drop-shadow-xl" style="text-shadow: 0 4px 30px rgba(0,0,0,0.8), 0 2px 10px rgba(0,0,0,0.5);" data-i18n="hero.paragraph">
       Templates, PDF tools, and document management — all offline. Your data never leaves your device. Built for <span class="text-white/90 font-medium">public writers</span> and administrative professionals.
     </p>
 
     <div class="reveal reveal-delay-3 flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
       <a href="#" class="download-btn btn-primary text-sm font-medium px-8 py-4 rounded-full text-white flex items-center gap-2">
-        Start Free Trial
+        <span data-i18n="hero.startFreeTrial">Start Free Trial</span>
         <i data-lucide="arrow-right" class="w-4 h-4"></i>
       </a>
       <a href="#features" class="btn-ghost text-sm font-medium px-8 py-4 rounded-full text-muted flex items-center gap-2">
-        See How It Works
+        <span data-i18n="hero.seeHowItWorks">See How It Works</span>
         <i data-lucide="chevron-down" class="w-4 h-4"></i>
       </a>
     </div>
 
     <div class="reveal reveal-delay-4 inline-flex items-center gap-8 sm:gap-12 bg-white/5 border border-white/10 rounded-2xl px-8 sm:px-12 py-5 backdrop-blur-sm relative z-20">
       <div class="text-center">
-        <div class="font-display text-2xl sm:text-3xl font-semibold stat-number">500+</div>
-        <div class="text-[11px] text-dim uppercase tracking-wider mt-1">Templates</div>
+        <div class="font-display text-2xl sm:text-3xl font-semibold stat-number" data-i18n="hero.stats.templates">500+</div>
+        <div class="text-[11px] text-dim uppercase tracking-wider mt-1" data-i18n="hero.stats.templatesLabel">Templates</div>
       </div>
       <div class="w-px h-10 bg-white/10"></div>
       <div class="text-center">
-        <div class="font-display text-2xl sm:text-3xl font-semibold stat-number">30</div>
-        <div class="text-[11px] text-dim uppercase tracking-wider mt-1">PDF Tools</div>
+        <div class="font-display text-2xl sm:text-3xl font-semibold stat-number" data-i18n="hero.stats.pdfTools">30</div>
+        <div class="text-[11px] text-dim uppercase tracking-wider mt-1" data-i18n="hero.stats.pdfToolsLabel">PDF Tools</div>
       </div>
       <div class="w-px h-10 bg-white/10"></div>
       <div class="text-center">
-        <div class="font-display text-2xl sm:text-3xl font-semibold stat-number text-green-400">0</div>
-        <div class="text-[11px] text-dim uppercase tracking-wider mt-1">Data Sent</div>
+        <div class="font-display text-2xl sm:text-3xl font-semibold stat-number text-green-400" data-i18n="hero.stats.dataSent">0</div>
+        <div class="text-[11px] text-dim uppercase tracking-wider mt-1" data-i18n="hero.stats.dataSentLabel">Data Sent</div>
       </div>
     </div>
   </div>
@@ -252,13 +329,13 @@ tailwind.config = {
 <!-- PROBLEM -->
 <section class="relative px-20 py-24 ">
   <div class="absolute inset-0 pointer-events-none select-none">
-    <img src="assets/left_1.png" alt="" class="absolute bottom-0 left-4 md:left-20 w-80 md:w-96 h-auto opacity-70 translate-y-1/4 translate-x-1/4">
-    <img src="assets/right_1.png" alt="" class="absolute bottom-0 right-4 md:right-48 w-80 md:w-96 h-auto opacity-70 translate-y-1/4">
+    <img src="assets/left_1.png" alt="" loading="lazy" decoding="async" class="absolute bottom-0 left-4 md:left-20 w-80 md:w-96 h-auto opacity-70 translate-y-1/4 translate-x-1/4">
+    <img src="assets/right_1.png" alt="" loading="lazy" decoding="async" class="absolute bottom-0 right-4 md:right-48 w-80 md:w-96 h-auto opacity-70 translate-y-1/4">
   </div>
   <div class="max-w-5xl mx-auto relative z-10">
     <div class="reveal text-center mb-16">
-      <p class="text-xs text-accent font-mono uppercase tracking-widest mb-4">The Problem</p>
-      <h2 class="font-display font-medium text-3xl sm:text-4xl md:text-5xl tracking-tight">
+      <p class="text-xs text-accent font-mono uppercase tracking-widest mb-4" data-i18n="problem.badge">The Problem</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl md:text-5xl tracking-tight" data-i18n="problem.heading">
         You deserve better than this
       </h2>
     </div>
@@ -268,24 +345,24 @@ tailwind.config = {
         <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center mb-5">
           <i data-lucide="eye-off" class="w-5 h-5 text-red-400"></i>
         </div>
-        <h3 class="font-display text-lg font-medium mb-3">Your data gets sold</h3>
-        <p class="text-sm text-muted leading-relaxed">Every PDF uploaded to iLovePDF, Smallpdf, or similar services becomes their data. Your clients' names, IDs, addresses — packaged and sold to data brokers.</p>
+        <h3 class="font-display text-lg font-medium mb-3" data-i18n="problem.card1.title">Your data gets sold</h3>
+        <p class="text-sm text-muted leading-relaxed" data-i18n="problem.card1.text">Every PDF uploaded to iLovePDF, Smallpdf, or similar services becomes their data. Your clients' names, IDs, addresses — packaged and sold to data brokers.</p>
       </div>
 
       <div class="reveal reveal-delay-2 card-hover bg-surface/50 border border-white/5 rounded-2xl p-8">
         <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-5">
           <i data-lucide="clock" class="w-5 h-5 text-amber-400"></i>
         </div>
-        <h3 class="font-display text-lg font-medium mb-3">10+ minutes per document</h3>
-        <p class="text-sm text-muted leading-relaxed">Manually typing the same fields, calculating dates, converting numbers to words. Repetitive work that eats hours from your day — every single day.</p>
+        <h3 class="font-display text-lg font-medium mb-3" data-i18n="problem.card2.title">10+ minutes per document</h3>
+        <p class="text-sm text-muted leading-relaxed" data-i18n="problem.card2.text">Manually typing the same fields, calculating dates, converting numbers to words. Repetitive work that eats hours from your day — every single day.</p>
       </div>
 
       <div class="reveal reveal-delay-3 card-hover bg-surface/50 border border-white/5 rounded-2xl p-8">
         <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5">
           <i data-lucide="puzzle" class="w-5 h-5 text-blue-400"></i>
         </div>
-        <h3 class="font-display text-lg font-medium mb-3">Too many tools</h3>
-        <p class="text-sm text-muted leading-relaxed">One site for merging, another for splitting, a third for filling templates, a fourth for compression. No unified workflow, no consistency.</p>
+        <h3 class="font-display text-lg font-medium mb-3" data-i18n="problem.card3.title">Too many tools</h3>
+        <p class="text-sm text-muted leading-relaxed" data-i18n="problem.card3.text">One site for merging, another for splitting, a third for filling templates, a fourth for compression. No unified workflow, no consistency.</p>
       </div>
     </div>
   </div>
@@ -297,11 +374,11 @@ tailwind.config = {
 
   <div class="relative max-w-6xl mx-auto">
     <div class="reveal text-center mb-6">
-      <p class="text-xs text-accent font-mono uppercase tracking-widest mb-4">Core Feature</p>
-      <h2 class="font-display font-medium text-3xl sm:text-4xl md:text-5xl tracking-tight mb-4">
+      <p class="text-xs text-accent font-mono uppercase tracking-widest mb-4" data-i18n="features.badge">Core Feature</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl md:text-5xl tracking-tight mb-4" data-i18n="features.heading">
         Templates That Think For You
       </h2>
-      <p class="text-muted text-base sm:text-lg max-w-2xl mx-auto">
+      <p class="text-muted text-base sm:text-lg max-w-2xl mx-auto" data-i18n="features.subheading">
         Not just static forms. Smart templates with variables, logic, and batch processing that cut your work from 10 minutes to 2.
       </p>
     </div>
@@ -310,32 +387,32 @@ tailwind.config = {
     <div class="reveal grid grid-cols-1 md:grid-cols-2 gap-6 mb-20 mt-12">
       <div class="bg-surface/30 border border-white/5 rounded-2xl p-8">
         <div class="flex items-center gap-2 mb-6">
-          <span class="text-xs text-red-400/80 font-mono uppercase tracking-wider">Old Way</span>
-          <span class="text-xs text-dim">— ~10 min</span>
+          <span class="text-xs text-red-400/80 font-mono uppercase tracking-wider" data-i18n="features.old.label">Old Way</span>
+          <span class="text-xs text-dim" data-i18n="features.old.time">— ~10 min</span>
         </div>
         <div class="space-y-3">
-          <div class="old-step text-sm text-muted flex items-center gap-3"><span class="text-dim text-xs w-4">01</span> Open browser, find the template</div>
-          <div class="old-step text-sm text-muted flex items-center gap-3"><span class="text-dim text-xs w-4">02</span> Download it as PDF or Word</div>
-          <div class="old-step text-sm text-muted flex items-center gap-3"><span class="text-dim text-xs w-4">03</span> Open in editor, type each field manually</div>
-          <div class="old-step text-sm text-muted flex items-center gap-3"><span class="text-dim text-xs w-4">04</span> Calculate dates (birth → age, etc.)</div>
-          <div class="old-step text-sm text-muted flex items-center gap-3"><span class="text-dim text-xs w-4">05</span> Convert numbers to words by hand</div>
-          <div class="old-step text-sm text-muted flex items-center gap-3"><span class="text-dim text-xs w-4">06</span> Upload to online tool to convert to PDF</div>
-          <div class="old-step text-sm text-muted flex items-center gap-3"><span class="text-dim text-xs w-4">07</span> Download, check, fix, repeat</div>
+          <div class="old-step text-sm text-muted flex items-center gap-3"><span class="text-dim text-xs w-4">01</span> <span data-i18n="features.old.step1">Open browser, find the template</span></div>
+          <div class="old-step text-sm text-muted flex items-center gap-3"><span class="text-dim text-xs w-4">02</span> <span data-i18n="features.old.step2">Download it as PDF or Word</span></div>
+          <div class="old-step text-sm text-muted flex items-center gap-3"><span class="text-dim text-xs w-4">03</span> <span data-i18n="features.old.step3">Open in editor, type each field manually</span></div>
+          <div class="old-step text-sm text-muted flex items-center gap-3"><span class="text-dim text-xs w-4">04</span> <span data-i18n="features.old.step4">Calculate dates (birth → age, etc.)</span></div>
+          <div class="old-step text-sm text-muted flex items-center gap-3"><span class="text-dim text-xs w-4">05</span> <span data-i18n="features.old.step5">Convert numbers to words by hand</span></div>
+          <div class="old-step text-sm text-muted flex items-center gap-3"><span class="text-dim text-xs w-4">06</span> <span data-i18n="features.old.step6">Upload to online tool to convert to PDF</span></div>
+          <div class="old-step text-sm text-muted flex items-center gap-3"><span class="text-dim text-xs w-4">07</span> <span data-i18n="features.old.step7">Download, check, fix, repeat</span></div>
         </div>
       </div>
 
       <div class="bg-surface/30 border border-accent/10 rounded-2xl p-8">
         <div class="flex items-center gap-2 mb-6">
-          <span class="text-xs text-accent-light font-mono uppercase tracking-wider">MaktabatyPro</span>
-          <span class="text-xs text-dim">— ~2 min</span>
+          <span class="text-xs text-accent-light font-mono uppercase tracking-wider" data-i18n="features.new.label">MaktabatyPro</span>
+          <span class="text-xs text-dim" data-i18n="features.new.time">— ~2 min</span>
         </div>
         <div class="space-y-3">
-          <div class="new-step text-sm flex items-center gap-3"><span class="text-accent/60 text-xs w-4">01</span> Select template from your library</div>
-          <div class="new-step text-sm flex items-center gap-3"><span class="text-accent/60 text-xs w-4">02</span> Fill fields — dates and math auto-calculate</div>
-          <div class="new-step text-sm flex items-center gap-3"><span class="text-accent/60 text-xs w-4">03</span> Conditional fields show/hide automatically</div>
-          <div class="new-step text-sm flex items-center gap-3"><span class="text-accent/60 text-xs w-4">04</span> Live preview updates as you type</div>
-          <div class="new-step text-sm flex items-center gap-3"><span class="text-accent/60 text-xs w-4">05</span> Export to PDF — offline, instant</div>
-          <div class="text-sm text-dim flex items-center gap-3 mt-2"><span class="w-4"></span>That's it. You're done.</div>
+          <div class="new-step text-sm flex items-center gap-3"><span class="text-accent/60 text-xs w-4">01</span> <span data-i18n="features.new.step1">Select template from your library</span></div>
+          <div class="new-step text-sm flex items-center gap-3"><span class="text-accent/60 text-xs w-4">02</span> <span data-i18n="features.new.step2">Fill fields — dates and math auto-calculate</span></div>
+          <div class="new-step text-sm flex items-center gap-3"><span class="text-accent/60 text-xs w-4">03</span> <span data-i18n="features.new.step3">Conditional fields show/hide automatically</span></div>
+          <div class="new-step text-sm flex items-center gap-3"><span class="text-accent/60 text-xs w-4">04</span> <span data-i18n="features.new.step4">Live preview updates as you type</span></div>
+          <div class="new-step text-sm flex items-center gap-3"><span class="text-accent/60 text-xs w-4">05</span> <span data-i18n="features.new.step5">Export to PDF — offline, instant</span></div>
+          <div class="text-sm text-dim flex items-center gap-3 mt-2"><span class="w-4"></span><span data-i18n="features.new.step6">That's it. You're done.</span></div>
         </div>
       </div>
     </div>
@@ -344,38 +421,107 @@ tailwind.config = {
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       <div class="reveal reveal-delay-1 card-hover bg-surface/30 border border-white/5 rounded-xl p-6">
         <i data-lucide="variable" class="w-5 h-5 text-accent-light mb-4"></i>
-        <h3 class="font-display text-sm font-medium mb-2">Smart Variables</h3>
-        <p class="text-xs text-muted leading-relaxed"><code class="text-accent/80 bg-accent/5 px-1.5 py-0.5 rounded text-[11px]">{{TODAY}}</code>, <code class="text-accent/80 bg-accent/5 px-1.5 py-0.5 rounded text-[11px]">{{CURRENT_YEAR}}</code>, auto-serial numbers — inserted and calculated automatically.</p>
+        <h3 class="font-display text-sm font-medium mb-2" data-i18n="features.capability.smartVariables.title">Smart Variables</h3>
+        <p class="text-xs text-muted leading-relaxed" data-i18n="features.capability.smartVariables.text"><code class="text-accent/80 bg-accent/5 px-1.5 py-0.5 rounded text-[11px]">{{TODAY}}</code>, <code class="text-accent/80 bg-accent/5 px-1.5 py-0.5 rounded text-[11px]">{{CURRENT_YEAR}}</code>, auto-serial numbers — inserted and calculated automatically.</p>
       </div>
       <div class="reveal reveal-delay-2 card-hover bg-surface/30 border border-white/5 rounded-xl p-6">
         <i data-lucide="git-branch" class="w-5 h-5 text-accent-light mb-4"></i>
-        <h3 class="font-display text-sm font-medium mb-2">Conditional Fields</h3>
-        <p class="text-xs text-muted leading-relaxed">Show or hide sections based on what the user selects. If gender = female, show specific fields. No more irrelevant sections.</p>
+        <h3 class="font-display text-sm font-medium mb-2" data-i18n="features.capability.conditionalFields.title">Conditional Fields</h3>
+        <p class="text-xs text-muted leading-relaxed" data-i18n="features.capability.conditionalFields.text">Show or hide sections based on what the user selects. If gender = female, show specific fields. No more irrelevant sections.</p>
       </div>
       <div class="reveal reveal-delay-3 card-hover bg-surface/30 border border-white/5 rounded-xl p-6">
         <i data-lucide="layers" class="w-5 h-5 text-accent-light mb-4"></i>
-        <h3 class="font-display text-sm font-medium mb-2">Loop Fields</h3>
-        <p class="text-xs text-muted leading-relaxed">Repeatable field groups — children's names, multiple references, item lists. Add, remove, reorder rows dynamically.</p>
+        <h3 class="font-display text-sm font-medium mb-2" data-i18n="features.capability.loopFields.title">Loop Fields</h3>
+        <p class="text-xs text-muted leading-relaxed" data-i18n="features.capability.loopFields.text">Repeatable field groups — children's names, multiple references, item lists. Add, remove, reorder rows dynamically.</p>
       </div>
       <div class="reveal reveal-delay-1 card-hover bg-surface/30 border border-white/5 rounded-xl p-6">
         <i data-lucide="calculator" class="w-5 h-5 text-accent-light mb-4"></i>
-        <h3 class="font-display text-sm font-medium mb-2">Math Expressions</h3>
-        <p class="text-xs text-muted leading-relaxed"><code class="text-accent/80 bg-accent/5 px-1.5 py-0.5 rounded text-[11px]">{{FIELD1 + FIELD2}}</code>, age from birth date, sum of amounts — all calculated live.</p>
+        <h3 class="font-display text-sm font-medium mb-2" data-i18n="features.capability.mathExpressions.title">Math Expressions</h3>
+        <p class="text-xs text-muted leading-relaxed" data-i18n="features.capability.mathExpressions.text"><code class="text-accent/80 bg-accent/5 px-1.5 py-0.5 rounded text-[11px]">{{FIELD1 + FIELD2}}</code>, age from birth date, sum of amounts — all calculated live.</p>
       </div>
       <div class="reveal reveal-delay-2 card-hover bg-surface/30 border border-white/5 rounded-xl p-6">
         <i data-lucide="users" class="w-5 h-5 text-accent-light mb-4"></i>
-        <h3 class="font-display text-sm font-medium mb-2">Batch Fill</h3>
-        <p class="text-xs text-muted leading-relaxed">Fill one template with data for 50 people at once. Perfect for public writers processing documents in bulk.</p>
+        <h3 class="font-display text-sm font-medium mb-2" data-i18n="features.capability.batchFill.title">Batch Fill</h3>
+        <p class="text-xs text-muted leading-relaxed" data-i18n="features.capability.batchFill.text">Fill one template with data for 50 people at once. Perfect for public writers processing documents in bulk.</p>
       </div>
       <div class="reveal reveal-delay-3 card-hover bg-surface/30 border border-white/5 rounded-xl p-6">
         <i data-lucide="eye" class="w-5 h-5 text-accent-light mb-4"></i>
-        <h3 class="font-display text-sm font-medium mb-2">Live Preview</h3>
-        <p class="text-xs text-muted leading-relaxed">See the final document update in real-time as you fill each field. No surprises after export.</p>
+        <h3 class="font-display text-sm font-medium mb-2" data-i18n="features.capability.livePreview.title">Live Preview</h3>
+        <p class="text-xs text-muted leading-relaxed" data-i18n="features.capability.livePreview.text">See the final document update in real-time as you fill each field. No surprises after export.</p>
       </div>
     </div>
 
     <div class="reveal text-center mt-12">
-      <p class="text-sm text-muted">Doing 50+ documents a day? That's <span class="text-white font-medium">2.5 hours saved daily</span>. Over a month — <span class="text-accent-light font-medium">50 hours</span>.</p>
+      <p class="text-sm text-muted" data-i18n="features.savings">Doing 50+ documents a day? That's <span class="text-white font-medium">2.5 hours saved daily</span>. Over a month — <span class="text-accent-light font-medium">50 hours</span>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="relative px-6 py-24">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal text-center mb-14">
+      <p class="text-xs text-accent font-mono uppercase tracking-widest mb-4" data-i18n="testimonials.badge">Trusted By</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl tracking-tight mb-4" data-i18n="testimonials.heading">
+        Public writers across Morocco
+      </h2>
+      <p class="text-muted text-base max-w-xl mx-auto" data-i18n="testimonials.subheading">A sample of the kind of feedback we hear most often. Replace with your own verified customer quotes before launch.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="reveal reveal-delay-1 card-hover bg-surface/30 border border-white/5 rounded-2xl p-7 flex flex-col">
+        <div class="flex gap-1 mb-4" aria-label="5 out of 5 stars">
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+        </div>
+        <p class="text-sm text-muted leading-relaxed mb-6 flex-1" data-i18n="testimonials.quote1.text">"I used to spend most of my morning retyping the same requests. Now I fill a template, check the preview, and print. Clients notice the difference too."</p>
+        <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+          <div class="w-9 h-9 rounded-full bg-accent/10 flex items-center justify-center text-accent-light font-display text-sm font-medium" data-i18n="testimonials.quote1.initials">K.B.</div>
+          <div>
+            <div class="text-xs font-medium text-white" data-i18n="testimonials.quote1.name">Karim B.</div>
+            <div class="text-[11px] text-dim" data-i18n="testimonials.quote1.role">Public writer, Casablanca</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2 card-hover bg-surface/30 border border-white/5 rounded-2xl p-7 flex flex-col">
+        <div class="flex gap-1 mb-4" aria-label="5 out of 5 stars">
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+        </div>
+        <p class="text-sm text-muted leading-relaxed mb-6 flex-1" data-i18n="testimonials.quote2.text">"Knowing that client IDs and addresses never touch an online tool matters a lot in my line of work. The batch fill feature alone saves me an hour on busy days."</p>
+        <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+          <div class="w-9 h-9 rounded-full bg-secondary/10 flex items-center justify-center text-secondary font-display text-sm font-medium" data-i18n="testimonials.quote2.initials">S.A.</div>
+          <div>
+            <div class="text-xs font-medium text-white" data-i18n="testimonials.quote2.name">Sanaa A.</div>
+            <div class="text-[11px] text-dim" data-i18n="testimonials.quote2.role">Administrative assistant, Rabat</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-3 card-hover bg-surface/30 border border-white/5 rounded-2xl p-7 flex flex-col">
+        <div class="flex gap-1 mb-4" aria-label="5 out of 5 stars">
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+        </div>
+        <p class="text-sm text-muted leading-relaxed mb-6 flex-1" data-i18n="testimonials.quote3.text">"One license, three computers in the office, no internet required at our branch with a weak connection. It just works the same everywhere."</p>
+        <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+          <div class="w-9 h-9 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400 font-display text-sm font-medium" data-i18n="testimonials.quote3.initials">Y.T.</div>
+          <div>
+            <div class="text-xs font-medium text-white" data-i18n="testimonials.quote3.name">Youssef T.</div>
+            <div class="text-[11px] text-dim" data-i18n="testimonials.quote3.role">Office manager, Tangier</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -385,10 +531,10 @@ tailwind.config = {
   <div class="max-w-5xl mx-auto">
     <div class="reveal grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
       <div>
-        <p class="text-xs text-secondary font-mono uppercase tracking-widest mb-4">Privacy & Security</p>
+        <p class="text-xs text-secondary font-mono uppercase tracking-widest mb-4" data-i18n="privacy.badge">Privacy & Security</p>
         <h2 class="font-display font-medium text-3xl sm:text-4xl tracking-tight mb-6">
-          Your documents.<br>
-          <span class="gradient-text-vertical">Your device. Period.</span>
+          <span data-i18n="privacy.heading1">Your documents.</span><br>
+          <span class="gradient-text-vertical" data-i18n="privacy.heading2">Your device. Period.</span>
         </h2>
         <div class="space-y-5">
           <div class="flex gap-4">
@@ -396,8 +542,8 @@ tailwind.config = {
               <i data-lucide="wifi-off" class="w-4 h-4 text-green-400"></i>
             </div>
             <div>
-              <h4 class="text-sm font-medium mb-1">Zero network requests</h4>
-              <p class="text-xs text-muted leading-relaxed">Everything runs locally in your browser. No servers, no APIs, no telemetry. Disconnect from the internet entirely — it still works.</p>
+              <h4 class="text-sm font-medium mb-1" data-i18n="privacy.feature1.title">Zero network requests</h4>
+              <p class="text-xs text-muted leading-relaxed" data-i18n="privacy.feature1.text">Everything runs locally in your browser. No servers, no APIs, no telemetry. Disconnect from the internet entirely — it still works.</p>
             </div>
           </div>
           <div class="flex gap-4">
@@ -405,8 +551,8 @@ tailwind.config = {
               <i data-lucide="hard-drive" class="w-4 h-4 text-green-400"></i>
             </div>
             <div>
-              <h4 class="text-sm font-medium mb-1">Local storage only</h4>
-              <p class="text-xs text-muted leading-relaxed">All data stored in IndexedDB on your machine. No cloud sync, no third-party storage. You control the backup — encrypted export files.</p>
+              <h4 class="text-sm font-medium mb-1" data-i18n="privacy.feature2.title">Local storage only</h4>
+              <p class="text-xs text-muted leading-relaxed" data-i18n="privacy.feature2.text">All data stored in IndexedDB on your machine. No cloud sync, no third-party storage. You control the backup — encrypted export files.</p>
             </div>
           </div>
           <div class="flex gap-4">
@@ -414,8 +560,8 @@ tailwind.config = {
               <i data-lucide="user-check" class="w-4 h-4 text-green-400"></i>
             </div>
             <div>
-              <h4 class="text-sm font-medium mb-1">No account required</h4>
-              <p class="text-xs text-muted leading-relaxed">No sign-up, no email, no phone number. Download, open, use. Your administrative documents contain national IDs and private data — they should never need an account on someone else's server.</p>
+              <h4 class="text-sm font-medium mb-1" data-i18n="privacy.feature3.title">No account required</h4>
+              <p class="text-xs text-muted leading-relaxed" data-i18n="privacy.feature3.text">No sign-up, no email, no phone number. Download, open, use. Your administrative documents contain national IDs and private data — they should never need an account on someone else's server.</p>
             </div>
           </div>
           <div class="flex gap-4">
@@ -423,8 +569,8 @@ tailwind.config = {
               <i data-lucide="lock" class="w-4 h-4 text-green-400"></i>
             </div>
             <div>
-              <h4 class="text-sm font-medium mb-1">PDF encryption built-in</h4>
-              <p class="text-xs text-muted leading-relaxed">Password-protect exported PDFs with user and owner passwords. Control print, copy, and modification permissions.</p>
+              <h4 class="text-sm font-medium mb-1" data-i18n="privacy.feature4.title">PDF encryption built-in</h4>
+              <p class="text-xs text-muted leading-relaxed" data-i18n="privacy.feature4.text">Password-protect exported PDFs with user and owner passwords. Control print, copy, and modification permissions.</p>
             </div>
           </div>
         </div>
@@ -436,43 +582,43 @@ tailwind.config = {
             <div class="w-3 h-3 rounded-full bg-red-500/40"></div>
             <div class="w-3 h-3 rounded-full bg-amber-500/40"></div>
             <div class="w-3 h-3 rounded-full bg-green-500/40"></div>
-            <span class="text-[10px] text-dim ml-2 font-mono">maktabatypro — offline</span>
+            <span class="text-[10px] text-dim ml-2 font-mono" data-i18n="privacy.mockup.title">maktabatypro — offline</span>
           </div>
           <div class="space-y-3">
             <div class="flex items-center gap-2 text-[11px] text-dim">
               <i data-lucide="shield-check" class="w-3.5 h-3.5 text-green-400"></i>
-              No outgoing connections
-              <span class="ml-auto text-green-400/80">Secure</span>
+              <span data-i18n="privacy.mockup.row1.label">No outgoing connections</span>
+              <span class="ml-auto text-green-400/80" data-i18n="privacy.mockup.row1.status">Secure</span>
             </div>
             <div class="h-px bg-white/5"></div>
             <div class="flex items-center gap-2 text-[11px] text-dim">
               <i data-lucide="database" class="w-3.5 h-3.5 text-green-400"></i>
-              Storage: Local IndexedDB
-              <span class="ml-auto text-green-400/80">Local</span>
+              <span data-i18n="privacy.mockup.row2.label">Storage: Local IndexedDB</span>
+              <span class="ml-auto text-green-400/80" data-i18n="privacy.mockup.row2.status">Local</span>
             </div>
             <div class="h-px bg-white/5"></div>
             <div class="flex items-center gap-2 text-[11px] text-dim">
               <i data-lucide="cloud-off" class="w-3.5 h-3.5 text-green-400"></i>
-              Cloud sync
-              <span class="ml-auto text-green-400/80">Disabled</span>
+              <span data-i18n="privacy.mockup.row3.label">Cloud sync</span>
+              <span class="ml-auto text-green-400/80" data-i18n="privacy.mockup.row3.status">Disabled</span>
             </div>
             <div class="h-px bg-white/5"></div>
             <div class="flex items-center gap-2 text-[11px] text-dim">
               <i data-lucide="fingerprint" class="w-3.5 h-3.5 text-green-400"></i>
-              Telemetry / Analytics
-              <span class="ml-auto text-green-400/80">None</span>
+              <span data-i18n="privacy.mockup.row4.label">Telemetry / Analytics</span>
+              <span class="ml-auto text-green-400/80" data-i18n="privacy.mockup.row4.status">None</span>
             </div>
             <div class="h-px bg-white/5"></div>
             <div class="flex items-center gap-2 text-[11px] text-dim">
               <i data-lucide="key" class="w-3.5 h-3.5 text-green-400"></i>
-              Account required
-              <span class="ml-auto text-green-400/80">No</span>
+              <span data-i18n="privacy.mockup.row5.label">Account required</span>
+              <span class="ml-auto text-green-400/80" data-i18n="privacy.mockup.row5.status">No</span>
             </div>
             <div class="h-px bg-white/5"></div>
             <div class="flex items-center gap-2 text-[11px] text-dim">
               <i data-lucide="wifi" class="w-3.5 h-3.5 text-green-400"></i>
-              Internet needed
-              <span class="ml-auto text-green-400/80">No</span>
+              <span data-i18n="privacy.mockup.row6.label">Internet needed</span>
+              <span class="ml-auto text-green-400/80" data-i18n="privacy.mockup.row6.status">No</span>
             </div>
           </div>
         </div>
@@ -486,11 +632,11 @@ tailwind.config = {
 <section class="relative px-6 py-24">
   <div class="max-w-5xl mx-auto">
     <div class="reveal text-center mb-14">
-      <p class="text-xs text-secondary font-mono uppercase tracking-widest mb-4">PDF Toolbox</p>
-      <h2 class="font-display font-medium text-3xl sm:text-4xl tracking-tight mb-4">
+      <p class="text-xs text-secondary font-mono uppercase tracking-widest mb-4" data-i18n="pdfTools.badge">PDF Toolbox</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl tracking-tight mb-4" data-i18n="pdfTools.heading">
         30 PDF Tools. All Offline.
       </h2>
-      <p class="text-muted text-base max-w-xl mx-auto">No uploads. No queues. No file size limits. Everything processes on your machine, instantly.</p>
+      <p class="text-muted text-base max-w-xl mx-auto" data-i18n="pdfTools.subheading">No uploads. No queues. No file size limits. Everything processes on your machine, instantly.</p>
     </div>
 
     <div class="relative overflow-hidden">
@@ -500,31 +646,31 @@ tailwind.config = {
           <div class="tool-icon-wrap bg-accent/10 mx-auto mb-2.5 md:mb-3 group-hover:bg-accent/20 transition-colors">
             <i data-lucide="merge" class="w-4 md:w-5 h-4 md:h-5 text-accent-light"></i>
           </div>
-          <span class="text-[11px] md:text-xs font-medium">Merge</span>
+          <span class="text-[11px] md:text-xs font-medium" data-i18n="pdfTools.tool.merge">Merge</span>
         </div>
         <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-4 md:p-5 text-center group">
           <div class="tool-icon-wrap bg-accent/10 mx-auto mb-2.5 md:mb-3 group-hover:bg-accent/20 transition-colors">
             <i data-lucide="scissors" class="w-4 md:w-5 h-4 md:h-5 text-accent-light"></i>
           </div>
-          <span class="text-[11px] md:text-xs font-medium">Split</span>
+          <span class="text-[11px] md:text-xs font-medium" data-i18n="pdfTools.tool.split">Split</span>
         </div>
         <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-4 md:p-5 text-center group">
           <div class="tool-icon-wrap bg-accent/10 mx-auto mb-2.5 md:mb-3 group-hover:bg-accent/20 transition-colors">
             <i data-lucide="file-text" class="w-4 md:w-5 h-4 md:h-5 text-accent-light"></i>
           </div>
-          <span class="text-[11px] md:text-xs font-medium">PDF→Word</span>
+          <span class="text-[11px] md:text-xs font-medium" data-i18n="pdfTools.tool.pdfToWord">PDF→Word</span>
         </div>
         <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-4 md:p-5 text-center group">
           <div class="tool-icon-wrap bg-accent/10 mx-auto mb-2.5 md:mb-3 group-hover:bg-accent/20 transition-colors">
             <i data-lucide="file" class="w-4 md:w-5 h-4 md:h-5 text-accent-light"></i>
           </div>
-          <span class="text-[11px] md:text-xs font-medium">Word→PDF</span>
+          <span class="text-[11px] md:text-xs font-medium" data-i18n="pdfTools.tool.wordToPdf">Word→PDF</span>
         </div>
         <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-4 md:p-5 text-center group">
           <div class="tool-icon-wrap bg-accent/10 mx-auto mb-2.5 md:mb-3 group-hover:bg-accent/20 transition-colors">
             <i data-lucide="minimize-2" class="w-4 md:w-5 h-4 md:h-5 text-accent-light"></i>
           </div>
-          <span class="text-[11px] md:text-xs font-medium">Compress</span>
+          <span class="text-[11px] md:text-xs font-medium" data-i18n="pdfTools.tool.compress">Compress</span>
         </div>
 
         <!-- Row 2 — 5 tools fully visible -->
@@ -532,31 +678,31 @@ tailwind.config = {
           <div class="tool-icon-wrap bg-accent/10 mx-auto mb-2.5 md:mb-3 group-hover:bg-accent/20 transition-colors">
             <i data-lucide="pen-tool" class="w-4 md:w-5 h-4 md:h-5 text-accent-light"></i>
           </div>
-          <span class="text-[11px] md:text-xs font-medium">Edit</span>
+          <span class="text-[11px] md:text-xs font-medium" data-i18n="pdfTools.tool.edit">Edit</span>
         </div>
         <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-4 md:p-5 text-center group">
           <div class="tool-icon-wrap bg-accent/10 mx-auto mb-2.5 md:mb-3 group-hover:bg-accent/20 transition-colors">
             <i data-lucide="image" class="w-4 md:w-5 h-4 md:h-5 text-accent-light"></i>
           </div>
-          <span class="text-[11px] md:text-xs font-medium">Image→PDF</span>
+          <span class="text-[11px] md:text-xs font-medium" data-i18n="pdfTools.tool.imageToPdf">Image→PDF</span>
         </div>
         <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-4 md:p-5 text-center group">
           <div class="tool-icon-wrap bg-accent/10 mx-auto mb-2.5 md:mb-3 group-hover:bg-accent/20 transition-colors">
             <i data-lucide="file-image" class="w-4 md:w-5 h-4 md:h-5 text-accent-light"></i>
           </div>
-          <span class="text-[11px] md:text-xs font-medium">PDF→Image</span>
+          <span class="text-[11px] md:text-xs font-medium" data-i18n="pdfTools.tool.pdfToImage">PDF→Image</span>
         </div>
         <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-4 md:p-5 text-center group">
           <div class="tool-icon-wrap bg-accent/10 mx-auto mb-2.5 md:mb-3 group-hover:bg-accent/20 transition-colors">
             <i data-lucide="scan-text" class="w-4 md:w-5 h-4 md:h-5 text-accent-light"></i>
           </div>
-          <span class="text-[11px] md:text-xs font-medium">OCR</span>
+          <span class="text-[11px] md:text-xs font-medium" data-i18n="pdfTools.tool.ocr">OCR</span>
         </div>
         <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-4 md:p-5 text-center group">
           <div class="tool-icon-wrap bg-accent/10 mx-auto mb-2.5 md:mb-3 group-hover:bg-accent/20 transition-colors">
             <i data-lucide="signature" class="w-4 md:w-5 h-4 md:h-5 text-accent-light"></i>
           </div>
-          <span class="text-[11px] md:text-xs font-medium">Sign</span>
+          <span class="text-[11px] md:text-xs font-medium" data-i18n="pdfTools.tool.sign">Sign</span>
         </div>
       </div>
 
@@ -567,31 +713,31 @@ tailwind.config = {
             <div class="tool-icon-wrap bg-accent/5 mx-auto mb-2.5 md:mb-3">
               <i data-lucide="layout-grid" class="w-4 md:w-5 h-4 md:h-5 text-accent-light/60"></i>
             </div>
-            <span class="text-[11px] md:text-xs font-medium text-muted/60">Organize</span>
+            <span class="text-[11px] md:text-xs font-medium text-muted/60" data-i18n="pdfTools.tool.organize">Organize</span>
           </div>
           <div class="bg-surface/20 border border-white/5 rounded-xl p-4 md:p-5 text-center opacity-40">
             <div class="tool-icon-wrap bg-accent/5 mx-auto mb-2.5 md:mb-3">
               <i data-lucide="lock" class="w-4 md:w-5 h-4 md:h-5 text-accent-light/60"></i>
             </div>
-            <span class="text-[11px] md:text-xs font-medium text-muted/60">Protect</span>
+            <span class="text-[11px] md:text-xs font-medium text-muted/60" data-i18n="pdfTools.tool.protect">Protect</span>
           </div>
           <div class="bg-surface/20 border border-white/5 rounded-xl p-4 md:p-5 text-center opacity-40">
             <div class="tool-icon-wrap bg-accent/5 mx-auto mb-2.5 md:mb-3">
               <i data-lucide="unlock" class="w-4 md:w-5 h-4 md:h-5 text-accent-light/60"></i>
             </div>
-            <span class="text-[11px] md:text-xs font-medium text-muted/60">Unlock</span>
+            <span class="text-[11px] md:text-xs font-medium text-muted/60" data-i18n="pdfTools.tool.unlock">Unlock</span>
           </div>
           <div class="bg-surface/20 border border-white/5 rounded-xl p-4 md:p-5 text-center opacity-40">
             <div class="tool-icon-wrap bg-accent/5 mx-auto mb-2.5 md:mb-3">
               <i data-lucide="file-spreadsheet" class="w-4 md:w-5 h-4 md:h-5 text-accent-light/60"></i>
             </div>
-            <span class="text-[11px] md:text-xs font-medium text-muted/60">Excel→PDF</span>
+            <span class="text-[11px] md:text-xs font-medium text-muted/60" data-i18n="pdfTools.tool.excelToPdf">Excel→PDF</span>
           </div>
           <div class="bg-surface/20 border border-white/5 rounded-xl p-4 md:p-5 text-center opacity-40">
             <div class="tool-icon-wrap bg-accent/5 mx-auto mb-2.5 md:mb-3">
               <i data-lucide="table" class="w-4 md:w-5 h-4 md:h-5 text-accent-light/60"></i>
             </div>
-            <span class="text-[11px] md:text-xs font-medium text-muted/60">PDF→Excel</span>
+            <span class="text-[11px] md:text-xs font-medium text-muted/60" data-i18n="pdfTools.tool.pdfToExcel">PDF→Excel</span>
           </div>
         </div>
         <!-- Gradient fade at bottom -->
@@ -605,8 +751,8 @@ tailwind.config = {
 <section class="relative px-6 py-24">
   <div class="max-w-5xl mx-auto">
     <div class="reveal text-center mb-14">
-      <p class="text-xs text-secondary font-mono uppercase tracking-widest mb-4">More Tools</p>
-      <h2 class="font-display font-medium text-3xl sm:text-4xl tracking-tight">
+      <p class="text-xs text-secondary font-mono uppercase tracking-widest mb-4" data-i18n="moreTools.badge">More Tools</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl tracking-tight" data-i18n="moreTools.heading">
         Everything in one place
       </h2>
     </div>
@@ -617,8 +763,8 @@ tailwind.config = {
           <i data-lucide="folder-open" class="w-5 h-5 text-blue-400"></i>
         </div>
         <div>
-          <h3 class="font-display text-sm font-medium mb-1">PDF Library</h3>
-          <p class="text-xs text-muted leading-relaxed">Store, organize, search, and tag your PDFs. Calendar view, reminders, notes, and analytics.</p>
+          <h3 class="font-display text-sm font-medium mb-1" data-i18n="moreTools.card1.title">PDF Library</h3>
+          <p class="text-xs text-muted leading-relaxed" data-i18n="moreTools.card1.text">Store, organize, search, and tag your PDFs. Calendar view, reminders, notes, and analytics.</p>
         </div>
       </div>
       <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-6 flex gap-4">
@@ -626,8 +772,8 @@ tailwind.config = {
           <i data-lucide="credit-card" class="w-5 h-5 text-pink-400"></i>
         </div>
         <div>
-          <h3 class="font-display text-sm font-medium mb-1">Card Designer</h3>
-          <p class="text-xs text-muted leading-relaxed">Visual canvas for card and badge layouts. Drag, resize, align, export to PDF.</p>
+          <h3 class="font-display text-sm font-medium mb-1" data-i18n="moreTools.card2.title">Card Designer</h3>
+          <p class="text-xs text-muted leading-relaxed" data-i18n="moreTools.card2.text">Visual canvas for card and badge layouts. Drag, resize, align, export to PDF.</p>
         </div>
       </div>
       <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-6 flex gap-4">
@@ -635,8 +781,8 @@ tailwind.config = {
           <i data-lucide="calendar" class="w-5 h-5 text-green-400"></i>
         </div>
         <div>
-          <h3 class="font-display text-sm font-medium mb-1">Calendar Planning</h3>
-          <p class="text-xs text-muted leading-relaxed">Schedule documents on a calendar. Month view, heatmap, drag-and-drop, conflict detection.</p>
+          <h3 class="font-display text-sm font-medium mb-1" data-i18n="moreTools.card3.title">Calendar Planning</h3>
+          <p class="text-xs text-muted leading-relaxed" data-i18n="moreTools.card3.text">Schedule documents on a calendar. Month view, heatmap, drag-and-drop, conflict detection.</p>
         </div>
       </div>
       <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-6 flex gap-4">
@@ -644,8 +790,8 @@ tailwind.config = {
           <i data-lucide="type" class="w-5 h-5 text-amber-400"></i>
         </div>
         <div>
-          <h3 class="font-display text-sm font-medium mb-1">Rich Text Editor</h3>
-          <p class="text-xs text-muted leading-relaxed">Full WYSIWYG editor. Save documents, export to PDF or DOCX with formatting intact.</p>
+          <h3 class="font-display text-sm font-medium mb-1" data-i18n="moreTools.card4.title">Rich Text Editor</h3>
+          <p class="text-xs text-muted leading-relaxed" data-i18n="moreTools.card4.text">Full WYSIWYG editor. Save documents, export to PDF or DOCX with formatting intact.</p>
         </div>
       </div>
       <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-6 flex gap-4">
@@ -653,8 +799,8 @@ tailwind.config = {
           <i data-lucide="file-down" class="w-5 h-5 text-cyan-400"></i>
         </div>
         <div>
-          <h3 class="font-display text-sm font-medium mb-1">File Compressor</h3>
-          <p class="text-xs text-muted leading-relaxed">Compress images and PDFs locally. Batch processing with size comparison stats.</p>
+          <h3 class="font-display text-sm font-medium mb-1" data-i18n="moreTools.card5.title">File Compressor</h3>
+          <p class="text-xs text-muted leading-relaxed" data-i18n="moreTools.card5.text">Compress images and PDFs locally. Batch processing with size comparison stats.</p>
         </div>
       </div>
       <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-6 flex gap-4">
@@ -662,8 +808,8 @@ tailwind.config = {
           <i data-lucide="link" class="w-5 h-5 text-violet-400"></i>
         </div>
         <div>
-          <h3 class="font-display text-sm font-medium mb-1">Link Library</h3>
-          <p class="text-xs text-muted leading-relaxed">Curated bookmarks for admin services. Auto-tag, auto-categorize, import browser bookmarks.</p>
+          <h3 class="font-display text-sm font-medium mb-1" data-i18n="moreTools.card6.title">Link Library</h3>
+          <p class="text-xs text-muted leading-relaxed" data-i18n="moreTools.card6.text">Curated bookmarks for admin services. Auto-tag, auto-categorize, import browser bookmarks.</p>
         </div>
       </div>
     </div>
@@ -680,8 +826,8 @@ tailwind.config = {
         <i data-lucide="laptop" class="w-6 h-6 text-muted"></i>
       </div>
       <div class="text-center sm:text-left">
-        <h3 class="font-display text-lg font-medium mb-1">Works everywhere</h3>
-        <p class="text-sm text-muted">Install as PWA in your browser, or use the desktop app on Windows, macOS, and Linux. Same features, same offline experience, any device.</p>
+        <h3 class="font-display text-lg font-medium mb-1" data-i18n="platform.heading">Works everywhere</h3>
+        <p class="text-sm text-muted" data-i18n="platform.text">Install as PWA in your browser, or use the desktop app on Windows, macOS, and Linux. Same features, same offline experience, any device.</p>
       </div>
     </div>
   </div>
@@ -693,157 +839,235 @@ tailwind.config = {
 
   <div class="relative max-w-5xl mx-auto">
     <div class="reveal text-center mb-14">
-      <p class="text-xs text-accent font-mono uppercase tracking-widest mb-4">Pricing</p>
-      <h2 class="font-display font-medium text-3xl sm:text-4xl tracking-tight mb-4">
+      <p class="text-xs text-accent font-mono uppercase tracking-widest mb-4" data-i18n="pricing.badge">Pricing</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl tracking-tight mb-4" data-i18n="pricing.heading">
         Simple. Transparent.
       </h2>
-      <p class="text-muted text-base">No subscriptions. Pay once, use forever.</p>
+      <p class="text-muted text-base" data-i18n="pricing.subheading">No subscriptions. Pay once, use forever.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <!-- Trial -->
       <div class="reveal reveal-delay-1 card-hover bg-surface/30 border border-white/5 rounded-2xl p-8 flex flex-col">
         <div class="mb-6">
-          <h3 class="font-display text-lg font-medium mb-1">Trial</h3>
-          <p class="text-xs text-muted">Try before you commit</p>
+          <h3 class="font-display text-lg font-medium mb-1" data-i18n="pricing.trial.name">Trial</h3>
+          <p class="text-xs text-muted" data-i18n="pricing.trial.description">Try before you commit</p>
         </div>
         <div class="mb-8">
-          <span class="font-display text-4xl font-semibold">Free</span>
-          <span class="text-sm text-dim ml-1">/ 3 days</span>
+          <span class="font-display text-4xl font-semibold" data-i18n="pricing.trial.price">Free</span>
+          <span class="text-sm text-dim ml-1" data-i18n="pricing.trial.period">/ 3 days</span>
         </div>
         <ul class="space-y-3 mb-8 flex-1">
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5"></i>
-            6 popular templates unlocked
+            <span data-i18n="pricing.trial.feature1">6 popular templates unlocked</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5"></i>
-            Create up to 5 own templates
+            <span data-i18n="pricing.trial.feature2">Create up to 5 own templates</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5"></i>
-            PDF merge & split (10 uses each)
+            <span data-i18n="pricing.trial.feature3">PDF merge & split (10 uses each)</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5"></i>
-            PDF library (7 files max)
+            <span data-i18n="pricing.trial.feature4">PDF library (7 files max)</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5"></i>
-            Offline mode
+            <span data-i18n="pricing.trial.feature5">Offline mode</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5"></i>
-            AR / FR / EN interface
+            <span data-i18n="pricing.trial.feature6">AR / FR / EN interface</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-dim">
             <i data-lucide="x" class="w-4 h-4 text-dim flex-shrink-0 mt-0.5"></i>
-            No backup & restore
+            <span data-i18n="pricing.trial.excluded1">No backup & restore</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-dim">
             <i data-lucide="x" class="w-4 h-4 text-dim flex-shrink-0 mt-0.5"></i>
-            No DOCX export
+            <span data-i18n="pricing.trial.excluded2">No DOCX export</span>
           </li>
         </ul>
-        <a href="#" class="download-btn btn-ghost text-sm font-medium px-6 py-3.5 rounded-full text-center text-muted w-full">Start Free Trial</a>
+        <a href="#" class="download-btn btn-ghost text-sm font-medium px-6 py-3.5 rounded-full text-center text-muted w-full" data-i18n="pricing.trial.button">Start Free Trial</a>
       </div>
 
       <!-- Standard -->
       <div class="reveal reveal-delay-2 pricing-popular bg-surface/50 border border-accent/30 rounded-2xl p-8 flex flex-col relative">
-        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-accent to-blue-600 text-white text-[10px] font-semibold uppercase tracking-wider px-4 py-1 rounded-full">Most Popular</div>
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-accent to-blue-600 text-white text-[10px] font-semibold uppercase tracking-wider px-4 py-1 rounded-full" data-i18n="pricing.standard.badge">Most Popular</div>
         <div class="mb-6">
-          <h3 class="font-display text-lg font-medium mb-1">Standard</h3>
-          <p class="text-xs text-muted">Everything you need</p>
+          <h3 class="font-display text-lg font-medium mb-1" data-i18n="pricing.standard.name">Standard</h3>
+          <p class="text-xs text-muted" data-i18n="pricing.standard.description">Everything you need</p>
         </div>
         <div class="mb-8">
-          <span class="font-display text-4xl font-semibold">30$</span>
-          <span class="text-sm text-dim ml-1">/ 300 MAD — once</span>
+          <span class="font-display text-4xl font-semibold" data-i18n="pricing.standard.price">30$</span>
+          <span class="text-sm text-dim ml-1" data-i18n="pricing.standard.period">/ 300 MAD — once</span>
         </div>
         <ul class="space-y-3 mb-8 flex-1">
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-accent-light flex-shrink-0 mt-0.5"></i>
-            <span><strong class="text-white">Unlimited</strong> templates + create/edit/delete</span>
+            <span data-i18n="pricing.standard.feature1"><strong class="text-white">Unlimited</strong> templates + create/edit/delete</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-accent-light flex-shrink-0 mt-0.5"></i>
-            All 30 PDF tools, unlimited use
+            <span data-i18n="pricing.standard.feature2">All 30 PDF tools, unlimited use</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-accent-light flex-shrink-0 mt-0.5"></i>
-            PDF library — unlimited storage
+            <span data-i18n="pricing.standard.feature3">PDF library — unlimited storage</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-accent-light flex-shrink-0 mt-0.5"></i>
-            Card designer, calendar, rich editor
+            <span data-i18n="pricing.standard.feature4">Card designer, calendar, rich editor</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-accent-light flex-shrink-0 mt-0.5"></i>
-            Batch fill & print queue
+            <span data-i18n="pricing.standard.feature5">Batch fill & print queue</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-accent-light flex-shrink-0 mt-0.5"></i>
-            Backup, restore & auto-backup
+            <span data-i18n="pricing.standard.feature6">Backup, restore & auto-backup</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-accent-light flex-shrink-0 mt-0.5"></i>
-            PDF & DOCX export
+            <span data-i18n="pricing.standard.feature7">PDF & DOCX export</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-accent-light flex-shrink-0 mt-0.5"></i>
-            1 machine license
+            <span data-i18n="pricing.standard.feature8">1 machine license</span>
           </li>
         </ul>
-        <a href="#" class="get-started-btn btn-primary text-sm font-medium px-6 py-3.5 rounded-full text-center text-white w-full">Get Standard</a>
+        <a href="#" class="get-started-btn btn-primary text-sm font-medium px-6 py-3.5 rounded-full text-center text-white w-full" data-i18n="pricing.standard.button">Get Standard</a>
       </div>
 
       <!-- Enterprise -->
       <div class="reveal reveal-delay-3 card-hover bg-surface/30 border border-white/5 rounded-2xl p-8 flex flex-col">
         <div class="mb-6">
-          <h3 class="font-display text-lg font-medium mb-1">Enterprise</h3>
-          <p class="text-xs text-muted">For teams & power users</p>
+          <h3 class="font-display text-lg font-medium mb-1" data-i18n="pricing.enterprise.name">Enterprise</h3>
+          <p class="text-xs text-muted" data-i18n="pricing.enterprise.description">For teams & power users</p>
         </div>
         <div class="mb-8">
-          <span class="font-display text-4xl font-semibold">50$</span>
-          <span class="text-sm text-dim ml-1">/ 500 MAD — once</span>
+          <span class="font-display text-4xl font-semibold" data-i18n="pricing.enterprise.price">50$</span>
+          <span class="text-sm text-dim ml-1" data-i18n="pricing.enterprise.period">/ 500 MAD — once</span>
         </div>
         <ul class="space-y-3 mb-8 flex-1">
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-secondary flex-shrink-0 mt-0.5"></i>
-            <span><strong class="text-white">Everything in Standard</strong></span>
+            <span data-i18n="pricing.enterprise.feature1"><strong class="text-white">Everything in Standard</strong></span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-secondary flex-shrink-0 mt-0.5"></i>
-            <span><strong class="text-white">AI-powered PDF tools</strong></span>
+            <span data-i18n="pricing.enterprise.feature2"><strong class="text-white">AI-powered PDF tools</strong></span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-secondary flex-shrink-0 mt-0.5"></i>
-            <span><strong class="text-white">Unlimited machines</strong> — one license for all</span>
+            <span data-i18n="pricing.enterprise.feature3"><strong class="text-white">Unlimited machines</strong> — one license for all</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-secondary flex-shrink-0 mt-0.5"></i>
-            Priority support
+            <span data-i18n="pricing.enterprise.feature4">Priority support</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-secondary flex-shrink-0 mt-0.5"></i>
-            All future updates included
+            <span data-i18n="pricing.enterprise.feature5">All future updates included</span>
           </li>
           <li class="flex items-center-start gap-2.5 text-sm text-dim mt-2">
-            <span class="text-[11px] leading-relaxed">Ideal for offices with multiple computers or public writers who works from different locations.</span>
+            <span class="text-[11px] leading-relaxed" data-i18n="pricing.enterprise.extratext">Ideal for offices with multiple computers or public writers who works from different locations.</span>
           </li>
         </ul>
-        <a href="#" class="get-started-btn btn-ghost text-sm font-medium px-6 py-3.5 rounded-full text-center text-muted w-full border-secondary/20 hover:border-secondary/40 hover:bg-secondary/5">Get Enterprise</a>
+        <a href="#" class="get-started-btn btn-ghost text-sm font-medium px-6 py-3.5 rounded-full text-center text-muted w-full border-secondary/20 hover:border-secondary/40 hover:bg-secondary/5" data-i18n="pricing.enterprise.button">Get Enterprise</a>
       </div>
     </div>
 
-    <p class="reveal text-center text-xs text-dim mt-8">One-time payment. No subscriptions. No hidden fees. License valid forever.</p>
+    <p class="reveal text-center text-xs text-dim mt-8" data-i18n="pricing.footer">One-time payment. No subscriptions. No hidden fees. License valid forever.</p>
+    <!-- <div class="reveal flex items-center justify-center gap-2 mt-4">
+      <i data-lucide="shield-check" class="w-3.5 h-3.5 text-green-400"></i>
+      <p class="text-center text-xs text-green-400/90" data-i18n="pricing.guarantee">3-day money-back guarantee — not a fit? Get a full refund, no questions asked.</p>
+    </div> -->
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="relative px-6 py-24">
+  <div class="max-w-3xl mx-auto">
+    <div class="reveal text-center mb-12">
+      <p class="text-xs text-accent font-mono uppercase tracking-widest mb-4" data-i18n="faq.badge">FAQ</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl tracking-tight" data-i18n="faq.heading">
+        Questions, answered
+      </h2>
+    </div>
+
+    <div class="reveal space-y-3" id="faqList">
+      <div class="faq-item bg-surface/30 border border-white/5 rounded-xl overflow-hidden">
+        <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5" aria-expanded="false">
+          <span class="text-sm font-medium text-white" data-i18n="faq.q1.question">Is my data really never sent anywhere?</span>
+          <i data-lucide="plus" class="faq-icon w-4 h-4 text-accent-light flex-shrink-0 transition-transform"></i>
+        </button>
+        <div class="faq-panel px-6 overflow-hidden" style="max-height:0;">
+          <p class="text-sm text-muted leading-relaxed pb-5" data-i18n="faq.q1.answer">Correct. MaktabatyPro makes zero network requests. Everything — templates, filled documents, your PDF library — is processed and stored locally on your device in IndexedDB. You can disconnect from the internet entirely and every feature keeps working.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-surface/30 border border-white/5 rounded-xl overflow-hidden">
+        <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5" aria-expanded="false">
+          <span class="text-sm font-medium text-white" data-i18n="faq.q2.question">What happens after my 3-day trial ends?</span>
+          <i data-lucide="plus" class="faq-icon w-4 h-4 text-accent-light flex-shrink-0 transition-transform"></i>
+        </button>
+        <div class="faq-panel px-6 overflow-hidden" style="max-height:0;">
+          <p class="text-sm text-muted leading-relaxed pb-5" data-i18n="faq.q2.answer">Your account and any templates you created stay on your device — they're just locked until you activate a paid license. Activating Standard or Enterprise unlocks everything instantly, with no reinstall needed.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-surface/30 border border-white/5 rounded-xl overflow-hidden">
+        <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5" aria-expanded="false">
+          <span class="text-sm font-medium text-white" data-i18n="faq.q3.question">Can I move my license to a new computer?</span>
+          <i data-lucide="plus" class="faq-icon w-4 h-4 text-accent-light flex-shrink-0 transition-transform"></i>
+        </button>
+        <div class="faq-panel px-6 overflow-hidden" style="max-height:0;">
+          <p class="text-sm text-muted leading-relaxed pb-5" data-i18n="faq.q3.answer">Yes. Standard is licensed to one machine at a time — deactivate on the old device and activate on the new one from the same account. Enterprise covers unlimited machines, so this isn't a concern at all.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-surface/30 border border-white/5 rounded-xl overflow-hidden">
+        <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5" aria-expanded="false">
+          <span class="text-sm font-medium text-white" data-i18n="faq.q4.question">Can I upgrade from Standard to Enterprise later?</span>
+          <i data-lucide="plus" class="faq-icon w-4 h-4 text-accent-light flex-shrink-0 transition-transform"></i>
+        </button>
+        <div class="faq-panel px-6 overflow-hidden" style="max-height:0;">
+          <p class="text-sm text-muted leading-relaxed pb-5" data-i18n="faq.q4.answer">Yes, at any time — contact us and pay only the difference between the two licenses. Your templates, library, and settings carry over automatically.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-surface/30 border border-white/5 rounded-xl overflow-hidden">
+        <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5" aria-expanded="false">
+          <span class="text-sm font-medium text-white" data-i18n="faq.q5.question">Do you offer refunds?</span>
+          <i data-lucide="plus" class="faq-icon w-4 h-4 text-accent-light flex-shrink-0 transition-transform"></i>
+        </button>
+        <div class="faq-panel px-6 overflow-hidden" style="max-height:0;">
+          <p class="text-sm text-muted leading-relaxed pb-5" data-i18n="faq.q5.answer">Yes — every paid license comes with a 3-day money-back guarantee. If MaktabatyPro isn't a fit, contact us and we'll refund you in full, no questions asked.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-surface/30 border border-white/5 rounded-xl overflow-hidden">
+        <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5" aria-expanded="false">
+          <span class="text-sm font-medium text-white" data-i18n="faq.q6.question">Which languages does the interface support?</span>
+          <i data-lucide="plus" class="faq-icon w-4 h-4 text-accent-light flex-shrink-0 transition-transform"></i>
+        </button>
+        <div class="faq-panel px-6 overflow-hidden" style="max-height:0;">
+          <p class="text-sm text-muted leading-relaxed pb-5" data-i18n="faq.q6.answer">Arabic, French, Spanish and English, fully translated including right-to-left layout for Arabic. Switch languages anytime from the footer, even offline. and we will add more.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- CONTACT MODAL -->
-<div id="contactModal" class="fixed inset-0 z-50 flex items-center justify-center px-4 invisible opacity-0 transition-all duration-300">
+<div id="contactModal" class="fixed inset-0 z-50 flex items-center justify-center px-4 invisible opacity-0 transition-all duration-300" role="dialog" aria-modal="true" aria-labelledby="contactModalHeading">
   <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="modalOverlay"></div>
   <div class="relative bg-surface border border-white/10 rounded-2xl max-w-md w-full shadow-2xl p-8">
-    <button id="closeModal" class="absolute top-4 right-4 text-dim hover:text-white transition-colors">
+    <button id="closeModal" type="button" class="absolute top-4 right-4 text-dim hover:text-white transition-colors" aria-label="Close dialog">
       <i data-lucide="x" class="w-5 h-5"></i>
     </button>
 
@@ -851,8 +1075,8 @@ tailwind.config = {
       <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-4">
         <i data-lucide="sparkles" class="w-6 h-6 text-accent-light"></i>
       </div>
-      <h3 class="font-display text-xl font-medium text-white mb-1">Get MaktabatyPro</h3>
-      <p class="text-xs text-dim">Contact us to purchase or download the trial</p>
+      <h3 id="contactModalHeading" class="font-display text-xl font-medium text-white mb-1" data-i18n="contactModal.heading">Get MaktabatyPro</h3>
+      <p class="text-xs text-dim" data-i18n="contactModal.subheading">Contact us to purchase or download the trial</p>
     </div>
 
     <div class="space-y-3 mb-6">
@@ -861,8 +1085,8 @@ tailwind.config = {
           <i data-lucide="message-circle" class="w-5 h-5 text-green-400"></i>
         </div>
         <div class="flex-1 text-left">
-          <div class="text-sm font-medium text-white">WhatsApp</div>
-          <div class="text-xs text-dim">+212 774-368063</div>
+          <div class="text-sm font-medium text-white" data-i18n="contactModal.whatsapp">WhatsApp</div>
+          <div class="text-xs text-dim" data-i18n="contactModal.whatsappNumber">+212 774-368063</div>
         </div>
         <i data-lucide="external-link" class="w-4 h-4 text-dim group-hover:text-white transition-colors"></i>
       </a>
@@ -872,8 +1096,8 @@ tailwind.config = {
           <i data-lucide="mail" class="w-5 h-5 text-blue-400"></i>
         </div>
         <div class="flex-1 text-left">
-          <div class="text-sm font-medium text-white">Email</div>
-          <div class="text-xs text-dim">maktabapro@gmail.com</div>
+          <div class="text-sm font-medium text-white" data-i18n="contactModal.email">Email</div>
+          <div class="text-xs text-dim" data-i18n="contactModal.emailAddress">maktabapro@gmail.com</div>
         </div>
         <i data-lucide="external-link" class="w-4 h-4 text-dim group-hover:text-white transition-colors"></i>
       </a>
@@ -883,8 +1107,8 @@ tailwind.config = {
           <i data-lucide="message-square" class="w-5 h-5 text-indigo-400"></i>
         </div>
         <div class="flex-1 text-left">
-          <div class="text-sm font-medium text-white">Facebook</div>
-          <div class="text-xs text-dim">ostabdev</div>
+          <div class="text-sm font-medium text-white" data-i18n="contactModal.facebook">Facebook</div>
+          <div class="text-xs text-dim" data-i18n="contactModal.facebookUser">ostabdev</div>
         </div>
         <i data-lucide="external-link" class="w-4 h-4 text-dim group-hover:text-white transition-colors"></i>
       </a>
@@ -892,12 +1116,12 @@ tailwind.config = {
 
     <div class="relative mb-6">
       <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-white/5"></div></div>
-      <div class="relative flex justify-center"><span class="bg-surface px-4 text-[10px] text-dim uppercase tracking-wider">or try it free</span></div>
+      <div class="relative flex justify-center"><span class="bg-surface px-4 text-[10px] text-dim uppercase tracking-wider" data-i18n="contactModal.divider">or try it free</span></div>
     </div>
 
     <a href="#" class="download-btn btn-primary text-sm font-medium px-6 py-3.5 rounded-full text-center text-white w-full flex items-center justify-center gap-2">
       <i data-lucide="download" class="w-4 h-4"></i>
-      Download Free Trial
+      <span data-i18n="contactModal.button">Download Free Trial</span>
     </a>
   </div>
 </div>
@@ -909,14 +1133,14 @@ tailwind.config = {
 
   <div class="relative max-w-2xl mx-auto text-center reveal">
     <h2 class="font-display font-medium text-3xl sm:text-4xl md:text-5xl tracking-tight mb-6">
-      Stop uploading your documents<br>
-      <span class="gradient-text">to strangers' servers.</span>
+      <span data-i18n="cta.heading1">Stop uploading your documents</span><br>
+      <span class="gradient-text" data-i18n="cta.heading2">to strangers' servers.</span>
     </h2>
-    <p class="text-muted text-base sm:text-lg mb-10 max-w-lg mx-auto">
+    <p class="text-muted text-base sm:text-lg mb-10 max-w-lg mx-auto" data-i18n="cta.paragraph">
       Join professionals across Morocco who switched to offline document management. Your data, your device, your control.
     </p>
     <a href="#" class="download-btn btn-primary text-base font-medium px-10 py-4 rounded-full text-white inline-flex items-center gap-2">
-      Download MaktabatyPro
+      <span data-i18n="cta.button">Download MaktabatyPro</span>
       <i data-lucide="download" class="w-5 h-5"></i>
     </a>
   </div>
@@ -926,126 +1150,175 @@ tailwind.config = {
 <footer class="border-t border-white/5 px-6 py-10">
   <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
     <div class="flex items-center gap-2">
-      <span class="w-6 h-6 rounded-md bg-gradient-to-br from-accent to-secondary flex items-center justify-center text-[10px] font-bold">M</span>
-      <span class="font-display text-sm font-medium">MaktabatyPro</span>
+      <img src="assets/icon.png" alt="M" class="w-6 h-6 rounded-md object-contain">
+      <span class="font-display text-sm font-medium" data-i18n="footer.brand">MaktabatyPro</span>
     </div>
-    <p class="text-xs text-dim">Made in Morocco · 100% Offline · Your data stays yours</p>
+    <p class="text-xs text-dim" data-i18n="footer.tagline">Made in Morocco · 100% Offline · Your data stays yours</p>
     <div class="flex items-center gap-4">
-      <span class="text-[11px] text-dim">العربية</span>
-      <span class="text-[11px] text-dim">Français</span>
-      <span class="text-[11px] text-white/60">English</span>
+      <button type="button" data-lang="ar" class="text-[11px] text-dim cursor-pointer hover:text-white transition-colors bg-transparent border-0 p-0" data-i18n="footer.lang.ar" aria-label="Switch to Arabic">العربية</button>
+      <button type="button" data-lang="fr" class="text-[11px] text-dim cursor-pointer hover:text-white transition-colors bg-transparent border-0 p-0" data-i18n="footer.lang.fr" aria-label="Switch to French">Français</button>
+      <button type="button" data-lang="en" class="text-[11px] text-dim cursor-pointer hover:text-white transition-colors bg-transparent border-0 p-0" data-i18n="footer.lang.en" aria-label="Switch to English">English</button>
     </div>
   </div>
   <div class="max-w-5xl mx-auto border-t border-white/5 pt-5 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-xs text-dim">
     <a href="https://facebook.com/ostabdev" target="_blank" rel="noopener" class="flex items-center gap-1.5 hover:text-white transition-colors">
-      <i data-lucide="facebook" class="w-3.5 h-3.5"></i> ostabdev
+      <i data-lucide="facebook" class="w-3.5 h-3.5"></i> <span data-i18n="footer.facebook">ostabdev</span>
     </a>
     <span class="flex items-center gap-1.5">
-      <i data-lucide="phone" class="w-3.5 h-3.5"></i> 0774368063
+      <i data-lucide="phone" class="w-3.5 h-3.5"></i> <span data-i18n="footer.phone">0774368063</span>
     </span>
     <a href="mailto:maktabapro@gmail.com" class="flex items-center gap-1.5 hover:text-white transition-colors">
-      <i data-lucide="mail" class="w-3.5 h-3.5"></i> maktabapro@gmail.com
+      <i data-lucide="mail" class="w-3.5 h-3.5"></i> <span data-i18n="footer.email">maktabapro@gmail.com</span>
     </a>
   </div>
 </footer>
 
+<script src="lang/all.js"></script>
+<script src="js/app.js"></script>
 <script>
-  // Lucide icons
-  lucide.createIcons();
+(function () {
+  // ---------- Mobile nav ----------
+  var navToggle = document.getElementById('mobileNavToggle');
+  var mobileMenu = document.getElementById('mobileNavMenu');
+  var mobileOverlay = document.getElementById('mobileNavOverlay');
 
-  // ======================== AUTO-DOWNLOAD ========================
-  async function downloadMaktabatyPro(e) {
-    e.preventDefault();
-    closeContactModal();
-    const btns = document.querySelectorAll('.download-btn');
-    btns.forEach(b => { b.disabled = true; b.innerHTML = '<span class="inline-block w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2"></span> Detecting...'; });
+  function openMobileNav() {
+    mobileMenu.classList.remove('hidden');
+    navToggle.setAttribute('aria-expanded', 'true');
+    navToggle.setAttribute('aria-label', 'Close menu');
+  }
+  function closeMobileNav() {
+    mobileMenu.classList.add('hidden');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', 'Open menu');
+  }
+  if (navToggle && mobileMenu) {
+    navToggle.addEventListener('click', function () {
+      var isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+      isOpen ? closeMobileNav() : openMobileNav();
+    });
+    if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobileNav);
+    document.querySelectorAll('.mobile-nav-link').forEach(function (link) {
+      link.addEventListener('click', closeMobileNav);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeMobileNav();
+    });
+  }
 
-    try {
-      const res = await fetch('https://api.github.com/repos/OussamaTabDev/maktabatypro/releases/latest');
-      const release = await res.json();
-      const plat = navigator.platform.toLowerCase();
-      const ua = navigator.userAgent.toLowerCase();
+  // ---------- Contact modal accessibility (focus trap + escape) ----------
+  var modal = document.getElementById('contactModal');
+  if (modal) {
+    var lastFocused = null;
 
-      let asset = null;
-      if (plat.includes('win') || ua.includes('win')) {
-        asset = release.assets.find(a => a.name.endsWith('.exe')) || release.assets.find(a => a.name.endsWith('.msi'));
-      } else if (plat.includes('mac') || ua.includes('mac')) {
-        asset = release.assets.find(a => a.name.endsWith('.dmg'));
-      } else if (plat.includes('linux') || ua.includes('linux')) {
-        asset = release.assets.find(a => a.name.endsWith('.AppImage')) || release.assets.find(a => a.name.endsWith('.deb'));
+    function isModalOpen() {
+      return !modal.classList.contains('invisible') && modal.style.visibility !== 'hidden';
+    }
+
+    function getFocusable() {
+      return Array.prototype.slice.call(
+        modal.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')
+      );
+    }
+
+    // Observe visibility changes so this works regardless of how app.js toggles the modal
+    var observer = new MutationObserver(function () {
+      if (isModalOpen()) {
+        lastFocused = document.activeElement;
+        var focusable = getFocusable();
+        if (focusable.length) focusable[0].focus();
+      } else if (lastFocused) {
+        lastFocused.focus();
+        lastFocused = null;
       }
+    });
+    observer.observe(modal, { attributes: true, attributeFilter: ['class', 'style'] });
 
-      if (asset) {
-        window.location.href = asset.browser_download_url;
+    document.addEventListener('keydown', function (e) {
+      if (!isModalOpen()) return;
+      if (e.key === 'Escape') {
+        var closeBtn = document.getElementById('closeModal');
+        if (closeBtn) closeBtn.click();
+        return;
+      }
+      if (e.key === 'Tab') {
+        var focusable = getFocusable();
+        if (!focusable.length) return;
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    });
+  }
+
+  // ---------- FAQ accordion ----------
+  document.querySelectorAll('.faq-trigger').forEach(function (trigger) {
+    trigger.addEventListener('click', function () {
+      var item = trigger.closest('.faq-item');
+      var panel = item.querySelector('.faq-panel');
+      var icon = trigger.querySelector('.faq-icon');
+      var isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+      // Close all other items (single-open accordion)
+      document.querySelectorAll('.faq-trigger').forEach(function (otherTrigger) {
+        if (otherTrigger === trigger) return;
+        otherTrigger.setAttribute('aria-expanded', 'false');
+        var otherItem = otherTrigger.closest('.faq-item');
+        otherItem.querySelector('.faq-panel').style.maxHeight = '0px';
+        var otherIcon = otherTrigger.querySelector('.faq-icon');
+        if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+      });
+
+      if (isOpen) {
+        trigger.setAttribute('aria-expanded', 'false');
+        panel.style.maxHeight = '0px';
+        if (icon) icon.style.transform = 'rotate(0deg)';
       } else {
-        window.location.href = release.html_url;
-      }
-    } catch (err) {
-      console.error('Download failed', err);
-      window.location.href = 'https://github.com/OussamaTabDev/maktabatypro/releases';
-    }
-
-    btns.forEach(b => { b.disabled = false; b.innerHTML = b.dataset.originalText || 'Download MaktabatyPro'; });
-  }
-
-  document.querySelectorAll('.download-btn').forEach(btn => {
-    btn.dataset.originalText = btn.innerHTML;
-    btn.addEventListener('click', downloadMaktabatyPro);
-  });
-
-  // ======================== SCROLL REVEAL ========================
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // ======================== NAV BACKGROUND ========================
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-      nav.style.background = 'rgba(5, 5, 5, 0.85)';
-    } else {
-      nav.style.background = 'rgba(5, 5, 5, 0.7)';
-    }
-  });
-
-  // ======================== CONTACT MODAL ========================
-  const contactModal = document.getElementById('contactModal');
-  const modalOverlay = document.getElementById('modalOverlay');
-  const closeModalBtn = document.getElementById('closeModal');
-
-  function openContactModal(e) {
-    e.preventDefault();
-    contactModal.classList.remove('invisible', 'opacity-0');
-  }
-  function closeContactModal() {
-    contactModal.classList.add('invisible', 'opacity-0');
-  }
-
-  document.querySelectorAll('.get-started-btn').forEach(btn => {
-    btn.addEventListener('click', openContactModal);
-  });
-  if (closeModalBtn) closeModalBtn.addEventListener('click', closeContactModal);
-  if (modalOverlay) modalOverlay.addEventListener('click', closeContactModal);
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeContactModal();
-  });
-
-  // ======================== SMOOTH SCROLL ========================
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        trigger.setAttribute('aria-expanded', 'true');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        if (icon) icon.style.transform = 'rotate(45deg)';
       }
     });
   });
+
+  // ---------- Stat count-up animation ----------
+  var statNumbers = document.querySelectorAll('.stat-number');
+  if (statNumbers.length && 'IntersectionObserver' in window) {
+    var animated = false;
+    var statObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !animated) {
+          animated = true;
+          statNumbers.forEach(function (el) {
+            var raw = el.textContent.trim();
+            var match = raw.match(/^(\d+)(\+?)$/);
+            if (!match) return; // skip non-numeric stats (e.g. localized text)
+            var target = parseInt(match[1], 10);
+            var suffix = match[2] || '';
+            var duration = 900;
+            var start = null;
+            function step(timestamp) {
+              if (!start) start = timestamp;
+              var progress = Math.min((timestamp - start) / duration, 1);
+              var eased = 1 - Math.pow(1 - progress, 3);
+              el.textContent = Math.round(eased * target) + suffix;
+              if (progress < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+          });
+          statObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.5 });
+    statObserver.observe(statNumbers[0].closest('div').parentElement);
+  }
+})();
 </script>
 </body>
 </html>
