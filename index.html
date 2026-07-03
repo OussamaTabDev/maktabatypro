@@ -1,526 +1,833 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>TemplateFlow | Sovereign Document Suite for Professionals</title>
-  <!-- Google Fonts + Tajawal for Arabic elegance -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <title>MaktabatyPro — Professional Productivity Suite for Morocco</title>
+  <meta name="description" content="MaktabatyPro: All-in-one offline productivity suite for Moroccan professionals. Template management, PDF processing, card design, rich text editing, and calendar planning.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            teal: { 50: '#f0fdfa', 100: '#ccfbf1', 200: '#99f6e4', 300: '#5eead4', 400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e', 800: '#115e59', 900: '#134e4a' },
+            amber: { 50: '#fffbeb', 100: '#fef3c7', 200: '#fde68a', 300: '#fcd34d', 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706', 700: '#b45309', 800: '#92400e', 900: '#78350f' },
+          },
+          fontFamily: { sans: ['Inter', 'Tajawal', 'system-ui', 'sans-serif'] },
+          keyframes: {
+            'fade-up': { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            'fade-in': { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+            'slide-left': { '0%': { opacity: '0', transform: 'translateX(30px)' }, '100%': { opacity: '1', transform: 'translateX(0)' } },
+            'slide-right': { '0%': { opacity: '0', transform: 'translateX(-30px)' }, '100%': { opacity: '1', transform: 'translateX(0)' } },
+            'float': { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-8px)' } },
+          },
+          animation: { 'fade-up': 'fade-up 0.6s ease-out', 'fade-in': 'fade-in 0.6s ease-out', 'slide-left': 'slide-left 0.6s ease-out', 'slide-right': 'slide-right 0.6s ease-out', 'float': 'float 3s ease-in-out infinite' },
+        }
+      }
+    }
+  </script>
   <style>
     * { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', 'Tajawal', system-ui, sans-serif;
-      background: #FCFDFE;
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #0B2F4E 0%, #1F5E8C 100%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-    .btn-primary { background: #0F3B5C; transition: all 0.2s ease; }
-    .btn-primary:hover { background: #072538; transform: translateY(-1px); }
-    .lang-active {
-      background: #0F3B5C;
-      color: white;
-      border-color: #0F3B5C;
-    }
-    .preview-card[dir="rtl"] {
-      text-align: right;
-      direction: rtl;
-    }
-    .preview-card p, .preview-card span, .preview-card strong {
-      font-family: 'Tajawal', 'Inter', sans-serif;
-    }
-    .demo-fields-panel::-webkit-scrollbar {
-      width: 5px;
-    }
-    .demo-fields-panel::-webkit-scrollbar-track {
-      background: #f1f1f1;
-      border-radius: 10px;
-    }
-    .demo-fields-panel::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 10px;
-    }
-    .preview-card {
-      transition: transform 0.2s ease;
-      transform-origin: top left;
-      background: white;
-    }
-    input:focus, select:focus, textarea:focus {
-      outline: none;
-      ring: 2px solid #0F3B5C;
-      border-color: #0F3B5C;
-      box-shadow: 0 0 0 2px rgba(15,59,92,0.2);
-    }
-    .legal-preview-text {
-      line-height: 1.65;
-    }
-    .module-card {
-      transition: all 0.25s ease;
-    }
-    .module-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 25px 30px -12px rgba(0,0,0,0.12);
-    }
-    .hero-screenshot-mock {
-      background: linear-gradient(145deg, #EFF3F8 0%, #FFFFFF 100%);
-      border-radius: 32px;
-      box-shadow: 0 25px 40px -12px rgba(0,0,0,0.2);
-    }
-    [dir="rtl"] .flex-row-reverse-for-rtl {
-      flex-direction: row-reverse;
-    }
-    .transition-transform {
-      transition: transform 0.2s ease;
-    }
+    body { font-family: 'Inter', 'Tajawal', system-ui, sans-serif; background: #f8fafc; }
+    [dir="rtl"] body { font-family: 'Tajawal', 'Inter', system-ui, sans-serif; }
+    .gradient-text { background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%); background-clip: text; -webkit-background-clip: text; color: transparent; }
+    .hero-glow { position: relative; }
+    .hero-glow::before { content: ''; position: absolute; top: -30%; left: -20%; width: 140%; height: 160%; background: radial-gradient(ellipse at center, rgba(15,118,110,0.08) 0%, transparent 70%); pointer-events: none; }
+    .module-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .module-card:hover { transform: translateY(-6px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04); }
+    .feature-card { transition: all 0.3s ease; }
+    .feature-card:hover { transform: translateY(-3px); }
+    .screenshot-mock { background: linear-gradient(145deg, #f1f5f9 0%, #ffffff 100%); border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); }
+    .pricing-card { transition: all 0.3s ease; }
+    .pricing-card:hover { transform: translateY(-4px); }
+    .demo-fields::-webkit-scrollbar { width: 5px; }
+    .demo-fields::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+    .demo-fields::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    .lang-btn-active { background: #0f766e; color: white; border-color: #0f766e; }
+    input:focus, select:focus, textarea:focus { outline: none; ring: 2px solid #0f766e; border-color: #0f766e; box-shadow: 0 0 0 3px rgba(15,118,110,0.15); }
+    .stat-number { font-variant-numeric: tabular-nums; }
+    @keyframes countUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .count-animate { animation: countUp 0.6s ease-out forwards; }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
-    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between flex-wrap gap-3">
-      <div class="flex items-center gap-2">
-        <span class="text-2xl font-bold tracking-tight bg-gradient-to-r from-[#0B2F4E] to-[#276B8F] bg-clip-text text-transparent">TemplateFlow</span>
-      </div>
-      <div class="hidden md:flex gap-6 text-sm font-medium">
-        <a href="#features" class="hover:text-[#0F3B5C] transition" data-i18n="nav-features">Core</a>
-        <a href="#modules" class="hover:text-[#0F3B5C] transition" data-i18n="nav-modules">Modules</a>
-        <a href="#demo" class="hover:text-[#0F3B5C] transition" data-i18n="nav-demo">Live Demo</a>
-        <a href="#pricing" class="hover:text-[#0F3B5C] transition" data-i18n="nav-pricing">Pricing</a>
-      </div>
-      <div class="flex items-center gap-3">
-        <div class="flex bg-gray-100 rounded-full p-0.5">
-          <button data-lang="en" class="lang-switch px-3 py-1 text-xs rounded-full font-medium transition-all">EN</button>
-          <button data-lang="fr" class="lang-switch px-3 py-1 text-xs rounded-full font-medium transition-all">FR</button>
-          <button data-lang="ar" class="lang-switch px-3 py-1 text-xs rounded-full font-medium transition-all">AR</button>
+  <!-- ========== HEADER ========== -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-lg border-b border-gray-100/80">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <a href="#" class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-teal-600 to-teal-500 flex items-center justify-center text-white text-xs font-bold shadow-sm">M</div>
+          <span class="text-xl font-bold tracking-tight text-gray-900">Maktabaty<span class="text-teal-600">Pro</span></span>
+        </a>
+        <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-gray-600">
+          <a href="#features" class="hover:text-teal-600 transition" data-i18n="nav-features">Features</a>
+          <a href="#modules" class="hover:text-teal-600 transition" data-i18n="nav-modules">Modules</a>
+          <a href="#demo" class="hover:text-teal-600 transition" data-i18n="nav-demo">Live Demo</a>
+          <a href="#pricing" class="hover:text-teal-600 transition" data-i18n="nav-pricing">Pricing</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <div class="flex bg-gray-100 rounded-xl p-0.5 shadow-inner">
+            <button data-lang="en" class="lang-btn px-3 py-1.5 text-xs rounded-lg font-semibold transition-all text-gray-500 hover:text-gray-800">EN</button>
+            <button data-lang="fr" class="lang-btn px-3 py-1.5 text-xs rounded-lg font-semibold transition-all text-gray-500 hover:text-gray-800">FR</button>
+            <button data-lang="ar" class="lang-btn px-3 py-1.5 text-xs rounded-lg font-semibold transition-all text-gray-500 hover:text-gray-800">AR</button>
+          </div>
+          <a href="#pricing" class="hidden sm:inline-flex bg-teal-600 text-white text-sm px-5 py-2.5 rounded-xl font-semibold shadow-sm hover:bg-teal-700 transition-all hover:shadow-md" data-i18n="cta-buy">Get License</a>
         </div>
-        <a href="#pricing" class="bg-[#0F3B5C] text-white text-sm px-4 py-2 rounded-full font-medium shadow-sm hover:bg-[#082c46] transition" data-i18n="cta-buy">Get License</a>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section class="pt-16 pb-12 px-5 max-w-7xl mx-auto">
-      <div class="text-center max-w-3xl mx-auto mb-10">
-        <div class="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1 rounded-full mb-5">
-          <i class="fas fa-database"></i> <span data-i18n="hero-badge">Zero‑cloud · Total Sovereignty</span>
+    <!-- ========== HERO ========== -->
+    <section class="relative pt-16 pb-16 md:pt-24 md:pb-20 px-5 overflow-hidden">
+      <div class="hero-glow absolute inset-0 pointer-events-none"></div>
+      <div class="max-w-7xl mx-auto relative">
+        <div class="text-center max-w-4xl mx-auto mb-12">
+          <div class="inline-flex items-center gap-2 bg-teal-50 text-teal-700 text-xs font-semibold px-4 py-1.5 rounded-full mb-6 border border-teal-200/50">
+            <i class="fas fa-shield-halved text-teal-500 text-[10px]"></i>
+            <span data-i18n="hero-badge">100% Offline · Total Data Sovereignty</span>
+          </div>
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-gray-900" data-i18n="hero-title">
+            Professional productivity<br>
+            <span class="gradient-text">fully offline.</span>
+          </h1>
+          <p class="text-gray-500 text-lg md:text-xl mt-6 max-w-2xl mx-auto leading-relaxed" data-i18n="hero-desc">
+            The all-in-one suite for Moroccan professionals. Manage templates, edit PDFs, design cards, write documents, and plan your work — without subscriptions, without the cloud.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 mt-10">
+            <a href="https://github.com/OussamaTabDev/maktabatypro/releases" id="downloadBtn" class="bg-teal-600 text-white px-7 py-3.5 rounded-xl font-semibold flex items-center gap-2.5 shadow-lg hover:bg-teal-700 transition-all hover:shadow-xl hover:-translate-y-0.5">
+              <i class="fas fa-download"></i>
+              <span data-i18n="hero-download">Download Free Trial</span>
+            </a>
+            <a href="#demo" class="border border-gray-200 bg-white px-7 py-3.5 rounded-xl font-semibold text-gray-700 hover:bg-gray-50 transition-all hover:shadow-md flex items-center gap-2.5">
+              <i class="fas fa-play"></i>
+              <span data-i18n="hero-demo">Watch Demo</span>
+            </a>
+          </div>
         </div>
-        <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-tight" data-i18n="hero-title">One workspace for documents, PDFs,<br> <span class="gradient-text">templates and printing.</span></h1>
-        <p class="text-gray-600 text-lg mt-6 leading-relaxed max-w-2xl mx-auto" data-i18n="hero-desc">Create legal documents, edit PDFs, design cards and manage deadlines — without subscriptions or cloud storage. 100% offline, bank‑grade encryption.</p>
-        <div class="flex flex-wrap justify-center gap-4 mt-8">
-          <a
-            id="downloadBtn"
-            href="https://github.com/OussamaTabDev/TemplateFlow-Landing-Page/releases/tag/v1.0.0"
-            class="btn-primary text-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2 shadow-md"
-          >
-            <i class="fas fa-download"></i>
-            Download Trial
-          </a>
-<a href="#demo" class="border border-gray-300 bg-white px-6 py-3 rounded-xl font-semibold text-gray-800 hover:bg-gray-50 transition"><i class="fas fa-play"></i> <span data-i18n="hero-trial-btn">Watch Demo</span></a>
+        <div class="screenshot-mock max-w-5xl mx-auto overflow-hidden border border-gray-200/60 shadow-2xl">
+          <div class="bg-gray-50 px-5 py-3.5 border-b border-gray-200 flex items-center gap-2.5">
+            <div class="flex gap-1.5">
+              <div class="w-3 h-3 rounded-full bg-red-400"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+              <div class="w-3 h-3 rounded-full bg-green-400"></div>
+            </div>
+            <span class="text-xs text-gray-400 font-mono ml-2">MaktabatyPro — Professional Productivity Suite</span>
+          </div>
+          <img src="assets/landingPage.png" alt="MaktabatyPro Dashboard" class="w-full object-cover">
         </div>
-      </div>
-      <div class="hero-screenshot-mock w-full overflow-hidden rounded-2xl border border-gray-200/80 shadow-2xl mt-6">
-        <div class="bg-[#F2F5F9] px-4 py-3 border-b border-gray-200 flex items-center gap-2">
-          <div class="w-3 h-3 rounded-full bg-red-400"></div>
-          <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
-          <div class="w-3 h-3 rounded-full bg-green-400"></div>
-          <span class="text-xs text-gray-500 ml-2 font-mono">TemplateFlow Suite — Document Sovereignty</span>
-        </div>
-        <img src="assets/landingPage.png" alt="TemplateFlow Dashboard Screenshot" class="w-full object-cover">
       </div>
     </section>
 
-    <!-- Trusted by -->
-    <div class="max-w-7xl mx-auto px-5 py-8 border-y border-gray-100 bg-gray-50/40">
-      <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-4 text-sm font-medium text-gray-500 uppercase tracking-wide">
-        <span data-i18n="trust-1">Lawyers</span>
-        <span class="text-gray-300">•</span>
-        <span data-i18n="trust-2">Administrative Offices</span>
-        <span class="text-gray-300">•</span>
-        <span data-i18n="trust-3">Print Shops</span>
-        <span class="text-gray-300">•</span>
-        <span data-i18n="trust-4">Translators</span>
-        <span class="text-gray-300">•</span>
-        <span data-i18n="trust-5">Accountants</span>
+    <!-- ========== TRUSTED BY ========== -->
+    <div class="border-y border-gray-100 bg-white/50">
+      <div class="max-w-7xl mx-auto px-5 py-6">
+        <div class="flex flex-wrap justify-center items-center gap-x-10 gap-y-3 text-sm font-semibold text-gray-400 uppercase tracking-widest">
+          <span data-i18n="trust-1">Lawyers</span>
+          <span class="text-gray-200">•</span>
+          <span data-i18n="trust-2">Administrative Offices</span>
+          <span class="text-gray-200">•</span>
+          <span data-i18n="trust-3">Print Shops</span>
+          <span class="text-gray-200">•</span>
+          <span data-i18n="trust-4">Translators</span>
+          <span class="text-gray-200">•</span>
+          <span data-i18n="trust-5">Accountants</span>
+          <span class="text-gray-200">•</span>
+          <span data-i18n="trust-6">Notaries</span>
+        </div>
       </div>
     </div>
 
-    <!-- Features -->
+    <!-- ========== STATS ========== -->
+    <section class="py-16 px-5 bg-gradient-to-b from-white to-gray-50/50">
+      <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="stat-item">
+          <div class="text-3xl md:text-4xl font-black text-teal-600 stat-number"><span class="count-to" data-target="10">0</span>+</div>
+          <div class="text-sm text-gray-500 mt-1 font-medium" data-i18n="stat-modules">Professional Modules</div>
+        </div>
+        <div class="stat-item">
+          <div class="text-3xl md:text-4xl font-black text-teal-600 stat-number"><span class="count-to" data-target="100">0</span>%</div>
+          <div class="text-sm text-gray-500 mt-1 font-medium" data-i18n="stat-offline">Offline-First</div>
+        </div>
+        <div class="stat-item">
+          <div class="text-3xl md:text-4xl font-black text-teal-600 stat-number"><span class="count-to" data-target="4">0</span></div>
+          <div class="text-sm text-gray-500 mt-1 font-medium" data-i18n="stat-lang">Languages (AR/FR/EN/ES)</div>
+        </div>
+        <div class="stat-item">
+          <div class="text-3xl md:text-4xl font-black text-teal-600 stat-number"><span class="count-to" data-target="35">0</span>+</div>
+          <div class="text-sm text-gray-500 mt-1 font-medium" data-i18n="stat-tools">Built-in Tools</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FEATURES GRID ========== -->
     <section id="features" class="py-20 px-5">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-12">
-          <span class="text-sm uppercase tracking-wider text-blue-700 font-semibold" data-i18n="features-badge">unified platform</span>
-          <h2 class="text-3xl md:text-4xl font-bold mt-2" data-i18n="features-title">Everything you need, privately</h2>
-          <p class="text-gray-500 max-w-xl mx-auto mt-3" data-i18n="features-sub">No feature bloat. Just powerful offline modules that respect your data.</p>
+        <div class="text-center mb-14">
+          <span class="text-teal-600 text-sm font-semibold uppercase tracking-[0.15em]" data-i18n="features-badge">Everything you need</span>
+          <h2 class="text-3xl md:text-4xl font-bold mt-3 text-gray-900" data-i18n="features-title">One suite, infinite possibilities</h2>
+          <p class="text-gray-500 max-w-xl mx-auto mt-3 text-lg" data-i18n="features-sub">Ten powerful modules working together. No internet required.</p>
         </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div class="rounded-2xl p-6 bg-white shadow-sm border border-gray-100 hover:shadow-md transition">
-            <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4"><i class="fas fa-file-alt text-blue-700 text-xl"></i></div>
-            <h3 class="text-xl font-semibold" data-i18n="feat1-title">Create Documents</h3>
-            <p class="text-gray-600 mt-2 text-sm" data-i18n="feat1-desc">Legal templates, Power of Attorney, contracts — dynamic fields, RTL, instant preview.</p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="feature-card rounded-2xl p-7 bg-white shadow-sm border border-gray-100 hover:shadow-lg hover:border-teal-100">
+            <div class="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center mb-5 text-teal-600 text-lg"><i class="fas fa-file-contract"></i></div>
+            <h3 class="text-lg font-bold text-gray-900" data-i18n="feat1-title">Template Management</h3>
+            <p class="text-gray-500 mt-2 text-sm leading-relaxed" data-i18n="feat1-desc">Create and fill legal templates with dynamic fields, conditional logic, and live preview. Export to PDF or DOCX. Fully RTL-compatible.</p>
           </div>
-          <div class="rounded-2xl p-6 bg-white shadow-sm border border-gray-100 hover:shadow-md transition">
-            <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4"><i class="fas fa-vector-square text-blue-700 text-xl"></i></div>
-            <h3 class="text-xl font-semibold" data-i18n="feat2-title">Design Cards</h3>
-            <p class="text-gray-600 mt-2 text-sm" data-i18n="feat2-desc">Professional cards & labels. Multi‑image layouts, crop, rotate, skew, full creative control.</p>
+          <div class="feature-card rounded-2xl p-7 bg-white shadow-sm border border-gray-100 hover:shadow-lg hover:border-teal-100">
+            <div class="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center mb-5 text-amber-600 text-lg"><i class="fas fa-file-pdf"></i></div>
+            <h3 class="text-lg font-bold text-gray-900" data-i18n="feat2-title">PDF Library & Editor</h3>
+            <p class="text-gray-500 mt-2 text-sm leading-relaxed" data-i18n="feat2-desc">Centralized PDF vault with smart calendar, reminders, and annotations. Organize, search, tag, and bulk print — all locally stored.</p>
           </div>
-          <div class="rounded-2xl p-6 bg-white shadow-sm border border-gray-100 hover:shadow-md transition">
-            <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4"><i class="fas fa-book text-blue-700 text-xl"></i></div>
-            <h3 class="text-xl font-semibold" data-i18n="feat3-title">Manage PDFs</h3>
-            <p class="text-gray-600 mt-2 text-sm" data-i18n="feat3-desc">Centralized library, smart calendar, reminders, annotations, print queue — all offline.</p>
+          <div class="feature-card rounded-2xl p-7 bg-white shadow-sm border border-gray-100 hover:shadow-lg hover:border-teal-100">
+            <div class="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center mb-5 text-teal-600 text-lg"><i class="fas fa-layer-group"></i></div>
+            <h3 class="text-lg font-bold text-gray-900" data-i18n="feat3-title">PDF Toolbox</h3>
+            <p class="text-gray-500 mt-2 text-sm leading-relaxed" data-i18n="feat3-desc">Merge, split, organize, rotate, watermark, encrypt, compress, and convert PDFs. 10 professional tools in one unified interface.</p>
           </div>
-          <div class="rounded-2xl p-6 bg-white shadow-sm border border-gray-100 hover:shadow-md transition">
-            <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4"><i class="fas fa-calendar-alt text-blue-700 text-xl"></i></div>
-            <h3 class="text-xl font-semibold" data-i18n="feat4-title">Track Deadlines</h3>
-            <p class="text-gray-600 mt-2 text-sm" data-i18n="feat4-desc">Integrated calendar, renewal alerts, document expiry tracking. Never miss a deadline.</p>
+          <div class="feature-card rounded-2xl p-7 bg-white shadow-sm border border-gray-100 hover:shadow-lg hover:border-teal-100">
+            <div class="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center mb-5 text-amber-600 text-lg"><i class="fas fa-id-card"></i></div>
+            <h3 class="text-lg font-bold text-gray-900" data-i18n="feat4-title">Card Layout Designer</h3>
+            <p class="text-gray-500 mt-2 text-sm leading-relaxed" data-i18n="feat4-desc">Design ID cards, loyalty cards, labels with drag-and-drop images, free positioning, rotation, skew, and crop. Export with cut marks.</p>
+          </div>
+          <div class="feature-card rounded-2xl p-7 bg-white shadow-sm border border-gray-100 hover:shadow-lg hover:border-teal-100">
+            <div class="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center mb-5 text-teal-600 text-lg"><i class="fas fa-pen-to-square"></i></div>
+            <h3 class="text-lg font-bold text-gray-900" data-i18n="feat5-title">Rich Text Editor</h3>
+            <p class="text-gray-500 mt-2 text-sm leading-relaxed" data-i18n="feat5-desc">Full WYSIWYG word processor with tables, images, styles, multi-language support, and auto-save. Export to PDF or DOCX.</p>
+          </div>
+          <div class="feature-card rounded-2xl p-7 bg-white shadow-sm border border-gray-100 hover:shadow-lg hover:border-teal-100">
+            <div class="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center mb-5 text-amber-600 text-lg"><i class="fas fa-bookmark"></i></div>
+            <h3 class="text-lg font-bold text-gray-900" data-i18n="feat6-title">Link Library</h3>
+            <p class="text-gray-500 mt-2 text-sm leading-relaxed" data-i18n="feat6-desc">Curated bookmark manager for Moroccan administrative services. Categories, tags, favorites, favicon auto-fetch, and service info.</p>
+          </div>
+          <div class="feature-card rounded-2xl p-7 bg-white shadow-sm border border-gray-100 hover:shadow-lg hover:border-teal-100">
+            <div class="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center mb-5 text-teal-600 text-lg"><i class="fas fa-calendar-days"></i></div>
+            <h3 class="text-lg font-bold text-gray-900" data-i18n="feat7-title">Calendar Planning</h3>
+            <p class="text-gray-500 mt-2 text-sm leading-relaxed" data-i18n="feat7-desc">Integrated calendar with month, agenda, and heatmap views. Drag-and-drop planning, conflict detection, and keyboard shortcuts.</p>
+          </div>
+          <div class="feature-card rounded-2xl p-7 bg-white shadow-sm border border-gray-100 hover:shadow-lg hover:border-teal-100">
+            <div class="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center mb-5 text-amber-600 text-lg"><i class="fas fa-compress"></i></div>
+            <h3 class="text-lg font-bold text-gray-900" data-i18n="feat8-title">File Compressor</h3>
+            <p class="text-gray-500 mt-2 text-sm leading-relaxed" data-i18n="feat8-desc">Compress images and PDFs client-side. Quality slider, batch processing, ZIP download, and real-time compression stats.</p>
+          </div>
+          <div class="feature-card rounded-2xl p-7 bg-white shadow-sm border border-gray-100 hover:shadow-lg hover:border-teal-100">
+            <div class="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center mb-5 text-teal-600 text-lg"><i class="fas fa-shield-halved"></i></div>
+            <h3 class="text-lg font-bold text-gray-900" data-i18n="feat9-title">100% Offline & Private</h3>
+            <p class="text-gray-500 mt-2 text-sm leading-relaxed" data-i18n="feat9-desc">All data stored in encrypted IndexedDB. No cloud, no servers, no subscriptions. Bank-grade encryption. Total data sovereignty.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Modules -->
-    <section id="modules" class="py-16 px-5 bg-gray-50/60">
+    <!-- ========== MODULES DEEP DIVE ========== -->
+    <section id="modules" class="py-20 px-5 bg-gray-50/60">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-12">
-          <span class="bg-blue-100 text-blue-800 text-xs font-mono px-3 py-1 rounded-full" data-i18n="modules-badge">product suite</span>
-          <h2 class="text-3xl font-bold mt-3" data-i18n="modules-title">Tools that work the way you do</h2>
+        <div class="text-center mb-14">
+          <span class="bg-teal-100 text-teal-700 text-xs font-mono px-4 py-1.5 rounded-full font-semibold" data-i18n="modules-badge">deep dive</span>
+          <h2 class="text-3xl md:text-4xl font-bold mt-3 text-gray-900" data-i18n="modules-title">Explore every module</h2>
         </div>
-        <div class="space-y-20">
-          <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div class="space-y-24">
+          <!-- Module 1: Template Engine -->
+          <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div class="order-2 md:order-1">
-              <div class="bg-white rounded-xl shadow-md border border-gray-200 p-2 inline-block">
-                <img src="assets/cardlayout.png" alt="Card designer preview" class="rounded-lg w-full max-w-md shadow-sm">
+              <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-2 inline-block">
+                <img src="assets/workw.png" alt="Template Engine" class="rounded-lg w-full max-w-lg shadow-sm">
               </div>
             </div>
             <div class="order-1 md:order-2">
-              <span class="text-blue-600 text-sm font-semibold uppercase tracking-wide" data-i18n="card-badge">Card Layout Studio</span>
-              <h3 class="text-2xl font-bold mt-2" data-i18n="card-title">Design professional cards & labels</h3>
-              <p class="text-gray-600 mt-3" data-i18n="card-desc">ID cards, loyalty cards, business cards — drag & drop images, free positioning, rotation, skew, crop, and flip. Export to PDF with cut marks. 100% offline, no uploads.</p>
-              <ul class="mt-4 space-y-2 text-sm text-gray-700">
-                <li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="card-feat1">Unlimited images per card · local only</span></li>
-                <li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="card-feat2">Undo/Redo, templates & collages</span></li>
-                <li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="card-feat3">Direct print or batch queue</span></li>
+              <span class="text-teal-600 text-sm font-semibold uppercase tracking-wider" data-i18n="mod1-badge">Template Engine</span>
+              <h3 class="text-2xl md:text-3xl font-bold mt-2 text-gray-900" data-i18n="mod1-title">Smart document templates</h3>
+              <p class="text-gray-500 mt-3 leading-relaxed" data-i18n="mod1-desc">Create powerful templates with dynamic fields, conditional sections, loops, math expressions, and system variables. WYSIWYG editor with TipTap, live preview, batch fill, print queue, and draft history. Import from DOCX, share via QR.</p>
+              <ul class="mt-5 space-y-3 text-sm text-gray-600">
+                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="mod1-f1">Dynamic fields with conditionals & loops</span></li>
+                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="mod1-f2">Live preview in AR/FR/EN + full RTL</span></li>
+                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="mod1-f3">Export to PDF, DOCX, or direct print</span></li>
+                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="mod1-f4">Batch fill, draft history, QR sharing</span></li>
               </ul>
             </div>
           </div>
-          <div class="grid md:grid-cols-2 gap-10 items-center">
+          <!-- Module 2: PDF Library -->
+          <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
-              <span class="text-amber-600 text-sm font-semibold uppercase tracking-wide" data-i18n="pdf-badge">PDF Library & Smart Calendar</span>
-              <h3 class="text-2xl font-bold mt-2" data-i18n="pdf-title">Centralized PDF vault with planning</h3>
-              <p class="text-gray-600 mt-3" data-i18n="pdf-desc">Encrypted IndexedDB storage, assign date ranges, set reminders, track usage, and bulk print. Built‑in PDF editor for annotations, highlights, and signatures.</p>
-              <ul class="mt-4 space-y-2 text-sm text-gray-700">
-                <li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="pdf-feat1">Drag‑and‑drop import · auto‑indexing</span></li>
-                <li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="pdf-feat2">Calendar view: assign date ranges, shift+click intervals</span></li>
-                <li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="pdf-feat3">Reminders for renewals + desktop notifications</span></li>
+              <span class="text-amber-600 text-sm font-semibold uppercase tracking-wider" data-i18n="mod2-badge">PDF Library & Calendar</span>
+              <h3 class="text-2xl md:text-3xl font-bold mt-2 text-gray-900" data-i18n="mod2-title">Your PDF vault, smartly organized</h3>
+              <p class="text-gray-500 mt-3 leading-relaxed" data-i18n="mod2-desc">Centralized PDF management with encrypted IndexedDB storage. Assign date ranges, set renewal reminders, track usage, annotate pages, add signatures, and bulk print. Grid/list views with categories, tags, favorites, and full-text search.</p>
+              <ul class="mt-5 space-y-3 text-sm text-gray-600">
+                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span data-i18n="mod2-f1">Drag-and-drop import with auto-indexing</span></li>
+                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span data-i18n="mod2-f2">Calendar view with shift+click intervals</span></li>
+                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span data-i18n="mod2-f3">Reminders for renewals + desktop notifications</span></li>
+                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span data-i18n="mod2-f4">Built-in PDF editor: text, arrows, signatures</span></li>
               </ul>
             </div>
             <div class="flex justify-end">
-              <div class="bg-white rounded-xl shadow-md border border-gray-200 p-2">
-                <img src="assets/pdflib.png" alt="PDF library preview" class="rounded-lg w-full max-w-md shadow-sm">
+              <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-2">
+                <img src="assets/pdflib.png" alt="PDF Library" class="rounded-lg w-full max-w-lg shadow-sm">
               </div>
             </div>
           </div>
-          <div class="grid md:grid-cols-2 gap-10 items-center">
+          <!-- Module 3: PDF Toolbox -->
+          <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div class="order-2 md:order-1">
-              <div class="bg-white rounded-xl shadow-md border border-gray-200 p-2 inline-block">
-                <img src="assets/workw.png" alt="Word processor preview" class="rounded-lg w-full max-w-md shadow-sm">
+              <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-2 inline-block">
+                <img src="assets/workw.png" alt="PDF Toolbox" class="rounded-lg w-full max-w-lg shadow-sm">
               </div>
             </div>
             <div class="order-1 md:order-2">
-              <span class="text-emerald-600 text-sm font-semibold uppercase tracking-wide" data-i18n="word-badge">Offline Word Processor</span>
-              <h3 class="text-2xl font-bold mt-2" data-i18n="word-title">Write, edit, format — no cloud</h3>
-              <p class="text-gray-600 mt-3" data-i18n="word-desc">Rich text documents with full RTL support, tables, embedded images, and styles. Perfect for reports, letters, and official correspondence. Auto‑save to IndexedDB.</p>
-              <ul class="mt-4 space-y-2 text-sm text-gray-700">
-                <li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="word-feat1">Bilingual paragraphs (AR/FR/EN) + spell‑check</span></li>
-                <li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="word-feat2">Insert tables, lists, local images</span></li>
-                <li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="word-feat3">Export to PDF or direct print</span></li>
+              <span class="text-teal-600 text-sm font-semibold uppercase tracking-wider" data-i18n="mod3-badge">PDF Toolbox</span>
+              <h3 class="text-2xl md:text-3xl font-bold mt-2 text-gray-900" data-i18n="mod3-title">10 powerful PDF tools, offline</h3>
+              <p class="text-gray-500 mt-3 leading-relaxed" data-i18n="mod3-desc">A complete PDF processing workshop. Merge multiple PDFs with page range selection, split by visual selection or page ranges, reorganize pages with drag-and-drop, rotate, add watermarks, encrypt with passwords, compress, and convert to/from images.</p>
+              <ul class="mt-5 space-y-3 text-sm text-gray-600">
+                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="mod3-f1">Merge, Split, Organize, Rotate</span></li>
+                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="mod3-f2">Image to PDF / PDF to Image</span></li>
+                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="mod3-f3">Watermark, Security, Page Numbers</span></li>
+                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="mod3-f4">Compress — reduce file size client-side</span></li>
               </ul>
             </div>
           </div>
+          <!-- Module 4: Card Layout -->
+          <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div>
+              <span class="text-amber-600 text-sm font-semibold uppercase tracking-wider" data-i18n="mod4-badge">Card Layout Studio</span>
+              <h3 class="text-2xl md:text-3xl font-bold mt-2 text-gray-900" data-i18n="mod4-title">Design professional cards & labels</h3>
+              <p class="text-gray-500 mt-3 leading-relaxed" data-i18n="mod4-desc">Visual card and label designer powered by Konva canvas. ID cards, loyalty cards, business cards — drag and drop images, free positioning, rotation, skew, crop, and flip. Multi-page layouts, layers panel, alignment tools, undo/redo.</p>
+              <ul class="mt-5 space-y-3 text-sm text-gray-600">
+                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span data-i18n="mod4-f1">Unlimited images per card, fully offline</span></li>
+                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span data-i18n="mod4-f2">Undo/Redo, templates, and collages</span></li>
+                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span data-i18n="mod4-f3">Export to PDF with cut marks</span></li>
+                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span data-i18n="mod4-f4">Direct print or batch queue</span></li>
+              </ul>
+            </div>
+            <div class="flex justify-end">
+              <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-2">
+                <img src="assets/cardlayout.png" alt="Card Layout Designer" class="rounded-lg w-full max-w-lg shadow-sm">
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- WHY OFFLINE -->
-    <section class="py-20 px-5 max-w-5xl mx-auto text-center">
-      <div class="bg-white rounded-3xl shadow-sm border border-gray-200 p-10 md:p-16">
-        <i class="fas fa-shield-alt text-5xl text-[#0F3B5C] opacity-80 mb-4"></i>
-        <h2 class="text-3xl font-bold" data-i18n="offline-title">Why offline?</h2>
-        <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4 leading-relaxed" data-i18n="offline-desc">Your documents never leave your machine. No subscriptions. No cloud storage. No internet required. Total sovereignty — compliant with Moroccan data protection and GDPR.</p>
-        <div class="flex flex-wrap justify-center gap-8 mt-8 text-sm text-gray-500">
-          <span><i class="fas fa-microchip text-blue-600"></i> <span data-i18n="offline-local">Local IndexedDB</span></span>
-          <span><i class="fas fa-lock text-blue-600"></i> <span data-i18n="offline-encrypt">Bank‑grade encryption</span></span>
-          <span><i class="fas fa-language text-blue-600"></i> <span data-i18n="offline-bilingual">Arabic, French, English</span></span>
+    <!-- ========== WHY OFFLINE ========== -->
+    <section class="py-20 px-5">
+      <div class="max-w-5xl mx-auto">
+        <div class="bg-white rounded-3xl shadow-sm border border-gray-100 p-10 md:p-16 text-center">
+          <div class="w-16 h-16 rounded-2xl bg-teal-50 flex items-center justify-center mx-auto mb-6 text-teal-600 text-3xl"><i class="fas fa-shield-halved"></i></div>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900" data-i18n="offline-title">Your data never leaves your machine</h2>
+          <p class="text-gray-500 text-lg max-w-2xl mx-auto mt-4 leading-relaxed" data-i18n="offline-desc">No subscriptions. No cloud storage. No internet required. Every document, template, and PDF stays in encrypted local storage on your device. Total sovereignty — compliant with Moroccan data protection and GDPR.</p>
+          <div class="flex flex-wrap justify-center gap-8 mt-10">
+            <div class="flex items-center gap-2.5 text-sm text-gray-600 bg-gray-50 px-5 py-2.5 rounded-xl"><i class="fas fa-database text-teal-600"></i> <span data-i18n="offline-local">Local IndexedDB Storage</span></div>
+            <div class="flex items-center gap-2.5 text-sm text-gray-600 bg-gray-50 px-5 py-2.5 rounded-xl"><i class="fas fa-lock text-teal-600"></i> <span data-i18n="offline-encrypt">Bank-grade Encryption</span></div>
+            <div class="flex items-center gap-2.5 text-sm text-gray-600 bg-gray-50 px-5 py-2.5 rounded-xl"><i class="fas fa-language text-teal-600"></i> <span data-i18n="offline-bilingual">Arabic, French, English, Spanish</span></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- INTERACTIVE DEMO -->
-    <section id="demo" class="py-16 px-5 bg-gradient-to-b from-white to-gray-50">
+    <!-- ========== INTERACTIVE DEMO ========== -->
+    <section id="demo" class="py-20 px-5 bg-gradient-to-b from-white to-gray-50">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-8">
-          <span class="bg-blue-100 text-blue-800 text-xs font-mono px-3 py-1 rounded-full" data-i18n="demo-badge">live template · Power of Attorney</span>
-          <h2 class="text-3xl font-bold mt-3" data-i18n="demo-title">Try the smart template engine</h2>
-          <p class="text-gray-500 max-w-xl mx-auto mt-2" data-i18n="demo-desc">Fill the fields and see the document update instantly in Arabic, French or English — zero cloud, pure offline preview.</p>
+        <div class="text-center mb-10">
+          <span class="bg-teal-100 text-teal-700 text-xs font-mono px-4 py-1.5 rounded-full font-semibold" data-i18n="demo-badge">live preview · Power of Attorney</span>
+          <h2 class="text-3xl md:text-4xl font-bold mt-3 text-gray-900" data-i18n="demo-title">See the template engine in action</h2>
+          <p class="text-gray-500 max-w-xl mx-auto mt-2" data-i18n="demo-desc">Fill the fields and watch the document update instantly in Arabic, French, or English. Zero server calls — pure offline preview.</p>
         </div>
         <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
-          <div class="p-4 border-b border-gray-100 flex flex-wrap items-center justify-between gap-3 bg-gray-50/50">
+          <div class="px-5 py-4 border-b border-gray-100 flex flex-wrap items-center justify-between gap-3 bg-gray-50/50">
             <div class="flex items-center gap-2">
-              <i class="fas fa-gavel text-gray-500"></i>
-              <span class="font-semibold text-sm" data-i18n="demo-template-name">Special Power of Attorney · وكالة خاصة</span>
+              <i class="fas fa-gavel text-gray-400"></i>
+              <span class="font-semibold text-sm text-gray-700" data-i18n="demo-template-name">Special Power of Attorney · وكالة خاصة</span>
             </div>
             <div class="flex items-center gap-3">
               <div class="flex rounded-lg bg-gray-100 p-0.5">
-                <button data-preview-lang="ar" class="preview-lang-btn px-3 py-1 text-xs rounded-md transition-all">العربية</button>
-                <button data-preview-lang="fr" class="preview-lang-btn px-3 py-1 text-xs rounded-md transition-all">Français</button>
-                <button data-preview-lang="en" class="preview-lang-btn px-3 py-1 text-xs rounded-md transition-all">English</button>
+                <button data-preview-lang="ar" class="preview-lang px-3 py-1.5 text-xs rounded-md font-medium transition-all text-gray-500 hover:text-gray-800">العربية</button>
+                <button data-preview-lang="fr" class="preview-lang px-3 py-1.5 text-xs rounded-md font-medium transition-all text-gray-500 hover:text-gray-800">Français</button>
+                <button data-preview-lang="en" class="preview-lang px-3 py-1.5 text-xs rounded-md font-medium transition-all text-gray-500 hover:text-gray-800">English</button>
               </div>
-              <button id="zoomOutDemo" class="px-2 py-1 text-xs border rounded hover:bg-gray-100"><i class="fas fa-search-minus"></i></button>
-              <span id="zoomValue" class="text-xs w-12 text-center">100%</span>
-              <button id="zoomInDemo" class="px-2 py-1 text-xs border rounded hover:bg-gray-100"><i class="fas fa-search-plus"></i></button>
+              <div class="flex items-center gap-1 text-xs text-gray-400">
+                <button id="zoomOut" class="px-2 py-1 border rounded hover:bg-gray-100"><i class="fas fa-minus"></i></button>
+                <span id="zoomVal" class="w-10 text-center font-mono">100%</span>
+                <button id="zoomIn" class="px-2 py-1 border rounded hover:bg-gray-100"><i class="fas fa-plus"></i></button>
+              </div>
             </div>
           </div>
           <div class="grid md:grid-cols-2 divide-x divide-gray-100">
-            <div class="p-6 space-y-5 bg-white max-h-[620px] overflow-y-auto demo-fields-panel">
-              <div><label class="block text-sm font-bold text-gray-700" data-i18n="field-fullname">Full Name</label><input type="text" id="fullName" class="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm" value="فاطمة الزهراء"></div>
-              <div><label class="block text-sm font-bold text-gray-700" data-i18n="field-cin">National ID (CIN)</label><input type="text" id="cin" class="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm font-mono" value="AB678932"></div>
-              <div><label class="block text-sm font-bold text-gray-700" data-i18n="field-address">Address</label><textarea id="address" rows="2" class="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm">12 Mohamed V Street, Casablanca</textarea></div>
-              <div class="border-t pt-3"><p class="text-xs font-semibold text-gray-500 mb-3" data-i18n="agent-label">📌 Agent / Mandataire (Mandatory)</p>
-                <div class="space-y-4"><input type="text" id="agentName" placeholder="Agent full name" class="w-full border rounded-lg px-4 py-2.5 text-sm" value="Ahmed El Fassi"><input type="text" id="agentCin" placeholder="Agent CIN" class="w-full border rounded-lg px-4 py-2.5 text-sm font-mono" value="CD987123"><textarea id="agentAddress" rows="2" placeholder="Agent address" class="w-full border rounded-lg px-4 py-2.5 text-sm">Rabat, Riyad district</textarea></div>
+            <div class="p-6 space-y-5 bg-white max-h-[640px] overflow-y-auto demo-fields">
+              <div>
+                <label class="block text-sm font-semibold text-gray-700" data-i18n="field-fullname">Full Name</label>
+                <input type="text" id="fullName" class="mt-1.5 w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm bg-gray-50/50 focus:bg-white transition" value="فاطمة الزهراء">
               </div>
-              <div><label class="block text-sm font-bold text-gray-700" data-i18n="field-authority">Authority / Powers (الصلاحيات)</label><textarea id="authorityText" rows="3" class="mt-1 w-full border rounded-lg px-4 py-2.5 text-sm">في كل ما تصح به النيابة عنا في استخراج النقود من صندوق المحكمة و القيام بجميع الإجراءات التي يتطلبها الأمر و توقيع و إمضاء الوثائق اللازمة بذلك</textarea></div>
-              <div class="grid grid-cols-2 gap-4"><div><label data-i18n="field-city">City</label><input type="text" id="city" class="w-full border rounded-lg px-4 py-2.5 text-sm" value="Khenifra"></div><div><label data-i18n="field-date">Date</label><input type="date" id="dateDoc" class="w-full border rounded-lg px-4 py-2.5 text-sm" value="2026-06-02"></div></div>
-              <div class="text-[11px] text-gray-400 italic border-t pt-3 mt-2"><i class="fas fa-shield-alt"></i> <span data-i18n="demo-footer">live preview · 0 server calls · TemplateFlow engine</span></div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-700" data-i18n="field-cin">National ID (CIN)</label>
+                <input type="text" id="cin" class="mt-1.5 w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm font-mono bg-gray-50/50 focus:bg-white transition" value="AB678932">
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-700" data-i18n="field-address">Address</label>
+                <textarea id="address" rows="2" class="mt-1.5 w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm bg-gray-50/50 focus:bg-white transition">12 Mohamed V Street, Casablanca</textarea>
+              </div>
+              <div class="border-t border-gray-100 pt-5">
+                <p class="text-xs font-semibold text-gray-500 mb-3 flex items-center gap-2"><i class="fas fa-user-tie text-teal-600"></i> <span data-i18n="agent-label">Agent / Mandataire (Mandatory)</span></p>
+                <div class="space-y-4">
+                  <input type="text" id="agentName" placeholder="Agent full name" class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm bg-gray-50/50 focus:bg-white transition" value="Ahmed El Fassi">
+                  <input type="text" id="agentCin" placeholder="Agent CIN" class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm font-mono bg-gray-50/50 focus:bg-white transition" value="CD987123">
+                  <textarea id="agentAddress" rows="2" placeholder="Agent address" class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm bg-gray-50/50 focus:bg-white transition">Rabat, Riyad district</textarea>
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-700" data-i18n="field-authority">Authority / Powers</label>
+                <textarea id="authorityText" rows="3" class="mt-1.5 w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm bg-gray-50/50 focus:bg-white transition">في كل ما تصح به النيابة عنا في استخراج النقود من صندوق المحكمة و القيام بجميع الإجراءات التي يتطلبها الأمر و توقيع و إمضاء الوثائق اللازمة بذلك</textarea>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-semibold text-gray-700" data-i18n="field-city">City</label>
+                  <input type="text" id="city" class="mt-1.5 w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm bg-gray-50/50 focus:bg-white transition" value="Khenifra">
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-gray-700" data-i18n="field-date">Date</label>
+                  <input type="date" id="dateDoc" class="mt-1.5 w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm bg-gray-50/50 focus:bg-white transition" value="2026-07-03">
+                </div>
+              </div>
+              <div class="text-[11px] text-gray-400 italic border-t border-gray-100 pt-4 mt-2 flex items-center gap-2">
+                <i class="fas fa-shield-halved text-teal-400"></i>
+                <span data-i18n="demo-footer">Live preview · 0 server calls · MaktabatyPro engine</span>
+              </div>
             </div>
-            <div class="p-6 bg-gray-50/40 flex justify-center items-start min-h-[620px]">
+            <div class="p-6 bg-gray-50/40 flex justify-center items-start min-h-[640px]">
               <div class="w-full overflow-auto max-h-[580px] shadow-inner rounded-xl bg-white">
-                <div id="previewCard" class="preview-card p-6 md:p-8 transition-all" style="transform-origin:top left">
-                  <div id="dynamicTemplatePreview" class="legal-preview-text"></div>
+                <div id="previewCard" class="preview-card p-6 md:p-8 transition-all" style="transform-origin: top left">
+                  <div id="templatePreview" class="leading-relaxed text-gray-800"></div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="bg-gray-50 px-5 py-2 text-[11px] text-gray-400 border-t flex justify-between"><span><i class="fas fa-database mr-1"></i> <span data-i18n="demo-footer-bottom">Zero cloud · Full local encryption ready</span></span><span class="font-mono">وكالة خاصة | TemplateFlow v3.0</span></div>
+          <div class="bg-gray-50 px-5 py-2.5 text-[11px] text-gray-400 border-t flex justify-between">
+            <span><i class="fas fa-database mr-1.5"></i> <span data-i18n="demo-footer-bottom">Zero cloud · Full local encryption ready</span></span>
+            <span class="font-mono">وكالة خاصة | MaktabatyPro v3.5</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Pricing -->
-    <section id="pricing" class="py-20 px-5 max-w-5xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold" data-i18n="pricing-title">Simple, transparent licensing</h2>
-        <p class="text-gray-500 mt-2" data-i18n="pricing-sub">One‑time payment. No recurring fees. Yours forever.</p>
-      </div>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm hover:shadow-md transition">
-          <h3 class="text-2xl font-bold" data-i18n="trial-title">Free Trial</h3>
-          <div class="mt-2 mb-6"><span class="text-4xl font-black" data-i18n="trial-price">14 days</span><span class="text-gray-500"> / full access</span></div>
-          <ul class="space-y-3 text-sm">
-            <li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="trial-feat1">All modules: Documents, PDF, Cards</span></li><li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="trial-feat2">Local IndexedDB storage</span></li><li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="trial-feat3">AR/FR/EN + RTL</span></li><li><i class="fas fa-check-circle text-green-600 w-5"></i> <span data-i18n="trial-feat4">No credit card required</span></li>
-          </ul>
-          <div class="mt-8"><a href="https://github.com/OussamaTabDev/TemplateFlow-Landing-Page/releases/tag/v1.0.0" class="block text-center border border-gray-300 rounded-xl py-2.5 font-medium hover:bg-gray-50 transition" data-i18n="trial-btn">Start free trial</a></div>
+    <!-- ========== PRICING ========== -->
+    <section id="pricing" class="py-20 px-5">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900" data-i18n="pricing-title">Simple, transparent licensing</h2>
+          <p class="text-gray-500 mt-2 text-lg" data-i18n="pricing-sub">One-time payment. No recurring fees. Yours forever.</p>
         </div>
-        <div class="rounded-2xl border-2 border-[#0F3B5C] bg-white p-8 shadow-xl relative">
-          <div class="absolute top-0 right-6 -translate-y-3 bg-[#0F3B5C] text-white text-xs px-3 py-1 rounded-full" data-i18n="popular-badge">Lifetime</div>
-          <h3 class="text-2xl font-bold" data-i18n="full-title">Full License</h3>
-          <div class="mt-2 mb-6"><span class="text-4xl font-black">1999 DH</span><span class="text-gray-500"> <span data-i18n="one-time">one‑time</span></span></div>
-          <ul class="space-y-3 text-sm">
-            <li><i class="fas fa-check-circle text-green-600"></i> <span data-i18n="full-feat1">Unlimited local documents & PDFs</span></li><li><i class="fas fa-check-circle text-green-600"></i> <span data-i18n="full-feat2">Advanced PDF editor + signature pad</span></li><li><i class="fas fa-check-circle text-green-600"></i> <span data-i18n="full-feat3">Card designer pro (cut marks, batch)</span></li><li><i class="fas fa-check-circle text-green-600"></i> <span data-i18n="full-feat4">Lifetime updates + future tools (OCR, compress, merge)</span></li><li><i class="fas fa-check-circle text-green-600"></i> <span data-i18n="full-feat5">Priority support, offline activation</span></li>
-          </ul>
-          <div class="mt-8"><button id="openPurchaseModal" class="w-full text-center bg-[#0F3B5C] text-white rounded-xl py-2.5 font-medium hover:bg-[#082c46] transition" data-i18n="buy-now-btn">Purchase License →</button></div>
+        <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+          <!-- Free Trial -->
+          <div class="pricing-card rounded-2xl border border-gray-200 bg-white p-8 shadow-sm hover:shadow-lg">
+            <h3 class="text-2xl font-bold text-gray-900" data-i18n="trial-title">Free Trial</h3>
+            <div class="mt-3 mb-6">
+              <span class="text-4xl font-black text-gray-900" data-i18n="trial-price">14 days</span>
+              <span class="text-gray-500 text-sm"> / full access</span>
+            </div>
+            <ul class="space-y-3.5 text-sm">
+              <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="trial-f1">All core modules: Templates, PDF, Cards</span></li>
+              <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="trial-f2">Local IndexedDB encrypted storage</span></li>
+              <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="trial-f3">AR/FR/EN/ES + full RTL support</span></li>
+              <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="trial-f4">No credit card required</span></li>
+            </ul>
+            <div class="mt-8">
+              <a href="https://github.com/OussamaTabDev/maktabatypro/releases" class="block text-center border border-gray-200 rounded-xl py-3 font-semibold text-gray-700 hover:bg-gray-50 transition hover:shadow-sm" data-i18n="trial-btn">Start Free Trial</a>
+            </div>
+          </div>
+          <!-- Full License -->
+          <div class="pricing-card rounded-2xl border-2 border-teal-600 bg-white p-8 shadow-xl relative hover:shadow-2xl">
+            <div class="absolute -top-3 right-6 bg-teal-600 text-white text-xs px-4 py-1.5 rounded-full font-semibold shadow-sm" data-i18n="popular-badge">Lifetime</div>
+            <h3 class="text-2xl font-bold text-gray-900" data-i18n="full-title">Full License</h3>
+            <div class="mt-3 mb-6">
+              <span class="text-4xl font-black text-gray-900">1,999 DH</span>
+              <span class="text-gray-500 text-sm"> <span data-i18n="one-time">one-time</span></span>
+            </div>
+            <ul class="space-y-3.5 text-sm">
+              <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="full-f1">Unlimited documents, PDFs & exports</span></li>
+              <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="full-f2">All 10 PDF toolbox tools unlocked</span></li>
+              <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="full-f3">Card designer pro (cut marks, batch)</span></li>
+              <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="full-f4">Lifetime updates + future tools</span></li>
+              <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="full-f5">Priority support, offline activation</span></li>
+            </ul>
+            <div class="mt-8">
+              <button id="openPurchaseModal" class="w-full text-center bg-teal-600 text-white rounded-xl py-3 font-semibold hover:bg-teal-700 transition shadow-lg hover:shadow-xl" data-i18n="buy-btn">
+                Purchase License →
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <footer class="border-t border-gray-200 py-10 px-5 bg-gray-50/40">
-      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-        <span>© 2026 TemplateFlow — <span data-i18n="footer-text">Total document sovereignty for professionals.</span></span>
-        <div class="flex gap-5"><span><i class="fas fa-envelope"></i> support@templateflow.ma</span><span><i class="fas fa-map-marker-alt"></i> Casablanca · Rabat</span></div>
+    <!-- ========== FOOTER ========== -->
+    <footer class="border-t border-gray-100 bg-gray-50/50">
+      <div class="max-w-7xl mx-auto px-5 py-12">
+        <div class="grid md:grid-cols-3 gap-8 text-sm text-gray-500">
+          <div>
+            <div class="flex items-center gap-2 mb-4">
+              <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-teal-600 to-teal-500 flex items-center justify-center text-white text-xs font-bold">M</div>
+              <span class="font-bold text-gray-800">MaktabatyPro</span>
+            </div>
+            <p data-i18n="footer-desc">Professional Productivity Suite for Morocco. All-in-one offline workspace for templates, PDFs, cards, and documents.</p>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800 mb-3" data-i18n="footer-product">Product</h4>
+            <ul class="space-y-2">
+              <li><a href="#features" class="hover:text-teal-600 transition" data-i18n="nav-features">Features</a></li>
+              <li><a href="#modules" class="hover:text-teal-600 transition" data-i18n="nav-modules">Modules</a></li>
+              <li><a href="#pricing" class="hover:text-teal-600 transition" data-i18n="nav-pricing">Pricing</a></li>
+              <li><a href="#demo" class="hover:text-teal-600 transition" data-i18n="nav-demo">Live Demo</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800 mb-3" data-i18n="footer-contact">Contact</h4>
+            <ul class="space-y-2">
+              <li><i class="fas fa-envelope w-5 text-teal-600"></i> support@maktabatypro.com</li>
+              <li><i class="fas fa-globe w-5 text-teal-600"></i> www.maktabatypro.com</li>
+              <li><i class="fas fa-map-pin w-5 text-teal-600"></i> Morocco</li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-100 mt-10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
+          <span>© 2026 MaktabatyPro. <span data-i18n="footer-rights">All rights reserved.</span></span>
+          <span data-i18n="footer-tagline">Total document sovereignty for Moroccan professionals.</span>
+        </div>
       </div>
     </footer>
   </main>
 
-  <!-- Modal -->
-  <div id="purchaseModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 invisible opacity-0 transition-all duration-300 px-4">
+  <!-- ========== PURCHASE MODAL ========== -->
+  <div id="purchaseModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 invisible opacity-0 transition-all duration-300 px-4">
     <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl">
       <div class="p-6 border-b border-gray-100 flex justify-between items-center">
-        <h3 class="text-xl font-bold" data-i18n="modal-title">Complete Your License</h3>
-        <button id="closeModalBtn" class="text-gray-400 hover:text-gray-600"><i class="fas fa-times"></i></button>
+        <h3 class="text-xl font-bold text-gray-900" data-i18n="modal-title">Complete Your License</h3>
+        <button id="closeModalBtn" class="text-gray-400 hover:text-gray-600 transition w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100"><i class="fas fa-xmark"></i></button>
       </div>
-      <div class="p-6 space-y-4">
-        <div class="bg-gray-50 rounded-xl p-3 flex justify-between"><span class="font-medium" data-i18n="modal-product">TemplateFlow Full License</span><span class="font-bold">1999 DH</span></div>
-        <div><label class="block text-sm font-medium" data-i18n="modal-name">Full Name</label><input type="text" id="buyerName" class="mt-1 w-full border rounded-lg px-3 py-2" placeholder="Ahmed Bennani"></div>
-        <div><label class="block text-sm font-medium" data-i18n="modal-email">Email</label><input type="email" id="buyerEmail" class="mt-1 w-full border rounded-lg px-3 py-2" placeholder="contact@example.com"></div>
-        <div><label class="block text-sm font-medium" data-i18n="modal-phone">Phone (optional)</label><input type="tel" id="buyerPhone" class="mt-1 w-full border rounded-lg px-3 py-2" placeholder="+212 6XX XXX XXX"></div>
-        <button id="confirmPurchaseBtn" class="w-full bg-emerald-700 text-white py-3 rounded-xl font-semibold hover:bg-emerald-800 transition" data-i18n="modal-pay">Pay 1999 DH & Get License</button>
-        <p class="text-[10px] text-gray-400 text-center" data-i18n="modal-secure">🔒 Secure payment · Moroccan partners</p>
+      <div class="p-6 space-y-5">
+        <div class="bg-teal-50 rounded-xl p-4 flex justify-between items-center">
+          <span class="font-semibold text-gray-800" data-i18n="modal-product">MaktabatyPro Full License</span>
+          <span class="font-bold text-teal-700">1,999 DH</span>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700" data-i18n="modal-name">Full Name</label>
+          <input type="text" id="buyerName" class="mt-1.5 w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm bg-gray-50/50 focus:bg-white transition" placeholder="Ahmed Bennani">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700" data-i18n="modal-email">Email</label>
+          <input type="email" id="buyerEmail" class="mt-1.5 w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm bg-gray-50/50 focus:bg-white transition" placeholder="contact@example.com">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700" data-i18n="modal-phone">Phone (optional)</label>
+          <input type="tel" id="buyerPhone" class="mt-1.5 w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm bg-gray-50/50 focus:bg-white transition" placeholder="+212 6XX XXX XXX">
+        </div>
+        <button id="confirmPurchaseBtn" class="w-full bg-teal-600 text-white py-3.5 rounded-xl font-semibold hover:bg-teal-700 transition shadow-lg" data-i18n="modal-pay">Pay 1,999 DH & Get License</button>
+        <p class="text-[10px] text-gray-400 text-center flex items-center justify-center gap-2"><i class="fas fa-lock text-teal-400"></i> <span data-i18n="modal-secure">Secure payment · Moroccan payment partners</span></p>
       </div>
     </div>
   </div>
 
   <script>
-    // FULL LOCALIZATION: English, French, Arabic (complete rich translations)
+    // ======================== TRANSLATIONS ========================
     const translations = {
-      en: { 
-        "nav-features":"Core","nav-modules":"Modules","nav-demo":"Live Demo","nav-pricing":"Pricing","cta-buy":"Get License",
-        "hero-badge":"Zero‑cloud · Total Sovereignty","hero-title":"One workspace for documents, PDFs,<br> <span class='gradient-text'>templates and printing.</span>","hero-desc":"Create legal documents, edit PDFs, design cards and manage deadlines — without subscriptions or cloud storage. 100% offline, bank‑grade encryption.","hero-demo-btn":"Download Trial","hero-trial-btn":"Watch Demo",
-        "trust-1":"Lawyers","trust-2":"Administrative Offices","trust-3":"Print Shops","trust-4":"Translators","trust-5":"Accountants",
-        "features-badge":"unified platform","features-title":"Everything you need, privately","features-sub":"No feature bloat. Just powerful offline modules.","feat1-title":"Create Documents","feat1-desc":"Legal templates, Power of Attorney, contracts — dynamic fields, RTL.","feat2-title":"Design Cards","feat2-desc":"Professional cards & labels. Multi‑image layouts, crop, rotate, skew.","feat3-title":"Manage PDFs","feat3-desc":"Centralized library, smart calendar, reminders, annotations — all offline.","feat4-title":"Track Deadlines","feat4-desc":"Integrated calendar, renewal alerts, document expiry tracking.",
-        "modules-badge":"product suite","modules-title":"Tools that work the way you do","card-badge":"Card Layout Studio","card-title":"Design professional cards & labels","card-desc":"ID cards, loyalty cards, business cards — drag & drop images, free positioning, rotation, skew, crop, and flip. Export to PDF with cut marks.","card-feat1":"Unlimited images per card · local only","card-feat2":"Undo/Redo, templates & collages","card-feat3":"Direct print or batch queue",
-        "pdf-badge":"PDF Library & Smart Calendar","pdf-title":"Centralized PDF vault with planning","pdf-desc":"Encrypted IndexedDB storage, assign date ranges, set reminders, track usage, and bulk print. Built‑in PDF editor for annotations, highlights, and signatures.","pdf-feat1":"Drag‑and‑drop import · auto‑indexing","pdf-feat2":"Calendar view: assign date ranges, shift+click intervals","pdf-feat3":"Reminders for renewals + desktop notifications",
-        "word-badge":"Offline Word Processor","word-title":"Write, edit, format — no cloud","word-desc":"Rich text documents with full RTL support, tables, embedded images, and styles. Auto‑save to IndexedDB.","word-feat1":"Bilingual paragraphs (AR/FR/EN) + spell‑check","word-feat2":"Insert tables, lists, local images","word-feat3":"Export to PDF or direct print",
-        "offline-title":"Why offline?","offline-desc":"Your documents never leave your machine. No subscriptions. No cloud storage. No internet required. Total sovereignty — compliant with Moroccan data protection and GDPR.","offline-local":"Local IndexedDB","offline-encrypt":"Bank‑grade encryption","offline-bilingual":"Arabic, French, English",
-        "demo-badge":"live template · Power of Attorney","demo-title":"Try the smart template engine","demo-desc":"Fill the fields and see the document update instantly in Arabic, French or English — zero cloud, pure offline preview.","demo-template-name":"Special Power of Attorney · وكالة خاصة","field-fullname":"Full Name","field-cin":"National ID (CIN)","field-address":"Address","agent-label":"📌 Agent / Mandataire (Mandatory)","field-authority":"Authority / Powers (الصلاحيات)","field-city":"City","field-date":"Date","demo-footer":"live preview · 0 server calls · TemplateFlow engine","demo-footer-bottom":"Zero cloud · Full local encryption ready",
-        "pricing-title":"Simple, transparent licensing","pricing-sub":"One‑time payment. No recurring fees.","trial-title":"Free Trial","trial-price":"14 days","trial-feat1":"All modules: Documents, PDF, Cards","trial-feat2":"Local IndexedDB storage","trial-feat3":"AR/FR/EN + RTL","trial-feat4":"No credit card required","trial-btn":"Start free trial","full-title":"Full License","one-time":"one‑time","full-feat1":"Unlimited local documents & PDFs","full-feat2":"Advanced PDF editor + signature pad","full-feat3":"Card designer pro (cut marks, batch)","full-feat4":"Lifetime updates + future tools (OCR, compress, merge)","full-feat5":"Priority support, offline activation","buy-now-btn":"Purchase License →","popular-badge":"Lifetime","footer-text":"Total document sovereignty for professionals.","modal-title":"Complete Your License","modal-product":"TemplateFlow Full License","modal-name":"Full Name","modal-email":"Email","modal-phone":"Phone (optional)","modal-pay":"Pay 1999 DH & Get License","modal-secure":"🔒 Secure payment · Moroccan partners"
+      en: {
+        "nav-features": "Features", "nav-modules": "Modules", "nav-demo": "Live Demo", "nav-pricing": "Pricing", "cta-buy": "Get License",
+        "hero-badge": "100% Offline · Total Data Sovereignty",
+        "hero-title": "Professional productivity<br> <span class='gradient-text'>fully offline.</span>",
+        "hero-desc": "The all-in-one suite for Moroccan professionals. Manage templates, edit PDFs, design cards, write documents, and plan your work — without subscriptions, without the cloud.",
+        "hero-download": "Download Free Trial", "hero-demo": "Watch Demo",
+        "trust-1": "Lawyers", "trust-2": "Administrative Offices", "trust-3": "Print Shops", "trust-4": "Translators", "trust-5": "Accountants", "trust-6": "Notaries",
+        "stat-modules": "Professional Modules", "stat-offline": "Offline-First", "stat-lang": "Languages (AR/FR/EN/ES)", "stat-tools": "Built-in Tools",
+        "features-badge": "Everything you need", "features-title": "One suite, infinite possibilities", "features-sub": "Ten powerful modules working together. No internet required.",
+        "feat1-title": "Template Management", "feat1-desc": "Create and fill legal templates with dynamic fields, conditional logic, and live preview. Export to PDF or DOCX. Fully RTL-compatible.",
+        "feat2-title": "PDF Library & Editor", "feat2-desc": "Centralized PDF vault with smart calendar, reminders, and annotations. Organize, search, tag, and bulk print — all locally stored.",
+        "feat3-title": "PDF Toolbox", "feat3-desc": "Merge, split, organize, rotate, watermark, encrypt, compress, and convert PDFs. 10 professional tools in one unified interface.",
+        "feat4-title": "Card Layout Designer", "feat4-desc": "Design ID cards, loyalty cards, labels with drag-and-drop images, free positioning, rotation, skew, and crop. Export with cut marks.",
+        "feat5-title": "Rich Text Editor", "feat5-desc": "Full WYSIWYG word processor with tables, images, styles, multi-language support, and auto-save. Export to PDF or DOCX.",
+        "feat6-title": "Link Library", "feat6-desc": "Curated bookmark manager for Moroccan administrative services. Categories, tags, favorites, favicon auto-fetch, and service info.",
+        "feat7-title": "Calendar Planning", "feat7-desc": "Integrated calendar with month, agenda, and heatmap views. Drag-and-drop planning, conflict detection, and keyboard shortcuts.",
+        "feat8-title": "File Compressor", "feat8-desc": "Compress images and PDFs client-side. Quality slider, batch processing, ZIP download, and real-time compression stats.",
+        "feat9-title": "100% Offline & Private", "feat9-desc": "All data stored in encrypted IndexedDB. No cloud, no servers, no subscriptions. Bank-grade encryption. Total data sovereignty.",
+        "modules-badge": "deep dive", "modules-title": "Explore every module",
+        "mod1-badge": "Template Engine", "mod1-title": "Smart document templates", "mod1-desc": "Create powerful templates with dynamic fields, conditional sections, loops, math expressions, and system variables. WYSIWYG editor with TipTap, live preview, batch fill, print queue, and draft history. Import from DOCX, share via QR.",
+        "mod1-f1": "Dynamic fields with conditionals & loops", "mod1-f2": "Live preview in AR/FR/EN + full RTL", "mod1-f3": "Export to PDF, DOCX, or direct print", "mod1-f4": "Batch fill, draft history, QR sharing",
+        "mod2-badge": "PDF Library & Calendar", "mod2-title": "Your PDF vault, smartly organized", "mod2-desc": "Centralized PDF management with encrypted IndexedDB storage. Assign date ranges, set renewal reminders, track usage, annotate pages, add signatures, and bulk print. Grid/list views with categories, tags, favorites, and full-text search.",
+        "mod2-f1": "Drag-and-drop import with auto-indexing", "mod2-f2": "Calendar view with shift+click intervals", "mod2-f3": "Reminders for renewals + desktop notifications", "mod2-f4": "Built-in PDF editor: text, arrows, signatures",
+        "mod3-badge": "PDF Toolbox", "mod3-title": "10 powerful PDF tools, offline", "mod3-desc": "A complete PDF processing workshop. Merge multiple PDFs with page range selection, split by visual selection or page ranges, reorganize pages with drag-and-drop, rotate, add watermarks, encrypt with passwords, compress, and convert to/from images.",
+        "mod3-f1": "Merge, Split, Organize, Rotate", "mod3-f2": "Image to PDF / PDF to Image", "mod3-f3": "Watermark, Security, Page Numbers", "mod3-f4": "Compress — reduce file size client-side",
+        "mod4-badge": "Card Layout Studio", "mod4-title": "Design professional cards & labels", "mod4-desc": "Visual card and label designer powered by Konva canvas. ID cards, loyalty cards, business cards — drag and drop images, free positioning, rotation, skew, crop, and flip. Multi-page layouts, layers panel, alignment tools, undo/redo.",
+        "mod4-f1": "Unlimited images per card, fully offline", "mod4-f2": "Undo/Redo, templates, and collages", "mod4-f3": "Export to PDF with cut marks", "mod4-f4": "Direct print or batch queue",
+        "offline-title": "Your data never leaves your machine", "offline-desc": "No subscriptions. No cloud storage. No internet required. Every document, template, and PDF stays in encrypted local storage on your device. Total sovereignty — compliant with Moroccan data protection and GDPR.",
+        "offline-local": "Local IndexedDB Storage", "offline-encrypt": "Bank-grade Encryption", "offline-bilingual": "Arabic, French, English, Spanish",
+        "demo-badge": "live preview · Power of Attorney", "demo-title": "See the template engine in action", "demo-desc": "Fill the fields and watch the document update instantly in Arabic, French, or English. Zero server calls — pure offline preview.",
+        "demo-template-name": "Special Power of Attorney · وكالة خاصة",
+        "field-fullname": "Full Name", "field-cin": "National ID (CIN)", "field-address": "Address", "agent-label": "Agent / Mandataire (Mandatory)", "field-authority": "Authority / Powers", "field-city": "City", "field-date": "Date",
+        "demo-footer": "Live preview · 0 server calls · MaktabatyPro engine", "demo-footer-bottom": "Zero cloud · Full local encryption ready",
+        "pricing-title": "Simple, transparent licensing", "pricing-sub": "One-time payment. No recurring fees. Yours forever.",
+        "trial-title": "Free Trial", "trial-price": "14 days", "trial-f1": "All core modules: Templates, PDF, Cards", "trial-f2": "Local IndexedDB encrypted storage", "trial-f3": "AR/FR/EN/ES + full RTL support", "trial-f4": "No credit card required", "trial-btn": "Start Free Trial",
+        "full-title": "Full License", "one-time": "one-time",
+        "full-f1": "Unlimited documents, PDFs & exports", "full-f2": "All 10 PDF toolbox tools unlocked", "full-f3": "Card designer pro (cut marks, batch)", "full-f4": "Lifetime updates + future tools", "full-f5": "Priority support, offline activation",
+        "popular-badge": "Lifetime", "buy-btn": "Purchase License →",
+        "footer-desc": "Professional Productivity Suite for Morocco. All-in-one offline workspace for templates, PDFs, cards, and documents.", "footer-product": "Product", "footer-contact": "Contact", "footer-rights": "All rights reserved.", "footer-tagline": "Total document sovereignty for Moroccan professionals.",
+        "modal-title": "Complete Your License", "modal-product": "MaktabatyPro Full License", "modal-name": "Full Name", "modal-email": "Email", "modal-phone": "Phone (optional)", "modal-pay": "Pay 1,999 DH & Get License", "modal-secure": "Secure payment · Moroccan payment partners"
       },
-      fr: { 
-        "nav-features":"Fonctions","nav-modules":"Modules","nav-demo":"Démo","nav-pricing":"Tarifs","cta-buy":"Obtenir la licence","hero-badge":"Zéro cloud · Souveraineté totale","hero-title":"Un espace pour documents, PDFs,<br> <span class='gradient-text'>modèles et impression.</span>","hero-desc":"Créez des documents juridiques, modifiez des PDF, concevez des cartes et gérez des délais — sans abonnements ni stockage cloud. 100% hors ligne, chiffrement bancaire.","hero-demo-btn":"Essai gratuit","hero-trial-btn":"Voir la démo","trust-1":"Avocats","trust-2":"Bureaux admin","trust-3":"Imprimeries","trust-4":"Traducteurs","trust-5":"Comptables","features-badge":"plateforme unifiée","features-title":"Tout ce dont vous avez besoin, en privé","features-sub":"Pas de bloatware. Juste des modules hors ligne puissants.","feat1-title":"Créer des documents","feat1-desc":"Modèles juridiques, procuration, contrats — champs dynamiques, RTL.","feat2-title":"Cartes & étiquettes","feat2-desc":"Mise en page multi‑images, rogner, pivoter, incliner.","feat3-title":"Gérer les PDF","feat3-desc":"Bibliothèque centralisée, calendrier, rappels, annotations hors ligne.","feat4-title":"Suivi des délais","feat4-desc":"Calendrier intégré, alertes renouvellement, expiration docs.","modules-badge":"suite produit","modules-title":"Des outils qui s'adaptent","card-badge":"Studio de cartes","card-title":"Concevez cartes & étiquettes pro","card-desc":"Cartes d'identité, fidélité, business — glisser‑déposer images, rotation, inclinaison, recadrage. Export PDF avec repères.","card-feat1":"Images illimitées par carte · local","card-feat2":"Annuler/Rétablir, modèles, collage","card-feat3":"Impression directe ou lot","pdf-badge":"Bibliothèque PDF & calendrier","pdf-title":"Coffre PDF avec planification","pdf-desc":"Stockage IndexedDB chiffré, plages de dates, rappels, usage, impression groupée. Éditeur PDF intégré (annotations, signatures).","pdf-feat1":"Import glisser‑déposer · auto‑indexation","pdf-feat2":"Vue calendrier : plages de dates","pdf-feat3":"Rappels renouvellement + notifications","word-badge":"Traitement de texte hors ligne","word-title":"Rédigez, modifiez — sans cloud","word-desc":"Documents riches avec support RTL, tableaux, images, styles. Sauvegarde auto IndexedDB.","word-feat1":"Paragraphes bilingues + vérif ortho","word-feat2":"Tableaux, listes, images locales","word-feat3":"Export PDF ou impression directe","offline-title":"Pourquoi hors ligne ?","offline-desc":"Vos documents ne quittent jamais votre machine. Pas d'abonnement, pas de cloud. Souveraineté totale — conforme à la loi marocaine et RGPD.","offline-local":"IndexedDB local","offline-encrypt":"Chiffrement bancaire","offline-bilingual":"Arabe, Français, Anglais","demo-badge":"modèle live · Procuration","demo-title":"Testez le moteur de template","demo-desc":"Remplissez les champs, le document se met à jour en Arabe, Français ou Anglais.","demo-template-name":"Pouvoir Spécial · وكالة خاصة","field-fullname":"Nom complet","field-cin":"CIN","field-address":"Adresse","agent-label":"📌 Mandataire (Obligatoire)","field-authority":"Pouvoirs (الصلاحيات)","field-city":"Ville","field-date":"Date","demo-footer":"aperçu live · 0 appel serveur","demo-footer-bottom":"Zéro cloud · chiffrement local","pricing-title":"Licences simples & transparentes","pricing-sub":"Paiement unique. Sans frais récurrents.","trial-title":"Essai gratuit","trial-price":"14 jours","trial-feat1":"Tous les modules","trial-feat2":"Stockage IndexedDB","trial-feat3":"AR/FR/EN + RTL","trial-feat4":"Sans carte bancaire","trial-btn":"Démarrer l'essai","full-title":"Licence complète","one-time":"unique","full-feat1":"Documents & PDF illimités","full-feat2":"Éditeur PDF avancé + signature","full-feat3":"Design cartes pro (repères, lot)","full-feat4":"Mises à jour à vie + outils futurs","full-feat5":"Support prioritaire","buy-now-btn":"Acheter la licence →","popular-badge":"À vie","footer-text":"Souveraineté documentaire totale.","modal-title":"Finalisez votre licence","modal-product":"Licence complète TemplateFlow","modal-name":"Nom complet","modal-email":"Email","modal-phone":"Téléphone (option)","modal-pay":"Payer 1999 DH & obtenir la licence","modal-secure":"🔒 Paiement sécurisé · partenaires marocains"
+      fr: {
+        "nav-features": "Fonctionnalités", "nav-modules": "Modules", "nav-demo": "Démo", "nav-pricing": "Tarifs", "cta-buy": "Obtenir la licence",
+        "hero-badge": "100% Hors ligne · Souveraineté totale",
+        "hero-title": "La productivité professionnelle<br> <span class='gradient-text'>entièrement hors ligne.</span>",
+        "hero-desc": "La suite tout-en-un pour les professionnels marocains. Gérez les modèles, modifiez les PDF, concevez des cartes, rédigez des documents et planifiez votre travail — sans abonnements, sans cloud.",
+        "hero-download": "Télécharger l'essai", "hero-demo": "Voir la démo",
+        "trust-1": "Avocats", "trust-2": "Bureaux admin.", "trust-3": "Imprimeries", "trust-4": "Traducteurs", "trust-5": "Comptables", "trust-6": "Notaires",
+        "stat-modules": "Modules professionnels", "stat-offline": "Hors ligne", "stat-lang": "Langues (AR/FR/EN/ES)", "stat-tools": "Outils intégrés",
+        "features-badge": "Tout ce dont vous avez besoin", "features-title": "Une suite, des possibilités infinies", "features-sub": "Dix modules puissants qui travaillent ensemble. Aucun accès Internet requis.",
+        "feat1-title": "Gestion des modèles", "feat1-desc": "Créez et remplissez des modèles juridiques avec champs dynamiques, logique conditionnelle et aperçu en direct. Export PDF ou DOCX. Compatible RTL.",
+        "feat2-title": "Bibliothèque PDF & Éditeur", "feat2-desc": "Coffre-fort PDF centralisé avec calendrier intelligent, rappels et annotations. Organisez, recherchez, étiquetez et imprimez en lot.",
+        "feat3-title": "Boîte à outils PDF", "feat3-desc": "Fusionnez, divisez, organisez, pivotez, filigranez, chiffrez, compressez et convertissez des PDF. 10 outils pro dans une interface unifiée.",
+        "feat4-title": "Studio de cartes", "feat4-desc": "Concevez des cartes d'identité, de fidélité, des étiquettes avec glisser-déposer, positionnement libre, rotation, inclinaison et recadrage.",
+        "feat5-title": "Éditeur de texte riche", "feat5-desc": "Traitement de texte WYSIWYG avec tableaux, images, styles, support multilingue et sauvegarde automatique. Export PDF ou DOCX.",
+        "feat6-title": "Bibliothèque de liens", "feat6-desc": "Gestionnaire de favoris pour les services administratifs marocains. Catégories, tags, favoris, récupération de favicon.",
+        "feat7-title": "Planification calendrier", "feat7-desc": "Calendrier intégré avec vues mois, agenda et heatmap. Glisser-déposer, détection de conflits, raccourcis clavier.",
+        "feat8-title": "Compresseur de fichiers", "feat8-desc": "Compressez images et PDF côté client. Curseur de qualité, traitement par lots, téléchargement ZIP.",
+        "feat9-title": "100% Hors ligne & Privé", "feat9-desc": "Toutes les données stockées dans IndexedDB chiffré. Pas de cloud, pas de serveurs, pas d'abonnements. Chiffrement bancaire.",
+        "modules-badge": "exploration", "modules-title": "Explorez chaque module",
+        "mod1-badge": "Moteur de modèles", "mod1-title": "Modèles de documents intelligents", "mod1-desc": "Créez des modèles puissants avec champs dynamiques, sections conditionnelles, boucles, expressions mathématiques et variables système. Éditeur WYSIWYG avec TipTap, aperçu en direct, remplissage par lot et historique.",
+        "mod1-f1": "Champs dynamiques avec conditions et boucles", "mod1-f2": "Aperçu en direct AR/FR/EN + RTL", "mod1-f3": "Export PDF, DOCX ou impression directe", "mod1-f4": "Remplissage par lot, historique, QR",
+        "mod2-badge": "Bibliothèque PDF & Calendrier", "mod2-title": "Votre coffre PDF, intelligemment organisé", "mod2-desc": "Gestion centralisée des PDF avec stockage IndexedDB chiffré. Plages de dates, rappels de renouvellement, annotations, signatures et impression par lot.",
+        "mod2-f1": "Import par glisser-déposer avec auto-indexation", "mod2-f2": "Vue calendrier avec intervalles shift+clic", "mod2-f3": "Rappels de renouvellement + notifications", "mod2-f4": "Éditeur PDF intégré : texte, flèches, signatures",
+        "mod3-badge": "Boîte à outils PDF", "mod3-title": "10 outils PDF puissants, hors ligne", "mod3-desc": "Un atelier complet de traitement PDF. Fusion, division, réorganisation, rotation, filigrane, chiffrement, compression et conversion.",
+        "mod3-f1": "Fusionner, Diviser, Organiser, Pivoter", "mod3-f2": "Image vers PDF / PDF vers Image", "mod3-f3": "Filigrane, Sécurité, Numéros de page", "mod3-f4": "Compression côté client",
+        "mod4-badge": "Studio de cartes", "mod4-title": "Concevez cartes et étiquettes professionnelles", "mod4-desc": "Designer visuel propulsé par Konva canvas. Cartes d'identité, de fidélité, professionnelles — glisser-déposer, rotation, inclinaison, recadrage.",
+        "mod4-f1": "Images illimitées par carte, hors ligne", "mod4-f2": "Annuler/Rétablir, modèles et collages", "mod4-f3": "Export PDF avec repères de coupe", "mod4-f4": "Impression directe ou par lot",
+        "offline-title": "Vos données ne quittent jamais votre machine", "offline-desc": "Sans abonnements. Sans stockage cloud. Sans connexion Internet. Chaque document reste dans un stockage local chiffré. Souveraineté totale.",
+        "offline-local": "Stockage IndexedDB local", "offline-encrypt": "Chiffrement bancaire", "offline-bilingual": "Arabe, Français, Anglais, Espagnol",
+        "demo-badge": "aperçu en direct · Procuration", "demo-title": "Voyez le moteur de modèles en action", "demo-desc": "Remplissez les champs et voyez le document se mettre à jour instantanément en arabe, français ou anglais.",
+        "demo-template-name": "Procuration spéciale · وكالة خاصة",
+        "field-fullname": "Nom complet", "field-cin": "CIN", "field-address": "Adresse", "agent-label": "Mandataire (obligatoire)", "field-authority": "Pouvoirs", "field-city": "Ville", "field-date": "Date",
+        "demo-footer": "Aperçu en direct · 0 appel serveur · Moteur MaktabatyPro", "demo-footer-bottom": "Zéro cloud · Chiffrement local prêt",
+        "pricing-title": "Licence simple et transparente", "pricing-sub": "Paiement unique. Sans frais récurrents.",
+        "trial-title": "Essai gratuit", "trial-price": "14 jours", "trial-f1": "Tous les modules : Modèles, PDF, Cartes", "trial-f2": "Stockage IndexedDB chiffré", "trial-f3": "AR/FR/EN/ES + RTL", "trial-f4": "Aucune carte bancaire requise", "trial-btn": "Commencer l'essai",
+        "full-title": "Licence complète", "one-time": "unique",
+        "full-f1": "Documents, PDF et exports illimités", "full-f2": "Les 10 outils PDF débloqués", "full-f3": "Studio de cartes pro (repères, lot)", "full-f4": "Mises à jour à vie + futurs outils", "full-f5": "Support prioritaire, activation hors ligne",
+        "popular-badge": "À vie", "buy-btn": "Acheter la licence →",
+        "footer-desc": "Suite de productivité professionnelle pour le Maroc. Espace de travail hors ligne tout-en-un.", "footer-product": "Produit", "footer-contact": "Contact", "footer-rights": "Tous droits réservés.", "footer-tagline": "Souveraineté documentaire pour les professionnels marocains.",
+        "modal-title": "Finalisez votre licence", "modal-product": "Licence complète MaktabatyPro", "modal-name": "Nom complet", "modal-email": "Email", "modal-phone": "Téléphone (optionnel)", "modal-pay": "Payer 1 999 DH et obtenir la licence", "modal-secure": "Paiement sécurisé · Partenaires marocains"
       },
-      ar: { 
-        "nav-features":"المزايا","nav-modules":"الوحدات","nav-demo":"تجربة مباشرة","nav-pricing":"التسعير","cta-buy":"احصل على الترخيص","hero-badge":"بدون سحابة · سيادة كاملة","hero-title":"مساحة عمل واحدة للمستندات وملفات PDF<br> <span class='gradient-text'>والقوالب والطباعة.</span>","hero-desc":"إنشاء عقود وتعديل PDF وتصميم بطاقات وإدارة المواعيد — بدون اشتراكات أو تخزين سحابي. 100% بدون إنترنت، تشفير مصرفي.","hero-demo-btn":"تحميل النسخة التجريبية","hero-trial-btn":"مشاهدة العرض","trust-1":"محامون","trust-2":"مكاتب إدارية","trust-3":"مطابع","trust-4":"مترجمون","trust-5":"محاسبون","features-badge":"منصة موحدة","features-title":"كل ما تحتاجه بسرية تامة","features-sub":"وحدات قوية تعمل بدون إنترنت وتحترم بياناتك.","feat1-title":"إنشاء المستندات","feat1-desc":"قوالب قانونية، توكيل، عقود — حقول ديناميكية، دعم RTL.","feat2-title":"تصميم البطاقات","feat2-desc":"بطاقات احترافية، تخطيط متعدد الصور، قص، تدوير، إمالة.","feat3-title":"إدارة ملفات PDF","feat3-desc":"مكتبة مركزية، تقويم ذكي، تذكيرات، تعليقات — بدون إنترنت.","feat4-title":"تتبع المواعيد","feat4-desc":"تقويم متكامل، تنبيهات التجديد، تتبع انتهاء المستندات.","modules-badge":"حزمة المنتجات","modules-title":"أدوات تعمل بطريقتك","card-badge":"استوديو تخطيط البطاقات","card-title":"تصميم بطاقات وملصقات احترافية","card-desc":"بطاقات هوية، بطاقات ولاء، أعمال — سحب وإفلات صور، تموضع حر، تدوير، قص، قلب.","card-feat1":"صور غير محدودة لكل بطاقة · محلياً","card-feat2":"تراجع/إعادة، قوالب وكولاج","card-feat3":"طباعة مباشرة أو دفعات","pdf-badge":"مكتبة PDF والتقويم الذكي","pdf-title":"خزينة PDF مركزية مع تخطيط","pdf-desc":"تخزين مشفر في IndexedDB، تعيين تواريخ، تذكيرات، تتبع الاستخدام، طباعة جماعية.","pdf-feat1":"استيراد بالسحب والإفلات · فهرسة تلقائية","pdf-feat2":"عرض التقويم: تعيين نطاقات زمنية","pdf-feat3":"تذكيرات للتجديد + إشعارات سطح المكتب","word-badge":"معالج نصوص بدون إنترنت","word-title":"كتابة وتحرير وتنسيق — بدون سحابة","word-desc":"مستندات غنية مع دعم كامل لـ RTL، جداول، صور، أنماط. حفظ تلقائي في IndexedDB.","word-feat1":"فقرات ثنائية اللغة (AR/FR/EN) + تدقيق إملائي","word-feat2":"إدراج جداول وقوائم وصور محلية","word-feat3":"تصدير إلى PDF أو طباعة مباشرة","offline-title":"لماذا بدون إنترنت؟","offline-desc":"مستنداتك لا تغادر جهازك أبداً. لا اشتراكات، لا سحابة، لا حاجة للإنترنت. سيادة كاملة — متوافق مع حماية البيانات المغربية واللائحة العامة لحماية البيانات.","offline-local":"قاعدة بيانات IndexedDB محلية","offline-encrypt":"تشفير مصرفي","offline-bilingual":"العربية، الفرنسية، الإنجليزية","demo-badge":"قالب مباشر · توكيل خاص","demo-title":"جرب محرك القوالب الذكي","demo-desc":"املأ الحقول وشاهد المستند يتحدّث فوراً بالعربية أو الفرنسية أو الإنجليزية — بدون سحابة.","demo-template-name":"توكيل خاص · وكالة خاصة","field-fullname":"الاسم الكامل","field-cin":"رقم البطاقة الوطنية (CIN)","field-address":"العنوان","agent-label":"📌 الوكيل / المندوب (إلزامي)","field-authority":"الصلاحيات","field-city":"المدينة","field-date":"التاريخ","demo-footer":"معاينة مباشرة · 0 اتصال بالخادم","demo-footer-bottom":"بدون سحابة · تشفير محلي كامل","pricing-title":"ترخيص بسيط وشفاف","pricing-sub":"دفعة لمرة واحدة. بدون رسوم متكررة.","trial-title":"نسخة تجريبية مجانية","trial-price":"14 يومًا","trial-feat1":"جميع الوحدات: المستندات، PDF، البطاقات","trial-feat2":"تخزين IndexedDB محلي","trial-feat3":"AR/FR/EN + RTL","trial-feat4":"بدون بطاقة ائتمان","trial-btn":"ابدأ النسخة التجريبية","full-title":"الترخيص الكامل","one-time":"مرة واحدة","full-feat1":"مستندات وPDF غير محدودة محلياً","full-feat2":"محرر PDF متقدم + لوحة توقيع","full-feat3":"مصمم بطاقات احترافي","full-feat4":"تحديثات مدى الحياة + أدوات مستقبلية","full-feat5":"دعم ذو أولوية، تفعيل بدون إنترنت","buy-now-btn":"شراء الترخيص ←","popular-badge":"مدى الحياة","footer-text":"السيادة الكاملة على المستندات للمحترفين.","modal-title":"إكمال الترخيص","modal-product":"الترخيص الكامل لـ TemplateFlow","modal-name":"الاسم الكامل","modal-email":"البريد الإلكتروني","modal-phone":"الهاتف (اختياري)","modal-pay":"ادفع 1999 درهم واحصل على الترخيص","modal-secure":"🔒 دفع آمن · شركاء مغاربة"
+      ar: {
+        "nav-features": "المميزات", "nav-modules": "الوحدات", "nav-demo": "تجربة حية", "nav-pricing": "التسعير", "cta-buy": "احصل على الترخيص",
+        "hero-badge": "٪١٠٠ بدون إنترنت · سيادة كاملة للبيانات",
+        "hero-title": "الإنتاجية المهنية<br> <span class='gradient-text'>بدون إنترنت بالكامل.</span>",
+        "hero-desc": "الحزمة المتكاملة للمهنيين المغاربة. إدارة القوالب، تعديل PDF، تصميم البطاقات، كتابة المستندات، وتخطيط العمل — بدون اشتراكات وبدون سحابة.",
+        "hero-download": "تحميل النسخة التجريبية", "hero-demo": "مشاهدة العرض",
+        "trust-1": "محامون", "trust-2": "مكاتب إدارية", "trust-3": "مطابع", "trust-4": "مترجمون", "trust-5": "محاسبون", "trust-6": "عدول",
+        "stat-modules": "وحدة مهنية", "stat-offline": "بدون إنترنت", "stat-lang": "لغات (AR/FR/EN/ES)", "stat-tools": "أداة مدمجة",
+        "features-badge": "كل ما تحتاجه", "features-title": "حزمة واحدة، إمكانيات لا نهائية", "features-sub": "عشر وحدات قوية تعمل معاً. لا حاجة للإنترنت.",
+        "feat1-title": "إدارة القوالب", "feat1-desc": "إنشاء وتعبئة القوالب القانونية بحقول ديناميكية ومنطق شرطي ومعاينة حية. تصدير PDF أو DOCX. دعم كامل لـ RTL.",
+        "feat2-title": "مكتبة PDF والمحرر", "feat2-desc": "خزنة PDF مركزية مع تقويم ذكي وتذكيرات وتعليقات. تنظيم وبحث ووسوم وطباعة جماعية — كلها مخزنة محلياً.",
+        "feat3-title": "صندوق أدوات PDF", "feat3-desc": "دمج، تقسيم، تنظيم، تدوير، علامة مائية، تشفير، ضغط، وتحويل PDF. ١٠ أدوات مهنية في واجهة واحدة.",
+        "feat4-title": "مصمم تخطيط البطاقات", "feat4-desc": "تصميم بطاقات الهوية والولاء والملصقات بالسحب والإفلات، تحديد حر، تدوير، إمالة، وقص. تصدير مع علامات القص.",
+        "feat5-title": "محرر نصوص غني", "feat5-desc": "معالج نصوص WYSIWYG متكامل مع جداول وصور وأنماط ودعم متعدد اللغات وحفظ تلقائي.",
+        "feat6-title": "مكتبة الروابط", "feat6-desc": "مدير إشارات مرجعية للخدمات الإدارية المغربية. تصنيفات، وسوم، مفضلة، جلب تلقائي للأيقونة.",
+        "feat7-title": "التقويم والتخطيط", "feat7-desc": "تقويم متكامل مع عرض شهري وجدول أعمال وheatmap. سحب وإفلات، كشف التعارضات، اختصارات لوحة المفاتيح.",
+        "feat8-title": "ضغط الملفات", "feat8-desc": "ضغط الصور و PDF في المتصفح. مؤشر جودة، معالجة دفعات، تحميل ZIP مع إحصائيات.",
+        "feat9-title": "٪١٠٠ بدون إنترنت وخاص", "feat9-desc": "جميع البيانات مخزنة في IndexedDB مشفر. لا سحابة، لا خوادم، لا اشتراكات. تشفير مصرفي. سيادة كاملة للبيانات.",
+        "modules-badge": "استكشاف", "modules-title": "استكشف كل وحدة",
+        "mod1-badge": "محرك القوالب", "mod1-title": "قوالب مستندات ذكية", "mod1-desc": "إنشاء قوالب قوية بحقول ديناميكية، أقسام شرطية، حلقات، تعابير رياضية، ومتغيرات نظام. محرر WYSIWYG مع TipTap، معاينة حية، تعبئة دفعات، ومشاركة QR.",
+        "mod1-f1": "حقول ديناميكية مع شروط وحلقات", "mod1-f2": "معاينة حية AR/FR/EN + RTL كامل", "mod1-f3": "تصدير PDF، DOCX، أو طباعة مباشرة", "mod1-f4": "تعبئة دفعات، تاريخ، مشاركة QR",
+        "mod2-badge": "مكتبة PDF والتقويم", "mod2-title": "خزنة PDF منظمة بذكاء", "mod2-desc": "إدارة مركزية لـ PDF مع تخزين IndexedDB مشفر. تعيين تواريخ، تذكيرات تجديد، تعليقات، توقيعات، وطباعة جماعية.",
+        "mod2-f1": "استيراد سحب وإفلات مع فهرسة تلقائية", "mod2-f2": "عرض تقويم بنطاقات زمنية", "mod2-f3": "تذكيرات للتجديد + إشعارات", "mod2-f4": "محرر PDF مدمج: نص، أسهم، توقيعات",
+        "mod3-badge": "صندوق أدوات PDF", "mod3-title": "١٠ أدوات PDF قوية، بدون إنترنت", "mod3-desc": "ورشة معالجة PDF كاملة. دمج، تقسيم، إعادة تنظيم، تدوير، علامة مائية، تشفير، ضغط، وتحويل.",
+        "mod3-f1": "دمج، تقسيم، تنظيم، تدوير", "mod3-f2": "صورة إلى PDF / PDF إلى صورة", "mod3-f3": "علامة مائية، أمان، ترقيم صفحات", "mod3-f4": "ضغط — تقليل حجم الملف",
+        "mod4-badge": "استوديو تخطيط البطاقات", "mod4-title": "تصميم بطاقات وملصقات احترافية", "mod4-desc": "مصمم بصري بتقنية Konva canvas. بطاقات هوية، ولاء، أعمال — سحب وإفلات، تحديد حر، تدوير، إمالة، قص.",
+        "mod4-f1": "صور غير محدودة لكل بطاقة، بدون إنترنت", "mod4-f2": "تراجع/إعادة، قوالب وكولاج", "mod4-f3": "تصدير PDF مع علامات قص", "mod4-f4": "طباعة مباشرة أو دفعات",
+        "offline-title": "بياناتك لا تغادر جهازك أبداً", "offline-desc": "لا اشتراكات. لا تخزين سحابي. لا حاجة للإنترنت. كل مستند يبقى في تخزين مشفر على جهازك. سيادة كاملة.",
+        "offline-local": "تخزين IndexedDB محلي", "offline-encrypt": "تشفير مصرفي", "offline-bilingual": "العربية، الفرنسية، الإنجليزية، الإسبانية",
+        "demo-badge": "معاينة حية · وكالة خاصة", "demo-title": "شاهد محرك القوالب أثناء العمل", "demo-desc": "املأ الحقول وشاهد المستند يتحدّث فوراً بالعربية أو الفرنسية أو الإنجليزية. بدون أي اتصال بالخادم.",
+        "demo-template-name": "وكالة خاصة · Special Power of Attorney",
+        "field-fullname": "الاسم الكامل", "field-cin": "رقم بطاقة التعريف", "field-address": "العنوان", "agent-label": "الوكيل / المندوب (إجباري)", "field-authority": "الصلاحيات", "field-city": "المدينة", "field-date": "التاريخ",
+        "demo-footer": "معاينة حية · ٠ استدعاء خادم · محرك MaktabatyPro", "demo-footer-bottom": "صفر سحابة · تشفير محلي جاهز",
+        "pricing-title": "ترخيص بسيط وشفاف", "pricing-sub": "دفعة واحدة. لا رسوم متكررة.",
+        "trial-title": "تجربة مجانية", "trial-price": "١٤ يوماً", "trial-f1": "جميع الوحدات الأساسية: قوالب، PDF، بطاقات", "trial-f2": "تخزين IndexedDB مشفر", "trial-f3": "AR/FR/EN/ES + دعم RTL كامل", "trial-f4": "لا حاجة لبطاقة ائتمان", "trial-btn": "بدء التجربة المجانية",
+        "full-title": "ترخيص كامل", "one-time": "لمرة واحدة",
+        "full-f1": "مستندات و PDF وتصديرات غير محدودة", "full-f2": "جميع أدوات PDF العشر مفتوحة", "full-f3": "مصمم بطاقات احترافي (علامات قص، دفعات)", "full-f4": "تحديثات مدى الحياة + أدوات مستقبلية", "full-f5": "دعم ذو أولوية، تفعيل بدون إنترنت",
+        "popular-badge": "مدى الحياة", "buy-btn": "شراء الترخيص ←",
+        "footer-desc": "حزمة الإنتاجية المهنية للمغرب. مساحة عمل متكاملة بدون إنترنت للقوالب و PDF والبطاقات والمستندات.", "footer-product": "المنتج", "footer-contact": "الاتصال", "footer-rights": "جميع الحقوق محفوظة.", "footer-tagline": "السيادة المستندية للمهنيين المغاربة.",
+        "modal-title": "أكمل ترخيصك", "modal-product": "الترخيص الكامل MaktabatyPro", "modal-name": "الاسم الكامل", "modal-email": "البريد الإلكتروني", "modal-phone": "الهاتف (اختياري)", "modal-pay": "ادفع ١٬٩٩٩ درهماً واحصل على الترخيص", "modal-secure": "دفع آمن · شركاء دفع مغاربة"
       }
     };
-    
+
+    // ======================== I18N ENGINE ========================
     let currentLang = 'en';
-    function updatePageLanguage() { 
-      document.querySelectorAll('[data-i18n]').forEach(el => { 
-        const key = el.getAttribute('data-i18n'); 
-        if(translations[currentLang] && translations[currentLang][key]) {
-          if(key === 'hero-title') el.innerHTML = translations[currentLang][key];
-          else el.innerHTML = translations[currentLang][key];
+    function applyLang() {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[currentLang] && translations[currentLang][key]) {
+          el.innerHTML = translations[currentLang][key];
         }
       });
       document.documentElement.lang = currentLang;
-      if(currentLang === 'ar') document.body.setAttribute('dir', 'rtl');
-      else document.body.setAttribute('dir', 'ltr');
+      document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
     }
-    
-    document.querySelectorAll('.lang-switch').forEach(btn => { 
-      btn.addEventListener('click', () => { 
-        currentLang = btn.getAttribute('data-lang'); 
-        updatePageLanguage(); 
-        renderPreview(); // re-render preview with new language context (but previewLang independent)
-      }); 
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('lang-btn-active'));
+        currentLang = btn.getAttribute('data-lang');
+        btn.classList.add('lang-btn-active');
+        applyLang();
+        renderPreview();
+      });
     });
-    updatePageLanguage();
 
-    // Enhanced demo script with full i18n for field labels (dynamic re-render not needed for labels as they are static but fine)
+    // Activate default
+    document.querySelector('.lang-btn[data-lang="en"]').classList.add('lang-btn-active');
+    applyLang();
+
+    // ======================== COUNT-UP ANIMATION ========================
+    function animateCounters() {
+      document.querySelectorAll('.count-to').forEach(el => {
+        const target = parseInt(el.getAttribute('data-target'));
+        if (isNaN(target)) return;
+        let current = 0;
+        const step = Math.ceil(target / 30);
+        const interval = setInterval(() => {
+          current += step;
+          if (current >= target) { current = target; clearInterval(interval); }
+          el.textContent = current;
+        }, 40);
+      });
+    }
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          statsObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.5 });
+    const statsSection = document.querySelector('.stat-item');
+    if (statsSection) statsObserver.observe(statsSection.closest('section') || statsSection);
+
+    // ======================== INTERACTIVE DEMO ========================
     let previewLang = 'ar';
-    const previewDiv = document.getElementById('dynamicTemplatePreview');
-    const fullNameInp = document.getElementById('fullName'), cinInp = document.getElementById('cin'), addressInp = document.getElementById('address');
-    const agentNameInp = document.getElementById('agentName'), agentCinInp = document.getElementById('agentCin'), agentAddrInp = document.getElementById('agentAddress');
-    const authorityInp = document.getElementById('authorityText'), cityInp = document.getElementById('city'), dateInp = document.getElementById('dateDoc');
+    const previewEl = document.getElementById('templatePreview');
+    const fName = document.getElementById('fullName'), fCin = document.getElementById('cin'), fAddr = document.getElementById('address');
+    const aName = document.getElementById('agentName'), aCin = document.getElementById('agentCin'), aAddr = document.getElementById('agentAddress');
+    const fAuth = document.getElementById('authorityText'), fCity = document.getElementById('city'), fDate = document.getElementById('dateDoc');
 
-    function formatDateLocale(ds, lang){ if(!ds) return ''; const d=new Date(ds); if(lang==='ar') return d.toLocaleDateString('ar-MA',{year:'numeric',month:'long',day:'numeric'}); if(lang==='fr') return d.toLocaleDateString('fr-FR',{year:'numeric',month:'long',day:'numeric'}); return d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});}
-    function escapeHtml(str){ return str.replace(/[&<>]/g, m=> m==='&'?'&amp;': m==='<'?'&lt;':'&gt;'); }
-    
-    function renderPreview(){
-      const name = fullNameInp.value.trim() || '__________';
-      const cinVal = cinInp.value.trim() || '__________';
-      const addr = addressInp.value.trim() || '__________';
-      const agentName = agentNameInp.value.trim() || '__________';
-      const agentCin = agentCinInp.value.trim() || '__________';
-      const agentAddr = agentAddrInp.value.trim() || '__________';
-      let authority = authorityInp.value.trim();
-      if(!authority) authority = "في كل ما تصح به النيابة عنا في استخراج النقود من صندوق المحكمة و القيام بجميع الإجراءات التي يتطلبها الأمر و توقيع و إمضاء الوثائق اللازمة بذلك";
-      const city = cityInp.value.trim() || 'خنيفرة';
-      const dateF = formatDateLocale(dateInp.value, previewLang);
-      
+    function fmtDate(ds, lang) {
+      if (!ds) return '';
+      try { const d = new Date(ds); return d.toLocaleDateString(lang === 'ar' ? 'ar-MA' : lang === 'fr' ? 'fr-FR' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' }); }
+      catch(e) { return ds; }
+    }
+    function esc(str) { return String(str).replace(/[&<>]/g, m => m === '&' ? '&amp;' : m === '<' ? '&lt;' : '&gt;'); }
+
+    function renderPreview() {
+      const name = esc(fName.value.trim()) || '__________';
+      const cin = esc(fCin.value.trim()) || '__________';
+      const addr = esc(fAddr.value.trim()) || '__________';
+      const agent = esc(aName.value.trim()) || '__________';
+      const agentC = esc(aCin.value.trim()) || '__________';
+      const agentA = esc(aAddr.value.trim()) || '__________';
+      const auth = esc(fAuth.value.trim()) || 'في كل ما تصح به النيابة عنا في استخراج النقود من صندوق المحكمة و القيام بجميع الإجراءات التي يتطلبها الأمر و توقيع و إمضاء الوثائق اللازمة بذلك';
+      const city = esc(fCity.value.trim()) || 'خنيفرة';
+      const date = fmtDate(fDate.value, previewLang);
+
       let html = '';
-      if(previewLang === 'ar'){
-        html = `<div dir="rtl" style="font-family: 'Tajawal', 'Inter', sans-serif;">`+
-          `<p style="text-align: center;"><span style="font-size: 28px; font-weight: 800;">وكالة خاصـة</span></p>`+
-          `<p style="font-size: 18px; margin-top: 20px;">أنا الموقع(ة) أسفله :</p>`+
-          `<p style="font-size: 18px;">السيد(ة) <strong>${escapeHtml(name)}</strong> الحامل(ة) لبطاقة التعريف الوطنية رقم : <strong>${escapeHtml(cinVal)}</strong> ، الساكن(ة) ب: <strong>${escapeHtml(addr)}</strong>.</p>`+
-          `<p style="font-size: 18px;">&nbsp; &nbsp; &nbsp; &nbsp; أقر و أشهد على نفسي و أنا بحالة جائزة و معتبرة شرعا و قانونا و دون إكراه أو إجبار من أحد ، بأنني أوكل&nbsp; السيد(ة) <strong>${escapeHtml(agentName)}</strong> ، الحامل(ة) لبطاقة التعريف الوطنية رقم : <strong>${escapeHtml(agentCin)}</strong> ، الساكن(ة) ب : <strong>${escapeHtml(agentAddr)}</strong>.</p>`+
-          `<p style="font-size: 18px;"><strong>لينوب عني و يقوم مقامي و يتكلم باسمي&nbsp;&nbsp;</strong>${escapeHtml(authority)}.</p>`+
-          `<p style="font-size: 18px;">و لقد أعطيته هذه الوكالة ليدلي بها عند الحاجة و الاقتضاء.</p>`+
-          `<p style="font-size: 18px;">هذا ما أصرح به على نفسي و يليه توقيعي و السلام.</p>`+
-          `<p style="text-align: left; font-size: 18px; margin-top: 32px;"><strong>حرر ب ${escapeHtml(city)} في : ${dateF}</strong></p>`+
-          `<p style="text-align: center; font-size: 18px;">إمضاء :&nbsp;<strong>${escapeHtml(name)}</strong></p></div>`;
-      } else if(previewLang === 'fr') {
-        html = `<div style="font-family: 'Inter', sans-serif;">`+
-          `<p style="font-size:28px; font-weight:800; text-align:center;">POUVOIR SPÉCIAL</p>`+
-          `<p style="margin-top:20px;">Je soussigné(e) <strong>${escapeHtml(name)}</strong> (CIN: ${escapeHtml(cinVal)}), demeurant à ${escapeHtml(addr)}.</p>`+
-          `<p>Constitué mandataire <strong>${escapeHtml(agentName)}</strong> (CIN:${escapeHtml(agentCin)}), domicilié ${escapeHtml(agentAddr)}.</p>`+
-          `<p><strong>Pouvoirs :</strong> ${escapeHtml(authority)}.</p>`+
-          `<p>Fait à ${escapeHtml(city)}, le ${dateF}.</p>`+
-          `<p style="margin-top:30px;">Signature : ${escapeHtml(name)}</p></div>`;
+      if (previewLang === 'ar') {
+        html = `<div dir="rtl" style="font-family: 'Tajawal', 'Inter', sans-serif; font-size: 15px; line-height: 2;">
+          <p style="text-align: center; font-size: 26px; font-weight: 800; margin-bottom: 24px;">وكالة خاصـة</p>
+          <p>أنا الموقع(ة) أسفله :</p>
+          <p>السيد(ة) <strong>${name}</strong> الحامل(ة) لبطاقة التعريف الوطنية رقم : <strong>${cin}</strong> ، الساكن(ة) ب: <strong>${addr}</strong>.</p>
+          <p style="margin-top: 16px;">أقر و أشهد على نفسي و أنا بحالة جائزة و معتبرة شرعا و قانونا و دون إكراه أو إجبار من أحد ، بأنني أوكل السيد(ة) <strong>${agent}</strong> ، الحامل(ة) لبطاقة التعريف الوطنية رقم : <strong>${agentC}</strong> ، الساكن(ة) ب : <strong>${agentA}</strong>.</p>
+          <p style="margin-top: 16px;"><strong>لينوب عني و يقوم مقامي و يتكلم باسمي : </strong>${auth}.</p>
+          <p style="margin-top: 16px;">و لقد أعطيته هذه الوكالة ليدلي بها عند الحاجة و الاقتضاء.</p>
+          <p>هذا ما أصرح به على نفسي و يليه توقيعي و السلام.</p>
+          <p style="text-align: left; margin-top: 32px;"><strong>حرر ب ${city} في : ${date}</strong></p>
+          <p style="text-align: center; margin-top: 24px;">إمضاء : <strong>${name}</strong></p>
+        </div>`;
+      } else if (previewLang === 'fr') {
+        html = `<div style="font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.8;">
+          <p style="font-size: 24px; font-weight: 800; text-align: center; margin-bottom: 20px;">POUVOIR SPÉCIAL</p>
+          <p>Je soussigné(e) <strong>${name}</strong> (CIN: ${cin}), demeurant à ${addr}.</p>
+          <p>Constitue mandataire <strong>${agent}</strong> (CIN: ${agentC}), domicilié(e) ${agentA}.</p>
+          <p style="margin-top: 16px;"><strong>Pouvoirs :</strong> ${auth}.</p>
+          <p style="margin-top: 16px;">Fait à ${city}, le ${date}.</p>
+          <p style="margin-top: 32px;">Signature : <strong>${name}</strong></p>
+        </div>`;
       } else {
-        html = `<div style="font-family: 'Inter', sans-serif;">`+
-          `<p style="font-size:28px; font-weight:800; text-align:center;">SPECIAL POWER OF ATTORNEY</p>`+
-          `<p>I, <strong>${escapeHtml(name)}</strong> (ID: ${escapeHtml(cinVal)}), residing at ${escapeHtml(addr)}.</p>`+
-          `<p>Hereby appoint <strong>${escapeHtml(agentName)}</strong> (ID:${escapeHtml(agentCin)}), residing at ${escapeHtml(agentAddr)}.</p>`+
-          `<p><strong>Authority:</strong> ${escapeHtml(authority)}.</p>`+
-          `<p>Executed in ${escapeHtml(city)}, on ${dateF}.</p>`+
-          `<p>Signature: ${escapeHtml(name)}</p></div>`;
+        html = `<div style="font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.8;">
+          <p style="font-size: 24px; font-weight: 800; text-align: center; margin-bottom: 20px;">SPECIAL POWER OF ATTORNEY</p>
+          <p>I, <strong>${name}</strong> (ID: ${cin}), residing at ${addr}.</p>
+          <p>Hereby appoint <strong>${agent}</strong> (ID: ${agentC}), residing at ${agentA}.</p>
+          <p style="margin-top: 16px;"><strong>Authority:</strong> ${auth}.</p>
+          <p style="margin-top: 16px;">Executed in ${city}, on ${date}.</p>
+          <p style="margin-top: 32px;">Signature: <strong>${name}</strong></p>
+        </div>`;
       }
-      previewDiv.innerHTML = html;
-      const cardDiv = document.querySelector('.preview-card');
-      if(previewLang === 'ar') cardDiv.setAttribute('dir', 'rtl');
-      else cardDiv.setAttribute('dir', 'ltr');
+      previewEl.innerHTML = html;
+      const card = document.querySelector('.preview-card');
+      card.setAttribute('dir', previewLang === 'ar' ? 'rtl' : 'ltr');
     }
-    
-    document.querySelectorAll('.preview-lang-btn').forEach(btn=>{ btn.addEventListener('click',()=>{ previewLang=btn.getAttribute('data-preview-lang'); renderPreview(); }); });
-    [fullNameInp,cinInp,addressInp,agentNameInp,agentCinInp,agentAddrInp,authorityInp,cityInp,dateInp].forEach(i=>i.addEventListener('input',renderPreview));
+
+    document.querySelectorAll('.preview-lang').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.preview-lang').forEach(b => b.classList.remove('lang-btn-active'));
+        previewLang = btn.getAttribute('data-preview-lang');
+        btn.classList.add('lang-btn-active');
+        renderPreview();
+      });
+    });
+    document.querySelector('.preview-lang[data-preview-lang="ar"]').classList.add('lang-btn-active');
+    [fName, fCin, fAddr, aName, aCin, aAddr, fAuth, fCity, fDate].forEach(i => i.addEventListener('input', renderPreview));
     renderPreview();
-    
-    let zoom=100; const zoomSpan=document.getElementById('zoomValue'), card=document.getElementById('previewCard'); 
-    function updateZoom(){ card.style.transform=`scale(${zoom/100})`; zoomSpan.innerText=zoom+'%'; } 
-    document.getElementById('zoomInDemo').onclick=()=>{ if(zoom<180){ zoom+=10; updateZoom(); } }; 
-    document.getElementById('zoomOutDemo').onclick=()=>{ if(zoom>50){ zoom-=10; updateZoom(); } }; updateZoom();
-    
-    // Modal Logic
-    const modal=document.getElementById('purchaseModal'), openBtn=document.getElementById('openPurchaseModal'), closeBtn=document.getElementById('closeModalBtn'), confirmBtn=document.getElementById('confirmPurchaseBtn');
-    openBtn.onclick=()=>{ modal.classList.remove('invisible','opacity-0'); modal.classList.add('visible','opacity-100'); };
-    function closeModal(){ modal.classList.add('invisible','opacity-0'); modal.classList.remove('visible','opacity-100'); }
-    closeBtn.onclick=closeModal; modal.onclick=(e)=> { if(e.target===modal) closeModal(); };
-    confirmBtn.onclick=()=>{ const name=document.getElementById('buyerName').value, email=document.getElementById('buyerEmail').value; if(!name||!email){ alert(currentLang==='fr'?'Veuillez remplir nom et email':'Please fill name and email'); return; } alert(currentLang==='fr'?'Demande de licence envoyée. Vous recevrez un lien de paiement sécurisé par email.':'License request received. You will receive a secure payment link by email.'); closeModal(); };
+
+    // Zoom
+    let zoom = 100;
+    const zoomSpan = document.getElementById('zoomVal'), previewCard = document.getElementById('previewCard');
+    function updateZoom() { previewCard.style.transform = 'scale(' + (zoom / 100) + ')'; zoomSpan.textContent = zoom + '%'; }
+    document.getElementById('zoomIn').onclick = () => { if (zoom < 180) { zoom += 10; updateZoom(); } };
+    document.getElementById('zoomOut').onclick = () => { if (zoom > 50) { zoom -= 10; updateZoom(); } };
+    updateZoom();
+
+    // ======================== MODAL ========================
+    const modal = document.getElementById('purchaseModal');
+    const openBtn = document.getElementById('openPurchaseModal');
+    const closeBtn = document.getElementById('closeModalBtn');
+    const confirmBtn = document.getElementById('confirmPurchaseBtn');
+
+    openBtn.onclick = () => { modal.classList.remove('invisible', 'opacity-0'); };
+    function closeModal() { modal.classList.add('invisible', 'opacity-0'); }
+    closeBtn.onclick = closeModal;
+    modal.onclick = (e) => { if (e.target === modal) closeModal(); };
+    confirmBtn.onclick = () => {
+      const name = document.getElementById('buyerName').value.trim();
+      const email = document.getElementById('buyerEmail').value.trim();
+      if (!name || !email) {
+        const msg = currentLang === 'fr' ? 'Veuillez remplir le nom et l\'email' : currentLang === 'ar' ? 'يرجى ملء الاسم والبريد الإلكتروني' : 'Please fill in name and email';
+        alert(msg);
+        return;
+      }
+      const msg = currentLang === 'fr' ? 'Demande de licence envoyée. Vous recevrez un lien de paiement sécurisé par email.'
+        : currentLang === 'ar' ? 'تم إرسال طلب الترخيص. ستتلقى رابط دفع آمن عبر البريد الإلكتروني.'
+        : 'License request received. You will receive a secure payment link by email.';
+      alert(msg);
+      closeModal();
+    };
+
+    // ======================== DOWNLOAD BUTTON ========================
+    async function setupDownload() {
+      try {
+        const res = await fetch('https://api.github.com/repos/OussamaTabDev/maktabatypro/releases/latest');
+        const release = await res.json();
+        const plat = navigator.platform.toLowerCase();
+        let asset = null;
+        if (plat.includes('win')) asset = release.assets.find(a => a.name.endsWith('.exe'));
+        else if (plat.includes('linux') || plat.includes('x11')) asset = release.assets.find(a => a.name.endsWith('.AppImage'));
+        if (asset) document.getElementById('downloadBtn').href = asset.browser_download_url;
+      } catch(e) { console.warn('Could not fetch release:', e); }
+    }
+    setupDownload();
   </script>
-  <script>
-async function setupDownloadButton() {
-  try {
-    const response = await fetch(
-      "https://api.github.com/repos/OussamaTabDev/TemplateFlow-Landing-Page/releases/tag/v1.0.0"
-      
-      
-    );
-
-    const release = await response.json();
-
-    const platform = navigator.platform.toLowerCase();
-
-    let asset = null;
-
-    if (platform.includes("win")) {
-      asset = release.assets.find(a =>
-        a.name.endsWith(".exe")
-      );
-    } else if (
-      platform.includes("linux") ||
-      platform.includes("x11")
-    ) {
-      asset = release.assets.find(a =>
-        a.name.endsWith(".AppImage")
-      );
-    }
-
-    if (asset) {
-      document.getElementById("downloadBtn").href =
-        asset.browser_download_url;
-    }
-  } catch (err) {
-    console.error(err);
-  }
-}
-
-setupDownloadButton();
-</script>
 </body>
 </html>
