@@ -1,833 +1,1440 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>MaktabatyPro — Professional Productivity Suite for Morocco</title>
-  <meta name="description" content="MaktabatyPro: All-in-one offline productivity suite for Moroccan professionals. Template management, PDF processing, card design, rich text editing, and calendar planning.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            teal: { 50: '#f0fdfa', 100: '#ccfbf1', 200: '#99f6e4', 300: '#5eead4', 400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e', 800: '#115e59', 900: '#134e4a' },
-            amber: { 50: '#fffbeb', 100: '#fef3c7', 200: '#fde68a', 300: '#fcd34d', 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706', 700: '#b45309', 800: '#92400e', 900: '#78350f' },
-          },
-          fontFamily: { sans: ['Inter', 'Tajawal', 'system-ui', 'sans-serif'] },
-          keyframes: {
-            'fade-up': { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
-            'fade-in': { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
-            'slide-left': { '0%': { opacity: '0', transform: 'translateX(30px)' }, '100%': { opacity: '1', transform: 'translateX(0)' } },
-            'slide-right': { '0%': { opacity: '0', transform: 'translateX(-30px)' }, '100%': { opacity: '1', transform: 'translateX(0)' } },
-            'float': { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-8px)' } },
-          },
-          animation: { 'fade-up': 'fade-up 0.6s ease-out', 'fade-in': 'fade-in 0.6s ease-out', 'slide-left': 'slide-left 0.6s ease-out', 'slide-right': 'slide-right 0.6s ease-out', 'float': 'float 3s ease-in-out infinite' },
-        }
-      }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="meta.title">MaktabatyPro — Offline Moroccan Document Management</title>
+<meta name="description" content="MaktabatyPro fills administrative documents in 2 minutes with smart offline templates, 30 PDF tools, and zero data uploads. Built for Moroccan public writers. One-time payment, no subscription.">
+<meta name="keywords" content="gestion documents hors ligne, public writer software Morocco, PDF tools offline, template administratif Maroc, écrivain public logiciel">
+<link rel="canonical" href="https://maktabatypro.ma/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#050505">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MaktabatyPro">
+<meta property="og:title" content="MaktabatyPro — Fill Documents in 2 Minutes, 100% Offline">
+<meta property="og:description" content="Smart templates, 30 PDF tools, and full document management. Your data never leaves your device. Made in Morocco for public writers and administrative professionals.">
+<meta property="og:image" content="assets/main_image.png">
+<meta property="og:url" content="https://maktabatypro.ma/">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="ar_MA">
+
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MaktabatyPro — Fill Documents in 2 Minutes, 100% Offline">
+<meta name="twitter:description" content="Smart templates, 30 PDF tools, zero uploads. Made in Morocco for public writers and administrative professionals.">
+<meta name="twitter:image" content="assets/main_image.png">
+
+<link rel="icon" href="assets/icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@0.469.0"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "MaktabatyPro",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Windows, macOS, Linux, Web (PWA)",
+  "description": "Offline document management software for Moroccan public writers and administrative professionals. Smart templates, 30 PDF tools, and local-only data storage.",
+  "offers": [
+    { "@type": "Offer", "name": "Trial", "price": "0", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "Standard", "price": "20", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "Enterprise", "price": "50", "priceCurrency": "USD" }
+  ]
+}
+</script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        background: '#050505',
+        surface: '#121212',
+        text: '#ffffff',
+        accent: '#a855f7',
+        'accent-light': '#c084fc',
+        secondary: '#06b6d4',
+        muted: '#a1a1aa',
+        dim: '#52525b',
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        display: ['Space Grotesk', 'sans-serif'],
+      },
     }
-  </script>
-  <style>
-    * { scroll-behavior: smooth; }
-    body { font-family: 'Inter', 'Tajawal', system-ui, sans-serif; background: #f8fafc; }
-    [dir="rtl"] body { font-family: 'Tajawal', 'Inter', system-ui, sans-serif; }
-    .gradient-text { background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%); background-clip: text; -webkit-background-clip: text; color: transparent; }
-    .hero-glow { position: relative; }
-    .hero-glow::before { content: ''; position: absolute; top: -30%; left: -20%; width: 140%; height: 160%; background: radial-gradient(ellipse at center, rgba(15,118,110,0.08) 0%, transparent 70%); pointer-events: none; }
-    .module-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-    .module-card:hover { transform: translateY(-6px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04); }
-    .feature-card { transition: all 0.3s ease; }
-    .feature-card:hover { transform: translateY(-3px); }
-    .screenshot-mock { background: linear-gradient(145deg, #f1f5f9 0%, #ffffff 100%); border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); }
-    .pricing-card { transition: all 0.3s ease; }
-    .pricing-card:hover { transform: translateY(-4px); }
-    .demo-fields::-webkit-scrollbar { width: 5px; }
-    .demo-fields::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
-    .demo-fields::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-    .lang-btn-active { background: #0f766e; color: white; border-color: #0f766e; }
-    input:focus, select:focus, textarea:focus { outline: none; ring: 2px solid #0f766e; border-color: #0f766e; box-shadow: 0 0 0 3px rgba(15,118,110,0.15); }
-    .stat-number { font-variant-numeric: tabular-nums; }
-    @keyframes countUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    .count-animate { animation: countUp 0.6s ease-out forwards; }
-  </style>
+  }
+}
+</script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: #050505; color: #ffffff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #050505; }
+  ::-webkit-scrollbar-thumb { background: #52525b; border-radius: 3px; }
+
+  .gradient-text {
+    background: linear-gradient(to right, #c084fc, #60a5fa, #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gradient-text-vertical {
+    background: linear-gradient(to bottom, #fff, #777);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  .btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.5);
+  }
+  .btn-ghost {
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.03);
+    transition: all 0.3s ease;
+  }
+  .btn-ghost:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.2);
+  }
+
+  .grid-pattern {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(circle at center, black 30%, transparent 70%);
+    -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 70%);
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(4px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+  }
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.15; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(1.05); }
+  }
+  @keyframes count-up {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+  .shimmer-line {
+    background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  .card-hover {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    border-color: rgba(168, 85, 247, 0.3);
+    box-shadow: 0 0 40px -10px rgba(168, 85, 247, 0.15);
+  }
+
+  .pricing-popular {
+    border-color: rgba(168, 85, 247, 0.4);
+    box-shadow: 0 0 60px -15px rgba(168, 85, 247, 0.2);
+    position: relative;
+  }
+
+  .template-mockup {
+    background: #0a0a0a;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .mockup-field {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 13px;
+    color: #a1a1aa;
+    transition: all 0.4s ease;
+  }
+  .mockup-field.filled {
+    border-color: rgba(168, 85, 247, 0.3);
+    background: rgba(168, 85, 247, 0.05);
+    color: #ffffff;
+  }
+
+  .tool-icon-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .old-step { opacity: 0.4; text-decoration: line-through; text-decoration-color: #ef4444; }
+  .new-step { color: #c084fc; }
+
+  .nav-blur {
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+  }
+
+  .stat-number {
+    font-variant-numeric: tabular-nums;
+  }
+
+  [dir="rtl"] .font-display,
+  [dir="rtl"] body {
+    font-family: 'Noto Sans Arabic', 'Inter', sans-serif;
+  }
+  [dir="rtl"] .gradient-text {
+    direction: ltr;
+    display: inline-block;
+  }
+  [dir="rtl"] .ml-auto { margin-left: 0; margin-right: auto; }
+  [dir="rtl"] .ml-1 { margin-left: 0; margin-right: 0.25rem; }
+  [dir="rtl"] .ml-2 { margin-left: 0; margin-right: 0.5rem; }
+  [dir="rtl"] .text-left { text-align: right; }
+  [dir="rtl"] .sm\\:text-left { text-align: right; }
+  [dir="rtl"] .space-x-3 > :not([hidden]) ~ :not([hidden]) { margin-left: 0; margin-right: 0.75rem; }
+  [dir="rtl"] i[data-lucide="arrow-right"],
+  [dir="rtl"] i[data-lucide="chevron-down"],
+  [dir="rtl"] i[data-lucide="external-link"] { transform: scaleX(-1); }
+  [dir="rtl"] .tracking-tighter { letter-spacing: -0.01em; }
+  [dir="rtl"] .tracking-tight { letter-spacing: -0.005em; }
+  [dir="rtl"] .uppercase { letter-spacing: 0.02em; }
+  [dir="rtl"] .font-mono { font-family: 'Noto Sans Arabic', 'Courier New', monospace; }
+
+  .download-option {
+    cursor: pointer;
+    position: relative;
+  }
+  .download-option:disabled,
+  .download-option[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  .download-option.loading {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  .download-option.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 1.25rem;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+  }
+  @keyframes spin {
+    to { transform: translateY(-50%) rotate(360deg); }
+  }
+</style>
 </head>
 <body>
 
-  <!-- ========== HEADER ========== -->
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-lg border-b border-gray-100/80">
-    <div class="max-w-7xl mx-auto px-5 sm:px-8">
-      <div class="flex items-center justify-between h-16 md:h-20">
-        <a href="#" class="flex items-center gap-2.5">
-          <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-teal-600 to-teal-500 flex items-center justify-center text-white text-xs font-bold shadow-sm">M</div>
-          <span class="text-xl font-bold tracking-tight text-gray-900">Maktabaty<span class="text-teal-600">Pro</span></span>
-        </a>
-        <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-gray-600">
-          <a href="#features" class="hover:text-teal-600 transition" data-i18n="nav-features">Features</a>
-          <a href="#modules" class="hover:text-teal-600 transition" data-i18n="nav-modules">Modules</a>
-          <a href="#demo" class="hover:text-teal-600 transition" data-i18n="nav-demo">Live Demo</a>
-          <a href="#pricing" class="hover:text-teal-600 transition" data-i18n="nav-pricing">Pricing</a>
-        </nav>
-        <div class="flex items-center gap-3">
-          <div class="flex bg-gray-100 rounded-xl p-0.5 shadow-inner">
-            <button data-lang="en" class="lang-btn px-3 py-1.5 text-xs rounded-lg font-semibold transition-all text-gray-500 hover:text-gray-800">EN</button>
-            <button data-lang="fr" class="lang-btn px-3 py-1.5 text-xs rounded-lg font-semibold transition-all text-gray-500 hover:text-gray-800">FR</button>
-            <button data-lang="ar" class="lang-btn px-3 py-1.5 text-xs rounded-lg font-semibold transition-all text-gray-500 hover:text-gray-800">AR</button>
-          </div>
-          <a href="#pricing" class="hidden sm:inline-flex bg-teal-600 text-white text-sm px-5 py-2.5 rounded-xl font-semibold shadow-sm hover:bg-teal-700 transition-all hover:shadow-md" data-i18n="cta-buy">Get License</a>
-        </div>
-      </div>
-    </div>
-  </header>
+<!-- NAV -->
+<nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 nav-blur bg-background/70 border border-white/5 rounded-full px-5 py-2.5 flex items-center gap-6 w-[calc(100%-2rem)] sm:w-auto justify-between sm:justify-start" id="nav">
+  <a href="#" class="font-display font-semibold text-sm tracking-tight flex items-center gap-2">
+    <span class="w-7 h-7 rounded-lg flex items-center justify-center"><img src="assets/icon.png" alt="M" class="w-full h-full object-contain"></span>
+    <span data-i18n="nav.brand">MaktabatyPro</span>
+  </a>
+  <div class="hidden md:flex items-center gap-5">
+    <a href="#features" class="text-xs text-muted hover:text-white transition-colors" data-i18n="nav.features">Features</a>
+    <a href="#privacy" class="text-xs text-muted hover:text-white transition-colors" data-i18n="nav.privacy">Privacy</a>
+    <a href="#pricing" class="text-xs text-muted hover:text-white transition-colors" data-i18n="nav.pricing">Pricing</a>
+  </div>
+  <a href="#" class="download-btn btn-primary text-xs font-medium px-4 py-2 rounded-full text-white ml-2 hidden sm:inline-flex" data-i18n="nav.startFreeTrial">Start Free Trial</a>
+  <button id="mobileNavToggle" type="button" class="md:hidden flex items-center justify-center w-8 h-8 text-white" aria-expanded="false" aria-controls="mobileNavMenu" aria-label="Open menu">
+    <i data-lucide="menu" class="w-5 h-5"></i>
+  </button>
+</nav>
 
-  <main>
-    <!-- ========== HERO ========== -->
-    <section class="relative pt-16 pb-16 md:pt-24 md:pb-20 px-5 overflow-hidden">
-      <div class="hero-glow absolute inset-0 pointer-events-none"></div>
-      <div class="max-w-7xl mx-auto relative">
-        <div class="text-center max-w-4xl mx-auto mb-12">
-          <div class="inline-flex items-center gap-2 bg-teal-50 text-teal-700 text-xs font-semibold px-4 py-1.5 rounded-full mb-6 border border-teal-200/50">
-            <i class="fas fa-shield-halved text-teal-500 text-[10px]"></i>
-            <span data-i18n="hero-badge">100% Offline · Total Data Sovereignty</span>
-          </div>
-          <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-gray-900" data-i18n="hero-title">
-            Professional productivity<br>
-            <span class="gradient-text">fully offline.</span>
-          </h1>
-          <p class="text-gray-500 text-lg md:text-xl mt-6 max-w-2xl mx-auto leading-relaxed" data-i18n="hero-desc">
-            The all-in-one suite for Moroccan professionals. Manage templates, edit PDFs, design cards, write documents, and plan your work — without subscriptions, without the cloud.
-          </p>
-          <div class="flex flex-wrap justify-center gap-4 mt-10">
-            <a href="https://github.com/OussamaTabDev/maktabatypro/releases" id="downloadBtn" class="bg-teal-600 text-white px-7 py-3.5 rounded-xl font-semibold flex items-center gap-2.5 shadow-lg hover:bg-teal-700 transition-all hover:shadow-xl hover:-translate-y-0.5">
-              <i class="fas fa-download"></i>
-              <span data-i18n="hero-download">Download Free Trial</span>
-            </a>
-            <a href="#demo" class="border border-gray-200 bg-white px-7 py-3.5 rounded-xl font-semibold text-gray-700 hover:bg-gray-50 transition-all hover:shadow-md flex items-center gap-2.5">
-              <i class="fas fa-play"></i>
-              <span data-i18n="hero-demo">Watch Demo</span>
-            </a>
-          </div>
-        </div>
-        <div class="screenshot-mock max-w-5xl mx-auto overflow-hidden border border-gray-200/60 shadow-2xl">
-          <div class="bg-gray-50 px-5 py-3.5 border-b border-gray-200 flex items-center gap-2.5">
-            <div class="flex gap-1.5">
-              <div class="w-3 h-3 rounded-full bg-red-400"></div>
-              <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
-              <div class="w-3 h-3 rounded-full bg-green-400"></div>
-            </div>
-            <span class="text-xs text-gray-400 font-mono ml-2">MaktabatyPro — Professional Productivity Suite</span>
-          </div>
-          <img src="assets/landingPage.png" alt="MaktabatyPro Dashboard" class="w-full object-cover">
-        </div>
-      </div>
-    </section>
+<!-- MOBILE NAV MENU -->
+<div id="mobileNavMenu" class="fixed inset-0 z-40 hidden md:!hidden">
+  <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" id="mobileNavOverlay"></div>
+  <div class="absolute top-24 left-4 right-4 bg-surface border border-white/10 rounded-2xl p-6 flex flex-col gap-1">
+    <a href="#features" class="mobile-nav-link text-sm text-muted hover:text-white transition-colors py-3 border-b border-white/5" data-i18n="nav.features">Features</a>
+    <a href="#privacy" class="mobile-nav-link text-sm text-muted hover:text-white transition-colors py-3 border-b border-white/5" data-i18n="nav.privacy">Privacy</a>
+    <a href="#pricing" class="mobile-nav-link text-sm text-muted hover:text-white transition-colors py-3 border-b border-white/5" data-i18n="nav.pricing">Pricing</a>
+    <a href="#faq" class="mobile-nav-link text-sm text-muted hover:text-white transition-colors py-3" data-i18n="nav.faq">FAQ</a>
+    <a href="#" class="download-btn btn-primary text-sm font-medium px-4 py-3 rounded-full text-white text-center mt-4" data-i18n="nav.startFreeTrial">Start Free Trial</a>
+  </div>
+</div>
 
-    <!-- ========== TRUSTED BY ========== -->
-    <div class="border-y border-gray-100 bg-white/50">
-      <div class="max-w-7xl mx-auto px-5 py-6">
-        <div class="flex flex-wrap justify-center items-center gap-x-10 gap-y-3 text-sm font-semibold text-gray-400 uppercase tracking-widest">
-          <span data-i18n="trust-1">Lawyers</span>
-          <span class="text-gray-200">•</span>
-          <span data-i18n="trust-2">Administrative Offices</span>
-          <span class="text-gray-200">•</span>
-          <span data-i18n="trust-3">Print Shops</span>
-          <span class="text-gray-200">•</span>
-          <span data-i18n="trust-4">Translators</span>
-          <span class="text-gray-200">•</span>
-          <span data-i18n="trust-5">Accountants</span>
-          <span class="text-gray-200">•</span>
-          <span data-i18n="trust-6">Notaries</span>
-        </div>
-      </div>
+<!-- HERO -->
+<section class="relative min-h-screen flex flex-col px-6 pt-32 pb-0 overflow-hidden">
+  <div class="absolute inset-0 grid-pattern"></div>
+  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-accent/10 rounded-full blur-[120px] animate-[pulse-glow_6s_ease-in-out_infinite]"></div>
+  <div class="absolute bottom-1/3 right-1/4 w-[300px] h-[300px] bg-secondary/8 rounded-full blur-[100px] animate-[pulse-glow_8s_ease-in-out_infinite_1s]"></div>
+
+  <div class="relative z-10 max-w-4xl mx-auto text-center">
+    <div class="reveal inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-8">
+      <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
+      <span class="text-xs text-muted font-medium" data-i18n="hero.badge">100% Offline · Made in Morocco</span>
     </div>
 
-    <!-- ========== STATS ========== -->
-    <section class="py-16 px-5 bg-gradient-to-b from-white to-gray-50/50">
-      <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div class="stat-item">
-          <div class="text-3xl md:text-4xl font-black text-teal-600 stat-number"><span class="count-to" data-target="10">0</span>+</div>
-          <div class="text-sm text-gray-500 mt-1 font-medium" data-i18n="stat-modules">Professional Modules</div>
-        </div>
-        <div class="stat-item">
-          <div class="text-3xl md:text-4xl font-black text-teal-600 stat-number"><span class="count-to" data-target="100">0</span>%</div>
-          <div class="text-sm text-gray-500 mt-1 font-medium" data-i18n="stat-offline">Offline-First</div>
-        </div>
-        <div class="stat-item">
-          <div class="text-3xl md:text-4xl font-black text-teal-600 stat-number"><span class="count-to" data-target="4">0</span></div>
-          <div class="text-sm text-gray-500 mt-1 font-medium" data-i18n="stat-lang">Languages (AR/FR/EN/ES)</div>
-        </div>
-        <div class="stat-item">
-          <div class="text-3xl md:text-4xl font-black text-teal-600 stat-number"><span class="count-to" data-target="35">0</span>+</div>
-          <div class="text-sm text-gray-500 mt-1 font-medium" data-i18n="stat-tools">Built-in Tools</div>
-        </div>
-      </div>
-    </section>
+    <h1 class="reveal reveal-delay-1 font-display font-medium text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tighter leading-[0.9] mb-6">
+      <span class="gradient-text-vertical" data-i18n="hero.title1">Fill Documents</span><br>
+      <span class="gradient-text" data-i18n="hero.title2">in 2 Minutes</span>
+    </h1>
 
-    <!-- ========== FEATURES GRID ========== -->
-    <section id="features" class="py-20 px-5">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-14">
-          <span class="text-teal-600 text-sm font-semibold uppercase tracking-[0.15em]" data-i18n="features-badge">Everything you need</span>
-          <h2 class="text-3xl md:text-4xl font-bold mt-3 text-gray-900" data-i18n="features-title">One suite, infinite possibilities</h2>
-          <p class="text-gray-500 max-w-xl mx-auto mt-3 text-lg" data-i18n="features-sub">Ten powerful modules working together. No internet required.</p>
-        </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="feature-card rounded-2xl p-7 bg-white shadow-sm border border-gray-100 hover:shadow-lg hover:border-teal-100">
-            <div class="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center mb-5 text-teal-600 text-lg"><i class="fas fa-file-contract"></i></div>
-            <h3 class="text-lg font-bold text-gray-900" data-i18n="feat1-title">Template Management</h3>
-            <p class="text-gray-500 mt-2 text-sm leading-relaxed" data-i18n="feat1-desc">Create and fill legal templates with dynamic fields, conditional logic, and live preview. Export to PDF or DOCX. Fully RTL-compatible.</p>
-          </div>
-          <div class="feature-card rounded-2xl p-7 bg-white shadow-sm border border-gray-100 hover:shadow-lg hover:border-teal-100">
-            <div class="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center mb-5 text-amber-600 text-lg"><i class="fas fa-file-pdf"></i></div>
-            <h3 class="text-lg font-bold text-gray-900" data-i18n="feat2-title">PDF Library & Editor</h3>
-            <p class="text-gray-500 mt-2 text-sm leading-relaxed" data-i18n="feat2-desc">Centralized PDF vault with smart calendar, reminders, and annotations. Organize, search, tag, and bulk print — all locally stored.</p>
-          </div>
-          <div class="feature-card rounded-2xl p-7 bg-white shadow-sm border border-gray-100 hover:shadow-lg hover:border-teal-100">
-            <div class="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center mb-5 text-teal-600 text-lg"><i class="fas fa-layer-group"></i></div>
-            <h3 class="text-lg font-bold text-gray-900" data-i18n="feat3-title">PDF Toolbox</h3>
-            <p class="text-gray-500 mt-2 text-sm leading-relaxed" data-i18n="feat3-desc">Merge, split, organize, rotate, watermark, encrypt, compress, and convert PDFs. 10 professional tools in one unified interface.</p>
-          </div>
-          <div class="feature-card rounded-2xl p-7 bg-white shadow-sm border border-gray-100 hover:shadow-lg hover:border-teal-100">
-            <div class="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center mb-5 text-amber-600 text-lg"><i class="fas fa-id-card"></i></div>
-            <h3 class="text-lg font-bold text-gray-900" data-i18n="feat4-title">Card Layout Designer</h3>
-            <p class="text-gray-500 mt-2 text-sm leading-relaxed" data-i18n="feat4-desc">Design ID cards, loyalty cards, labels with drag-and-drop images, free positioning, rotation, skew, and crop. Export with cut marks.</p>
-          </div>
-          <div class="feature-card rounded-2xl p-7 bg-white shadow-sm border border-gray-100 hover:shadow-lg hover:border-teal-100">
-            <div class="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center mb-5 text-teal-600 text-lg"><i class="fas fa-pen-to-square"></i></div>
-            <h3 class="text-lg font-bold text-gray-900" data-i18n="feat5-title">Rich Text Editor</h3>
-            <p class="text-gray-500 mt-2 text-sm leading-relaxed" data-i18n="feat5-desc">Full WYSIWYG word processor with tables, images, styles, multi-language support, and auto-save. Export to PDF or DOCX.</p>
-          </div>
-          <div class="feature-card rounded-2xl p-7 bg-white shadow-sm border border-gray-100 hover:shadow-lg hover:border-teal-100">
-            <div class="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center mb-5 text-amber-600 text-lg"><i class="fas fa-bookmark"></i></div>
-            <h3 class="text-lg font-bold text-gray-900" data-i18n="feat6-title">Link Library</h3>
-            <p class="text-gray-500 mt-2 text-sm leading-relaxed" data-i18n="feat6-desc">Curated bookmark manager for Moroccan administrative services. Categories, tags, favorites, favicon auto-fetch, and service info.</p>
-          </div>
-          <div class="feature-card rounded-2xl p-7 bg-white shadow-sm border border-gray-100 hover:shadow-lg hover:border-teal-100">
-            <div class="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center mb-5 text-teal-600 text-lg"><i class="fas fa-calendar-days"></i></div>
-            <h3 class="text-lg font-bold text-gray-900" data-i18n="feat7-title">Calendar Planning</h3>
-            <p class="text-gray-500 mt-2 text-sm leading-relaxed" data-i18n="feat7-desc">Integrated calendar with month, agenda, and heatmap views. Drag-and-drop planning, conflict detection, and keyboard shortcuts.</p>
-          </div>
-          <div class="feature-card rounded-2xl p-7 bg-white shadow-sm border border-gray-100 hover:shadow-lg hover:border-teal-100">
-            <div class="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center mb-5 text-amber-600 text-lg"><i class="fas fa-compress"></i></div>
-            <h3 class="text-lg font-bold text-gray-900" data-i18n="feat8-title">File Compressor</h3>
-            <p class="text-gray-500 mt-2 text-sm leading-relaxed" data-i18n="feat8-desc">Compress images and PDFs client-side. Quality slider, batch processing, ZIP download, and real-time compression stats.</p>
-          </div>
-          <div class="feature-card rounded-2xl p-7 bg-white shadow-sm border border-gray-100 hover:shadow-lg hover:border-teal-100">
-            <div class="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center mb-5 text-teal-600 text-lg"><i class="fas fa-shield-halved"></i></div>
-            <h3 class="text-lg font-bold text-gray-900" data-i18n="feat9-title">100% Offline & Private</h3>
-            <p class="text-gray-500 mt-2 text-sm leading-relaxed" data-i18n="feat9-desc">All data stored in encrypted IndexedDB. No cloud, no servers, no subscriptions. Bank-grade encryption. Total data sovereignty.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <p class="reveal reveal-delay-2 text-muted text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10 drop-shadow-xl" style="text-shadow: 0 4px 30px rgba(0,0,0,0.8), 0 2px 10px rgba(0,0,0,0.5);" data-i18n="hero.paragraph">
+      Templates, PDF tools, and document management — all offline. Your data never leaves your device. Built for <span class="text-white/90 font-medium">public writers</span> and administrative professionals.
+    </p>
 
-    <!-- ========== MODULES DEEP DIVE ========== -->
-    <section id="modules" class="py-20 px-5 bg-gray-50/60">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-14">
-          <span class="bg-teal-100 text-teal-700 text-xs font-mono px-4 py-1.5 rounded-full font-semibold" data-i18n="modules-badge">deep dive</span>
-          <h2 class="text-3xl md:text-4xl font-bold mt-3 text-gray-900" data-i18n="modules-title">Explore every module</h2>
-        </div>
-        <div class="space-y-24">
-          <!-- Module 1: Template Engine -->
-          <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div class="order-2 md:order-1">
-              <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-2 inline-block">
-                <img src="assets/workw.png" alt="Template Engine" class="rounded-lg w-full max-w-lg shadow-sm">
-              </div>
-            </div>
-            <div class="order-1 md:order-2">
-              <span class="text-teal-600 text-sm font-semibold uppercase tracking-wider" data-i18n="mod1-badge">Template Engine</span>
-              <h3 class="text-2xl md:text-3xl font-bold mt-2 text-gray-900" data-i18n="mod1-title">Smart document templates</h3>
-              <p class="text-gray-500 mt-3 leading-relaxed" data-i18n="mod1-desc">Create powerful templates with dynamic fields, conditional sections, loops, math expressions, and system variables. WYSIWYG editor with TipTap, live preview, batch fill, print queue, and draft history. Import from DOCX, share via QR.</p>
-              <ul class="mt-5 space-y-3 text-sm text-gray-600">
-                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="mod1-f1">Dynamic fields with conditionals & loops</span></li>
-                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="mod1-f2">Live preview in AR/FR/EN + full RTL</span></li>
-                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="mod1-f3">Export to PDF, DOCX, or direct print</span></li>
-                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="mod1-f4">Batch fill, draft history, QR sharing</span></li>
-              </ul>
-            </div>
-          </div>
-          <!-- Module 2: PDF Library -->
-          <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div>
-              <span class="text-amber-600 text-sm font-semibold uppercase tracking-wider" data-i18n="mod2-badge">PDF Library & Calendar</span>
-              <h3 class="text-2xl md:text-3xl font-bold mt-2 text-gray-900" data-i18n="mod2-title">Your PDF vault, smartly organized</h3>
-              <p class="text-gray-500 mt-3 leading-relaxed" data-i18n="mod2-desc">Centralized PDF management with encrypted IndexedDB storage. Assign date ranges, set renewal reminders, track usage, annotate pages, add signatures, and bulk print. Grid/list views with categories, tags, favorites, and full-text search.</p>
-              <ul class="mt-5 space-y-3 text-sm text-gray-600">
-                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span data-i18n="mod2-f1">Drag-and-drop import with auto-indexing</span></li>
-                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span data-i18n="mod2-f2">Calendar view with shift+click intervals</span></li>
-                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span data-i18n="mod2-f3">Reminders for renewals + desktop notifications</span></li>
-                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span data-i18n="mod2-f4">Built-in PDF editor: text, arrows, signatures</span></li>
-              </ul>
-            </div>
-            <div class="flex justify-end">
-              <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-2">
-                <img src="assets/pdflib.png" alt="PDF Library" class="rounded-lg w-full max-w-lg shadow-sm">
-              </div>
-            </div>
-          </div>
-          <!-- Module 3: PDF Toolbox -->
-          <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div class="order-2 md:order-1">
-              <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-2 inline-block">
-                <img src="assets/workw.png" alt="PDF Toolbox" class="rounded-lg w-full max-w-lg shadow-sm">
-              </div>
-            </div>
-            <div class="order-1 md:order-2">
-              <span class="text-teal-600 text-sm font-semibold uppercase tracking-wider" data-i18n="mod3-badge">PDF Toolbox</span>
-              <h3 class="text-2xl md:text-3xl font-bold mt-2 text-gray-900" data-i18n="mod3-title">10 powerful PDF tools, offline</h3>
-              <p class="text-gray-500 mt-3 leading-relaxed" data-i18n="mod3-desc">A complete PDF processing workshop. Merge multiple PDFs with page range selection, split by visual selection or page ranges, reorganize pages with drag-and-drop, rotate, add watermarks, encrypt with passwords, compress, and convert to/from images.</p>
-              <ul class="mt-5 space-y-3 text-sm text-gray-600">
-                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="mod3-f1">Merge, Split, Organize, Rotate</span></li>
-                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="mod3-f2">Image to PDF / PDF to Image</span></li>
-                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="mod3-f3">Watermark, Security, Page Numbers</span></li>
-                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="mod3-f4">Compress — reduce file size client-side</span></li>
-              </ul>
-            </div>
-          </div>
-          <!-- Module 4: Card Layout -->
-          <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div>
-              <span class="text-amber-600 text-sm font-semibold uppercase tracking-wider" data-i18n="mod4-badge">Card Layout Studio</span>
-              <h3 class="text-2xl md:text-3xl font-bold mt-2 text-gray-900" data-i18n="mod4-title">Design professional cards & labels</h3>
-              <p class="text-gray-500 mt-3 leading-relaxed" data-i18n="mod4-desc">Visual card and label designer powered by Konva canvas. ID cards, loyalty cards, business cards — drag and drop images, free positioning, rotation, skew, crop, and flip. Multi-page layouts, layers panel, alignment tools, undo/redo.</p>
-              <ul class="mt-5 space-y-3 text-sm text-gray-600">
-                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span data-i18n="mod4-f1">Unlimited images per card, fully offline</span></li>
-                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span data-i18n="mod4-f2">Undo/Redo, templates, and collages</span></li>
-                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span data-i18n="mod4-f3">Export to PDF with cut marks</span></li>
-                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-amber-500 mt-0.5"></i> <span data-i18n="mod4-f4">Direct print or batch queue</span></li>
-              </ul>
-            </div>
-            <div class="flex justify-end">
-              <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-2">
-                <img src="assets/cardlayout.png" alt="Card Layout Designer" class="rounded-lg w-full max-w-lg shadow-sm">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div class="reveal reveal-delay-3 flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+      <a href="#" class="download-btn btn-primary text-sm font-medium px-8 py-4 rounded-full text-white flex items-center gap-2">
+        <span data-i18n="hero.startFreeTrial">Start Free Trial</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="#features" class="btn-ghost text-sm font-medium px-8 py-4 rounded-full text-muted flex items-center gap-2">
+        <span data-i18n="hero.seeHowItWorks">See How It Works</span>
+        <i data-lucide="chevron-down" class="w-4 h-4"></i>
+      </a>
+    </div>
 
-    <!-- ========== WHY OFFLINE ========== -->
-    <section class="py-20 px-5">
-      <div class="max-w-5xl mx-auto">
-        <div class="bg-white rounded-3xl shadow-sm border border-gray-100 p-10 md:p-16 text-center">
-          <div class="w-16 h-16 rounded-2xl bg-teal-50 flex items-center justify-center mx-auto mb-6 text-teal-600 text-3xl"><i class="fas fa-shield-halved"></i></div>
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900" data-i18n="offline-title">Your data never leaves your machine</h2>
-          <p class="text-gray-500 text-lg max-w-2xl mx-auto mt-4 leading-relaxed" data-i18n="offline-desc">No subscriptions. No cloud storage. No internet required. Every document, template, and PDF stays in encrypted local storage on your device. Total sovereignty — compliant with Moroccan data protection and GDPR.</p>
-          <div class="flex flex-wrap justify-center gap-8 mt-10">
-            <div class="flex items-center gap-2.5 text-sm text-gray-600 bg-gray-50 px-5 py-2.5 rounded-xl"><i class="fas fa-database text-teal-600"></i> <span data-i18n="offline-local">Local IndexedDB Storage</span></div>
-            <div class="flex items-center gap-2.5 text-sm text-gray-600 bg-gray-50 px-5 py-2.5 rounded-xl"><i class="fas fa-lock text-teal-600"></i> <span data-i18n="offline-encrypt">Bank-grade Encryption</span></div>
-            <div class="flex items-center gap-2.5 text-sm text-gray-600 bg-gray-50 px-5 py-2.5 rounded-xl"><i class="fas fa-language text-teal-600"></i> <span data-i18n="offline-bilingual">Arabic, French, English, Spanish</span></div>
-          </div>
-        </div>
+    <div class="reveal reveal-delay-4 inline-flex items-center gap-8 sm:gap-12 bg-white/5 border border-white/10 rounded-2xl px-8 sm:px-12 py-5 backdrop-blur-sm relative z-20">
+      <div class="text-center">
+        <div class="font-display text-2xl sm:text-3xl font-semibold stat-number" data-i18n="hero.stats.templates">500+</div>
+        <div class="text-[11px] text-dim uppercase tracking-wider mt-1" data-i18n="hero.stats.templatesLabel">Templates</div>
       </div>
-    </section>
-
-    <!-- ========== INTERACTIVE DEMO ========== -->
-    <section id="demo" class="py-20 px-5 bg-gradient-to-b from-white to-gray-50">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-10">
-          <span class="bg-teal-100 text-teal-700 text-xs font-mono px-4 py-1.5 rounded-full font-semibold" data-i18n="demo-badge">live preview · Power of Attorney</span>
-          <h2 class="text-3xl md:text-4xl font-bold mt-3 text-gray-900" data-i18n="demo-title">See the template engine in action</h2>
-          <p class="text-gray-500 max-w-xl mx-auto mt-2" data-i18n="demo-desc">Fill the fields and watch the document update instantly in Arabic, French, or English. Zero server calls — pure offline preview.</p>
-        </div>
-        <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
-          <div class="px-5 py-4 border-b border-gray-100 flex flex-wrap items-center justify-between gap-3 bg-gray-50/50">
-            <div class="flex items-center gap-2">
-              <i class="fas fa-gavel text-gray-400"></i>
-              <span class="font-semibold text-sm text-gray-700" data-i18n="demo-template-name">Special Power of Attorney · وكالة خاصة</span>
-            </div>
-            <div class="flex items-center gap-3">
-              <div class="flex rounded-lg bg-gray-100 p-0.5">
-                <button data-preview-lang="ar" class="preview-lang px-3 py-1.5 text-xs rounded-md font-medium transition-all text-gray-500 hover:text-gray-800">العربية</button>
-                <button data-preview-lang="fr" class="preview-lang px-3 py-1.5 text-xs rounded-md font-medium transition-all text-gray-500 hover:text-gray-800">Français</button>
-                <button data-preview-lang="en" class="preview-lang px-3 py-1.5 text-xs rounded-md font-medium transition-all text-gray-500 hover:text-gray-800">English</button>
-              </div>
-              <div class="flex items-center gap-1 text-xs text-gray-400">
-                <button id="zoomOut" class="px-2 py-1 border rounded hover:bg-gray-100"><i class="fas fa-minus"></i></button>
-                <span id="zoomVal" class="w-10 text-center font-mono">100%</span>
-                <button id="zoomIn" class="px-2 py-1 border rounded hover:bg-gray-100"><i class="fas fa-plus"></i></button>
-              </div>
-            </div>
-          </div>
-          <div class="grid md:grid-cols-2 divide-x divide-gray-100">
-            <div class="p-6 space-y-5 bg-white max-h-[640px] overflow-y-auto demo-fields">
-              <div>
-                <label class="block text-sm font-semibold text-gray-700" data-i18n="field-fullname">Full Name</label>
-                <input type="text" id="fullName" class="mt-1.5 w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm bg-gray-50/50 focus:bg-white transition" value="فاطمة الزهراء">
-              </div>
-              <div>
-                <label class="block text-sm font-semibold text-gray-700" data-i18n="field-cin">National ID (CIN)</label>
-                <input type="text" id="cin" class="mt-1.5 w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm font-mono bg-gray-50/50 focus:bg-white transition" value="AB678932">
-              </div>
-              <div>
-                <label class="block text-sm font-semibold text-gray-700" data-i18n="field-address">Address</label>
-                <textarea id="address" rows="2" class="mt-1.5 w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm bg-gray-50/50 focus:bg-white transition">12 Mohamed V Street, Casablanca</textarea>
-              </div>
-              <div class="border-t border-gray-100 pt-5">
-                <p class="text-xs font-semibold text-gray-500 mb-3 flex items-center gap-2"><i class="fas fa-user-tie text-teal-600"></i> <span data-i18n="agent-label">Agent / Mandataire (Mandatory)</span></p>
-                <div class="space-y-4">
-                  <input type="text" id="agentName" placeholder="Agent full name" class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm bg-gray-50/50 focus:bg-white transition" value="Ahmed El Fassi">
-                  <input type="text" id="agentCin" placeholder="Agent CIN" class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm font-mono bg-gray-50/50 focus:bg-white transition" value="CD987123">
-                  <textarea id="agentAddress" rows="2" placeholder="Agent address" class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm bg-gray-50/50 focus:bg-white transition">Rabat, Riyad district</textarea>
-                </div>
-              </div>
-              <div>
-                <label class="block text-sm font-semibold text-gray-700" data-i18n="field-authority">Authority / Powers</label>
-                <textarea id="authorityText" rows="3" class="mt-1.5 w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm bg-gray-50/50 focus:bg-white transition">في كل ما تصح به النيابة عنا في استخراج النقود من صندوق المحكمة و القيام بجميع الإجراءات التي يتطلبها الأمر و توقيع و إمضاء الوثائق اللازمة بذلك</textarea>
-              </div>
-              <div class="grid grid-cols-2 gap-4">
-                <div>
-                  <label class="block text-sm font-semibold text-gray-700" data-i18n="field-city">City</label>
-                  <input type="text" id="city" class="mt-1.5 w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm bg-gray-50/50 focus:bg-white transition" value="Khenifra">
-                </div>
-                <div>
-                  <label class="block text-sm font-semibold text-gray-700" data-i18n="field-date">Date</label>
-                  <input type="date" id="dateDoc" class="mt-1.5 w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm bg-gray-50/50 focus:bg-white transition" value="2026-07-03">
-                </div>
-              </div>
-              <div class="text-[11px] text-gray-400 italic border-t border-gray-100 pt-4 mt-2 flex items-center gap-2">
-                <i class="fas fa-shield-halved text-teal-400"></i>
-                <span data-i18n="demo-footer">Live preview · 0 server calls · MaktabatyPro engine</span>
-              </div>
-            </div>
-            <div class="p-6 bg-gray-50/40 flex justify-center items-start min-h-[640px]">
-              <div class="w-full overflow-auto max-h-[580px] shadow-inner rounded-xl bg-white">
-                <div id="previewCard" class="preview-card p-6 md:p-8 transition-all" style="transform-origin: top left">
-                  <div id="templatePreview" class="leading-relaxed text-gray-800"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="bg-gray-50 px-5 py-2.5 text-[11px] text-gray-400 border-t flex justify-between">
-            <span><i class="fas fa-database mr-1.5"></i> <span data-i18n="demo-footer-bottom">Zero cloud · Full local encryption ready</span></span>
-            <span class="font-mono">وكالة خاصة | MaktabatyPro v3.5</span>
-          </div>
-        </div>
+      <div class="w-px h-10 bg-white/10"></div>
+      <div class="text-center">
+        <div class="font-display text-2xl sm:text-3xl font-semibold stat-number" data-i18n="hero.stats.pdfTools">30</div>
+        <div class="text-[11px] text-dim uppercase tracking-wider mt-1" data-i18n="hero.stats.pdfToolsLabel">PDF Tools</div>
       </div>
-    </section>
-
-    <!-- ========== PRICING ========== -->
-    <section id="pricing" class="py-20 px-5">
-      <div class="max-w-5xl mx-auto">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900" data-i18n="pricing-title">Simple, transparent licensing</h2>
-          <p class="text-gray-500 mt-2 text-lg" data-i18n="pricing-sub">One-time payment. No recurring fees. Yours forever.</p>
-        </div>
-        <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-          <!-- Free Trial -->
-          <div class="pricing-card rounded-2xl border border-gray-200 bg-white p-8 shadow-sm hover:shadow-lg">
-            <h3 class="text-2xl font-bold text-gray-900" data-i18n="trial-title">Free Trial</h3>
-            <div class="mt-3 mb-6">
-              <span class="text-4xl font-black text-gray-900" data-i18n="trial-price">14 days</span>
-              <span class="text-gray-500 text-sm"> / full access</span>
-            </div>
-            <ul class="space-y-3.5 text-sm">
-              <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="trial-f1">All core modules: Templates, PDF, Cards</span></li>
-              <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="trial-f2">Local IndexedDB encrypted storage</span></li>
-              <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="trial-f3">AR/FR/EN/ES + full RTL support</span></li>
-              <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="trial-f4">No credit card required</span></li>
-            </ul>
-            <div class="mt-8">
-              <a href="https://github.com/OussamaTabDev/maktabatypro/releases" class="block text-center border border-gray-200 rounded-xl py-3 font-semibold text-gray-700 hover:bg-gray-50 transition hover:shadow-sm" data-i18n="trial-btn">Start Free Trial</a>
-            </div>
-          </div>
-          <!-- Full License -->
-          <div class="pricing-card rounded-2xl border-2 border-teal-600 bg-white p-8 shadow-xl relative hover:shadow-2xl">
-            <div class="absolute -top-3 right-6 bg-teal-600 text-white text-xs px-4 py-1.5 rounded-full font-semibold shadow-sm" data-i18n="popular-badge">Lifetime</div>
-            <h3 class="text-2xl font-bold text-gray-900" data-i18n="full-title">Full License</h3>
-            <div class="mt-3 mb-6">
-              <span class="text-4xl font-black text-gray-900">1,999 DH</span>
-              <span class="text-gray-500 text-sm"> <span data-i18n="one-time">one-time</span></span>
-            </div>
-            <ul class="space-y-3.5 text-sm">
-              <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="full-f1">Unlimited documents, PDFs & exports</span></li>
-              <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="full-f2">All 10 PDF toolbox tools unlocked</span></li>
-              <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="full-f3">Card designer pro (cut marks, batch)</span></li>
-              <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="full-f4">Lifetime updates + future tools</span></li>
-              <li class="flex items-start gap-3"><i class="fas fa-check-circle text-teal-500 mt-0.5"></i> <span data-i18n="full-f5">Priority support, offline activation</span></li>
-            </ul>
-            <div class="mt-8">
-              <button id="openPurchaseModal" class="w-full text-center bg-teal-600 text-white rounded-xl py-3 font-semibold hover:bg-teal-700 transition shadow-lg hover:shadow-xl" data-i18n="buy-btn">
-                Purchase License →
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== FOOTER ========== -->
-    <footer class="border-t border-gray-100 bg-gray-50/50">
-      <div class="max-w-7xl mx-auto px-5 py-12">
-        <div class="grid md:grid-cols-3 gap-8 text-sm text-gray-500">
-          <div>
-            <div class="flex items-center gap-2 mb-4">
-              <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-teal-600 to-teal-500 flex items-center justify-center text-white text-xs font-bold">M</div>
-              <span class="font-bold text-gray-800">MaktabatyPro</span>
-            </div>
-            <p data-i18n="footer-desc">Professional Productivity Suite for Morocco. All-in-one offline workspace for templates, PDFs, cards, and documents.</p>
-          </div>
-          <div>
-            <h4 class="font-semibold text-gray-800 mb-3" data-i18n="footer-product">Product</h4>
-            <ul class="space-y-2">
-              <li><a href="#features" class="hover:text-teal-600 transition" data-i18n="nav-features">Features</a></li>
-              <li><a href="#modules" class="hover:text-teal-600 transition" data-i18n="nav-modules">Modules</a></li>
-              <li><a href="#pricing" class="hover:text-teal-600 transition" data-i18n="nav-pricing">Pricing</a></li>
-              <li><a href="#demo" class="hover:text-teal-600 transition" data-i18n="nav-demo">Live Demo</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="font-semibold text-gray-800 mb-3" data-i18n="footer-contact">Contact</h4>
-            <ul class="space-y-2">
-              <li><i class="fas fa-envelope w-5 text-teal-600"></i> support@maktabatypro.com</li>
-              <li><i class="fas fa-globe w-5 text-teal-600"></i> www.maktabatypro.com</li>
-              <li><i class="fas fa-map-pin w-5 text-teal-600"></i> Morocco</li>
-            </ul>
-          </div>
-        </div>
-        <div class="border-t border-gray-100 mt-10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
-          <span>© 2026 MaktabatyPro. <span data-i18n="footer-rights">All rights reserved.</span></span>
-          <span data-i18n="footer-tagline">Total document sovereignty for Moroccan professionals.</span>
-        </div>
-      </div>
-    </footer>
-  </main>
-
-  <!-- ========== PURCHASE MODAL ========== -->
-  <div id="purchaseModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 invisible opacity-0 transition-all duration-300 px-4">
-    <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl">
-      <div class="p-6 border-b border-gray-100 flex justify-between items-center">
-        <h3 class="text-xl font-bold text-gray-900" data-i18n="modal-title">Complete Your License</h3>
-        <button id="closeModalBtn" class="text-gray-400 hover:text-gray-600 transition w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100"><i class="fas fa-xmark"></i></button>
-      </div>
-      <div class="p-6 space-y-5">
-        <div class="bg-teal-50 rounded-xl p-4 flex justify-between items-center">
-          <span class="font-semibold text-gray-800" data-i18n="modal-product">MaktabatyPro Full License</span>
-          <span class="font-bold text-teal-700">1,999 DH</span>
-        </div>
-        <div>
-          <label class="block text-sm font-semibold text-gray-700" data-i18n="modal-name">Full Name</label>
-          <input type="text" id="buyerName" class="mt-1.5 w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm bg-gray-50/50 focus:bg-white transition" placeholder="Ahmed Bennani">
-        </div>
-        <div>
-          <label class="block text-sm font-semibold text-gray-700" data-i18n="modal-email">Email</label>
-          <input type="email" id="buyerEmail" class="mt-1.5 w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm bg-gray-50/50 focus:bg-white transition" placeholder="contact@example.com">
-        </div>
-        <div>
-          <label class="block text-sm font-semibold text-gray-700" data-i18n="modal-phone">Phone (optional)</label>
-          <input type="tel" id="buyerPhone" class="mt-1.5 w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm bg-gray-50/50 focus:bg-white transition" placeholder="+212 6XX XXX XXX">
-        </div>
-        <button id="confirmPurchaseBtn" class="w-full bg-teal-600 text-white py-3.5 rounded-xl font-semibold hover:bg-teal-700 transition shadow-lg" data-i18n="modal-pay">Pay 1,999 DH & Get License</button>
-        <p class="text-[10px] text-gray-400 text-center flex items-center justify-center gap-2"><i class="fas fa-lock text-teal-400"></i> <span data-i18n="modal-secure">Secure payment · Moroccan payment partners</span></p>
+      <div class="w-px h-10 bg-white/10"></div>
+      <div class="text-center">
+        <div class="font-display text-2xl sm:text-3xl font-semibold stat-number text-green-400" data-i18n="hero.stats.dataSent">0</div>
+        <div class="text-[11px] text-dim uppercase tracking-wider mt-1" data-i18n="hero.stats.dataSentLabel">Data Sent</div>
       </div>
     </div>
   </div>
 
-  <script>
-    // ======================== TRANSLATIONS ========================
-    const translations = {
-      en: {
-        "nav-features": "Features", "nav-modules": "Modules", "nav-demo": "Live Demo", "nav-pricing": "Pricing", "cta-buy": "Get License",
-        "hero-badge": "100% Offline · Total Data Sovereignty",
-        "hero-title": "Professional productivity<br> <span class='gradient-text'>fully offline.</span>",
-        "hero-desc": "The all-in-one suite for Moroccan professionals. Manage templates, edit PDFs, design cards, write documents, and plan your work — without subscriptions, without the cloud.",
-        "hero-download": "Download Free Trial", "hero-demo": "Watch Demo",
-        "trust-1": "Lawyers", "trust-2": "Administrative Offices", "trust-3": "Print Shops", "trust-4": "Translators", "trust-5": "Accountants", "trust-6": "Notaries",
-        "stat-modules": "Professional Modules", "stat-offline": "Offline-First", "stat-lang": "Languages (AR/FR/EN/ES)", "stat-tools": "Built-in Tools",
-        "features-badge": "Everything you need", "features-title": "One suite, infinite possibilities", "features-sub": "Ten powerful modules working together. No internet required.",
-        "feat1-title": "Template Management", "feat1-desc": "Create and fill legal templates with dynamic fields, conditional logic, and live preview. Export to PDF or DOCX. Fully RTL-compatible.",
-        "feat2-title": "PDF Library & Editor", "feat2-desc": "Centralized PDF vault with smart calendar, reminders, and annotations. Organize, search, tag, and bulk print — all locally stored.",
-        "feat3-title": "PDF Toolbox", "feat3-desc": "Merge, split, organize, rotate, watermark, encrypt, compress, and convert PDFs. 10 professional tools in one unified interface.",
-        "feat4-title": "Card Layout Designer", "feat4-desc": "Design ID cards, loyalty cards, labels with drag-and-drop images, free positioning, rotation, skew, and crop. Export with cut marks.",
-        "feat5-title": "Rich Text Editor", "feat5-desc": "Full WYSIWYG word processor with tables, images, styles, multi-language support, and auto-save. Export to PDF or DOCX.",
-        "feat6-title": "Link Library", "feat6-desc": "Curated bookmark manager for Moroccan administrative services. Categories, tags, favorites, favicon auto-fetch, and service info.",
-        "feat7-title": "Calendar Planning", "feat7-desc": "Integrated calendar with month, agenda, and heatmap views. Drag-and-drop planning, conflict detection, and keyboard shortcuts.",
-        "feat8-title": "File Compressor", "feat8-desc": "Compress images and PDFs client-side. Quality slider, batch processing, ZIP download, and real-time compression stats.",
-        "feat9-title": "100% Offline & Private", "feat9-desc": "All data stored in encrypted IndexedDB. No cloud, no servers, no subscriptions. Bank-grade encryption. Total data sovereignty.",
-        "modules-badge": "deep dive", "modules-title": "Explore every module",
-        "mod1-badge": "Template Engine", "mod1-title": "Smart document templates", "mod1-desc": "Create powerful templates with dynamic fields, conditional sections, loops, math expressions, and system variables. WYSIWYG editor with TipTap, live preview, batch fill, print queue, and draft history. Import from DOCX, share via QR.",
-        "mod1-f1": "Dynamic fields with conditionals & loops", "mod1-f2": "Live preview in AR/FR/EN + full RTL", "mod1-f3": "Export to PDF, DOCX, or direct print", "mod1-f4": "Batch fill, draft history, QR sharing",
-        "mod2-badge": "PDF Library & Calendar", "mod2-title": "Your PDF vault, smartly organized", "mod2-desc": "Centralized PDF management with encrypted IndexedDB storage. Assign date ranges, set renewal reminders, track usage, annotate pages, add signatures, and bulk print. Grid/list views with categories, tags, favorites, and full-text search.",
-        "mod2-f1": "Drag-and-drop import with auto-indexing", "mod2-f2": "Calendar view with shift+click intervals", "mod2-f3": "Reminders for renewals + desktop notifications", "mod2-f4": "Built-in PDF editor: text, arrows, signatures",
-        "mod3-badge": "PDF Toolbox", "mod3-title": "10 powerful PDF tools, offline", "mod3-desc": "A complete PDF processing workshop. Merge multiple PDFs with page range selection, split by visual selection or page ranges, reorganize pages with drag-and-drop, rotate, add watermarks, encrypt with passwords, compress, and convert to/from images.",
-        "mod3-f1": "Merge, Split, Organize, Rotate", "mod3-f2": "Image to PDF / PDF to Image", "mod3-f3": "Watermark, Security, Page Numbers", "mod3-f4": "Compress — reduce file size client-side",
-        "mod4-badge": "Card Layout Studio", "mod4-title": "Design professional cards & labels", "mod4-desc": "Visual card and label designer powered by Konva canvas. ID cards, loyalty cards, business cards — drag and drop images, free positioning, rotation, skew, crop, and flip. Multi-page layouts, layers panel, alignment tools, undo/redo.",
-        "mod4-f1": "Unlimited images per card, fully offline", "mod4-f2": "Undo/Redo, templates, and collages", "mod4-f3": "Export to PDF with cut marks", "mod4-f4": "Direct print or batch queue",
-        "offline-title": "Your data never leaves your machine", "offline-desc": "No subscriptions. No cloud storage. No internet required. Every document, template, and PDF stays in encrypted local storage on your device. Total sovereignty — compliant with Moroccan data protection and GDPR.",
-        "offline-local": "Local IndexedDB Storage", "offline-encrypt": "Bank-grade Encryption", "offline-bilingual": "Arabic, French, English, Spanish",
-        "demo-badge": "live preview · Power of Attorney", "demo-title": "See the template engine in action", "demo-desc": "Fill the fields and watch the document update instantly in Arabic, French, or English. Zero server calls — pure offline preview.",
-        "demo-template-name": "Special Power of Attorney · وكالة خاصة",
-        "field-fullname": "Full Name", "field-cin": "National ID (CIN)", "field-address": "Address", "agent-label": "Agent / Mandataire (Mandatory)", "field-authority": "Authority / Powers", "field-city": "City", "field-date": "Date",
-        "demo-footer": "Live preview · 0 server calls · MaktabatyPro engine", "demo-footer-bottom": "Zero cloud · Full local encryption ready",
-        "pricing-title": "Simple, transparent licensing", "pricing-sub": "One-time payment. No recurring fees. Yours forever.",
-        "trial-title": "Free Trial", "trial-price": "14 days", "trial-f1": "All core modules: Templates, PDF, Cards", "trial-f2": "Local IndexedDB encrypted storage", "trial-f3": "AR/FR/EN/ES + full RTL support", "trial-f4": "No credit card required", "trial-btn": "Start Free Trial",
-        "full-title": "Full License", "one-time": "one-time",
-        "full-f1": "Unlimited documents, PDFs & exports", "full-f2": "All 10 PDF toolbox tools unlocked", "full-f3": "Card designer pro (cut marks, batch)", "full-f4": "Lifetime updates + future tools", "full-f5": "Priority support, offline activation",
-        "popular-badge": "Lifetime", "buy-btn": "Purchase License →",
-        "footer-desc": "Professional Productivity Suite for Morocco. All-in-one offline workspace for templates, PDFs, cards, and documents.", "footer-product": "Product", "footer-contact": "Contact", "footer-rights": "All rights reserved.", "footer-tagline": "Total document sovereignty for Moroccan professionals.",
-        "modal-title": "Complete Your License", "modal-product": "MaktabatyPro Full License", "modal-name": "Full Name", "modal-email": "Email", "modal-phone": "Phone (optional)", "modal-pay": "Pay 1,999 DH & Get License", "modal-secure": "Secure payment · Moroccan payment partners"
-      },
-      fr: {
-        "nav-features": "Fonctionnalités", "nav-modules": "Modules", "nav-demo": "Démo", "nav-pricing": "Tarifs", "cta-buy": "Obtenir la licence",
-        "hero-badge": "100% Hors ligne · Souveraineté totale",
-        "hero-title": "La productivité professionnelle<br> <span class='gradient-text'>entièrement hors ligne.</span>",
-        "hero-desc": "La suite tout-en-un pour les professionnels marocains. Gérez les modèles, modifiez les PDF, concevez des cartes, rédigez des documents et planifiez votre travail — sans abonnements, sans cloud.",
-        "hero-download": "Télécharger l'essai", "hero-demo": "Voir la démo",
-        "trust-1": "Avocats", "trust-2": "Bureaux admin.", "trust-3": "Imprimeries", "trust-4": "Traducteurs", "trust-5": "Comptables", "trust-6": "Notaires",
-        "stat-modules": "Modules professionnels", "stat-offline": "Hors ligne", "stat-lang": "Langues (AR/FR/EN/ES)", "stat-tools": "Outils intégrés",
-        "features-badge": "Tout ce dont vous avez besoin", "features-title": "Une suite, des possibilités infinies", "features-sub": "Dix modules puissants qui travaillent ensemble. Aucun accès Internet requis.",
-        "feat1-title": "Gestion des modèles", "feat1-desc": "Créez et remplissez des modèles juridiques avec champs dynamiques, logique conditionnelle et aperçu en direct. Export PDF ou DOCX. Compatible RTL.",
-        "feat2-title": "Bibliothèque PDF & Éditeur", "feat2-desc": "Coffre-fort PDF centralisé avec calendrier intelligent, rappels et annotations. Organisez, recherchez, étiquetez et imprimez en lot.",
-        "feat3-title": "Boîte à outils PDF", "feat3-desc": "Fusionnez, divisez, organisez, pivotez, filigranez, chiffrez, compressez et convertissez des PDF. 10 outils pro dans une interface unifiée.",
-        "feat4-title": "Studio de cartes", "feat4-desc": "Concevez des cartes d'identité, de fidélité, des étiquettes avec glisser-déposer, positionnement libre, rotation, inclinaison et recadrage.",
-        "feat5-title": "Éditeur de texte riche", "feat5-desc": "Traitement de texte WYSIWYG avec tableaux, images, styles, support multilingue et sauvegarde automatique. Export PDF ou DOCX.",
-        "feat6-title": "Bibliothèque de liens", "feat6-desc": "Gestionnaire de favoris pour les services administratifs marocains. Catégories, tags, favoris, récupération de favicon.",
-        "feat7-title": "Planification calendrier", "feat7-desc": "Calendrier intégré avec vues mois, agenda et heatmap. Glisser-déposer, détection de conflits, raccourcis clavier.",
-        "feat8-title": "Compresseur de fichiers", "feat8-desc": "Compressez images et PDF côté client. Curseur de qualité, traitement par lots, téléchargement ZIP.",
-        "feat9-title": "100% Hors ligne & Privé", "feat9-desc": "Toutes les données stockées dans IndexedDB chiffré. Pas de cloud, pas de serveurs, pas d'abonnements. Chiffrement bancaire.",
-        "modules-badge": "exploration", "modules-title": "Explorez chaque module",
-        "mod1-badge": "Moteur de modèles", "mod1-title": "Modèles de documents intelligents", "mod1-desc": "Créez des modèles puissants avec champs dynamiques, sections conditionnelles, boucles, expressions mathématiques et variables système. Éditeur WYSIWYG avec TipTap, aperçu en direct, remplissage par lot et historique.",
-        "mod1-f1": "Champs dynamiques avec conditions et boucles", "mod1-f2": "Aperçu en direct AR/FR/EN + RTL", "mod1-f3": "Export PDF, DOCX ou impression directe", "mod1-f4": "Remplissage par lot, historique, QR",
-        "mod2-badge": "Bibliothèque PDF & Calendrier", "mod2-title": "Votre coffre PDF, intelligemment organisé", "mod2-desc": "Gestion centralisée des PDF avec stockage IndexedDB chiffré. Plages de dates, rappels de renouvellement, annotations, signatures et impression par lot.",
-        "mod2-f1": "Import par glisser-déposer avec auto-indexation", "mod2-f2": "Vue calendrier avec intervalles shift+clic", "mod2-f3": "Rappels de renouvellement + notifications", "mod2-f4": "Éditeur PDF intégré : texte, flèches, signatures",
-        "mod3-badge": "Boîte à outils PDF", "mod3-title": "10 outils PDF puissants, hors ligne", "mod3-desc": "Un atelier complet de traitement PDF. Fusion, division, réorganisation, rotation, filigrane, chiffrement, compression et conversion.",
-        "mod3-f1": "Fusionner, Diviser, Organiser, Pivoter", "mod3-f2": "Image vers PDF / PDF vers Image", "mod3-f3": "Filigrane, Sécurité, Numéros de page", "mod3-f4": "Compression côté client",
-        "mod4-badge": "Studio de cartes", "mod4-title": "Concevez cartes et étiquettes professionnelles", "mod4-desc": "Designer visuel propulsé par Konva canvas. Cartes d'identité, de fidélité, professionnelles — glisser-déposer, rotation, inclinaison, recadrage.",
-        "mod4-f1": "Images illimitées par carte, hors ligne", "mod4-f2": "Annuler/Rétablir, modèles et collages", "mod4-f3": "Export PDF avec repères de coupe", "mod4-f4": "Impression directe ou par lot",
-        "offline-title": "Vos données ne quittent jamais votre machine", "offline-desc": "Sans abonnements. Sans stockage cloud. Sans connexion Internet. Chaque document reste dans un stockage local chiffré. Souveraineté totale.",
-        "offline-local": "Stockage IndexedDB local", "offline-encrypt": "Chiffrement bancaire", "offline-bilingual": "Arabe, Français, Anglais, Espagnol",
-        "demo-badge": "aperçu en direct · Procuration", "demo-title": "Voyez le moteur de modèles en action", "demo-desc": "Remplissez les champs et voyez le document se mettre à jour instantanément en arabe, français ou anglais.",
-        "demo-template-name": "Procuration spéciale · وكالة خاصة",
-        "field-fullname": "Nom complet", "field-cin": "CIN", "field-address": "Adresse", "agent-label": "Mandataire (obligatoire)", "field-authority": "Pouvoirs", "field-city": "Ville", "field-date": "Date",
-        "demo-footer": "Aperçu en direct · 0 appel serveur · Moteur MaktabatyPro", "demo-footer-bottom": "Zéro cloud · Chiffrement local prêt",
-        "pricing-title": "Licence simple et transparente", "pricing-sub": "Paiement unique. Sans frais récurrents.",
-        "trial-title": "Essai gratuit", "trial-price": "14 jours", "trial-f1": "Tous les modules : Modèles, PDF, Cartes", "trial-f2": "Stockage IndexedDB chiffré", "trial-f3": "AR/FR/EN/ES + RTL", "trial-f4": "Aucune carte bancaire requise", "trial-btn": "Commencer l'essai",
-        "full-title": "Licence complète", "one-time": "unique",
-        "full-f1": "Documents, PDF et exports illimités", "full-f2": "Les 10 outils PDF débloqués", "full-f3": "Studio de cartes pro (repères, lot)", "full-f4": "Mises à jour à vie + futurs outils", "full-f5": "Support prioritaire, activation hors ligne",
-        "popular-badge": "À vie", "buy-btn": "Acheter la licence →",
-        "footer-desc": "Suite de productivité professionnelle pour le Maroc. Espace de travail hors ligne tout-en-un.", "footer-product": "Produit", "footer-contact": "Contact", "footer-rights": "Tous droits réservés.", "footer-tagline": "Souveraineté documentaire pour les professionnels marocains.",
-        "modal-title": "Finalisez votre licence", "modal-product": "Licence complète MaktabatyPro", "modal-name": "Nom complet", "modal-email": "Email", "modal-phone": "Téléphone (optionnel)", "modal-pay": "Payer 1 999 DH et obtenir la licence", "modal-secure": "Paiement sécurisé · Partenaires marocains"
-      },
-      ar: {
-        "nav-features": "المميزات", "nav-modules": "الوحدات", "nav-demo": "تجربة حية", "nav-pricing": "التسعير", "cta-buy": "احصل على الترخيص",
-        "hero-badge": "٪١٠٠ بدون إنترنت · سيادة كاملة للبيانات",
-        "hero-title": "الإنتاجية المهنية<br> <span class='gradient-text'>بدون إنترنت بالكامل.</span>",
-        "hero-desc": "الحزمة المتكاملة للمهنيين المغاربة. إدارة القوالب، تعديل PDF، تصميم البطاقات، كتابة المستندات، وتخطيط العمل — بدون اشتراكات وبدون سحابة.",
-        "hero-download": "تحميل النسخة التجريبية", "hero-demo": "مشاهدة العرض",
-        "trust-1": "محامون", "trust-2": "مكاتب إدارية", "trust-3": "مطابع", "trust-4": "مترجمون", "trust-5": "محاسبون", "trust-6": "عدول",
-        "stat-modules": "وحدة مهنية", "stat-offline": "بدون إنترنت", "stat-lang": "لغات (AR/FR/EN/ES)", "stat-tools": "أداة مدمجة",
-        "features-badge": "كل ما تحتاجه", "features-title": "حزمة واحدة، إمكانيات لا نهائية", "features-sub": "عشر وحدات قوية تعمل معاً. لا حاجة للإنترنت.",
-        "feat1-title": "إدارة القوالب", "feat1-desc": "إنشاء وتعبئة القوالب القانونية بحقول ديناميكية ومنطق شرطي ومعاينة حية. تصدير PDF أو DOCX. دعم كامل لـ RTL.",
-        "feat2-title": "مكتبة PDF والمحرر", "feat2-desc": "خزنة PDF مركزية مع تقويم ذكي وتذكيرات وتعليقات. تنظيم وبحث ووسوم وطباعة جماعية — كلها مخزنة محلياً.",
-        "feat3-title": "صندوق أدوات PDF", "feat3-desc": "دمج، تقسيم، تنظيم، تدوير، علامة مائية، تشفير، ضغط، وتحويل PDF. ١٠ أدوات مهنية في واجهة واحدة.",
-        "feat4-title": "مصمم تخطيط البطاقات", "feat4-desc": "تصميم بطاقات الهوية والولاء والملصقات بالسحب والإفلات، تحديد حر، تدوير، إمالة، وقص. تصدير مع علامات القص.",
-        "feat5-title": "محرر نصوص غني", "feat5-desc": "معالج نصوص WYSIWYG متكامل مع جداول وصور وأنماط ودعم متعدد اللغات وحفظ تلقائي.",
-        "feat6-title": "مكتبة الروابط", "feat6-desc": "مدير إشارات مرجعية للخدمات الإدارية المغربية. تصنيفات، وسوم، مفضلة، جلب تلقائي للأيقونة.",
-        "feat7-title": "التقويم والتخطيط", "feat7-desc": "تقويم متكامل مع عرض شهري وجدول أعمال وheatmap. سحب وإفلات، كشف التعارضات، اختصارات لوحة المفاتيح.",
-        "feat8-title": "ضغط الملفات", "feat8-desc": "ضغط الصور و PDF في المتصفح. مؤشر جودة، معالجة دفعات، تحميل ZIP مع إحصائيات.",
-        "feat9-title": "٪١٠٠ بدون إنترنت وخاص", "feat9-desc": "جميع البيانات مخزنة في IndexedDB مشفر. لا سحابة، لا خوادم، لا اشتراكات. تشفير مصرفي. سيادة كاملة للبيانات.",
-        "modules-badge": "استكشاف", "modules-title": "استكشف كل وحدة",
-        "mod1-badge": "محرك القوالب", "mod1-title": "قوالب مستندات ذكية", "mod1-desc": "إنشاء قوالب قوية بحقول ديناميكية، أقسام شرطية، حلقات، تعابير رياضية، ومتغيرات نظام. محرر WYSIWYG مع TipTap، معاينة حية، تعبئة دفعات، ومشاركة QR.",
-        "mod1-f1": "حقول ديناميكية مع شروط وحلقات", "mod1-f2": "معاينة حية AR/FR/EN + RTL كامل", "mod1-f3": "تصدير PDF، DOCX، أو طباعة مباشرة", "mod1-f4": "تعبئة دفعات، تاريخ، مشاركة QR",
-        "mod2-badge": "مكتبة PDF والتقويم", "mod2-title": "خزنة PDF منظمة بذكاء", "mod2-desc": "إدارة مركزية لـ PDF مع تخزين IndexedDB مشفر. تعيين تواريخ، تذكيرات تجديد، تعليقات، توقيعات، وطباعة جماعية.",
-        "mod2-f1": "استيراد سحب وإفلات مع فهرسة تلقائية", "mod2-f2": "عرض تقويم بنطاقات زمنية", "mod2-f3": "تذكيرات للتجديد + إشعارات", "mod2-f4": "محرر PDF مدمج: نص، أسهم، توقيعات",
-        "mod3-badge": "صندوق أدوات PDF", "mod3-title": "١٠ أدوات PDF قوية، بدون إنترنت", "mod3-desc": "ورشة معالجة PDF كاملة. دمج، تقسيم، إعادة تنظيم، تدوير، علامة مائية، تشفير، ضغط، وتحويل.",
-        "mod3-f1": "دمج، تقسيم، تنظيم، تدوير", "mod3-f2": "صورة إلى PDF / PDF إلى صورة", "mod3-f3": "علامة مائية، أمان، ترقيم صفحات", "mod3-f4": "ضغط — تقليل حجم الملف",
-        "mod4-badge": "استوديو تخطيط البطاقات", "mod4-title": "تصميم بطاقات وملصقات احترافية", "mod4-desc": "مصمم بصري بتقنية Konva canvas. بطاقات هوية، ولاء، أعمال — سحب وإفلات، تحديد حر، تدوير، إمالة، قص.",
-        "mod4-f1": "صور غير محدودة لكل بطاقة، بدون إنترنت", "mod4-f2": "تراجع/إعادة، قوالب وكولاج", "mod4-f3": "تصدير PDF مع علامات قص", "mod4-f4": "طباعة مباشرة أو دفعات",
-        "offline-title": "بياناتك لا تغادر جهازك أبداً", "offline-desc": "لا اشتراكات. لا تخزين سحابي. لا حاجة للإنترنت. كل مستند يبقى في تخزين مشفر على جهازك. سيادة كاملة.",
-        "offline-local": "تخزين IndexedDB محلي", "offline-encrypt": "تشفير مصرفي", "offline-bilingual": "العربية، الفرنسية، الإنجليزية، الإسبانية",
-        "demo-badge": "معاينة حية · وكالة خاصة", "demo-title": "شاهد محرك القوالب أثناء العمل", "demo-desc": "املأ الحقول وشاهد المستند يتحدّث فوراً بالعربية أو الفرنسية أو الإنجليزية. بدون أي اتصال بالخادم.",
-        "demo-template-name": "وكالة خاصة · Special Power of Attorney",
-        "field-fullname": "الاسم الكامل", "field-cin": "رقم بطاقة التعريف", "field-address": "العنوان", "agent-label": "الوكيل / المندوب (إجباري)", "field-authority": "الصلاحيات", "field-city": "المدينة", "field-date": "التاريخ",
-        "demo-footer": "معاينة حية · ٠ استدعاء خادم · محرك MaktabatyPro", "demo-footer-bottom": "صفر سحابة · تشفير محلي جاهز",
-        "pricing-title": "ترخيص بسيط وشفاف", "pricing-sub": "دفعة واحدة. لا رسوم متكررة.",
-        "trial-title": "تجربة مجانية", "trial-price": "١٤ يوماً", "trial-f1": "جميع الوحدات الأساسية: قوالب، PDF، بطاقات", "trial-f2": "تخزين IndexedDB مشفر", "trial-f3": "AR/FR/EN/ES + دعم RTL كامل", "trial-f4": "لا حاجة لبطاقة ائتمان", "trial-btn": "بدء التجربة المجانية",
-        "full-title": "ترخيص كامل", "one-time": "لمرة واحدة",
-        "full-f1": "مستندات و PDF وتصديرات غير محدودة", "full-f2": "جميع أدوات PDF العشر مفتوحة", "full-f3": "مصمم بطاقات احترافي (علامات قص، دفعات)", "full-f4": "تحديثات مدى الحياة + أدوات مستقبلية", "full-f5": "دعم ذو أولوية، تفعيل بدون إنترنت",
-        "popular-badge": "مدى الحياة", "buy-btn": "شراء الترخيص ←",
-        "footer-desc": "حزمة الإنتاجية المهنية للمغرب. مساحة عمل متكاملة بدون إنترنت للقوالب و PDF والبطاقات والمستندات.", "footer-product": "المنتج", "footer-contact": "الاتصال", "footer-rights": "جميع الحقوق محفوظة.", "footer-tagline": "السيادة المستندية للمهنيين المغاربة.",
-        "modal-title": "أكمل ترخيصك", "modal-product": "الترخيص الكامل MaktabatyPro", "modal-name": "الاسم الكامل", "modal-email": "البريد الإلكتروني", "modal-phone": "الهاتف (اختياري)", "modal-pay": "ادفع ١٬٩٩٩ درهماً واحصل على الترخيص", "modal-secure": "دفع آمن · شركاء دفع مغاربة"
-      }
-    };
+  <!-- Image: 70% width, centered, fades at bottom -->
+  <div class="absolute left-1/2 -translate-x-1/2 top-[45%] bottom-0 w-[75%] pointer-events-none overflow-hidden">
+    <div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-background to-transparent z-10"></div>
+    <img src="assets/main_image.png" alt="" class="w-full h-full object-cover object-top select-none opacity-90">
+  </div>
+</section>
 
-    // ======================== I18N ENGINE ========================
-    let currentLang = 'en';
-    function applyLang() {
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[currentLang] && translations[currentLang][key]) {
-          el.innerHTML = translations[currentLang][key];
-        }
-      });
-      document.documentElement.lang = currentLang;
-      document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-    }
+<!-- PROBLEM -->
+<section class="relative px-20 py-24 ">
+  <div class="absolute inset-0 pointer-events-none select-none">
+    <img src="assets/left_1.png" alt="" loading="lazy" decoding="async" class="absolute bottom-0 left-4 md:left-20 w-80 md:w-96 h-auto opacity-70 translate-y-1/4 translate-x-1/4">
+    <img src="assets/right_1.png" alt="" loading="lazy" decoding="async" class="absolute bottom-0 right-4 md:right-48 w-80 md:w-96 h-auto opacity-70 translate-y-1/4">
+  </div>
+  <div class="max-w-5xl mx-auto relative z-10">
+    <div class="reveal text-center mb-16">
+      <p class="text-xs text-accent font-mono uppercase tracking-widest mb-4" data-i18n="problem.badge">The Problem</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl md:text-5xl tracking-tight" data-i18n="problem.heading">
+        You deserve better than this
+      </h2>
+    </div>
 
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('lang-btn-active'));
-        currentLang = btn.getAttribute('data-lang');
-        btn.classList.add('lang-btn-active');
-        applyLang();
-        renderPreview();
-      });
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="reveal reveal-delay-1 card-hover bg-surface/50 border border-white/5 rounded-2xl p-8">
+        <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center mb-5">
+          <i data-lucide="eye-off" class="w-5 h-5 text-red-400"></i>
+        </div>
+        <h3 class="font-display text-lg font-medium mb-3" data-i18n="problem.card1.title">Your data gets sold</h3>
+        <p class="text-sm text-muted leading-relaxed" data-i18n="problem.card1.text">Every PDF uploaded to iLovePDF, Smallpdf, or similar services becomes their data. Your clients' names, IDs, addresses — packaged and sold to data brokers.</p>
+      </div>
+
+      <div class="reveal reveal-delay-2 card-hover bg-surface/50 border border-white/5 rounded-2xl p-8">
+        <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-5">
+          <i data-lucide="clock" class="w-5 h-5 text-amber-400"></i>
+        </div>
+        <h3 class="font-display text-lg font-medium mb-3" data-i18n="problem.card2.title">10+ minutes per document</h3>
+        <p class="text-sm text-muted leading-relaxed" data-i18n="problem.card2.text">Manually typing the same fields, calculating dates, converting numbers to words. Repetitive work that eats hours from your day — every single day.</p>
+      </div>
+
+      <div class="reveal reveal-delay-3 card-hover bg-surface/50 border border-white/5 rounded-2xl p-8">
+        <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5">
+          <i data-lucide="puzzle" class="w-5 h-5 text-blue-400"></i>
+        </div>
+        <h3 class="font-display text-lg font-medium mb-3" data-i18n="problem.card3.title">Too many tools</h3>
+        <p class="text-sm text-muted leading-relaxed" data-i18n="problem.card3.text">One site for merging, another for splitting, a third for filling templates, a fourth for compression. No unified workflow, no consistency.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEMPLATES — THE MAIN FEATURE -->
+<section id="features" class="relative px-6 py-24 overflow-hidden">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-accent/5 rounded-full blur-[150px]"></div>
+
+  <div class="relative max-w-6xl mx-auto">
+    <div class="reveal text-center mb-6">
+      <p class="text-xs text-accent font-mono uppercase tracking-widest mb-4" data-i18n="features.badge">Core Feature</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl md:text-5xl tracking-tight mb-4" data-i18n="features.heading">
+        Templates That Think For You
+      </h2>
+      <p class="text-muted text-base sm:text-lg max-w-2xl mx-auto" data-i18n="features.subheading">
+        Not just static forms. Smart templates with variables, logic, and batch processing that cut your work from 10 minutes to 2.
+      </p>
+    </div>
+
+    <!-- Before / After -->
+    <div class="reveal grid grid-cols-1 md:grid-cols-2 gap-6 mb-20 mt-12">
+      <div class="bg-surface/30 border border-white/5 rounded-2xl p-8">
+        <div class="flex items-center gap-2 mb-6">
+          <span class="text-xs text-red-400/80 font-mono uppercase tracking-wider" data-i18n="features.old.label">Old Way</span>
+          <span class="text-xs text-dim" data-i18n="features.old.time">— ~10 min</span>
+        </div>
+        <div class="space-y-3">
+          <div class="old-step text-sm text-muted flex items-center gap-3"><span class="text-dim text-xs w-4">01</span> <span data-i18n="features.old.step1">Open browser, find the template</span></div>
+          <div class="old-step text-sm text-muted flex items-center gap-3"><span class="text-dim text-xs w-4">02</span> <span data-i18n="features.old.step2">Download it as PDF or Word</span></div>
+          <div class="old-step text-sm text-muted flex items-center gap-3"><span class="text-dim text-xs w-4">03</span> <span data-i18n="features.old.step3">Open in editor, type each field manually</span></div>
+          <div class="old-step text-sm text-muted flex items-center gap-3"><span class="text-dim text-xs w-4">04</span> <span data-i18n="features.old.step4">Calculate dates (birth → age, etc.)</span></div>
+          <div class="old-step text-sm text-muted flex items-center gap-3"><span class="text-dim text-xs w-4">05</span> <span data-i18n="features.old.step5">Convert numbers to words by hand</span></div>
+          <div class="old-step text-sm text-muted flex items-center gap-3"><span class="text-dim text-xs w-4">06</span> <span data-i18n="features.old.step6">Upload to online tool to convert to PDF</span></div>
+          <div class="old-step text-sm text-muted flex items-center gap-3"><span class="text-dim text-xs w-4">07</span> <span data-i18n="features.old.step7">Download, check, fix, repeat</span></div>
+        </div>
+      </div>
+
+      <div class="bg-surface/30 border border-accent/10 rounded-2xl p-8">
+        <div class="flex items-center gap-2 mb-6">
+          <span class="text-xs text-accent-light font-mono uppercase tracking-wider" data-i18n="features.new.label">MaktabatyPro</span>
+          <span class="text-xs text-dim" data-i18n="features.new.time">— ~2 min</span>
+        </div>
+        <div class="space-y-3">
+          <div class="new-step text-sm flex items-center gap-3"><span class="text-accent/60 text-xs w-4">01</span> <span data-i18n="features.new.step1">Select template from your library</span></div>
+          <div class="new-step text-sm flex items-center gap-3"><span class="text-accent/60 text-xs w-4">02</span> <span data-i18n="features.new.step2">Fill fields — dates and math auto-calculate</span></div>
+          <div class="new-step text-sm flex items-center gap-3"><span class="text-accent/60 text-xs w-4">03</span> <span data-i18n="features.new.step3">Conditional fields show/hide automatically</span></div>
+          <div class="new-step text-sm flex items-center gap-3"><span class="text-accent/60 text-xs w-4">04</span> <span data-i18n="features.new.step4">Live preview updates as you type</span></div>
+          <div class="new-step text-sm flex items-center gap-3"><span class="text-accent/60 text-xs w-4">05</span> <span data-i18n="features.new.step5">Export to PDF — offline, instant</span></div>
+          <div class="text-sm text-dim flex items-center gap-3 mt-2"><span class="w-4"></span><span data-i18n="features.new.step6">That's it. You're done.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Template capabilities -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="reveal reveal-delay-1 card-hover bg-surface/30 border border-white/5 rounded-xl p-6">
+        <i data-lucide="variable" class="w-5 h-5 text-accent-light mb-4"></i>
+        <h3 class="font-display text-sm font-medium mb-2" data-i18n="features.capability.smartVariables.title">Smart Variables</h3>
+        <p class="text-xs text-muted leading-relaxed" data-i18n="features.capability.smartVariables.text"><code class="text-accent/80 bg-accent/5 px-1.5 py-0.5 rounded text-[11px]">{{TODAY}}</code>, <code class="text-accent/80 bg-accent/5 px-1.5 py-0.5 rounded text-[11px]">{{CURRENT_YEAR}}</code>, auto-serial numbers — inserted and calculated automatically.</p>
+      </div>
+      <div class="reveal reveal-delay-2 card-hover bg-surface/30 border border-white/5 rounded-xl p-6">
+        <i data-lucide="git-branch" class="w-5 h-5 text-accent-light mb-4"></i>
+        <h3 class="font-display text-sm font-medium mb-2" data-i18n="features.capability.conditionalFields.title">Conditional Fields</h3>
+        <p class="text-xs text-muted leading-relaxed" data-i18n="features.capability.conditionalFields.text">Show or hide sections based on what the user selects. If gender = female, show specific fields. No more irrelevant sections.</p>
+      </div>
+      <div class="reveal reveal-delay-3 card-hover bg-surface/30 border border-white/5 rounded-xl p-6">
+        <i data-lucide="layers" class="w-5 h-5 text-accent-light mb-4"></i>
+        <h3 class="font-display text-sm font-medium mb-2" data-i18n="features.capability.loopFields.title">Loop Fields</h3>
+        <p class="text-xs text-muted leading-relaxed" data-i18n="features.capability.loopFields.text">Repeatable field groups — children's names, multiple references, item lists. Add, remove, reorder rows dynamically.</p>
+      </div>
+      <div class="reveal reveal-delay-1 card-hover bg-surface/30 border border-white/5 rounded-xl p-6">
+        <i data-lucide="calculator" class="w-5 h-5 text-accent-light mb-4"></i>
+        <h3 class="font-display text-sm font-medium mb-2" data-i18n="features.capability.mathExpressions.title">Math Expressions</h3>
+        <p class="text-xs text-muted leading-relaxed" data-i18n="features.capability.mathExpressions.text"><code class="text-accent/80 bg-accent/5 px-1.5 py-0.5 rounded text-[11px]">{{FIELD1 + FIELD2}}</code>, age from birth date, sum of amounts — all calculated live.</p>
+      </div>
+      <div class="reveal reveal-delay-2 card-hover bg-surface/30 border border-white/5 rounded-xl p-6">
+        <i data-lucide="users" class="w-5 h-5 text-accent-light mb-4"></i>
+        <h3 class="font-display text-sm font-medium mb-2" data-i18n="features.capability.batchFill.title">Batch Fill</h3>
+        <p class="text-xs text-muted leading-relaxed" data-i18n="features.capability.batchFill.text">Fill one template with data for 50 people at once. Perfect for public writers processing documents in bulk.</p>
+      </div>
+      <div class="reveal reveal-delay-3 card-hover bg-surface/30 border border-white/5 rounded-xl p-6">
+        <i data-lucide="eye" class="w-5 h-5 text-accent-light mb-4"></i>
+        <h3 class="font-display text-sm font-medium mb-2" data-i18n="features.capability.livePreview.title">Live Preview</h3>
+        <p class="text-xs text-muted leading-relaxed" data-i18n="features.capability.livePreview.text">See the final document update in real-time as you fill each field. No surprises after export.</p>
+      </div>
+    </div>
+
+    <div class="reveal text-center mt-12">
+      <p class="text-sm text-muted" data-i18n="features.savings">Doing 50+ documents a day? That's <span class="text-white font-medium">2.5 hours saved daily</span>. Over a month — <span class="text-accent-light font-medium">50 hours</span>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="relative px-6 py-24">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal text-center mb-14">
+      <p class="text-xs text-accent font-mono uppercase tracking-widest mb-4" data-i18n="testimonials.badge">Trusted By</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl tracking-tight mb-4" data-i18n="testimonials.heading">
+        Public writers across Morocco
+      </h2>
+      <p class="text-muted text-base max-w-xl mx-auto" data-i18n="testimonials.subheading">A sample of the kind of feedback we hear most often. Replace with your own verified customer quotes before launch.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="reveal reveal-delay-1 card-hover bg-surface/30 border border-white/5 rounded-2xl p-7 flex flex-col">
+        <div class="flex gap-1 mb-4" aria-label="5 out of 5 stars">
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+        </div>
+        <p class="text-sm text-muted leading-relaxed mb-6 flex-1" data-i18n="testimonials.quote1.text">"I used to spend most of my morning retyping the same requests. Now I fill a template, check the preview, and print. Clients notice the difference too."</p>
+        <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+          <div class="w-9 h-9 rounded-full bg-accent/10 flex items-center justify-center text-accent-light font-display text-sm font-medium" data-i18n="testimonials.quote1.initials">K.B.</div>
+          <div>
+            <div class="text-xs font-medium text-white" data-i18n="testimonials.quote1.name">Karim B.</div>
+            <div class="text-[11px] text-dim" data-i18n="testimonials.quote1.role">Public writer, Casablanca</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2 card-hover bg-surface/30 border border-white/5 rounded-2xl p-7 flex flex-col">
+        <div class="flex gap-1 mb-4" aria-label="5 out of 5 stars">
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+        </div>
+        <p class="text-sm text-muted leading-relaxed mb-6 flex-1" data-i18n="testimonials.quote2.text">"Knowing that client IDs and addresses never touch an online tool matters a lot in my line of work. The batch fill feature alone saves me an hour on busy days."</p>
+        <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+          <div class="w-9 h-9 rounded-full bg-secondary/10 flex items-center justify-center text-secondary font-display text-sm font-medium" data-i18n="testimonials.quote2.initials">S.A.</div>
+          <div>
+            <div class="text-xs font-medium text-white" data-i18n="testimonials.quote2.name">Sanaa A.</div>
+            <div class="text-[11px] text-dim" data-i18n="testimonials.quote2.role">Administrative assistant, Rabat</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-3 card-hover bg-surface/30 border border-white/5 rounded-2xl p-7 flex flex-col">
+        <div class="flex gap-1 mb-4" aria-label="5 out of 5 stars">
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
+        </div>
+        <p class="text-sm text-muted leading-relaxed mb-6 flex-1" data-i18n="testimonials.quote3.text">"One license, three computers in the office, no internet required at our branch with a weak connection. It just works the same everywhere."</p>
+        <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+          <div class="w-9 h-9 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400 font-display text-sm font-medium" data-i18n="testimonials.quote3.initials">Y.T.</div>
+          <div>
+            <div class="text-xs font-medium text-white" data-i18n="testimonials.quote3.name">Youssef T.</div>
+            <div class="text-[11px] text-dim" data-i18n="testimonials.quote3.role">Office manager, Tangier</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVACY -->
+<section id="privacy" class="relative px-6 py-24">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-xs text-secondary font-mono uppercase tracking-widest mb-4" data-i18n="privacy.badge">Privacy & Security</p>
+        <h2 class="font-display font-medium text-3xl sm:text-4xl tracking-tight mb-6">
+          <span data-i18n="privacy.heading1">Your documents.</span><br>
+          <span class="gradient-text-vertical" data-i18n="privacy.heading2">Your device. Period.</span>
+        </h2>
+        <div class="space-y-5">
+          <div class="flex gap-4">
+            <div class="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i data-lucide="wifi-off" class="w-4 h-4 text-green-400"></i>
+            </div>
+            <div>
+              <h4 class="text-sm font-medium mb-1" data-i18n="privacy.feature1.title">Zero network requests</h4>
+              <p class="text-xs text-muted leading-relaxed" data-i18n="privacy.feature1.text">Everything runs locally in your browser. No servers, no APIs, no telemetry. Disconnect from the internet entirely — it still works.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i data-lucide="hard-drive" class="w-4 h-4 text-green-400"></i>
+            </div>
+            <div>
+              <h4 class="text-sm font-medium mb-1" data-i18n="privacy.feature2.title">Local storage only</h4>
+              <p class="text-xs text-muted leading-relaxed" data-i18n="privacy.feature2.text">All data stored in IndexedDB on your machine. No cloud sync, no third-party storage. You control the backup — encrypted export files.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i data-lucide="user-check" class="w-4 h-4 text-green-400"></i>
+            </div>
+            <div>
+              <h4 class="text-sm font-medium mb-1" data-i18n="privacy.feature3.title">No account required</h4>
+              <p class="text-xs text-muted leading-relaxed" data-i18n="privacy.feature3.text">No sign-up, no email, no phone number. Download, open, use. Your administrative documents contain national IDs and private data — they should never need an account on someone else's server.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i data-lucide="lock" class="w-4 h-4 text-green-400"></i>
+            </div>
+            <div>
+              <h4 class="text-sm font-medium mb-1" data-i18n="privacy.feature4.title">PDF encryption built-in</h4>
+              <p class="text-xs text-muted leading-relaxed" data-i18n="privacy.feature4.text">Password-protect exported PDFs with user and owner passwords. Control print, copy, and modification permissions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2 relative">
+        <div class="template-mockup p-6" style="animation: float 6s ease-in-out infinite;">
+          <div class="flex items-center gap-2 mb-5">
+            <div class="w-3 h-3 rounded-full bg-red-500/40"></div>
+            <div class="w-3 h-3 rounded-full bg-amber-500/40"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500/40"></div>
+            <span class="text-[10px] text-dim ml-2 font-mono" data-i18n="privacy.mockup.title">maktabatypro — offline</span>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-center gap-2 text-[11px] text-dim">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-green-400"></i>
+              <span data-i18n="privacy.mockup.row1.label">No outgoing connections</span>
+              <span class="ml-auto text-green-400/80" data-i18n="privacy.mockup.row1.status">Secure</span>
+            </div>
+            <div class="h-px bg-white/5"></div>
+            <div class="flex items-center gap-2 text-[11px] text-dim">
+              <i data-lucide="database" class="w-3.5 h-3.5 text-green-400"></i>
+              <span data-i18n="privacy.mockup.row2.label">Storage: Local IndexedDB</span>
+              <span class="ml-auto text-green-400/80" data-i18n="privacy.mockup.row2.status">Local</span>
+            </div>
+            <div class="h-px bg-white/5"></div>
+            <div class="flex items-center gap-2 text-[11px] text-dim">
+              <i data-lucide="cloud-off" class="w-3.5 h-3.5 text-green-400"></i>
+              <span data-i18n="privacy.mockup.row3.label">Cloud sync</span>
+              <span class="ml-auto text-green-400/80" data-i18n="privacy.mockup.row3.status">Disabled</span>
+            </div>
+            <div class="h-px bg-white/5"></div>
+            <div class="flex items-center gap-2 text-[11px] text-dim">
+              <i data-lucide="fingerprint" class="w-3.5 h-3.5 text-green-400"></i>
+              <span data-i18n="privacy.mockup.row4.label">Telemetry / Analytics</span>
+              <span class="ml-auto text-green-400/80" data-i18n="privacy.mockup.row4.status">None</span>
+            </div>
+            <div class="h-px bg-white/5"></div>
+            <div class="flex items-center gap-2 text-[11px] text-dim">
+              <i data-lucide="key" class="w-3.5 h-3.5 text-green-400"></i>
+              <span data-i18n="privacy.mockup.row5.label">Account required</span>
+              <span class="ml-auto text-green-400/80" data-i18n="privacy.mockup.row5.status">No</span>
+            </div>
+            <div class="h-px bg-white/5"></div>
+            <div class="flex items-center gap-2 text-[11px] text-dim">
+              <i data-lucide="wifi" class="w-3.5 h-3.5 text-green-400"></i>
+              <span data-i18n="privacy.mockup.row6.label">Internet needed</span>
+              <span class="ml-auto text-green-400/80" data-i18n="privacy.mockup.row6.status">No</span>
+            </div>
+          </div>
+        </div>
+        <div class="absolute -inset-4 bg-accent/5 rounded-3xl blur-2xl -z-10"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PDF TOOLS -->
+<section class="relative px-6 py-24">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal text-center mb-14">
+      <p class="text-xs text-secondary font-mono uppercase tracking-widest mb-4" data-i18n="pdfTools.badge">PDF Toolbox</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl tracking-tight mb-4" data-i18n="pdfTools.heading">
+        30 PDF Tools. All Offline.
+      </h2>
+      <p class="text-muted text-base max-w-xl mx-auto" data-i18n="pdfTools.subheading">No uploads. No queues. No file size limits. Everything processes on your machine, instantly.</p>
+    </div>
+
+    <div class="relative overflow-hidden">
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 md:gap-4">
+        <!-- Row 1 — 5 tools fully visible -->
+        <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-4 md:p-5 text-center group">
+          <div class="tool-icon-wrap bg-accent/10 mx-auto mb-2.5 md:mb-3 group-hover:bg-accent/20 transition-colors">
+            <i data-lucide="merge" class="w-4 md:w-5 h-4 md:h-5 text-accent-light"></i>
+          </div>
+          <span class="text-[11px] md:text-xs font-medium" data-i18n="pdfTools.tool.merge">Merge</span>
+        </div>
+        <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-4 md:p-5 text-center group">
+          <div class="tool-icon-wrap bg-accent/10 mx-auto mb-2.5 md:mb-3 group-hover:bg-accent/20 transition-colors">
+            <i data-lucide="scissors" class="w-4 md:w-5 h-4 md:h-5 text-accent-light"></i>
+          </div>
+          <span class="text-[11px] md:text-xs font-medium" data-i18n="pdfTools.tool.split">Split</span>
+        </div>
+        <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-4 md:p-5 text-center group">
+          <div class="tool-icon-wrap bg-accent/10 mx-auto mb-2.5 md:mb-3 group-hover:bg-accent/20 transition-colors">
+            <i data-lucide="file-text" class="w-4 md:w-5 h-4 md:h-5 text-accent-light"></i>
+          </div>
+          <span class="text-[11px] md:text-xs font-medium" data-i18n="pdfTools.tool.pdfToWord">PDF→Word</span>
+        </div>
+        <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-4 md:p-5 text-center group">
+          <div class="tool-icon-wrap bg-accent/10 mx-auto mb-2.5 md:mb-3 group-hover:bg-accent/20 transition-colors">
+            <i data-lucide="file" class="w-4 md:w-5 h-4 md:h-5 text-accent-light"></i>
+          </div>
+          <span class="text-[11px] md:text-xs font-medium" data-i18n="pdfTools.tool.wordToPdf">Word→PDF</span>
+        </div>
+        <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-4 md:p-5 text-center group">
+          <div class="tool-icon-wrap bg-accent/10 mx-auto mb-2.5 md:mb-3 group-hover:bg-accent/20 transition-colors">
+            <i data-lucide="minimize-2" class="w-4 md:w-5 h-4 md:h-5 text-accent-light"></i>
+          </div>
+          <span class="text-[11px] md:text-xs font-medium" data-i18n="pdfTools.tool.compress">Compress</span>
+        </div>
+
+        <!-- Row 2 — 5 tools fully visible -->
+        <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-4 md:p-5 text-center group">
+          <div class="tool-icon-wrap bg-accent/10 mx-auto mb-2.5 md:mb-3 group-hover:bg-accent/20 transition-colors">
+            <i data-lucide="pen-tool" class="w-4 md:w-5 h-4 md:h-5 text-accent-light"></i>
+          </div>
+          <span class="text-[11px] md:text-xs font-medium" data-i18n="pdfTools.tool.edit">Edit</span>
+        </div>
+        <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-4 md:p-5 text-center group">
+          <div class="tool-icon-wrap bg-accent/10 mx-auto mb-2.5 md:mb-3 group-hover:bg-accent/20 transition-colors">
+            <i data-lucide="image" class="w-4 md:w-5 h-4 md:h-5 text-accent-light"></i>
+          </div>
+          <span class="text-[11px] md:text-xs font-medium" data-i18n="pdfTools.tool.imageToPdf">Image→PDF</span>
+        </div>
+        <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-4 md:p-5 text-center group">
+          <div class="tool-icon-wrap bg-accent/10 mx-auto mb-2.5 md:mb-3 group-hover:bg-accent/20 transition-colors">
+            <i data-lucide="file-image" class="w-4 md:w-5 h-4 md:h-5 text-accent-light"></i>
+          </div>
+          <span class="text-[11px] md:text-xs font-medium" data-i18n="pdfTools.tool.pdfToImage">PDF→Image</span>
+        </div>
+        <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-4 md:p-5 text-center group">
+          <div class="tool-icon-wrap bg-accent/10 mx-auto mb-2.5 md:mb-3 group-hover:bg-accent/20 transition-colors">
+            <i data-lucide="scan-text" class="w-4 md:w-5 h-4 md:h-5 text-accent-light"></i>
+          </div>
+          <span class="text-[11px] md:text-xs font-medium" data-i18n="pdfTools.tool.ocr">OCR</span>
+        </div>
+        <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-4 md:p-5 text-center group">
+          <div class="tool-icon-wrap bg-accent/10 mx-auto mb-2.5 md:mb-3 group-hover:bg-accent/20 transition-colors">
+            <i data-lucide="signature" class="w-4 md:w-5 h-4 md:h-5 text-accent-light"></i>
+          </div>
+          <span class="text-[11px] md:text-xs font-medium" data-i18n="pdfTools.tool.sign">Sign</span>
+        </div>
+      </div>
+
+      <!-- Row 3 — 5 tools partially visible with fade -->
+      <div class="relative max-h-24 md:max-h-28 overflow-hidden">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 md:gap-4">
+          <div class="bg-surface/20 border border-white/5 rounded-xl p-4 md:p-5 text-center opacity-40">
+            <div class="tool-icon-wrap bg-accent/5 mx-auto mb-2.5 md:mb-3">
+              <i data-lucide="layout-grid" class="w-4 md:w-5 h-4 md:h-5 text-accent-light/60"></i>
+            </div>
+            <span class="text-[11px] md:text-xs font-medium text-muted/60" data-i18n="pdfTools.tool.organize">Organize</span>
+          </div>
+          <div class="bg-surface/20 border border-white/5 rounded-xl p-4 md:p-5 text-center opacity-40">
+            <div class="tool-icon-wrap bg-accent/5 mx-auto mb-2.5 md:mb-3">
+              <i data-lucide="lock" class="w-4 md:w-5 h-4 md:h-5 text-accent-light/60"></i>
+            </div>
+            <span class="text-[11px] md:text-xs font-medium text-muted/60" data-i18n="pdfTools.tool.protect">Protect</span>
+          </div>
+          <div class="bg-surface/20 border border-white/5 rounded-xl p-4 md:p-5 text-center opacity-40">
+            <div class="tool-icon-wrap bg-accent/5 mx-auto mb-2.5 md:mb-3">
+              <i data-lucide="unlock" class="w-4 md:w-5 h-4 md:h-5 text-accent-light/60"></i>
+            </div>
+            <span class="text-[11px] md:text-xs font-medium text-muted/60" data-i18n="pdfTools.tool.unlock">Unlock</span>
+          </div>
+          <div class="bg-surface/20 border border-white/5 rounded-xl p-4 md:p-5 text-center opacity-40">
+            <div class="tool-icon-wrap bg-accent/5 mx-auto mb-2.5 md:mb-3">
+              <i data-lucide="file-spreadsheet" class="w-4 md:w-5 h-4 md:h-5 text-accent-light/60"></i>
+            </div>
+            <span class="text-[11px] md:text-xs font-medium text-muted/60" data-i18n="pdfTools.tool.excelToPdf">Excel→PDF</span>
+          </div>
+          <div class="bg-surface/20 border border-white/5 rounded-xl p-4 md:p-5 text-center opacity-40">
+            <div class="tool-icon-wrap bg-accent/5 mx-auto mb-2.5 md:mb-3">
+              <i data-lucide="table" class="w-4 md:w-5 h-4 md:h-5 text-accent-light/60"></i>
+            </div>
+            <span class="text-[11px] md:text-xs font-medium text-muted/60" data-i18n="pdfTools.tool.pdfToExcel">PDF→Excel</span>
+          </div>
+        </div>
+        <!-- Gradient fade at bottom -->
+        <div class="absolute bottom-0 left-0 right-0 h-16 md:h-20 bg-gradient-to-t from-background via-background/90 to-transparent pointer-events-none"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MORE TOOLS -->
+<section class="relative px-6 py-24">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal text-center mb-14">
+      <p class="text-xs text-secondary font-mono uppercase tracking-widest mb-4" data-i18n="moreTools.badge">More Tools</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl tracking-tight" data-i18n="moreTools.heading">
+        Everything in one place
+      </h2>
+    </div>
+
+    <div class="reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-6 flex gap-4">
+        <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+          <i data-lucide="folder-open" class="w-5 h-5 text-blue-400"></i>
+        </div>
+        <div>
+          <h3 class="font-display text-sm font-medium mb-1" data-i18n="moreTools.card1.title">PDF Library</h3>
+          <p class="text-xs text-muted leading-relaxed" data-i18n="moreTools.card1.text">Store, organize, search, and tag your PDFs. Calendar view, reminders, notes, and analytics.</p>
+        </div>
+      </div>
+      <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-6 flex gap-4">
+        <div class="w-10 h-10 rounded-lg bg-pink-500/10 flex items-center justify-center flex-shrink-0">
+          <i data-lucide="credit-card" class="w-5 h-5 text-pink-400"></i>
+        </div>
+        <div>
+          <h3 class="font-display text-sm font-medium mb-1" data-i18n="moreTools.card2.title">Card Designer</h3>
+          <p class="text-xs text-muted leading-relaxed" data-i18n="moreTools.card2.text">Visual canvas for card and badge layouts. Drag, resize, align, export to PDF.</p>
+        </div>
+      </div>
+      <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-6 flex gap-4">
+        <div class="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0">
+          <i data-lucide="calendar" class="w-5 h-5 text-green-400"></i>
+        </div>
+        <div>
+          <h3 class="font-display text-sm font-medium mb-1" data-i18n="moreTools.card3.title">Calendar Planning</h3>
+          <p class="text-xs text-muted leading-relaxed" data-i18n="moreTools.card3.text">Schedule documents on a calendar. Month view, heatmap, drag-and-drop, conflict detection.</p>
+        </div>
+      </div>
+      <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-6 flex gap-4">
+        <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+          <i data-lucide="type" class="w-5 h-5 text-amber-400"></i>
+        </div>
+        <div>
+          <h3 class="font-display text-sm font-medium mb-1" data-i18n="moreTools.card4.title">Rich Text Editor</h3>
+          <p class="text-xs text-muted leading-relaxed" data-i18n="moreTools.card4.text">Full WYSIWYG editor. Save documents, export to PDF or DOCX with formatting intact.</p>
+        </div>
+      </div>
+      <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-6 flex gap-4">
+        <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center flex-shrink-0">
+          <i data-lucide="file-down" class="w-5 h-5 text-cyan-400"></i>
+        </div>
+        <div>
+          <h3 class="font-display text-sm font-medium mb-1" data-i18n="moreTools.card5.title">File Compressor</h3>
+          <p class="text-xs text-muted leading-relaxed" data-i18n="moreTools.card5.text">Compress images and PDFs locally. Batch processing with size comparison stats.</p>
+        </div>
+      </div>
+      <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-6 flex gap-4">
+        <div class="w-10 h-10 rounded-lg bg-violet-500/10 flex items-center justify-center flex-shrink-0">
+          <i data-lucide="link" class="w-5 h-5 text-violet-400"></i>
+        </div>
+        <div>
+          <h3 class="font-display text-sm font-medium mb-1" data-i18n="moreTools.card6.title">Link Library</h3>
+          <p class="text-xs text-muted leading-relaxed" data-i18n="moreTools.card6.text">Curated bookmarks for admin services. Auto-tag, auto-categorize, import browser bookmarks.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORM -->
+<section class="relative px-6 py-20">
+  <div class="max-w-3xl mx-auto reveal">
+    <div class="bg-surface/30 border border-white/5 rounded-2xl p-8 sm:p-10 flex flex-col sm:flex-row items-center gap-8">
+      <div class="flex items-center gap-3">
+        <i data-lucide="monitor" class="w-6 h-6 text-muted"></i>
+        <i data-lucide="smartphone" class="w-5 h-5 text-dim"></i>
+        <i data-lucide="laptop" class="w-6 h-6 text-muted"></i>
+      </div>
+      <div class="text-center sm:text-left">
+        <h3 class="font-display text-lg font-medium mb-1" data-i18n="platform.heading">Works everywhere</h3>
+        <p class="text-sm text-muted" data-i18n="platform.text">Install as PWA in your browser, or use the desktop app on Windows, macOS, and Linux. Same features, same offline experience, any device.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="relative px-6 py-24">
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[150px]"></div>
+
+  <div class="relative max-w-5xl mx-auto">
+    <div class="reveal text-center mb-14">
+      <p class="text-xs text-accent font-mono uppercase tracking-widest mb-4" data-i18n="pricing.badge">Pricing</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl tracking-tight mb-4" data-i18n="pricing.heading">
+        Simple. Transparent.
+      </h2>
+      <p class="text-muted text-base" data-i18n="pricing.subheading">No subscriptions. Pay once, use forever.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Trial -->
+      <div class="reveal reveal-delay-1 card-hover bg-surface/30 border border-white/5 rounded-2xl p-8 flex flex-col">
+        <div class="mb-6">
+          <h3 class="font-display text-lg font-medium mb-1" data-i18n="pricing.trial.name">Trial</h3>
+          <p class="text-xs text-muted" data-i18n="pricing.trial.description">Try before you commit</p>
+        </div>
+        <div class="mb-8">
+          <span class="font-display text-4xl font-semibold" data-i18n="pricing.trial.price">Free</span>
+          <span class="text-sm text-dim ml-1" data-i18n="pricing.trial.period">/ 3 days</span>
+        </div>
+        <ul class="space-y-3 mb-8 flex-1">
+          <li class="flex items-start gap-2.5 text-sm text-muted">
+            <i data-lucide="check" class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5"></i>
+            <span data-i18n="pricing.trial.feature1">6 popular templates unlocked</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-muted">
+            <i data-lucide="check" class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5"></i>
+            <span data-i18n="pricing.trial.feature2">Create up to 5 own templates</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-muted">
+            <i data-lucide="check" class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5"></i>
+            <span data-i18n="pricing.trial.feature3">PDF merge & split (10 uses each)</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-muted">
+            <i data-lucide="check" class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5"></i>
+            <span data-i18n="pricing.trial.feature4">PDF library (7 files max)</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-muted">
+            <i data-lucide="check" class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5"></i>
+            <span data-i18n="pricing.trial.feature5">Offline mode</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-muted">
+            <i data-lucide="check" class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5"></i>
+            <span data-i18n="pricing.trial.feature6">AR / FR / EN interface</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-dim">
+            <i data-lucide="x" class="w-4 h-4 text-dim flex-shrink-0 mt-0.5"></i>
+            <span data-i18n="pricing.trial.excluded1">No backup & restore</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-dim">
+            <i data-lucide="x" class="w-4 h-4 text-dim flex-shrink-0 mt-0.5"></i>
+            <span data-i18n="pricing.trial.excluded2">No DOCX export</span>
+          </li>
+        </ul>
+        <a href="#" class="download-btn btn-ghost text-sm font-medium px-6 py-3.5 rounded-full text-center text-muted w-full" data-i18n="pricing.trial.button">Start Free Trial</a>
+      </div>
+
+      <!-- Standard -->
+      <div class="reveal reveal-delay-2 pricing-popular bg-surface/50 border border-accent/30 rounded-2xl p-8 flex flex-col relative">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-accent to-blue-600 text-white text-[10px] font-semibold uppercase tracking-wider px-4 py-1 rounded-full" data-i18n="pricing.standard.badge">Most Popular</div>
+        <div class="mb-6">
+          <h3 class="font-display text-lg font-medium mb-1" data-i18n="pricing.standard.name">Standard</h3>
+          <p class="text-xs text-muted" data-i18n="pricing.standard.description">Everything you need</p>
+        </div>
+        <div class="mb-8">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-display text-4xl font-semibold" data-i18n="pricing.standard.price">200 MAD</span>
+            <span class="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-red-500/15 text-red-400 border border-red-500/20" data-i18n="pricing.standard.badgeTime">Limited Time</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-sm text-dim line-through" data-i18n="pricing.standard.oldPrice">300 MAD / $30</span>
+            <span class="text-sm text-green-400 font-medium" data-i18n="pricing.standard.newPrice">200 MAD / $20</span>
+          </div>
+          <span class="text-[11px] text-dim" data-i18n="pricing.standard.period">one-time payment</span>
+        </div>
+        <ul class="space-y-3 mb-8 flex-1">
+          <li class="flex items-start gap-2.5 text-sm text-muted">
+            <i data-lucide="check" class="w-4 h-4 text-accent-light flex-shrink-0 mt-0.5"></i>
+            <span data-i18n="pricing.standard.feature1"><strong class="text-white">Unlimited</strong> templates + create/edit/delete</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-muted">
+            <i data-lucide="check" class="w-4 h-4 text-accent-light flex-shrink-0 mt-0.5"></i>
+            <span data-i18n="pricing.standard.feature2">All 30 PDF tools, unlimited use</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-muted">
+            <i data-lucide="check" class="w-4 h-4 text-accent-light flex-shrink-0 mt-0.5"></i>
+            <span data-i18n="pricing.standard.feature3">PDF library — unlimited storage</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-muted">
+            <i data-lucide="check" class="w-4 h-4 text-accent-light flex-shrink-0 mt-0.5"></i>
+            <span data-i18n="pricing.standard.feature4">Card designer, calendar, rich editor</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-muted">
+            <i data-lucide="check" class="w-4 h-4 text-accent-light flex-shrink-0 mt-0.5"></i>
+            <span data-i18n="pricing.standard.feature5">Batch fill & print queue</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-muted">
+            <i data-lucide="check" class="w-4 h-4 text-accent-light flex-shrink-0 mt-0.5"></i>
+            <span data-i18n="pricing.standard.feature6">Backup, restore & auto-backup</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-muted">
+            <i data-lucide="check" class="w-4 h-4 text-accent-light flex-shrink-0 mt-0.5"></i>
+            <span data-i18n="pricing.standard.feature7">PDF & DOCX export</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-muted">
+            <i data-lucide="check" class="w-4 h-4 text-accent-light flex-shrink-0 mt-0.5"></i>
+            <span data-i18n="pricing.standard.feature8">1 machine license</span>
+          </li>
+        </ul>
+        <a href="#" class="get-started-btn btn-primary text-sm font-medium px-6 py-3.5 rounded-full text-center text-white w-full" data-i18n="pricing.standard.button">Get Standard</a>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="reveal reveal-delay-3 card-hover bg-surface/30 border border-white/5 rounded-2xl p-8 flex flex-col">
+        <div class="mb-6">
+          <h3 class="font-display text-lg font-medium mb-1" data-i18n="pricing.enterprise.name">Enterprise</h3>
+          <p class="text-xs text-muted" data-i18n="pricing.enterprise.description">For teams & power users</p>
+        </div>
+        <div class="mb-8">
+          <span class="font-display text-4xl font-semibold" data-i18n="pricing.enterprise.price">500 MAD</span>
+          <div class="text-sm text-dim mt-1" data-i18n="pricing.enterprise.period">/ $50 — one-time</div>
+        </div>
+        <ul class="space-y-3 mb-8 flex-1">
+          <li class="flex items-start gap-2.5 text-sm text-muted">
+            <i data-lucide="check" class="w-4 h-4 text-secondary flex-shrink-0 mt-0.5"></i>
+            <span data-i18n="pricing.enterprise.feature1"><strong class="text-white">Everything in Standard</strong></span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-muted">
+            <i data-lucide="check" class="w-4 h-4 text-secondary flex-shrink-0 mt-0.5"></i>
+            <span data-i18n="pricing.enterprise.feature2"><strong class="text-white">AI-powered PDF tools</strong></span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-muted">
+            <i data-lucide="check" class="w-4 h-4 text-secondary flex-shrink-0 mt-0.5"></i>
+            <span data-i18n="pricing.enterprise.feature3"><strong class="text-white">Unlimited machines</strong> — one license for all</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-muted">
+            <i data-lucide="check" class="w-4 h-4 text-secondary flex-shrink-0 mt-0.5"></i>
+            <span data-i18n="pricing.enterprise.feature4">Priority support</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-muted">
+            <i data-lucide="check" class="w-4 h-4 text-secondary flex-shrink-0 mt-0.5"></i>
+            <span data-i18n="pricing.enterprise.feature5">All future updates included</span>
+          </li>
+          <li class="flex items-center-start gap-2.5 text-sm text-dim mt-2">
+            <span class="text-[11px] leading-relaxed" data-i18n="pricing.enterprise.extratext">Ideal for offices with multiple computers or public writers who works from different locations.</span>
+          </li>
+        </ul>
+        <a href="#" class="get-started-btn btn-ghost text-sm font-medium px-6 py-3.5 rounded-full text-center text-muted w-full border-secondary/20 hover:border-secondary/40 hover:bg-secondary/5" data-i18n="pricing.enterprise.button">Get Enterprise</a>
+      </div>
+    </div>
+
+    <p class="reveal text-center text-xs text-dim mt-8" data-i18n="pricing.footer">One-time payment. No subscriptions. No hidden fees. License valid forever.</p>
+    <!-- <div class="reveal flex items-center justify-center gap-2 mt-4">
+      <i data-lucide="shield-check" class="w-3.5 h-3.5 text-green-400"></i>
+      <p class="text-center text-xs text-green-400/90" data-i18n="pricing.guarantee">3-day money-back guarantee — not a fit? Get a full refund, no questions asked.</p>
+    </div> -->
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="relative px-6 py-24">
+  <div class="max-w-3xl mx-auto">
+    <div class="reveal text-center mb-12">
+      <p class="text-xs text-accent font-mono uppercase tracking-widest mb-4" data-i18n="faq.badge">FAQ</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl tracking-tight" data-i18n="faq.heading">
+        Questions, answered
+      </h2>
+    </div>
+
+    <div class="reveal space-y-3" id="faqList">
+      <div class="faq-item bg-surface/30 border border-white/5 rounded-xl overflow-hidden">
+        <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5" aria-expanded="false">
+          <span class="text-sm font-medium text-white" data-i18n="faq.q1.question">Is my data really never sent anywhere?</span>
+          <i data-lucide="plus" class="faq-icon w-4 h-4 text-accent-light flex-shrink-0 transition-transform"></i>
+        </button>
+        <div class="faq-panel px-6 overflow-hidden" style="max-height:0;">
+          <p class="text-sm text-muted leading-relaxed pb-5" data-i18n="faq.q1.answer">Correct. MaktabatyPro makes zero network requests. Everything — templates, filled documents, your PDF library — is processed and stored locally on your device in IndexedDB. You can disconnect from the internet entirely and every feature keeps working.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-surface/30 border border-white/5 rounded-xl overflow-hidden">
+        <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5" aria-expanded="false">
+          <span class="text-sm font-medium text-white" data-i18n="faq.q2.question">What happens after my 3-day trial ends?</span>
+          <i data-lucide="plus" class="faq-icon w-4 h-4 text-accent-light flex-shrink-0 transition-transform"></i>
+        </button>
+        <div class="faq-panel px-6 overflow-hidden" style="max-height:0;">
+          <p class="text-sm text-muted leading-relaxed pb-5" data-i18n="faq.q2.answer">Your account and any templates you created stay on your device — they're just locked until you activate a paid license. Activating Standard or Enterprise unlocks everything instantly, with no reinstall needed.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-surface/30 border border-white/5 rounded-xl overflow-hidden">
+        <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5" aria-expanded="false">
+          <span class="text-sm font-medium text-white" data-i18n="faq.q3.question">Can I move my license to a new computer?</span>
+          <i data-lucide="plus" class="faq-icon w-4 h-4 text-accent-light flex-shrink-0 transition-transform"></i>
+        </button>
+        <div class="faq-panel px-6 overflow-hidden" style="max-height:0;">
+          <p class="text-sm text-muted leading-relaxed pb-5" data-i18n="faq.q3.answer">Yes. Standard is licensed to one machine at a time — deactivate on the old device and activate on the new one from the same account. Enterprise covers unlimited machines, so this isn't a concern at all.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-surface/30 border border-white/5 rounded-xl overflow-hidden">
+        <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5" aria-expanded="false">
+          <span class="text-sm font-medium text-white" data-i18n="faq.q4.question">Can I upgrade from Standard to Enterprise later?</span>
+          <i data-lucide="plus" class="faq-icon w-4 h-4 text-accent-light flex-shrink-0 transition-transform"></i>
+        </button>
+        <div class="faq-panel px-6 overflow-hidden" style="max-height:0;">
+          <p class="text-sm text-muted leading-relaxed pb-5" data-i18n="faq.q4.answer">Yes, at any time — contact us and pay only the difference between the two licenses. Your templates, library, and settings carry over automatically.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-surface/30 border border-white/5 rounded-xl overflow-hidden">
+        <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5" aria-expanded="false">
+          <span class="text-sm font-medium text-white" data-i18n="faq.q5.question">Do you offer refunds?</span>
+          <i data-lucide="plus" class="faq-icon w-4 h-4 text-accent-light flex-shrink-0 transition-transform"></i>
+        </button>
+        <div class="faq-panel px-6 overflow-hidden" style="max-height:0;">
+          <p class="text-sm text-muted leading-relaxed pb-5" data-i18n="faq.q5.answer">Yes — every paid license comes with a 3-day money-back guarantee. If MaktabatyPro isn't a fit, contact us and we'll refund you in full, no questions asked.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-surface/30 border border-white/5 rounded-xl overflow-hidden">
+        <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5" aria-expanded="false">
+          <span class="text-sm font-medium text-white" data-i18n="faq.q6.question">Which languages does the interface support?</span>
+          <i data-lucide="plus" class="faq-icon w-4 h-4 text-accent-light flex-shrink-0 transition-transform"></i>
+        </button>
+        <div class="faq-panel px-6 overflow-hidden" style="max-height:0;">
+          <p class="text-sm text-muted leading-relaxed pb-5" data-i18n="faq.q6.answer">Arabic, French, Spanish and English, fully translated including right-to-left layout for Arabic. Switch languages anytime from the footer, even offline. and we will add more.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT MODAL -->
+<div id="contactModal" class="fixed inset-0 z-50 flex items-center justify-center px-4 invisible opacity-0 transition-all duration-300" role="dialog" aria-modal="true" aria-labelledby="contactModalHeading">
+  <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="modalOverlay"></div>
+  <div class="relative bg-surface border border-white/10 rounded-2xl max-w-md w-full shadow-2xl p-8">
+    <button id="closeModal" type="button" class="absolute top-4 right-4 text-dim hover:text-white transition-colors" aria-label="Close dialog">
+      <i data-lucide="x" class="w-5 h-5"></i>
+    </button>
+
+    <div class="text-center mb-7">
+      <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-4">
+        <i data-lucide="sparkles" class="w-6 h-6 text-accent-light"></i>
+      </div>
+      <h3 id="contactModalHeading" class="font-display text-xl font-medium text-white mb-1" data-i18n="contactModal.heading">Get MaktabatyPro</h3>
+      <p class="text-xs text-dim" data-i18n="contactModal.subheading">Contact us to purchase or download the trial</p>
+    </div>
+
+    <div class="space-y-3 mb-6">
+      <a href="https://wa.me/212627348901" target="_blank" rel="noopener" class="flex items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-5 py-4 transition-all group">
+        <div class="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center group-hover:bg-green-500/20 transition-colors">
+          <i data-lucide="message-circle" class="w-5 h-5 text-green-400"></i>
+        </div>
+        <div class="flex-1 text-left">
+          <div class="text-sm font-medium text-white" data-i18n="contactModal.whatsapp">WhatsApp</div>
+          <div class="text-xs text-dim" data-i18n="contactModal.whatsappNumber">+212 627-348901</div>
+        </div>
+        <i data-lucide="external-link" class="w-4 h-4 text-dim group-hover:text-white transition-colors"></i>
+      </a>
+
+      <a href="mailto:maktabapro@gmail.com" class="flex items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-5 py-4 transition-all group">
+        <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
+          <i data-lucide="mail" class="w-5 h-5 text-blue-400"></i>
+        </div>
+        <div class="flex-1 text-left">
+          <div class="text-sm font-medium text-white" data-i18n="contactModal.email">Email</div>
+          <div class="text-xs text-dim" data-i18n="contactModal.emailAddress">maktabapro@gmail.com</div>
+        </div>
+        <i data-lucide="external-link" class="w-4 h-4 text-dim group-hover:text-white transition-colors"></i>
+      </a>
+
+      <a href="https://facebook.com/ostabdev" target="_blank" rel="noopener" class="flex items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-5 py-4 transition-all group">
+        <div class="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center group-hover:bg-indigo-500/20 transition-colors">
+          <i data-lucide="message-square" class="w-5 h-5 text-indigo-400"></i>
+        </div>
+        <div class="flex-1 text-left">
+          <div class="text-sm font-medium text-white" data-i18n="contactModal.facebook">Facebook</div>
+          <div class="text-xs text-dim" data-i18n="contactModal.facebookUser">ostabdev</div>
+        </div>
+        <i data-lucide="external-link" class="w-4 h-4 text-dim group-hover:text-white transition-colors"></i>
+      </a>
+    </div>
+
+    <div class="relative mb-6">
+      <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-white/5"></div></div>
+      <div class="relative flex justify-center"><span class="bg-surface px-4 text-[10px] text-dim uppercase tracking-wider" data-i18n="contactModal.divider">or try it free</span></div>
+    </div>
+
+    <a href="#" class="download-btn btn-primary text-sm font-medium px-6 py-3.5 rounded-full text-center text-white w-full flex items-center justify-center gap-2">
+      <i data-lucide="download" class="w-4 h-4"></i>
+      <span data-i18n="contactModal.button">Download Free Trial</span>
+    </a>
+  </div>
+</div>
+
+<!-- DOWNLOAD CHOOSER MODAL -->
+<div id="downloadChooserModal" class="fixed inset-0 z-50 flex items-center justify-center px-4 invisible opacity-0 transition-all duration-300" role="dialog" aria-modal="true" aria-labelledby="downloadChooserHeading">
+  <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="downloadChooserOverlay"></div>
+  <div class="relative bg-surface border border-white/10 rounded-2xl max-w-lg w-full shadow-2xl p-8">
+    <button id="closeDownloadChooser" type="button" class="absolute top-4 right-4 text-dim hover:text-white transition-colors" aria-label="Close dialog">
+      <i data-lucide="x" class="w-5 h-5"></i>
+    </button>
+
+    <div class="text-center mb-7">
+      <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-4">
+        <i data-lucide="download" class="w-6 h-6 text-accent-light"></i>
+      </div>
+      <h3 id="downloadChooserHeading" class="font-display text-xl font-medium text-white mb-1" data-i18n="downloadChooser.heading">Choose your version</h3>
+      <p class="text-xs text-dim" data-i18n="downloadChooser.subheading">Select your operating system to download</p>
+    </div>
+
+    <div class="space-y-3" id="downloadOptions">
+      <!-- Windows -->
+      <button type="button" class="download-option flex items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-5 py-4 transition-all group w-full text-left" data-ext=".exe">
+        <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors shrink-0">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="2" width="9.5" height="9.5" rx="1" fill="#3B82F6" opacity="0.9"/>
+            <rect x="12.5" y="2" width="9.5" height="9.5" rx="1" fill="#3B82F6" opacity="0.7"/>
+            <rect x="2" y="12.5" width="9.5" height="9.5" rx="1" fill="#3B82F6" opacity="0.7"/>
+            <rect x="12.5" y="12.5" width="9.5" height="9.5" rx="1" fill="#3B82F6" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="flex-1">
+          <div class="text-sm font-medium text-white" data-i18n="downloadChooser.windows">Windows</div>
+          <div class="text-xs text-dim">.exe</div>
+        </div>
+        <i data-lucide="download" class="w-4 h-4 text-dim group-hover:text-white transition-colors"></i>
+      </button>
+
+      <!-- Linux (.deb) — Tux penguin -->
+      <button type="button" class="download-option flex items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-5 py-4 transition-all group w-full text-left" data-ext=".deb">
+        <div class="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center group-hover:bg-orange-500/20 transition-colors shrink-0">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
+            <ellipse cx="12" cy="14" rx="5.5" ry="7" fill="#F97316" opacity="0.9"/>
+            <circle cx="12" cy="7.5" r="4.5" fill="#F97316" opacity="0.9"/>
+            <circle cx="10.2" cy="6.8" r="1" fill="#fff"/>
+            <circle cx="13.8" cy="6.8" r="1" fill="#fff"/>
+            <circle cx="10.2" cy="6.8" r="0.5" fill="#1a1a1a"/>
+            <circle cx="13.8" cy="6.8" r="0.5" fill="#1a1a1a"/>
+            <ellipse cx="12" cy="8.8" rx="1.8" ry="1" fill="#F59E0B" opacity="0.9"/>
+            <ellipse cx="7" cy="16" rx="2" ry="3.5" fill="#F97316" opacity="0.7" transform="rotate(-10 7 16)"/>
+            <ellipse cx="17" cy="16" rx="2" ry="3.5" fill="#F97316" opacity="0.7" transform="rotate(10 17 16)"/>
+          </svg>
+        </div>
+        <div class="flex-1">
+          <div class="text-sm font-medium text-white" data-i18n="downloadChooser.linuxDeb">Linux (.deb)</div>
+          <div class="text-xs text-dim" data-i18n="downloadChooser.linuxDebDesc">Debian / Ubuntu / Mint</div>
+        </div>
+        <i data-lucide="download" class="w-4 h-4 text-dim group-hover:text-white transition-colors"></i>
+      </button>
+
+      <!-- Linux (.AppImage) — diamond box -->
+      <button type="button" class="download-option flex items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-5 py-4 transition-all group w-full text-left" data-ext=".AppImage">
+        <div class="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center group-hover:bg-green-500/20 transition-colors shrink-0">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L3 7.5v9L12 22l9-5.5v-9L12 2z" fill="#22C55E" opacity="0.12"/>
+            <path d="M12 2L3 7.5v9L12 22l9-5.5v-9L12 2z" stroke="#22C55E" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M3 7.5L12 13l9-5.5" stroke="#22C55E" stroke-width="1.2" opacity="0.5"/>
+            <path d="M12 13v9" stroke="#22C55E" stroke-width="1.2" opacity="0.5"/>
+            <circle cx="12" cy="7.5" r="2" fill="#22C55E" opacity="0.8"/>
+          </svg>
+        </div>
+        <div class="flex-1">
+          <div class="text-sm font-medium text-white" data-i18n="downloadChooser.linuxAppImage">Linux (.AppImage)</div>
+          <div class="text-xs text-dim" data-i18n="downloadChooser.linuxAppImageDesc">Universal — works on most distros</div>
+        </div>
+        <i data-lucide="download" class="w-4 h-4 text-dim group-hover:text-white transition-colors"></i>
+      </button>
+    </div>
+
+    <p class="text-center text-[11px] text-dim mt-5" data-i18n="downloadChooser.fallback">Can't find your version? <a href="https://github.com/OussamaTabDev/maktabatypro/releases" target="_blank" rel="noopener" class="text-accent-light hover:text-white transition-colors">View all releases on GitHub</a></p>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<section class="relative px-6 py-32">
+  <div class="absolute inset-0 grid-pattern"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-accent/8 rounded-full blur-[120px]"></div>
+
+  <div class="relative max-w-2xl mx-auto text-center reveal">
+    <h2 class="font-display font-medium text-3xl sm:text-4xl md:text-5xl tracking-tight mb-6">
+      <span data-i18n="cta.heading1">Stop uploading your documents</span><br>
+      <span class="gradient-text" data-i18n="cta.heading2">to strangers' servers.</span>
+    </h2>
+    <p class="text-muted text-base sm:text-lg mb-10 max-w-lg mx-auto" data-i18n="cta.paragraph">
+      Join professionals across Morocco who switched to offline document management. Your data, your device, your control.
+    </p>
+    <a href="#" class="download-btn btn-primary text-base font-medium px-10 py-4 rounded-full text-white inline-flex items-center gap-2">
+      <span data-i18n="cta.button">Download MaktabatyPro</span>
+      <i data-lucide="download" class="w-5 h-5"></i>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 px-6 py-10">
+  <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
+    <div class="flex items-center gap-2">
+      <img src="assets/icon.png" alt="M" class="w-6 h-6 rounded-md object-contain">
+      <span class="font-display text-sm font-medium" data-i18n="footer.brand">MaktabatyPro</span>
+    </div>
+    <p class="text-xs text-dim" data-i18n="footer.tagline">Made in Morocco · 100% Offline · Your data stays yours</p>
+    <div class="flex items-center gap-4">
+      <button type="button" data-lang="ar" class="text-[11px] text-dim cursor-pointer hover:text-white transition-colors bg-transparent border-0 p-0" data-i18n="footer.lang.ar" aria-label="Switch to Arabic">العربية</button>
+      <button type="button" data-lang="fr" class="text-[11px] text-dim cursor-pointer hover:text-white transition-colors bg-transparent border-0 p-0" data-i18n="footer.lang.fr" aria-label="Switch to French">Français</button>
+      <button type="button" data-lang="en" class="text-[11px] text-dim cursor-pointer hover:text-white transition-colors bg-transparent border-0 p-0" data-i18n="footer.lang.en" aria-label="Switch to English">English</button>
+    </div>
+  </div>
+  <div class="max-w-5xl mx-auto border-t border-white/5 pt-5 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-xs text-dim">
+    <a href="https://facebook.com/ostabdev" target="_blank" rel="noopener" class="flex items-center gap-1.5 hover:text-white transition-colors">
+      <i data-lucide="facebook" class="w-3.5 h-3.5"></i> <span data-i18n="footer.facebook">ostabdev</span>
+    </a>
+    <span class="flex items-center gap-1.5">
+      <i data-lucide="phone" class="w-3.5 h-3.5"></i> <span data-i18n="footer.phone">212627348901</span>
+    </span>
+    <a href="mailto:maktabapro@gmail.com" class="flex items-center gap-1.5 hover:text-white transition-colors">
+      <i data-lucide="mail" class="w-3.5 h-3.5"></i> <span data-i18n="footer.email">maktabapro@gmail.com</span>
+    </a>
+  </div>
+</footer>
+
+<script src="lang/all.js"></script>
+<script src="js/app.js"></script>
+<script>
+(function () {
+  // ---------- Mobile nav ----------
+  var navToggle = document.getElementById('mobileNavToggle');
+  var mobileMenu = document.getElementById('mobileNavMenu');
+  var mobileOverlay = document.getElementById('mobileNavOverlay');
+
+  function openMobileNav() {
+    mobileMenu.classList.remove('hidden');
+    navToggle.setAttribute('aria-expanded', 'true');
+    navToggle.setAttribute('aria-label', 'Close menu');
+  }
+  function closeMobileNav() {
+    mobileMenu.classList.add('hidden');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', 'Open menu');
+  }
+  if (navToggle && mobileMenu) {
+    navToggle.addEventListener('click', function () {
+      var isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+      isOpen ? closeMobileNav() : openMobileNav();
     });
+    if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobileNav);
+    document.querySelectorAll('.mobile-nav-link').forEach(function (link) {
+      link.addEventListener('click', closeMobileNav);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeMobileNav();
+    });
+  }
 
-    // Activate default
-    document.querySelector('.lang-btn[data-lang="en"]').classList.add('lang-btn-active');
-    applyLang();
+  // ---------- Contact modal accessibility (focus trap + escape) ----------
+  var modal = document.getElementById('contactModal');
+  if (modal) {
+    var lastFocused = null;
 
-    // ======================== COUNT-UP ANIMATION ========================
-    function animateCounters() {
-      document.querySelectorAll('.count-to').forEach(el => {
-        const target = parseInt(el.getAttribute('data-target'));
-        if (isNaN(target)) return;
-        let current = 0;
-        const step = Math.ceil(target / 30);
-        const interval = setInterval(() => {
-          current += step;
-          if (current >= target) { current = target; clearInterval(interval); }
-          el.textContent = current;
-        }, 40);
-      });
+    function isModalOpen() {
+      return !modal.classList.contains('invisible') && modal.style.visibility !== 'hidden';
     }
 
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateCounters();
-          statsObserver.disconnect();
+    function getFocusable() {
+      return Array.prototype.slice.call(
+        modal.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')
+      );
+    }
+
+    // Observe visibility changes so this works regardless of how app.js toggles the modal
+    var observer = new MutationObserver(function () {
+      if (isModalOpen()) {
+        lastFocused = document.activeElement;
+        var focusable = getFocusable();
+        if (focusable.length) focusable[0].focus();
+      } else if (lastFocused) {
+        lastFocused.focus();
+        lastFocused = null;
+      }
+    });
+    observer.observe(modal, { attributes: true, attributeFilter: ['class', 'style'] });
+
+    document.addEventListener('keydown', function (e) {
+      if (!isModalOpen()) return;
+      if (e.key === 'Escape') {
+        var closeBtn = document.getElementById('closeModal');
+        if (closeBtn) closeBtn.click();
+        return;
+      }
+      if (e.key === 'Tab') {
+        var focusable = getFocusable();
+        if (!focusable.length) return;
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    });
+  }
+
+  // ---------- FAQ accordion ----------
+  document.querySelectorAll('.faq-trigger').forEach(function (trigger) {
+    trigger.addEventListener('click', function () {
+      var item = trigger.closest('.faq-item');
+      var panel = item.querySelector('.faq-panel');
+      var icon = trigger.querySelector('.faq-icon');
+      var isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+      // Close all other items (single-open accordion)
+      document.querySelectorAll('.faq-trigger').forEach(function (otherTrigger) {
+        if (otherTrigger === trigger) return;
+        otherTrigger.setAttribute('aria-expanded', 'false');
+        var otherItem = otherTrigger.closest('.faq-item');
+        otherItem.querySelector('.faq-panel').style.maxHeight = '0px';
+        var otherIcon = otherTrigger.querySelector('.faq-icon');
+        if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+      });
+
+      if (isOpen) {
+        trigger.setAttribute('aria-expanded', 'false');
+        panel.style.maxHeight = '0px';
+        if (icon) icon.style.transform = 'rotate(0deg)';
+      } else {
+        trigger.setAttribute('aria-expanded', 'true');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        if (icon) icon.style.transform = 'rotate(45deg)';
+      }
+    });
+  });
+
+  // ---------- Stat count-up animation ----------
+  var statNumbers = document.querySelectorAll('.stat-number');
+  if (statNumbers.length && 'IntersectionObserver' in window) {
+    var animated = false;
+    var statObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !animated) {
+          animated = true;
+          statNumbers.forEach(function (el) {
+            var raw = el.textContent.trim();
+            var match = raw.match(/^(\d+)(\+?)$/);
+            if (!match) return; // skip non-numeric stats (e.g. localized text)
+            var target = parseInt(match[1], 10);
+            var suffix = match[2] || '';
+            var duration = 900;
+            var start = null;
+            function step(timestamp) {
+              if (!start) start = timestamp;
+              var progress = Math.min((timestamp - start) / duration, 1);
+              var eased = 1 - Math.pow(1 - progress, 3);
+              el.textContent = Math.round(eased * target) + suffix;
+              if (progress < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+          });
+          statObserver.disconnect();
         }
       });
     }, { threshold: 0.5 });
-    const statsSection = document.querySelector('.stat-item');
-    if (statsSection) statsObserver.observe(statsSection.closest('section') || statsSection);
-
-    // ======================== INTERACTIVE DEMO ========================
-    let previewLang = 'ar';
-    const previewEl = document.getElementById('templatePreview');
-    const fName = document.getElementById('fullName'), fCin = document.getElementById('cin'), fAddr = document.getElementById('address');
-    const aName = document.getElementById('agentName'), aCin = document.getElementById('agentCin'), aAddr = document.getElementById('agentAddress');
-    const fAuth = document.getElementById('authorityText'), fCity = document.getElementById('city'), fDate = document.getElementById('dateDoc');
-
-    function fmtDate(ds, lang) {
-      if (!ds) return '';
-      try { const d = new Date(ds); return d.toLocaleDateString(lang === 'ar' ? 'ar-MA' : lang === 'fr' ? 'fr-FR' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' }); }
-      catch(e) { return ds; }
-    }
-    function esc(str) { return String(str).replace(/[&<>]/g, m => m === '&' ? '&amp;' : m === '<' ? '&lt;' : '&gt;'); }
-
-    function renderPreview() {
-      const name = esc(fName.value.trim()) || '__________';
-      const cin = esc(fCin.value.trim()) || '__________';
-      const addr = esc(fAddr.value.trim()) || '__________';
-      const agent = esc(aName.value.trim()) || '__________';
-      const agentC = esc(aCin.value.trim()) || '__________';
-      const agentA = esc(aAddr.value.trim()) || '__________';
-      const auth = esc(fAuth.value.trim()) || 'في كل ما تصح به النيابة عنا في استخراج النقود من صندوق المحكمة و القيام بجميع الإجراءات التي يتطلبها الأمر و توقيع و إمضاء الوثائق اللازمة بذلك';
-      const city = esc(fCity.value.trim()) || 'خنيفرة';
-      const date = fmtDate(fDate.value, previewLang);
-
-      let html = '';
-      if (previewLang === 'ar') {
-        html = `<div dir="rtl" style="font-family: 'Tajawal', 'Inter', sans-serif; font-size: 15px; line-height: 2;">
-          <p style="text-align: center; font-size: 26px; font-weight: 800; margin-bottom: 24px;">وكالة خاصـة</p>
-          <p>أنا الموقع(ة) أسفله :</p>
-          <p>السيد(ة) <strong>${name}</strong> الحامل(ة) لبطاقة التعريف الوطنية رقم : <strong>${cin}</strong> ، الساكن(ة) ب: <strong>${addr}</strong>.</p>
-          <p style="margin-top: 16px;">أقر و أشهد على نفسي و أنا بحالة جائزة و معتبرة شرعا و قانونا و دون إكراه أو إجبار من أحد ، بأنني أوكل السيد(ة) <strong>${agent}</strong> ، الحامل(ة) لبطاقة التعريف الوطنية رقم : <strong>${agentC}</strong> ، الساكن(ة) ب : <strong>${agentA}</strong>.</p>
-          <p style="margin-top: 16px;"><strong>لينوب عني و يقوم مقامي و يتكلم باسمي : </strong>${auth}.</p>
-          <p style="margin-top: 16px;">و لقد أعطيته هذه الوكالة ليدلي بها عند الحاجة و الاقتضاء.</p>
-          <p>هذا ما أصرح به على نفسي و يليه توقيعي و السلام.</p>
-          <p style="text-align: left; margin-top: 32px;"><strong>حرر ب ${city} في : ${date}</strong></p>
-          <p style="text-align: center; margin-top: 24px;">إمضاء : <strong>${name}</strong></p>
-        </div>`;
-      } else if (previewLang === 'fr') {
-        html = `<div style="font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.8;">
-          <p style="font-size: 24px; font-weight: 800; text-align: center; margin-bottom: 20px;">POUVOIR SPÉCIAL</p>
-          <p>Je soussigné(e) <strong>${name}</strong> (CIN: ${cin}), demeurant à ${addr}.</p>
-          <p>Constitue mandataire <strong>${agent}</strong> (CIN: ${agentC}), domicilié(e) ${agentA}.</p>
-          <p style="margin-top: 16px;"><strong>Pouvoirs :</strong> ${auth}.</p>
-          <p style="margin-top: 16px;">Fait à ${city}, le ${date}.</p>
-          <p style="margin-top: 32px;">Signature : <strong>${name}</strong></p>
-        </div>`;
-      } else {
-        html = `<div style="font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.8;">
-          <p style="font-size: 24px; font-weight: 800; text-align: center; margin-bottom: 20px;">SPECIAL POWER OF ATTORNEY</p>
-          <p>I, <strong>${name}</strong> (ID: ${cin}), residing at ${addr}.</p>
-          <p>Hereby appoint <strong>${agent}</strong> (ID: ${agentC}), residing at ${agentA}.</p>
-          <p style="margin-top: 16px;"><strong>Authority:</strong> ${auth}.</p>
-          <p style="margin-top: 16px;">Executed in ${city}, on ${date}.</p>
-          <p style="margin-top: 32px;">Signature: <strong>${name}</strong></p>
-        </div>`;
-      }
-      previewEl.innerHTML = html;
-      const card = document.querySelector('.preview-card');
-      card.setAttribute('dir', previewLang === 'ar' ? 'rtl' : 'ltr');
-    }
-
-    document.querySelectorAll('.preview-lang').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.preview-lang').forEach(b => b.classList.remove('lang-btn-active'));
-        previewLang = btn.getAttribute('data-preview-lang');
-        btn.classList.add('lang-btn-active');
-        renderPreview();
-      });
-    });
-    document.querySelector('.preview-lang[data-preview-lang="ar"]').classList.add('lang-btn-active');
-    [fName, fCin, fAddr, aName, aCin, aAddr, fAuth, fCity, fDate].forEach(i => i.addEventListener('input', renderPreview));
-    renderPreview();
-
-    // Zoom
-    let zoom = 100;
-    const zoomSpan = document.getElementById('zoomVal'), previewCard = document.getElementById('previewCard');
-    function updateZoom() { previewCard.style.transform = 'scale(' + (zoom / 100) + ')'; zoomSpan.textContent = zoom + '%'; }
-    document.getElementById('zoomIn').onclick = () => { if (zoom < 180) { zoom += 10; updateZoom(); } };
-    document.getElementById('zoomOut').onclick = () => { if (zoom > 50) { zoom -= 10; updateZoom(); } };
-    updateZoom();
-
-    // ======================== MODAL ========================
-    const modal = document.getElementById('purchaseModal');
-    const openBtn = document.getElementById('openPurchaseModal');
-    const closeBtn = document.getElementById('closeModalBtn');
-    const confirmBtn = document.getElementById('confirmPurchaseBtn');
-
-    openBtn.onclick = () => { modal.classList.remove('invisible', 'opacity-0'); };
-    function closeModal() { modal.classList.add('invisible', 'opacity-0'); }
-    closeBtn.onclick = closeModal;
-    modal.onclick = (e) => { if (e.target === modal) closeModal(); };
-    confirmBtn.onclick = () => {
-      const name = document.getElementById('buyerName').value.trim();
-      const email = document.getElementById('buyerEmail').value.trim();
-      if (!name || !email) {
-        const msg = currentLang === 'fr' ? 'Veuillez remplir le nom et l\'email' : currentLang === 'ar' ? 'يرجى ملء الاسم والبريد الإلكتروني' : 'Please fill in name and email';
-        alert(msg);
-        return;
-      }
-      const msg = currentLang === 'fr' ? 'Demande de licence envoyée. Vous recevrez un lien de paiement sécurisé par email.'
-        : currentLang === 'ar' ? 'تم إرسال طلب الترخيص. ستتلقى رابط دفع آمن عبر البريد الإلكتروني.'
-        : 'License request received. You will receive a secure payment link by email.';
-      alert(msg);
-      closeModal();
-    };
-
-    // ======================== DOWNLOAD BUTTON ========================
-    async function setupDownload() {
-      try {
-        const res = await fetch('https://api.github.com/repos/OussamaTabDev/maktabatypro/releases/latest');
-        const release = await res.json();
-        const plat = navigator.platform.toLowerCase();
-        let asset = null;
-        if (plat.includes('win')) asset = release.assets.find(a => a.name.endsWith('.exe'));
-        else if (plat.includes('linux') || plat.includes('x11')) asset = release.assets.find(a => a.name.endsWith('.AppImage'));
-        if (asset) document.getElementById('downloadBtn').href = asset.browser_download_url;
-      } catch(e) { console.warn('Could not fetch release:', e); }
-    }
-    setupDownload();
-  </script>
+    statObserver.observe(statNumbers[0].closest('div').parentElement);
+  }
+})();
+</script>
 </body>
 </html>
