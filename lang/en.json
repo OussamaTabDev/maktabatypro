@@ -238,9 +238,14 @@
   "downloadChooser.heading": "Choose your version",
   "downloadChooser.subheading": "Select your operating system to download",
   "downloadChooser.windows": "Windows",
+  "downloadChooser.windowsDesc": "Windows 10 / 11 · .exe",
   "downloadChooser.linuxDeb": "Linux (.deb)",
   "downloadChooser.linuxDebDesc": "Debian / Ubuntu / Mint",
   "downloadChooser.linuxAppImage": "Linux (.AppImage)",
   "downloadChooser.linuxAppImageDesc": "Universal — works on most distros",
-  "downloadChooser.fallback": "Can't find your version?"
+  "downloadChooser.linuxRpm": "Linux (.rpm)",
+  "downloadChooser.linuxRpmDesc": "Fedora / RHEL / openSUSE",
+  "downloadChooser.fallback": "Can't find your version?",
+  "downloadChooser.windows7": "Windows 7",
+  "downloadChooser.windows7Desc": "Legacy · Windows 7 SP1 (32/64-bit)"
 }

@@ -143,11 +143,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       let asset = null;
       if (ext === '.exe') {
-        asset = release.assets.find(a => a.name.endsWith('.exe')) || release.assets.find(a => a.name.endsWith('.msi'));
+        asset = release.assets.find(a => /MaktabatyPro-Setup-.*\.exe$/.test(a.name)) || release.assets.find(a => a.name.endsWith('.exe')) || release.assets.find(a => a.name.endsWith('.msi'));
+      } else if (ext === '.win7exe') {
+        asset = release.assets.find(a => /MaktabatyPro-Win7-Setup-.*\.exe$/.test(a.name)) || release.assets.find(a => a.name.endsWith('.exe'));
       } else if (ext === '.deb') {
         asset = release.assets.find(a => a.name.endsWith('.deb'));
       } else if (ext === '.AppImage') {
         asset = release.assets.find(a => a.name.endsWith('.AppImage'));
+      } else if (ext === '.rpm') {
+        asset = release.assets.find(a => a.name.endsWith('.rpm'));
       }
 
       if (asset) {

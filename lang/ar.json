@@ -236,9 +236,14 @@
   "downloadChooser.heading": "اختر إصدارك",
   "downloadChooser.subheading": "اختر نظام التشغيل للتحميل",
   "downloadChooser.windows": "ويندوز",
+  "downloadChooser.windowsDesc": "ويندوز 10 / 11 · .exe",
   "downloadChooser.linuxDeb": "لينكس (.deb)",
   "downloadChooser.linuxDebDesc": "Debian / Ubuntu / Mint",
   "downloadChooser.linuxAppImage": "لينكس (.AppImage)",
   "downloadChooser.linuxAppImageDesc": "شامل — يعمل على معظم التوزيعات",
-  "downloadChooser.fallback": "لا تجد إصدارك؟"
+  "downloadChooser.linuxRpm": "لينكس (.rpm)",
+  "downloadChooser.linuxRpmDesc": "Fedora / RHEL / openSUSE",
+  "downloadChooser.fallback": "لا تجد إصدارك؟",
+  "downloadChooser.windows7": "ويندوز 7",
+  "downloadChooser.windows7Desc": "قديم · ويندوز 7 SP1 (32/64 بت)"
 }

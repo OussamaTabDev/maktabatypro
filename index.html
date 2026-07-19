@@ -1191,8 +1191,25 @@ tailwind.config = {
           </svg>
         </div>
         <div class="flex-1">
-          <div class="text-sm font-medium text-white" data-i18n="downloadChooser.windows">Windows</div>
-          <div class="text-xs text-dim">.exe</div>
+          <div class="text-sm font-medium text-white" data-i18n="downloadChooser.windows">Windows 10 / 11</div>
+          <div class="text-xs text-dim" data-i18n="downloadChooser.windowsDesc">Windows 10 / 11 · .exe</div>
+        </div>
+        <i data-lucide="download" class="w-4 h-4 text-dim group-hover:text-white transition-colors"></i>
+      </button>
+
+      <!-- Windows 7 (legacy) -->
+      <button type="button" class="download-option flex items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-5 py-4 transition-all group w-full text-left" data-ext=".win7exe">
+        <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors shrink-0">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="2" width="9.5" height="9.5" rx="1" fill="#06B6D4" opacity="0.9"/>
+            <rect x="12.5" y="2" width="9.5" height="9.5" rx="1" fill="#06B6D4" opacity="0.7"/>
+            <rect x="2" y="12.5" width="9.5" height="9.5" rx="1" fill="#06B6D4" opacity="0.7"/>
+            <rect x="12.5" y="12.5" width="9.5" height="9.5" rx="1" fill="#06B6D4" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="flex-1">
+          <div class="text-sm font-medium text-white" data-i18n="downloadChooser.windows7">Windows 7</div>
+          <div class="text-xs text-dim" data-i18n="downloadChooser.windows7Desc">Legacy · Windows 7 · (64-bit)</div>
         </div>
         <i data-lucide="download" class="w-4 h-4 text-dim group-hover:text-white transition-colors"></i>
       </button>
@@ -1233,6 +1250,28 @@ tailwind.config = {
         <div class="flex-1">
           <div class="text-sm font-medium text-white" data-i18n="downloadChooser.linuxAppImage">Linux (.AppImage)</div>
           <div class="text-xs text-dim" data-i18n="downloadChooser.linuxAppImageDesc">Universal — works on most distros</div>
+        </div>
+        <i data-lucide="download" class="w-4 h-4 text-dim group-hover:text-white transition-colors"></i>
+      </button>
+
+      <!-- Linux (.rpm) -->
+      <button type="button" class="download-option flex items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-5 py-4 transition-all group w-full text-left" data-ext=".rpm">
+        <div class="w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center group-hover:bg-red-500/20 transition-colors shrink-0">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
+            <ellipse cx="12" cy="14" rx="5.5" ry="7" fill="#EF4444" opacity="0.9"/>
+            <circle cx="12" cy="7.5" r="4.5" fill="#EF4444" opacity="0.9"/>
+            <circle cx="10.2" cy="6.8" r="1" fill="#fff"/>
+            <circle cx="13.8" cy="6.8" r="1" fill="#fff"/>
+            <circle cx="10.2" cy="6.8" r="0.5" fill="#1a1a1a"/>
+            <circle cx="13.8" cy="6.8" r="0.5" fill="#1a1a1a"/>
+            <ellipse cx="12" cy="8.8" rx="1.8" ry="1" fill="#FCA5A5" opacity="0.9"/>
+            <ellipse cx="7" cy="16" rx="2" ry="3.5" fill="#EF4444" opacity="0.7" transform="rotate(-10 7 16)"/>
+            <ellipse cx="17" cy="16" rx="2" ry="3.5" fill="#EF4444" opacity="0.7" transform="rotate(10 17 16)"/>
+          </svg>
+        </div>
+        <div class="flex-1">
+          <div class="text-sm font-medium text-white" data-i18n="downloadChooser.linuxRpm">Linux (.rpm)</div>
+          <div class="text-xs text-dim" data-i18n="downloadChooser.linuxRpmDesc">Fedora / RHEL / openSUSE</div>
         </div>
         <i data-lucide="download" class="w-4 h-4 text-dim group-hover:text-white transition-colors"></i>
       </button>
