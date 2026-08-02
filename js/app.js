@@ -116,10 +116,36 @@ document.addEventListener('DOMContentLoaded', async () => {
   const downloadChooserModal = document.getElementById('downloadChooserModal');
   const downloadChooserOverlay = document.getElementById('downloadChooserOverlay');
   const closeDownloadChooserBtn = document.getElementById('closeDownloadChooser');
+  const versionWrap = document.getElementById('downloadChooserVersionWrap');
+  const versionEl = document.getElementById('downloadChooserVersion');
+
+  let latestVersion = null;
+
+  async function refreshLatestVersion() {
+    if (!versionWrap || !versionEl) return;
+    if (latestVersion) {
+      versionEl.textContent = 'Latest version: v' + latestVersion;
+      versionWrap.style.display = 'inline-flex';
+      return;
+    }
+    try {
+      const res = await fetch('https://api.github.com/repos/OussamaTabDev/maktabatypro/releases/latest');
+      if (!res.ok) return;
+      const release = await res.json();
+      if (release && release.tag_name) {
+        latestVersion = release.tag_name.replace(/^v/i, '');
+        versionEl.textContent = 'Latest version: v' + latestVersion;
+        versionWrap.style.display = 'inline-flex';
+      }
+    } catch (e) {
+      // silently keep the badge hidden
+    }
+  }
 
   function openDownloadChooser(e) {
     if (e) e.preventDefault();
     closeContactModal();
+    refreshLatestVersion();
     downloadChooserModal.classList.remove('invisible', 'opacity-0');
   }
 
@@ -168,6 +194,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       opt.disabled = false;
       opt.classList.remove('loading');
     });
+
+    closeDownloadChooser();
+    openInstallGuide();
   }
 
   document.querySelectorAll('.download-option').forEach(opt => {
@@ -176,6 +205,31 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeDownloadChooser();
+  });
+
+  // ======================== INSTALL GUIDE MODAL ========================
+  const installGuideModal = document.getElementById('installGuideModal');
+  const installGuideOverlay = document.getElementById('installGuideOverlay');
+  const closeInstallGuideBtn = document.getElementById('closeInstallGuide');
+  const installGuideDoneBtn = document.getElementById('installGuideDone');
+
+  function openInstallGuide() {
+    if (!installGuideModal) return;
+    installGuideModal.classList.remove('invisible', 'opacity-0');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeInstallGuide() {
+    if (!installGuideModal) return;
+    installGuideModal.classList.add('invisible', 'opacity-0');
+    document.body.style.overflow = '';
+  }
+
+  if (closeInstallGuideBtn) closeInstallGuideBtn.addEventListener('click', closeInstallGuide);
+  if (installGuideDoneBtn) installGuideDoneBtn.addEventListener('click', closeInstallGuide);
+  if (installGuideOverlay) installGuideOverlay.addEventListener('click', closeInstallGuide);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeInstallGuide();
   });
 
   document.querySelectorAll('.download-btn').forEach(btn => {

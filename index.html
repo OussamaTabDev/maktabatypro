@@ -43,8 +43,8 @@
   "description": "Offline document management software for Moroccan public writers and administrative professionals. Smart templates, 30 PDF tools, and local-only data storage.",
   "offers": [
     { "@type": "Offer", "name": "Trial", "price": "0", "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Standard", "price": "20", "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Enterprise", "price": "50", "priceCurrency": "USD" }
+    { "@type": "Offer", "name": "Standard", "price": "299", "priceCurrency": "MAD" },
+    { "@type": "Offer", "name": "Multi", "price": "499", "priceCurrency": "MAD" }
   ]
 }
 </script>
@@ -890,7 +890,7 @@ tailwind.config = {
         <ul class="space-y-3 mb-8 flex-1">
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5"></i>
-            <span data-i18n="pricing.trial.feature1">6 popular templates unlocked</span>
+            <span data-i18n="pricing.trial.feature1">20 popular templates unlocked</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5"></i>
@@ -898,11 +898,11 @@ tailwind.config = {
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5"></i>
-            <span data-i18n="pricing.trial.feature3">PDF merge & split (10 uses each)</span>
+            <span data-i18n="pricing.trial.feature3">All PDF tools</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5"></i>
-            <span data-i18n="pricing.trial.feature4">PDF library (7 files max)</span>
+            <span data-i18n="pricing.trial.feature4">PDF library — unlimited</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5"></i>
@@ -932,15 +932,14 @@ tailwind.config = {
           <p class="text-xs text-muted" data-i18n="pricing.standard.description">Everything you need</p>
         </div>
         <div class="mb-8">
-          <div class="flex items-center gap-2 mb-1">
-            <span class="font-display text-4xl font-semibold" data-i18n="pricing.standard.price">200 MAD</span>
-            <span class="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-red-500/15 text-red-400 border border-red-500/20" data-i18n="pricing.standard.badgeTime">Limited Time</span>
+          <div class="flex items-baseline gap-2">
+            <span class="font-display text-4xl font-semibold" data-i18n="pricing.standard.price">299 MAD</span>
+            <span class="text-sm text-dim" data-i18n="pricing.standard.period">one-time payment</span>
           </div>
-          <div class="flex items-center gap-2">
-            <span class="text-sm text-dim line-through" data-i18n="pricing.standard.oldPrice">300 MAD / $30</span>
-            <span class="text-sm text-green-400 font-medium" data-i18n="pricing.standard.newPrice">200 MAD / $20</span>
+          <div class="flex items-center gap-1.5 mt-2">
+            <i data-lucide="infinity" class="w-3.5 h-3.5 text-green-400"></i>
+            <span class="text-[11px] text-green-400/90" data-i18n="pricing.standard.lifetime">Lifetime license</span>
           </div>
-          <span class="text-[11px] text-dim" data-i18n="pricing.standard.period">one-time payment</span>
         </div>
         <ul class="space-y-3 mb-8 flex-1">
           <li class="flex items-start gap-2.5 text-sm text-muted">
@@ -973,52 +972,84 @@ tailwind.config = {
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-accent-light flex-shrink-0 mt-0.5"></i>
-            <span data-i18n="pricing.standard.feature8">1 machine license</span>
+            <span data-i18n="pricing.standard.feature8">1 machine license — upgrade to Multi anytime</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-muted">
+            <i data-lucide="check" class="w-4 h-4 text-accent-light flex-shrink-0 mt-0.5"></i>
+            <span data-i18n="pricing.standard.feature9"><strong class="text-white">All future updates included</strong></span>
           </li>
         </ul>
         <a href="#" class="get-started-btn btn-primary text-sm font-medium px-6 py-3.5 rounded-full text-center text-white w-full" data-i18n="pricing.standard.button">Get Standard</a>
       </div>
 
-      <!-- Enterprise -->
+      <!-- Multi -->
       <div class="reveal reveal-delay-3 card-hover bg-surface/30 border border-white/5 rounded-2xl p-8 flex flex-col">
         <div class="mb-6">
-          <h3 class="font-display text-lg font-medium mb-1" data-i18n="pricing.enterprise.name">Enterprise</h3>
-          <p class="text-xs text-muted" data-i18n="pricing.enterprise.description">For teams & power users</p>
+          <h3 class="font-display text-lg font-medium mb-1" data-i18n="pricing.multi.name">Multi</h3>
+          <p class="text-xs text-muted" data-i18n="pricing.multi.description">For offices & teams</p>
         </div>
         <div class="mb-8">
-          <span class="font-display text-4xl font-semibold" data-i18n="pricing.enterprise.price">500 MAD</span>
-          <div class="text-sm text-dim mt-1" data-i18n="pricing.enterprise.period">/ $50 — one-time</div>
+          <div class="flex items-baseline gap-2">
+            <span class="font-display text-4xl font-semibold" data-i18n="pricing.multi.price">499 MAD</span>
+            <span class="text-sm text-dim" data-i18n="pricing.multi.period">one-time payment</span>
+          </div>
+          <div class="flex items-center gap-1.5 mt-2">
+            <i data-lucide="monitor" class="w-3.5 h-3.5 text-secondary"></i>
+            <span class="text-[11px] text-secondary" data-i18n="pricing.multi.machines">2 machines included</span>
+          </div>
+          <div class="flex items-center gap-1.5 mt-1">
+            <i data-lucide="infinity" class="w-3.5 h-3.5 text-green-400"></i>
+            <span class="text-[11px] text-green-400/90" data-i18n="pricing.multi.lifetime">Lifetime license · all updates included</span>
+          </div>
         </div>
         <ul class="space-y-3 mb-8 flex-1">
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-secondary flex-shrink-0 mt-0.5"></i>
-            <span data-i18n="pricing.enterprise.feature1"><strong class="text-white">Everything in Standard</strong></span>
+            <span data-i18n="pricing.multi.feature1"><strong class="text-white">Everything in Standard</strong></span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-secondary flex-shrink-0 mt-0.5"></i>
-            <span data-i18n="pricing.enterprise.feature2"><strong class="text-white">AI-powered PDF tools</strong></span>
+            <span data-i18n="pricing.multi.feature2"><strong class="text-white">2 machines included</strong> — one license for all</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-secondary flex-shrink-0 mt-0.5"></i>
-            <span data-i18n="pricing.enterprise.feature3"><strong class="text-white">Unlimited machines</strong> — one license for all</span>
+            <span data-i18n="pricing.multi.feature3">Add machines anytime — <strong class="text-white">+250 MAD</strong> per extra machine</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-secondary flex-shrink-0 mt-0.5"></i>
-            <span data-i18n="pricing.enterprise.feature4">Priority support</span>
+            <span data-i18n="pricing.multi.feature4">Perpetual / lifetime license</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-secondary flex-shrink-0 mt-0.5"></i>
-            <span data-i18n="pricing.enterprise.feature5">All future updates included</span>
+            <span data-i18n="pricing.multi.feature5">Priority support</span>
           </li>
-          <li class="flex items-center-start gap-2.5 text-sm text-dim mt-2">
-            <span class="text-[11px] leading-relaxed" data-i18n="pricing.enterprise.extratext">Ideal for offices with multiple computers or public writers who works from different locations.</span>
+          <li class="flex items-start gap-2.5 text-sm text-muted">
+            <i data-lucide="check" class="w-4 h-4 text-secondary flex-shrink-0 mt-0.5"></i>
+            <span data-i18n="pricing.multi.feature6">All future updates included</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm text-dim mt-2">
+            <span class="text-[11px] leading-relaxed" data-i18n="pricing.multi.extratext">Ideal for offices with multiple computers or public writers who work from different locations.</span>
           </li>
         </ul>
-        <a href="#" class="get-started-btn btn-ghost text-sm font-medium px-6 py-3.5 rounded-full text-center text-muted w-full border-secondary/20 hover:border-secondary/40 hover:bg-secondary/5" data-i18n="pricing.enterprise.button">Get Enterprise</a>
+        <a href="#" class="get-started-btn btn-ghost text-sm font-medium px-6 py-3.5 rounded-full text-center text-muted w-full border-secondary/20 hover:border-secondary/40 hover:bg-secondary/5" data-i18n="pricing.multi.button">Get Multi</a>
       </div>
     </div>
 
-    <p class="reveal text-center text-xs text-dim mt-8" data-i18n="pricing.footer">One-time payment. No subscriptions. No hidden fees. License valid forever.</p>
+    <!-- Enterprise -->
+    <div class="reveal mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 bg-surface/30 border border-white/5 rounded-2xl px-6 py-5">
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+          <i data-lucide="building-2" class="w-5 h-5 text-amber-400"></i>
+        </div>
+        <div>
+          <h4 class="text-sm font-medium text-white" data-i18n="pricing.enterprise.name">Enterprise — for larger teams</h4>
+          <p class="text-xs text-muted" data-i18n="pricing.enterprise.text">Negotiable pricing, custom machine count, per-year licensing. Contact us for a quote.</p>
+        </div>
+      </div>
+      <a href="#" class="get-started-btn btn-ghost text-xs font-medium px-5 py-2.5 rounded-full text-muted whitespace-nowrap" data-i18n="pricing.enterprise.button">Contact Us</a>
+    </div>
+
+    <p class="reveal text-center text-xs text-dim mt-8" data-i18n="pricing.footer">One-time payment. No subscriptions. No hidden fees. Standard & Multi licenses are valid forever.</p>
     <!-- <div class="reveal flex items-center justify-center gap-2 mt-4">
       <i data-lucide="shield-check" class="w-3.5 h-3.5 text-green-400"></i>
       <p class="text-center text-xs text-green-400/90" data-i18n="pricing.guarantee">3-day money-back guarantee — not a fit? Get a full refund, no questions asked.</p>
@@ -1053,23 +1084,22 @@ tailwind.config = {
           <i data-lucide="plus" class="faq-icon w-4 h-4 text-accent-light flex-shrink-0 transition-transform"></i>
         </button>
         <div class="faq-panel px-6 overflow-hidden" style="max-height:0;">
-          <p class="text-sm text-muted leading-relaxed pb-5" data-i18n="faq.q2.answer">Your account and any templates you created stay on your device — they're just locked until you activate a paid license. Activating Standard or Enterprise unlocks everything instantly, with no reinstall needed.</p>
+          <p class="text-sm text-muted leading-relaxed pb-5" data-i18n="faq.q2.answer">Your account and any templates you created stay on your device — they're just locked until you activate a paid license. Activating Standard or Multi unlocks everything instantly, with no reinstall needed.</p>
         </div>
       </div>
 
       <div class="faq-item bg-surface/30 border border-white/5 rounded-xl overflow-hidden">
         <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5" aria-expanded="false">
-          <span class="text-sm font-medium text-white" data-i18n="faq.q3.question">Can I move my license to a new computer?</span>
-          <i data-lucide="plus" class="faq-icon w-4 h-4 text-accent-light flex-shrink-0 transition-transform"></i>
+          <span class="text-sm font-medium text-white" data-i18n="faq.q3.question">Can I move my license to a new computer?</span>          <i data-lucide="plus" class="faq-icon w-4 h-4 text-accent-light flex-shrink-0 transition-transform"></i>
         </button>
         <div class="faq-panel px-6 overflow-hidden" style="max-height:0;">
-          <p class="text-sm text-muted leading-relaxed pb-5" data-i18n="faq.q3.answer">Yes. Standard is licensed to one machine at a time — deactivate on the old device and activate on the new one from the same account. Enterprise covers unlimited machines, so this isn't a concern at all.</p>
+          <p class="text-sm text-muted leading-relaxed pb-5" data-i18n="faq.q3.answer">Yes. Standard is licensed to one machine at a time — deactivate on the old device and activate on the new one from the same account. Multi covers 2 or more machines, and Enterprise is negotiated for larger teams.</p>
         </div>
       </div>
 
       <div class="faq-item bg-surface/30 border border-white/5 rounded-xl overflow-hidden">
         <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5" aria-expanded="false">
-          <span class="text-sm font-medium text-white" data-i18n="faq.q4.question">Can I upgrade from Standard to Enterprise later?</span>
+          <span class="text-sm font-medium text-white" data-i18n="faq.q4.question">Can I upgrade from Standard to Multi later?</span>
           <i data-lucide="plus" class="faq-icon w-4 h-4 text-accent-light flex-shrink-0 transition-transform"></i>
         </button>
         <div class="faq-panel px-6 overflow-hidden" style="max-height:0;">
@@ -1177,6 +1207,10 @@ tailwind.config = {
       </div>
       <h3 id="downloadChooserHeading" class="font-display text-xl font-medium text-white mb-1" data-i18n="downloadChooser.heading">Choose your version</h3>
       <p class="text-xs text-dim" data-i18n="downloadChooser.subheading">Select your operating system to download</p>
+      <div class="inline-flex items-center gap-1.5 mt-3 bg-green-500/10 border border-green-500/20 rounded-full px-3 py-1" id="downloadChooserVersionWrap" style="display:none;">
+        <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
+        <span class="text-[11px] text-green-400 font-medium" id="downloadChooserVersion"></span>
+      </div>
     </div>
 
     <div class="space-y-3" id="downloadOptions">
@@ -1278,6 +1312,46 @@ tailwind.config = {
     </div>
 
     <p class="text-center text-[11px] text-dim mt-5" data-i18n="downloadChooser.fallback">Can't find your version? <a href="https://github.com/OussamaTabDev/maktabatypro/releases" target="_blank" rel="noopener" class="text-accent-light hover:text-white transition-colors">View all releases on GitHub</a></p>
+  </div>
+</div>
+
+<!-- INSTALL GUIDE MODAL -->
+<div id="installGuideModal" class="fixed inset-0 z-50 flex items-center justify-center px-4 py-8 invisible opacity-0 transition-all duration-300" role="dialog" aria-modal="true" aria-labelledby="installGuideHeading">
+  <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="installGuideOverlay"></div>
+  <div class="relative bg-surface border border-white/10 rounded-2xl max-w-2xl w-full shadow-2xl p-8 max-h-[90vh] overflow-y-auto">
+    <button id="closeInstallGuide" type="button" class="absolute top-4 right-4 text-dim hover:text-white transition-colors" aria-label="Close dialog">
+      <i data-lucide="x" class="w-5 h-5"></i>
+    </button>
+
+    <div class="text-center mb-7">
+      <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center mx-auto mb-4">
+        <i data-lucide="package-check" class="w-6 h-6 text-green-400"></i>
+      </div>
+      <h3 id="installGuideHeading" class="font-display text-xl font-medium text-white mb-1" data-i18n="installGuide.heading">Your download has started</h3>
+      <p class="text-xs text-dim" data-i18n="installGuide.subheading">Follow these 2 steps to install MaktabatyPro correctly.</p>
+    </div>
+
+    <div class="space-y-6">
+      <div>
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-6 h-6 rounded-full bg-amber-500/10 text-amber-400 flex items-center justify-center text-xs font-semibold flex-shrink-0">1</span>
+          <h4 class="text-sm font-medium text-white" data-i18n="installGuide.step1.title">Windows says "Unknown publisher"?</h4>
+        </div>
+        <img src="assets/pop%20install%201.png" alt="Unknown publisher — click More info then Run anyway" loading="lazy" class="w-full rounded-xl border border-white/10 bg-black/20">
+        <p class="text-xs text-muted leading-relaxed mt-2.5" data-i18n="installGuide.step1.text">Click <strong class="text-white">More info</strong>, then <strong class="text-white">Run anyway</strong>. The app is signed by us — SmartScreen just hasn't seen it before.</p>
+      </div>
+
+      <div>
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-6 h-6 rounded-full bg-green-500/10 text-green-400 flex items-center justify-center text-xs font-semibold flex-shrink-0">2</span>
+          <h4 class="text-sm font-medium text-white" data-i18n="installGuide.step2.title">Follow the installer</h4>
+        </div>
+        <img src="assets/pop%20install%202.png" alt="Installer — choose folder and click Install" loading="lazy" class="w-full rounded-xl border border-white/10 bg-black/20">
+        <p class="text-xs text-muted leading-relaxed mt-2.5" data-i18n="installGuide.step2.text">Choose your install folder and click <strong class="text-white">Install</strong>. On the first launch you'll get your 3-day free trial.</p>
+      </div>
+    </div>
+
+    <button type="button" id="installGuideDone" class="mt-8 btn-primary text-sm font-medium px-6 py-3.5 rounded-full text-center text-white w-full" data-i18n="installGuide.done">Got it, I'm ready to install</button>
   </div>
 </div>
 
