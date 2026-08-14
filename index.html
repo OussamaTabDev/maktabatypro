@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title data-i18n="meta.title">MaktabatyPro — Offline Moroccan Document Management</title>
-<meta name="description" content="MaktabatyPro fills administrative documents in 2 minutes with smart offline templates, 30 PDF tools, and zero data uploads. Built for Moroccan public writers. One-time payment, no subscription.">
+<meta name="description" content="MaktabatyPro fills administrative documents in 2 minutes with smart offline templates, 30 PDF tools, and zero data uploads. Built for Moroccan public writers. Limited-time Multi offer: 3 PCs for 499 MAD.">
 <meta name="keywords" content="gestion documents hors ligne, public writer software Morocco, PDF tools offline, template administratif Maroc, écrivain public logiciel">
 <link rel="canonical" href="https://maktabatypro.ma/">
 <meta name="robots" content="index, follow">
@@ -14,7 +14,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MaktabatyPro">
 <meta property="og:title" content="MaktabatyPro — Fill Documents in 2 Minutes, 100% Offline">
-<meta property="og:description" content="Smart templates, 30 PDF tools, and full document management. Your data never leaves your device. Made in Morocco for public writers and administrative professionals.">
+<meta property="og:description" content="Smart templates, 30 PDF tools, and full document management. Your data never leaves your device. Limited-time Multi offer: 3 PCs for 499 MAD. Made in Morocco for public writers and administrative professionals.">
 <meta property="og:image" content="assets/main_image.png">
 <meta property="og:url" content="https://maktabatypro.ma/">
 <meta property="og:locale" content="en_US">
@@ -44,7 +44,7 @@
   "offers": [
     { "@type": "Offer", "name": "Trial", "price": "0", "priceCurrency": "USD" },
     { "@type": "Offer", "name": "Standard", "price": "299", "priceCurrency": "MAD" },
-    { "@type": "Offer", "name": "Multi", "price": "499", "priceCurrency": "MAD" }
+    { "@type": "Offer", "name": "Multi", "price": "499", "priceCurrency": "MAD", "priceValidUntil": "2026-08-18" }
   ]
 }
 </script>
@@ -876,6 +876,26 @@ tailwind.config = {
       <p class="text-muted text-base" data-i18n="pricing.subheading">No subscriptions. Pay once, use forever.</p>
     </div>
 
+    <div id="limitedOfferBanner" data-offer-deadline="2026-08-18T23:59:59+01:00" class="reveal mb-8 rounded-2xl border border-amber-400/30 bg-gradient-to-r from-amber-500/10 via-accent/10 to-blue-500/10 px-5 py-5 sm:px-7" aria-live="polite">
+      <div class="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p class="text-[10px] font-mono uppercase tracking-widest text-amber-300" data-i18n="pricing.offer.badge">Limited-time offer</p>
+          <h3 class="mt-1 font-display text-xl font-semibold text-white" data-i18n="pricing.offer.title">Multi: 3 PCs for 499 MAD</h3>
+          <p class="mt-1 text-xs text-muted" data-i18n="pricing.offer.text">Lifetime license · Offer ends 18 August 2026</p>
+        </div>
+        <div id="offerCountdownWrap" class="flex items-center gap-2" aria-label="Limited-time offer countdown">
+          <div class="min-w-[54px] rounded-xl border border-white/10 bg-black/20 px-2 py-2 text-center"><div id="offerCountdownDays" class="font-display text-xl font-semibold text-white">00</div><div class="text-[9px] uppercase tracking-wider text-dim" data-i18n="pricing.offer.days">Days</div></div>
+          <span class="text-dim">:</span>
+          <div class="min-w-[54px] rounded-xl border border-white/10 bg-black/20 px-2 py-2 text-center"><div id="offerCountdownHours" class="font-display text-xl font-semibold text-white">00</div><div class="text-[9px] uppercase tracking-wider text-dim" data-i18n="pricing.offer.hours">Hours</div></div>
+          <span class="text-dim">:</span>
+          <div class="min-w-[54px] rounded-xl border border-white/10 bg-black/20 px-2 py-2 text-center"><div id="offerCountdownMinutes" class="font-display text-xl font-semibold text-white">00</div><div class="text-[9px] uppercase tracking-wider text-dim" data-i18n="pricing.offer.minutes">Minutes</div></div>
+          <span class="text-dim">:</span>
+          <div class="min-w-[54px] rounded-xl border border-white/10 bg-black/20 px-2 py-2 text-center"><div id="offerCountdownSeconds" class="font-display text-xl font-semibold text-white">00</div><div class="text-[9px] uppercase tracking-wider text-dim" data-i18n="pricing.offer.seconds">Seconds</div></div>
+        </div>
+      </div>
+      <p id="offerCountdownNote" class="mt-4 text-xs text-amber-200/80" data-i18n="pricing.offer.activeNote">Offer price valid until 18 August 2026 at 23:59 Morocco time.</p>
+    </div>
+
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <!-- Trial -->
       <div class="reveal reveal-delay-1 card-hover bg-surface/30 border border-white/5 rounded-2xl p-8 flex flex-col">
@@ -990,16 +1010,16 @@ tailwind.config = {
         </div>
         <div class="mb-8">
           <div class="flex items-baseline gap-2">
-            <span class="font-display text-4xl font-semibold" data-i18n="pricing.multi.price">499 MAD</span>
-            <span class="text-sm text-dim" data-i18n="pricing.multi.period">one-time payment</span>
+            <span id="multiPrice" class="font-display text-4xl font-semibold" data-i18n="pricing.multi.price">499 MAD</span>
+            <span id="multiPeriod" class="text-sm text-dim" data-i18n="pricing.multi.period">one-time payment</span>
           </div>
           <div class="flex items-center gap-1.5 mt-2">
             <i data-lucide="monitor" class="w-3.5 h-3.5 text-secondary"></i>
-            <span class="text-[11px] text-secondary" data-i18n="pricing.multi.machines">2 machines included</span>
+            <span id="multiMachines" class="text-[11px] text-secondary" data-i18n="pricing.multi.machines">3 machines included</span>
           </div>
           <div class="flex items-center gap-1.5 mt-1">
             <i data-lucide="infinity" class="w-3.5 h-3.5 text-green-400"></i>
-            <span class="text-[11px] text-green-400/90" data-i18n="pricing.multi.lifetime">Lifetime license · all updates included</span>
+            <span id="multiLifetime" class="text-[11px] text-green-400/90" data-i18n="pricing.multi.lifetime">Lifetime license · all updates included</span>
           </div>
         </div>
         <ul class="space-y-3 mb-8 flex-1">
@@ -1009,11 +1029,11 @@ tailwind.config = {
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-secondary flex-shrink-0 mt-0.5"></i>
-            <span data-i18n="pricing.multi.feature2"><strong class="text-white">2 machines included</strong> — one license for all</span>
+            <span id="multiFeature2" data-i18n="pricing.multi.feature2"><strong class="text-white">3 machines included</strong> — one license for all</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-secondary flex-shrink-0 mt-0.5"></i>
-            <span data-i18n="pricing.multi.feature3">Add machines anytime — <strong class="text-white">+250 MAD</strong> per extra machine</span>
+            <span id="multiFeature3" data-i18n="pricing.multi.feature3">Add machines anytime — <strong class="text-white">+249 MAD</strong> per extra machine</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-secondary flex-shrink-0 mt-0.5"></i>
@@ -1028,10 +1048,10 @@ tailwind.config = {
             <span data-i18n="pricing.multi.feature6">All future updates included</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-dim mt-2">
-            <span class="text-[11px] leading-relaxed" data-i18n="pricing.multi.extratext">Ideal for offices with multiple computers or public writers who work from different locations.</span>
+            <span id="multiExtraText" class="text-[11px] leading-relaxed" data-i18n="pricing.multi.extratext">Limited-time offer includes 3 PCs. Additional PC: +249 MAD.</span>
           </li>
         </ul>
-        <a href="#" class="get-started-btn btn-ghost text-sm font-medium px-6 py-3.5 rounded-full text-center text-muted w-full border-secondary/20 hover:border-secondary/40 hover:bg-secondary/5" data-i18n="pricing.multi.button">Get Multi</a>
+        <a id="multiOfferButton" href="#" class="get-started-btn btn-ghost text-sm font-medium px-6 py-3.5 rounded-full text-center text-muted w-full border-secondary/20 hover:border-secondary/40 hover:bg-secondary/5" data-i18n="pricing.multi.button">Get Multi</a>
       </div>
     </div>
 

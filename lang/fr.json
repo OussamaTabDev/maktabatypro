@@ -1,13 +1,11 @@
 {
   "meta.title": "MaktabatyPro — Gestion de documents marocaine hors ligne",
-
   "nav.brand": "MaktabatyPro",
   "nav.features": "Fonctionnalités",
   "nav.privacy": "Confidentialité",
   "nav.pricing": "Tarifs",
   "nav.faq": "FAQ",
   "nav.startFreeTrial": "Essai gratuit",
-
   "hero.badge": "100 % Hors ligne · Fabriqué au Maroc",
   "hero.title1": "Remplissez des documents",
   "hero.title2": "en 2 minutes",
@@ -20,7 +18,6 @@
   "hero.stats.pdfToolsLabel": "Outils PDF",
   "hero.stats.dataSent": "0",
   "hero.stats.dataSentLabel": "Données envoyées",
-
   "problem.badge": "Le problème",
   "problem.heading": "Vous méritez mieux que ça",
   "problem.card1.title": "Vos données sont vendues",
@@ -29,7 +26,6 @@
   "problem.card2.text": "Saisir manuellement les mêmes champs, calculer les dates, convertir les nombres en lettres. Un travail répétitif qui grignote des heures de votre journée — chaque jour.",
   "problem.card3.title": "Trop d'outils",
   "problem.card3.text": "Un site pour fusionner, un autre pour scinder, un troisième pour remplir des formulaires, un quatrième pour compresser. Aucun flux de travail unifié, aucune cohérence.",
-
   "features.badge": "Fonctionnalité phare",
   "features.heading": "Des modèles qui pensent pour vous",
   "features.subheading": "Bien plus que de simples formulaires. Des modèles intelligents avec variables, logique conditionnelle et traitement par lots qui réduisent votre travail de 10 à 2 minutes.",
@@ -63,7 +59,6 @@
   "features.capability.livePreview.title": "Aperçu en direct",
   "features.capability.livePreview.text": "Voyez le document final se mettre à jour en temps réel pendant que vous saisissez chaque champ. Aucune surprise après l'export.",
   "features.savings": "Vous traitez 50 documents par jour ou plus ? C'est 2 h 30 économisées chaque jour. Sur un mois — 50 heures.",
-
   "testimonials.badge": "Ils nous font confiance",
   "testimonials.heading": "Écrivains publics à travers le Maroc",
   "testimonials.subheading": "Un échantillon des retours que nous entendons le plus souvent. Remplacez par vos propres témoignages clients vérifiés avant le lancement.",
@@ -79,7 +74,6 @@
   "testimonials.quote3.initials": "Y.T.",
   "testimonials.quote3.name": "Youssef T.",
   "testimonials.quote3.role": "Chef de bureau, Tanger",
-
   "faq.badge": "FAQ",
   "faq.heading": "Foire aux questions",
   "faq.q1.question": "Mes données ne sont-elles vraiment jamais envoyées nulle part ?",
@@ -87,16 +81,13 @@
   "faq.q2.question": "Que se passe-t-il après mon essai de 3 jours ?",
   "faq.q2.answer": "Votre compte et les modèles que vous avez créés restent sur votre appareil — ils sont simplement verrouillés jusqu'à ce que vous activiez une licence payante. Activer Standard ou Multi débloque tout instantanément, sans besoin de réinstallation.",
   "faq.q3.question": "Puis-je transférer ma licence sur un nouvel ordinateur ?",
-  "faq.q3.answer": "Oui. Standard est attribué à une machine à la fois — désactivez-la sur l'ancien appareil et activez-la sur le nouveau avec le même compte. Multi couvre 2 machines ou plus, et Enterprise est négocié pour les grandes équipes.",
+  "faq.q3.answer": "Oui. Standard est attribué à une machine à la fois — désactivez-la sur l'ancien appareil et activez-la sur le nouveau avec le même compte. L'offre Multi limitée comprend 3 machines ; contactez-nous pour les options actuelles après la fin de l'offre.",
   "faq.q4.question": "Puis-je passer de Standard à Multi plus tard ?",
   "faq.q4.answer": "Oui, à tout moment — contactez-nous et payez seulement la différence entre les deux licences. Vos modèles, votre bibliothèque et vos paramètres sont transférés automatiquement.",
   "faq.q5.question": "Proposez-vous des remboursements ?",
   "faq.q5.answer": "Oui — chaque licence payante est accompagnée d'une garantie de remboursement de 3 jours. Si MaktabatyPro ne vous convient pas, contactez-nous et nous vous rembourserons intégralement, sans poser de questions.",
   "faq.q6.question": "Quelles langues l'interface supporte-t-elle ?",
   "faq.q6.answer": "Arabe, français, espagnol et anglais, entièrement traduits, y compris la mise en page de droite à gauche pour l'arabe. Changez de langue à tout moment depuis le pied de page, même hors ligne. Et nous en ajouterons d'autres.",
-
-  "nav.faq": "FAQ",
-
   "privacy.badge": "Confidentialité et sécurité",
   "privacy.heading1": "Vos documents.",
   "privacy.heading2": "Votre appareil. Point.",
@@ -121,7 +112,6 @@
   "privacy.mockup.row5.status": "Non",
   "privacy.mockup.row6.label": "Internet nécessaire",
   "privacy.mockup.row6.status": "Non",
-
   "pdfTools.badge": "Boîte à outils PDF",
   "pdfTools.heading": "30 outils PDF. Tous hors ligne.",
   "pdfTools.subheading": "Pas d'envoi. Pas de files d'attente. Aucune limite de taille. Tout est traité sur votre machine, instantanément.",
@@ -140,7 +130,6 @@
   "pdfTools.tool.unlock": "Déverrouiller",
   "pdfTools.tool.excelToPdf": "Excel→PDF",
   "pdfTools.tool.pdfToExcel": "PDF→Excel",
-
   "moreTools.badge": "Plus d'outils",
   "moreTools.heading": "Tout en un seul endroit",
   "moreTools.card1.title": "Bibliothèque PDF",
@@ -155,16 +144,22 @@
   "moreTools.card5.text": "Compressez images et PDF localement. Traitement par lots avec statistiques de comparaison de taille.",
   "moreTools.card6.title": "Bibliothèque de liens",
   "moreTools.card6.text": "Favoris organisés pour les services administratifs. Auto-étiquetage, auto-catégorisation, importation des favoris du navigateur.",
-
   "platform.heading": "Fonctionne partout",
   "platform.text": "Installez-le comme PWA dans votre navigateur, ou utilisez l'application de bureau sur Windows, macOS et Linux. Mêmes fonctionnalités, même expérience hors ligne, sur n'importe quel appareil.",
-
   "pricing.badge": "Tarifs",
   "pricing.heading": "Simple. Transparent.",
   "pricing.subheading": "Sans abonnement. Payez une fois, utilisez pour toujours.",
   "pricing.footer": "Paiement unique. Sans abonnement. Sans frais cachés. Les licences Standard et Multi sont valables à vie.",
   "pricing.guarantee": "Garantie de remboursement de 3 jours — pas satisfait ? Remboursement intégral sans condition.",
-
+  "pricing.offer.badge": "Offre limitée dans le temps",
+  "pricing.offer.title": "Multi : 3 PC pour 499 MAD",
+  "pricing.offer.text": "Licence à vie · Offre valable jusqu’au 18 août 2026",
+  "pricing.offer.days": "Jours",
+  "pricing.offer.hours": "Heures",
+  "pricing.offer.minutes": "Minutes",
+  "pricing.offer.seconds": "Secondes",
+  "pricing.offer.activeNote": "Prix de l’offre valable jusqu’au 18 août 2026 à 23:59, heure du Maroc.",
+  "pricing.offer.expiredNote": "Cette offre limitée est terminée. Contactez-nous pour le tarif Multi actuel.",
   "pricing.trial.name": "Essai",
   "pricing.trial.description": "Essayez avant de vous engager",
   "pricing.trial.price": "Gratuit",
@@ -178,7 +173,6 @@
   "pricing.trial.excluded1": "Pas de sauvegarde et restauration",
   "pricing.trial.excluded2": "Pas d'export DOCX",
   "pricing.trial.button": "Essai gratuit",
-
   "pricing.standard.badge": "Le plus populaire",
   "pricing.standard.name": "Standard",
   "pricing.standard.description": "Tout ce dont vous avez besoin",
@@ -195,26 +189,23 @@
   "pricing.standard.feature8": "Licence pour 1 machine — passez à Multi à tout moment",
   "pricing.standard.feature9": "Toutes les mises à jour futures incluses",
   "pricing.standard.button": "Obtenir Standard",
-
   "pricing.multi.name": "Multi",
   "pricing.multi.description": "Pour les bureaux et les équipes",
   "pricing.multi.price": "499 MAD",
   "pricing.multi.period": "paiement unique",
-  "pricing.multi.machines": "2 machines incluses",
+  "pricing.multi.machines": "3 machines incluses",
   "pricing.multi.lifetime": "Licence à vie · toutes les mises à jour incluses",
   "pricing.multi.feature1": "Tout ce qui est inclus dans Standard",
-  "pricing.multi.feature2": "2 machines incluses — une licence pour tous",
-  "pricing.multi.feature3": "Ajoutez des machines à tout moment — +250 MAD par machine supplémentaire",
+  "pricing.multi.feature2": "3 machines incluses — une licence pour tous",
+  "pricing.multi.feature3": "Ajoutez des machines à tout moment — +249 MAD par machine supplémentaire",
   "pricing.multi.feature4": "Licence perpétuelle / à vie",
   "pricing.multi.feature5": "Support prioritaire",
   "pricing.multi.feature6": "Toutes les mises à jour futures incluses",
   "pricing.multi.extratext": "Idéal pour les bureaux avec plusieurs ordinateurs ou les écrivains publics qui travaillent depuis différents endroits.",
   "pricing.multi.button": "Obtenir Multi",
-
   "pricing.enterprise.name": "Enterprise — pour les grandes équipes",
   "pricing.enterprise.text": "Prix négociable, nombre de machines personnalisé, licence annuelle. Contactez-nous pour un devis.",
   "pricing.enterprise.button": "Contactez-nous",
-
   "contactModal.heading": "Obtenir MaktabatyPro",
   "contactModal.subheading": "Contactez-nous pour acheter ou télécharger l'essai",
   "contactModal.whatsapp": "WhatsApp",
@@ -225,12 +216,10 @@
   "contactModal.facebookUser": "ostabdev",
   "contactModal.divider": "ou essayez-le gratuitement",
   "contactModal.button": "Télécharger l'essai gratuit",
-
   "cta.heading1": "Arrêtez d'envoyer vos documents",
   "cta.heading2": "sur les serveurs d'inconnus.",
   "cta.paragraph": "Rejoignez les professionnels à travers le Maroc qui sont passés à la gestion documentaire hors ligne. Vos données, votre appareil, votre contrôle.",
   "cta.button": "Télécharger MaktabatyPro",
-
   "footer.brand": "MaktabatyPro",
   "footer.tagline": "Fabriqué au Maroc · 100 % Hors ligne · Vos données restent vôtres",
   "footer.lang.ar": "العربية",
@@ -239,7 +228,6 @@
   "footer.facebook": "ostabdev",
   "footer.phone": "212627348901",
   "footer.email": "maktabapro@gmail.com",
-
   "detecting": "Détection…",
   "downloadChooser.heading": "Choisissez votre version",
   "downloadChooser.subheading": "Sélectionnez votre système d'exploitation pour télécharger",
@@ -254,12 +242,19 @@
   "downloadChooser.fallback": "Vous ne trouvez pas votre version ?",
   "downloadChooser.windows7": "Windows 7",
   "downloadChooser.windows7Desc": "Ancien · Windows 7 SP1 (32/64 bits)",
-
   "installGuide.heading": "Votre téléchargement a commencé",
   "installGuide.subheading": "Suivez ces 2 étapes pour installer MaktabatyPro correctement.",
   "installGuide.step1.title": "Windows affiche « Éditeur inconnu » ?",
   "installGuide.step1.text": "Cliquez sur <strong>Plus d'informations</strong>, puis <strong>Exécuter quand même</strong>. L'application est signée par nos soins — SmartScreen ne l'a simplement jamais vue.",
   "installGuide.step2.title": "Suivez l'assistant d'installation",
   "installGuide.step2.text": "Choisissez votre dossier d'installation et cliquez sur <strong>Installer</strong>. Au premier lancement, vous obtiendrez votre essai gratuit de 3 jours.",
-  "installGuide.done": "Compris, je suis prêt à installer"
+  "installGuide.done": "Compris, je suis prêt à installer",
+  "pricing.multi.expiredPrice": "Contactez-nous",
+  "pricing.multi.expiredPeriod": "Offre actuelle",
+  "pricing.multi.expiredMachines": "Offre terminée — contactez-nous",
+  "pricing.multi.expiredLifetime": "Contactez-nous pour les conditions actuelles",
+  "pricing.multi.expiredFeature2": "Contactez-nous pour les options actuelles",
+  "pricing.multi.expiredFeature3": "Le tarif des machines supplémentaires peut changer — contactez-nous",
+  "pricing.multi.expiredExtraText": "Cette offre limitée est terminée. Contactez-nous pour le plan Multi actuel.",
+  "pricing.multi.expiredButton": "Contactez-nous"
 }

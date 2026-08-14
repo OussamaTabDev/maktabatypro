@@ -1,13 +1,11 @@
 {
   "meta.title": "MaktabatyPro — إدارة الوثائق المغربية دون اتصال",
-
   "nav.brand": "MaktabatyPro",
   "nav.features": "المميزات",
   "nav.privacy": "الخصوصية",
   "nav.pricing": "الأسعار",
   "nav.faq": "الأسئلة الشائعة",
   "nav.startFreeTrial": "ابدأ النسخة التجريبية",
-
   "hero.badge": "100% بدون إنترنت · صُنع في المغرب",
   "hero.title1": "املأ الوثائق",
   "hero.title2": "في دقيقتين",
@@ -20,7 +18,6 @@
   "hero.stats.pdfToolsLabel": "أداة PDF",
   "hero.stats.dataSent": "0",
   "hero.stats.dataSentLabel": "بيانات مرسلة",
-
   "problem.badge": "المشكلة",
   "problem.heading": "أنت تستحق أفضل من هذا",
   "problem.card1.title": "بياناتك تُباع",
@@ -29,7 +26,6 @@
   "problem.card2.text": "كتابة نفس الحقول يدويًا، حساب التواريخ، تحويل الأعداد إلى كلمات. عمل متكرر يلتهم ساعات من يومك — كل يوم.",
   "problem.card3.title": "أدوات كثيرة جدًا",
   "problem.card3.text": "موقع للدمج، وآخر للتقسيم، وثالث لتعبئة القوالب، ورابع للضغط. لا سير عمل موحّد، ولا اتساق.",
-
   "features.badge": "الميزة الأساسية",
   "features.heading": "قوالب تفكر نيابة عنك",
   "features.subheading": "ليست مجرد نماذج ثابتة. قوالب ذكية بمتغيرات ومنطق شرطي ومعالجة دفعية تقلل وقت عملك من 10 دقائق إلى دقيقتين.",
@@ -63,7 +59,6 @@
   "features.capability.livePreview.title": "معاينة حية",
   "features.capability.livePreview.text": "شاهد الوثيقة النهائية تُحدّث في الوقت الفعلي أثناء ملء كل حقل. لا مفاجآت بعد التصدير.",
   "features.savings": "تنجز 50+ وثيقة يوميًا؟ هذا توفير 2.5 ساعة يوميًا. في الشهر — 50 ساعة.",
-
   "testimonials.badge": "موثوق من قبل",
   "testimonials.heading": "كتاب عموميون في جميع أنحاء المغرب",
   "testimonials.subheading": "نموذج لردود الفعل التي نسمعها غالبًا. استبدلها باقتباسات عملائك الموثقة قبل الإطلاق.",
@@ -79,7 +74,6 @@
   "testimonials.quote3.initials": "ي.ط.",
   "testimonials.quote3.name": "يوسف ط.",
   "testimonials.quote3.role": "مدير مكتب، طنجة",
-
   "faq.badge": "الأسئلة الشائعة",
   "faq.heading": "الأسئلة المتكررة",
   "faq.q1.question": "هل بياناتي حقًا لا تُرسل إلى أي مكان؟",
@@ -87,16 +81,13 @@
   "faq.q2.question": "ماذا يحدث بعد انتهاء النسخة التجريبية لمدة 3 أيام؟",
   "faq.q2.answer": "حسابك وأي قوالب أنشأتها تبقى على جهازك — لكنها مقفلة حتى تقوم بتفعيل ترخيص مدفوع. تفعيل قياسي أو متعدد يفتح كل شيء فوريًا، دون حاجة لإعادة التثبيت.",
   "faq.q3.question": "هل يمكنني نقل ترخيصي إلى جهاز كمبيوتر جديد؟",
-  "faq.q3.answer": "نعم. الترخيص القياسي مرتبط بجهاز واحد في كل مرة — قم بإلغاء التفعيل على الجهاز القديم وقم بالتفعيل على الجديد من نفس الحساب. الباقة المتعددة تغطي جهازين أو أكثر، والمؤسسات تُتفاوض للفرق الكبيرة.",
+  "faq.q3.answer": "نعم. ترخيص قياسي مخصص لجهاز واحد في كل مرة — ألغِ التفعيل من الجهاز القديم وفعّله على الجهاز الجديد من الحساب نفسه. عرض Multi المحدود يشمل 3 أجهزة؛ تواصل معنا لمعرفة الخيارات الحالية بعد انتهاء العرض.",
   "faq.q4.question": "هل يمكنني الترقية من قياسي إلى متعدد لاحقًا؟",
   "faq.q4.answer": "نعم، في أي وقت — اتصل بنا وادفع فقط الفرق بين التراخيص. قوالبك، مكتبتك، وإعداداتك تنتقل تلقائيًا.",
   "faq.q5.question": "هل تقدمون استرداد الأموال؟",
   "faq.q5.answer": "نعم — كل ترخيص مدفوع يأتي مع ضمان استرداد الأموال لمدة 3 أيام. إذا لم يكن MaktabatyPro مناسبًا، اتصل بنا وسنرد لك كامل المبلغ، دون طرح أي أسئلة.",
   "faq.q6.question": "ما اللغات التي تدعمها الواجهة؟",
   "faq.q6.answer": "العربية، الفرنسية، الإسبانية والإنجليزية، مترجمة بالكامل بما في ذلك التخطيط من اليمين إلى اليسار للعربية. غيّر اللغة في أي وقت من التذييل، حتى بدون إنترنت. وسنضيف المزيد.",
-
-  "nav.faq": "الأسئلة الشائعة",
-
   "privacy.badge": "الخصوصية والأمان",
   "privacy.heading1": "وثائقك.",
   "privacy.heading2": "جهازك. ولا غير.",
@@ -121,7 +112,6 @@
   "privacy.mockup.row5.status": "لا",
   "privacy.mockup.row6.label": "يتطلب إنترنت",
   "privacy.mockup.row6.status": "لا",
-
   "pdfTools.badge": "صندوق أدوات PDF",
   "pdfTools.heading": "30 أداة PDF. كلها بدون إنترنت.",
   "pdfTools.subheading": "لا رفع. لا طوابير انتظار. لا حدود لحجم الملف. كل شيء يُعالج على جهازك، فوريًا.",
@@ -140,7 +130,6 @@
   "pdfTools.tool.unlock": "فتح",
   "pdfTools.tool.excelToPdf": "Excel→PDF",
   "pdfTools.tool.pdfToExcel": "PDF→Excel",
-
   "moreTools.badge": "أدوات إضافية",
   "moreTools.heading": "كل شيء في مكان واحد",
   "moreTools.card1.title": "مكتبة PDF",
@@ -155,16 +144,22 @@
   "moreTools.card5.text": "ضغط الصور وملفات PDF محليًا. معالجة دفعية مع إحصائيات مقارنة الحجم.",
   "moreTools.card6.title": "مكتبة الروابط",
   "moreTools.card6.text": "إشارات مرجعية منسقة للخدمات الإدارية. وسم وتصنيف تلقائي، استيراد الإشارات من المتصفح.",
-
   "platform.heading": "يعمل في كل مكان",
   "platform.text": "ثبّته كتطبيق PWA في متصفحك، أو استخدم التطبيق المكتبي على Windows و macOS و Linux. نفس المميزات، نفس التجربة بدون إنترنت، على أي جهاز.",
-
   "pricing.badge": "الأسعار",
   "pricing.heading": "بسيط. شفاف.",
   "pricing.subheading": "لا اشتراكات. ادفع مرة، استخدم للأبد.",
   "pricing.footer": "دفعة واحدة. لا اشتراكات. لا رسوم خفية. تراخيص قياسي ومتعدد صالحة للأبد.",
   "pricing.guarantee": "ضمان استرداد الأموال لمدة 3 أيام — غير مناسب؟ استرداد كامل بدون طرح أسئلة.",
-
+  "pricing.offer.badge": "عرض محدود المدة",
+  "pricing.offer.title": "Multi: 3 أجهزة بـ499 درهم",
+  "pricing.offer.text": "ترخيص مدى الحياة · العرض ينتهي في 18 غشت 2026",
+  "pricing.offer.days": "أيام",
+  "pricing.offer.hours": "ساعات",
+  "pricing.offer.minutes": "دقائق",
+  "pricing.offer.seconds": "ثوانٍ",
+  "pricing.offer.activeNote": "السعر الترويجي صالح إلى غاية 18 غشت 2026 على الساعة 23:59 بتوقيت المغرب.",
+  "pricing.offer.expiredNote": "انتهى هذا العرض المحدود. تواصل معنا لمعرفة سعر Multi الحالي.",
   "pricing.trial.name": "تجريبي",
   "pricing.trial.description": "جرّب قبل أن تلتزم",
   "pricing.trial.price": "مجانًا",
@@ -178,7 +173,6 @@
   "pricing.trial.excluded1": "بدون نسخ احتياطي واستعادة",
   "pricing.trial.excluded2": "بدون تصدير DOCX",
   "pricing.trial.button": "ابدأ النسخة التجريبية",
-
   "pricing.standard.badge": "الأكثر رواجًا",
   "pricing.standard.name": "قياسي",
   "pricing.standard.description": "كل ما تحتاج",
@@ -195,26 +189,23 @@
   "pricing.standard.feature8": "ترخيص جهاز واحد — يمكن الترقية إلى متعدد في أي وقت",
   "pricing.standard.feature9": "جميع التحديثات المستقبلية مشمولة",
   "pricing.standard.button": "احصل على القياسي",
-
   "pricing.multi.name": "متعدد",
   "pricing.multi.description": "للمكاتب والفرق",
   "pricing.multi.price": "499 درهم",
   "pricing.multi.period": "دفعة واحدة",
-  "pricing.multi.machines": "جهازان مشمولان",
+  "pricing.multi.machines": "3 أجهزة مشمولة",
   "pricing.multi.lifetime": "ترخيص مدى الحياة · جميع التحديثات مشمولة",
   "pricing.multi.feature1": "كل شيء في الباقة القياسية",
-  "pricing.multi.feature2": "جهازان مشمولان — ترخيص واحد للجميع",
-  "pricing.multi.feature3": "أضف أجهزة في أي وقت — +250 درهم لكل جهاز إضافي",
+  "pricing.multi.feature2": "3 أجهزة مشمولة — ترخيص واحد للجميع",
+  "pricing.multi.feature3": "أضف أجهزة في أي وقت — 249 درهم لكل جهاز إضافي",
   "pricing.multi.feature4": "ترخيص دائم / مدى الحياة",
   "pricing.multi.feature5": "دعم ذو أولوية",
   "pricing.multi.feature6": "جميع التحديثات المستقبلية مشمولة",
   "pricing.multi.extratext": "مثالي للمكاتب ذات أجهزة متعددة أو الكتّاب العموميين الذين يعملون من مواقع مختلفة.",
   "pricing.multi.button": "احصل على متعدد",
-
   "pricing.enterprise.name": "مؤسسات — للفرق الكبيرة",
   "pricing.enterprise.text": "سعر قابل للتفاوض، عدد أجهزة مخصص، ترخيص سنوي. تواصل معنا للحصول على عرض سعر.",
   "pricing.enterprise.button": "تواصل معنا",
-
   "contactModal.heading": "احصل على MaktabatyPro",
   "contactModal.subheading": "اتصل بنا للشراء أو تحميل النسخة التجريبية",
   "contactModal.whatsapp": "واتساب",
@@ -225,12 +216,10 @@
   "contactModal.facebookUser": "ostabdev",
   "contactModal.divider": "أو جربها مجانًا",
   "contactModal.button": "تحميل النسخة التجريبية",
-
   "cta.heading1": "توقف عن رفع وثائقك",
   "cta.heading2": "إلى خوادم الغرباء.",
   "cta.paragraph": "انضم إلى محترفين في جميع أنحاء المغرب تحولوا إلى إدارة الوثائق بدون إنترنت. بياناتك، جهازك، سيطرتك.",
   "cta.button": "حمّل MaktabatyPro",
-
   "footer.brand": "MaktabatyPro",
   "footer.tagline": "صُنع في المغرب · 100% بدون إنترنت · بياناتك تبقى ملكك",
   "footer.lang.ar": "العربية",
@@ -239,7 +228,6 @@
   "footer.facebook": "ostabdev",
   "footer.phone": "212627348901",
   "footer.email": "maktabapro@gmail.com",
-
   "detecting": "جارٍ الكشف...",
   "downloadChooser.heading": "اختر إصدارك",
   "downloadChooser.subheading": "اختر نظام التشغيل للتحميل",
@@ -254,12 +242,19 @@
   "downloadChooser.fallback": "لا تجد إصدارك؟",
   "downloadChooser.windows7": "ويندوز 7",
   "downloadChooser.windows7Desc": "قديم · ويندوز 7 SP1 (32/64 بت)",
-
   "installGuide.heading": "بدأ تحميلك",
   "installGuide.subheading": "اتبع هاتين الخطوتين لتثبيت MaktabatyPro بشكل صحيح.",
   "installGuide.step1.title": "ويندوز يعرض «ناشر غير معروف»؟",
   "installGuide.step1.text": "انقر على <strong>مزيد من المعلومات</strong>، ثم <strong>التشغيل على أي حال</strong>. التطبيق موقّع من طرفنا — SmartScreen لم يره من قبل فقط.",
   "installGuide.step2.title": "اتبع معالج التثبيت",
   "installGuide.step2.text": "اختر مجلد التثبيت وانقر على <strong>تثبيت</strong>. عند أول تشغيل ستحصل على نسختك التجريبية المجانية لمدة 3 أيام.",
-  "installGuide.done": "حسنًا، أنا جاهز للتثبيت"
+  "installGuide.done": "حسنًا، أنا جاهز للتثبيت",
+  "pricing.multi.expiredPrice": "تواصل معنا",
+  "pricing.multi.expiredPeriod": "العرض الحالي",
+  "pricing.multi.expiredMachines": "انتهى العرض — تواصل معنا",
+  "pricing.multi.expiredLifetime": "تواصل معنا لمعرفة شروط الترخيص الحالية",
+  "pricing.multi.expiredFeature2": "تواصل معنا لمعرفة خيارات الأجهزة الحالية",
+  "pricing.multi.expiredFeature3": "قد تتغير تكلفة الأجهزة الإضافية — تواصل معنا",
+  "pricing.multi.expiredExtraText": "انتهى العرض المحدود. تواصل معنا لمعرفة باقة Multi الحالية.",
+  "pricing.multi.expiredButton": "تواصل معنا"
 }

@@ -1,13 +1,11 @@
 {
   "meta.title": "MaktabatyPro — Offline Moroccan Document Management",
-
   "nav.brand": "MaktabatyPro",
   "nav.features": "Features",
   "nav.privacy": "Privacy",
   "nav.pricing": "Pricing",
   "nav.faq": "FAQ",
   "nav.startFreeTrial": "Start Free Trial",
-
   "hero.badge": "100% Offline · Made in Morocco",
   "hero.title1": "Fill Documents",
   "hero.title2": "in 2 Minutes",
@@ -20,7 +18,6 @@
   "hero.stats.pdfToolsLabel": "PDF Tools",
   "hero.stats.dataSent": "0",
   "hero.stats.dataSentLabel": "Data Sent",
-
   "problem.badge": "The Problem",
   "problem.heading": "You deserve better than this",
   "problem.card1.title": "Your data gets sold",
@@ -29,7 +26,6 @@
   "problem.card2.text": "Manually typing the same fields, calculating dates, converting numbers to words. Repetitive work that eats hours from your day — every single day.",
   "problem.card3.title": "Too many tools",
   "problem.card3.text": "One site for merging, another for splitting, a third for filling templates, a fourth for compression. No unified workflow, no consistency.",
-
   "features.badge": "Core Feature",
   "features.heading": "Templates That Think For You",
   "features.subheading": "Not just static forms. Smart templates with variables, logic, and batch processing that cut your work from 10 minutes to 2.",
@@ -63,7 +59,6 @@
   "features.capability.livePreview.title": "Live Preview",
   "features.capability.livePreview.text": "See the final document update in real-time as you fill each field. No surprises after export.",
   "features.savings": "Doing 50+ documents a day? That's 2.5 hours saved daily. Over a month — 50 hours.",
-
   "testimonials.badge": "Trusted By",
   "testimonials.heading": "Public writers across Morocco",
   "testimonials.subheading": "A sample of the kind of feedback we hear most often. Replace with your own verified customer quotes before launch.",
@@ -79,7 +74,6 @@
   "testimonials.quote3.initials": "Y.T.",
   "testimonials.quote3.name": "Youssef T.",
   "testimonials.quote3.role": "Office manager, Tangier",
-
   "faq.badge": "FAQ",
   "faq.heading": "Frequently Asked Questions",
   "faq.q1.question": "Is my data really never sent anywhere?",
@@ -87,16 +81,13 @@
   "faq.q2.question": "What happens after my 3-day trial ends?",
   "faq.q2.answer": "Your account and any templates you created stay on your device — they're just locked until you activate a paid license. Activating Standard or Multi unlocks everything instantly, with no reinstall needed.",
   "faq.q3.question": "Can I move my license to a new computer?",
-  "faq.q3.answer": "Yes. Standard is licensed to one machine at a time — deactivate on the old device and activate on the new one from the same account. Multi covers 2 or more machines, and Enterprise is negotiated for larger teams.",
+  "faq.q3.answer": "Yes. Standard is licensed to one machine at a time — deactivate on the old device and activate on the new one from the same account. The limited-time Multi offer includes 3 machines; contact us for current options after the offer ends.",
   "faq.q4.question": "Can I upgrade from Standard to Multi later?",
   "faq.q4.answer": "Yes, at any time — contact us and pay only the difference between the two licenses. Your templates, library, and settings carry over automatically.",
   "faq.q5.question": "Do you offer refunds?",
   "faq.q5.answer": "Yes — every paid license comes with a 3-day money-back guarantee. If MaktabatyPro isn't a fit, contact us and we'll refund you in full, no questions asked.",
   "faq.q6.question": "Which languages does the interface support?",
   "faq.q6.answer": "Arabic, French, Spanish and English, fully translated including right-to-left layout for Arabic. Switch languages anytime from the footer, even offline. and we will add more.",
-
-  "nav.faq": "FAQ",
-
   "privacy.badge": "Privacy & Security",
   "privacy.heading1": "Your documents.",
   "privacy.heading2": "Your device. Period.",
@@ -121,7 +112,6 @@
   "privacy.mockup.row5.status": "No",
   "privacy.mockup.row6.label": "Internet needed",
   "privacy.mockup.row6.status": "No",
-
   "pdfTools.badge": "PDF Toolbox",
   "pdfTools.heading": "30 PDF Tools. All Offline.",
   "pdfTools.subheading": "No uploads. No queues. No file size limits. Everything processes on your machine, instantly.",
@@ -140,7 +130,6 @@
   "pdfTools.tool.unlock": "Unlock",
   "pdfTools.tool.excelToPdf": "Excel→PDF",
   "pdfTools.tool.pdfToExcel": "PDF→Excel",
-
   "moreTools.badge": "More Tools",
   "moreTools.heading": "Everything in one place",
   "moreTools.card1.title": "PDF Library",
@@ -155,16 +144,22 @@
   "moreTools.card5.text": "Compress images and PDFs locally. Batch processing with size comparison stats.",
   "moreTools.card6.title": "Link Library",
   "moreTools.card6.text": "Curated bookmarks for admin services. Auto-tag, auto-categorize, import browser bookmarks.",
-
   "platform.heading": "Works everywhere",
   "platform.text": "Install as PWA in your browser, or use the desktop app on Windows, macOS, and Linux. Same features, same offline experience, any device.",
-
   "pricing.badge": "Pricing",
   "pricing.heading": "Simple. Transparent.",
   "pricing.subheading": "No subscriptions. Pay once, use forever.",
   "pricing.footer": "One-time payment. No subscriptions. No hidden fees. Standard & Multi licenses are valid forever.",
   "pricing.guarantee": "3-day money-back guarantee — not a fit? Get a full refund, no questions asked.",
-
+  "pricing.offer.badge": "Limited-time offer",
+  "pricing.offer.title": "Multi: 3 PCs for 499 MAD",
+  "pricing.offer.text": "Lifetime license · Offer ends 18 August 2026",
+  "pricing.offer.days": "Days",
+  "pricing.offer.hours": "Hours",
+  "pricing.offer.minutes": "Minutes",
+  "pricing.offer.seconds": "Seconds",
+  "pricing.offer.activeNote": "Offer price valid until 18 August 2026 at 23:59 Morocco time.",
+  "pricing.offer.expiredNote": "This limited-time offer has ended. Contact us for current Multi pricing.",
   "pricing.trial.name": "Trial",
   "pricing.trial.description": "Try before you commit",
   "pricing.trial.price": "Free",
@@ -178,7 +173,6 @@
   "pricing.trial.excluded1": "No backup & restore",
   "pricing.trial.excluded2": "No DOCX export",
   "pricing.trial.button": "Start Free Trial",
-
   "pricing.standard.badge": "Most Popular",
   "pricing.standard.name": "Standard",
   "pricing.standard.description": "Everything you need",
@@ -195,26 +189,23 @@
   "pricing.standard.feature8": "1 machine license — upgrade to Multi anytime",
   "pricing.standard.feature9": "All future updates included",
   "pricing.standard.button": "Get Standard",
-
   "pricing.multi.name": "Multi",
   "pricing.multi.description": "For offices & teams",
   "pricing.multi.price": "499 MAD",
   "pricing.multi.period": "one-time payment",
-  "pricing.multi.machines": "2 machines included",
+  "pricing.multi.machines": "3 machines included",
   "pricing.multi.lifetime": "Lifetime license · all updates included",
   "pricing.multi.feature1": "Everything in Standard",
-  "pricing.multi.feature2": "2 machines included — one license for all",
-  "pricing.multi.feature3": "Add machines anytime — +250 MAD per extra machine",
+  "pricing.multi.feature2": "3 machines included — one license for all",
+  "pricing.multi.feature3": "Add machines anytime — +249 MAD per extra machine",
   "pricing.multi.feature4": "Perpetual / lifetime license",
   "pricing.multi.feature5": "Priority support",
   "pricing.multi.feature6": "All future updates included",
   "pricing.multi.extratext": "Ideal for offices with multiple computers or public writers who work from different locations.",
   "pricing.multi.button": "Get Multi",
-
   "pricing.enterprise.name": "Enterprise — for larger teams",
   "pricing.enterprise.text": "Negotiable pricing, custom machine count, per-year licensing. Contact us for a quote.",
   "pricing.enterprise.button": "Contact Us",
-
   "contactModal.heading": "Get MaktabatyPro",
   "contactModal.subheading": "Contact us to purchase or download the trial",
   "contactModal.whatsapp": "WhatsApp",
@@ -225,12 +216,10 @@
   "contactModal.facebookUser": "ostabdev",
   "contactModal.divider": "or try it free",
   "contactModal.button": "Download Free Trial",
-
   "cta.heading1": "Stop uploading your documents",
   "cta.heading2": "to strangers' servers.",
   "cta.paragraph": "Join professionals across Morocco who switched to offline document management. Your data, your device, your control.",
   "cta.button": "Download MaktabatyPro",
-
   "footer.brand": "MaktabatyPro",
   "footer.tagline": "Made in Morocco · 100% Offline · Your data stays yours",
   "footer.lang.ar": "العربية",
@@ -239,7 +228,6 @@
   "footer.facebook": "ostabdev",
   "footer.phone": "212627348901",
   "footer.email": "maktabapro@gmail.com",
-
   "detecting": "Detecting...",
   "downloadChooser.heading": "Choose your version",
   "downloadChooser.subheading": "Select your operating system to download",
@@ -254,12 +242,19 @@
   "downloadChooser.fallback": "Can't find your version?",
   "downloadChooser.windows7": "Windows 7",
   "downloadChooser.windows7Desc": "Legacy · Windows 7 SP1 (32/64-bit)",
-
   "installGuide.heading": "Your download has started",
   "installGuide.subheading": "Follow these 2 steps to install MaktabatyPro correctly.",
   "installGuide.step1.title": "Windows says \"Unknown publisher\"?",
   "installGuide.step1.text": "Click <strong>More info</strong>, then <strong>Run anyway</strong>. The app is signed by us — SmartScreen just hasn't seen it before.",
   "installGuide.step2.title": "Follow the installer",
   "installGuide.step2.text": "Choose your install folder and click <strong>Install</strong>. On the first launch you'll get your 3-day free trial.",
-  "installGuide.done": "Got it, I'm ready to install"
+  "installGuide.done": "Got it, I'm ready to install",
+  "pricing.multi.expiredPrice": "Contact us",
+  "pricing.multi.expiredPeriod": "Current offer",
+  "pricing.multi.expiredMachines": "Offer ended — contact us",
+  "pricing.multi.expiredLifetime": "Contact us for current license terms",
+  "pricing.multi.expiredFeature2": "Contact us for current machine options",
+  "pricing.multi.expiredFeature3": "Extra-machine pricing may change — contact us",
+  "pricing.multi.expiredExtraText": "This limited-time offer has ended. Contact us for the current Multi plan.",
+  "pricing.multi.expiredButton": "Contact us"
 }

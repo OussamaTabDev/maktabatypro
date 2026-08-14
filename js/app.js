@@ -75,6 +75,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       applyTranslations(currentTranslations);
       setLanguageDirection(lang);
       updateActiveLangButton(lang);
+      renderLimitedOfferCountdown();
       if (typeof lucide !== 'undefined' && lucide.createIcons) {
         lucide.createIcons();
       }
@@ -84,6 +85,69 @@ document.addEventListener('DOMContentLoaded', async () => {
   };
 
   let currentTranslations = {};
+
+  // ======================== LIMITED-TIME MULTI OFFER ========================
+  const OFFER_DEADLINE = '2026-08-18T23:59:59+01:00';
+
+  function renderLimitedOfferCountdown() {
+    const banner = document.getElementById('limitedOfferBanner');
+    if (!banner) return;
+
+    const deadline = new Date(banner.dataset.offerDeadline || OFFER_DEADLINE).getTime();
+    const remaining = Math.max(0, deadline - Date.now());
+    const active = remaining > 0;
+    const totalSeconds = Math.floor(remaining / 1000);
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    const setText = (id, value) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value;
+    };
+    const t = (key, fallback) => currentTranslations[key] || fallback;
+    const pad = (value) => String(value).padStart(2, '0');
+
+    setText('offerCountdownDays', pad(days));
+    setText('offerCountdownHours', pad(hours));
+    setText('offerCountdownMinutes', pad(minutes));
+    setText('offerCountdownSeconds', pad(seconds));
+
+    const countdownWrap = document.getElementById('offerCountdownWrap');
+    const note = document.getElementById('offerCountdownNote');
+    if (countdownWrap) countdownWrap.style.display = active ? 'flex' : 'none';
+    if (note) {
+      note.textContent = active
+        ? t('pricing.offer.activeNote', 'Offer price valid until 18 August 2026 at 23:59 Morocco time.')
+        : t('pricing.offer.expiredNote', 'This limited-time offer has ended. Contact us for current Multi pricing.');
+      note.classList.toggle('text-amber-200/80', active);
+      note.classList.toggle('text-red-300/80', !active);
+    }
+    banner.classList.toggle('border-red-400/30', !active);
+    banner.classList.toggle('border-amber-400/30', active);
+
+    const offerFields = [
+      ['multiPrice', 'pricing.multi.price', 'pricing.multi.expiredPrice'],
+      ['multiPeriod', 'pricing.multi.period', 'pricing.multi.expiredPeriod'],
+      ['multiMachines', 'pricing.multi.machines', 'pricing.multi.expiredMachines'],
+      ['multiLifetime', 'pricing.multi.lifetime', 'pricing.multi.expiredLifetime'],
+      ['multiFeature2', 'pricing.multi.feature2', 'pricing.multi.expiredFeature2'],
+      ['multiFeature3', 'pricing.multi.feature3', 'pricing.multi.expiredFeature3'],
+      ['multiExtraText', 'pricing.multi.extratext', 'pricing.multi.expiredExtraText'],
+      ['multiOfferButton', 'pricing.multi.button', 'pricing.multi.expiredButton'],
+    ];
+    offerFields.forEach(([id, activeKey, expiredKey]) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (active) {
+        // Translation application owns active copy; this keeps the markup correct after language changes.
+        if (currentTranslations[activeKey]) el.innerHTML = currentTranslations[activeKey];
+      } else if (currentTranslations[expiredKey]) {
+        el.innerHTML = currentTranslations[expiredKey];
+      }
+    });
+  }
 
   async function initI18n() {
     const lang = detectLanguage();
@@ -106,6 +170,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // ======================== INIT I18N ========================
   await initI18n();
+  renderLimitedOfferCountdown();
+  window.setInterval(renderLimitedOfferCountdown, 1000);
 
   // ======================== LUCIDE ICONS ========================
   if (typeof lucide !== 'undefined' && lucide.createIcons) {
