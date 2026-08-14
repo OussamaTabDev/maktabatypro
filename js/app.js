@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   async function loadTranslations(lang) {
     try {
-      const res = await fetch(`lang/${lang}.json`);
+      const res = await fetch(`lang/${lang}.json?v=20260814-offer`);
       if (res.ok) return res.json();
     } catch (e) {}
     if (window.__langPack && window.__langPack[lang]) {
