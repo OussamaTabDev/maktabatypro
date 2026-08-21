@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n="meta.title">MaktabatyPro — Offline Moroccan Document Management</title>
-<meta name="description" content="MaktabatyPro fills recurring documents in 2 minutes with smart offline templates, bulk fill, 30 PDF tools, and zero data uploads. Built for Moroccan administrative offices, legal professionals, associations, schools, and small businesses.">
+<title data-i18n="meta.title">MaktabatyPro — إدارة الوثائق المغربية دون اتصال</title>
+<meta name="description" content="MaktabatyPro fills recurring documents in 1 minute with smart offline templates, bulk fill, 30 PDF tools, and zero data uploads. Built for Moroccan administrative offices, legal professionals, associations, schools, and small businesses.">
 <meta name="keywords" content="gestion documents hors ligne, public writer software Morocco, PDF tools offline, template administratif Maroc, écrivain public logiciel">
 <link rel="canonical" href="https://maktabatypro.ma/">
 <meta name="robots" content="index, follow">
@@ -13,7 +13,7 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MaktabatyPro">
-<meta property="og:title" content="MaktabatyPro — Fill Documents in 2 Minutes, 100% Offline">
+<meta property="og:title" content="MaktabatyPro — Fill Documents in 1 Minute, 100% Offline">
 <meta property="og:description" content="Smart templates, bulk fill, 30 PDF tools, and full document management. Your data never leaves your device. Limited-time Multi offer: 3 PCs for 499 MAD. Made in Morocco for administrative offices, legal professionals, associations, schools, and small businesses.">
 <meta property="og:image" content="assets/main_image.png">
 <meta property="og:url" content="https://maktabatypro.ma/">
@@ -23,7 +23,7 @@
 
 <!-- Twitter card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="MaktabatyPro — Fill Documents in 2 Minutes, 100% Offline">
+<meta name="twitter:title" content="MaktabatyPro — Fill Documents in 1 Minute, 100% Offline">
 <meta name="twitter:description" content="Smart templates, 30 PDF tools, zero uploads. Made in Morocco for public writers and administrative professionals.">
 <meta name="twitter:image" content="assets/main_image.png">
 
@@ -250,7 +250,8 @@ tailwind.config = {
   html[dir="rtl"] .faq-trigger { text-align: right; }
   html[dir="rtl"] #closeModal,
   html[dir="rtl"] #closeDownloadChooser,
-  html[dir="rtl"] #closeInstallGuide { right: auto; left: 1rem; }
+  html[dir="rtl"] #closeInstallGuide,
+  html[dir="rtl"] #languagePromptClose { right: auto; left: 1rem; }
 
   .download-option {
     cursor: pointer;
@@ -284,6 +285,27 @@ tailwind.config = {
 </style>
 </head>
 <body>
+
+<!-- LANGUAGE PROMPT -->
+<div id="languagePrompt" class="fixed inset-0 z-[60] flex items-center justify-center px-4 invisible opacity-0 transition-all duration-300" role="dialog" aria-modal="true" aria-labelledby="languagePromptHeading">
+  <div class="absolute inset-0 bg-black/70 backdrop-blur-md" id="languagePromptOverlay"></div>
+  <div class="relative bg-surface border border-white/10 rounded-2xl max-w-md w-full shadow-2xl p-7 sm:p-8 text-center">
+    <button id="languagePromptClose" type="button" class="absolute top-4 right-4 text-dim hover:text-white transition-colors" aria-label="Close language chooser">
+      <i data-lucide="x" class="w-5 h-5"></i>
+    </button>
+    <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-5">
+      <i data-lucide="languages" class="w-6 h-6 text-accent-light"></i>
+    </div>
+    <h2 id="languagePromptHeading" class="font-display text-xl sm:text-2xl font-medium text-white mb-3" data-i18n="languagePrompt.heading">هل تريد تغيير اللغة؟</h2>
+    <p class="text-sm text-muted leading-relaxed mb-6" data-i18n="languagePrompt.text">العربية هي اللغة الافتراضية. اختر اللغة التي تناسبك، ويمكنك تغييرها لاحقًا في أي وقت من أسفل الصفحة.</p>
+    <div class="grid grid-cols-3 gap-2 mb-4">
+      <button type="button" data-language-choice="ar" class="bg-accent/15 hover:bg-accent/25 border border-accent/30 rounded-xl px-3 py-3 text-sm font-medium text-white transition-colors" data-i18n="languagePrompt.arabic">العربية</button>
+      <button type="button" data-language-choice="fr" class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-3 py-3 text-sm font-medium text-white transition-colors" data-i18n="languagePrompt.french">Français</button>
+      <button type="button" data-language-choice="en" class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-3 py-3 text-sm font-medium text-white transition-colors" data-i18n="languagePrompt.english">English</button>
+    </div>
+    <button type="button" id="languagePromptKeep" class="text-xs text-dim hover:text-white transition-colors" data-i18n="languagePrompt.keep">المتابعة بالعربية</button>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 nav-blur bg-background/70 border border-white/5 rounded-full px-5 py-2.5 flex items-center gap-6 w-[calc(100%-2rem)] sm:w-auto justify-between sm:justify-start" id="nav">
@@ -329,8 +351,8 @@ tailwind.config = {
     </div>
 
     <h1 class="reveal reveal-delay-1 font-display font-medium text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tighter leading-[0.9] mb-6">
-      <span class="gradient-text-vertical" data-i18n="hero.title1">Fill Documents</span><br>
-      <span class="gradient-text" data-i18n="hero.title2">in 2 Minutes</span>
+      <span class="gradient-text-vertical" data-i18n="hero.title1">املأ الوثائق</span><br>
+      <span class="gradient-text" data-i18n="hero.title2">في دقيقة واحدة</span>
     </h1>
 
     <p class="reveal reveal-delay-2 text-muted text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10 drop-shadow-xl" style="text-shadow: 0 4px 30px rgba(0,0,0,0.8), 0 2px 10px rgba(0,0,0,0.5);" data-i18n="hero.paragraph">
@@ -426,7 +448,7 @@ tailwind.config = {
         Templates That Think For You
       </h2>
       <p class="text-muted text-base sm:text-lg max-w-2xl mx-auto" data-i18n="features.subheading">
-        Not just static forms. Smart templates with variables, logic, and batch processing that cut your work from 10 minutes to 2.
+        ليست مجرد نماذج ثابتة. قوالب ذكية بمتغيرات ومنطق شرطي ومعالجة دفعية تقلل وقت عملك من 10 دقائق إلى دقيقة واحدة.
       </p>
     </div>
 
@@ -451,7 +473,7 @@ tailwind.config = {
       <div class="bg-surface/30 border border-accent/10 rounded-2xl p-8">
         <div class="flex items-center gap-2 mb-6">
           <span class="text-xs text-accent-light font-mono uppercase tracking-wider" data-i18n="features.new.label">MaktabatyPro</span>
-          <span class="text-xs text-dim" data-i18n="features.new.time">— ~2 min</span>
+          <span class="text-xs text-dim" data-i18n="features.new.time">— حوالي دقيقة</span>
         </div>
         <div class="space-y-3">
           <div class="new-step text-sm flex items-center gap-3"><span class="text-accent/60 text-xs w-4">01</span> <span data-i18n="features.new.step1">Select template from your library</span></div>
@@ -1444,7 +1466,7 @@ tailwind.config = {
       <p class="text-xs text-dim" data-i18n="installGuide.subheading">Follow these 2 steps to install MaktabatyPro correctly.</p>
     </div>
 
-    <div class="space-y-6">
+    <div id="windowsInstallGuide" class="space-y-6">
       <div>
         <div class="flex items-center gap-2 mb-3">
           <span class="w-6 h-6 rounded-full bg-amber-500/10 text-amber-400 flex items-center justify-center text-xs font-semibold flex-shrink-0">1</span>
@@ -1461,6 +1483,17 @@ tailwind.config = {
         </div>
         <img src="assets/pop%20install%202.png" alt="Installer — choose folder and click Install" loading="lazy" class="w-full rounded-xl border border-white/10 bg-black/20">
         <p class="text-xs text-muted leading-relaxed mt-2.5" data-i18n="installGuide.step2.text">Choose your install folder and click <strong class="text-white">Install</strong>. On the first launch you'll get your 3-day free trial.</p>
+      </div>
+    </div>
+
+    <div id="linuxInstallGuide" hidden class="rounded-2xl border border-secondary/20 bg-secondary/5 p-6">
+      <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-5"><i data-lucide="play-circle" class="w-6 h-6 text-secondary"></i></div>
+      <h4 class="font-display text-lg font-medium text-white mb-2" data-i18n="installGuide.linuxHeading">Your Linux download is ready</h4>
+      <p class="text-sm text-muted leading-relaxed mb-3" data-i18n="installGuide.linuxSubheading">For Linux, watch the walkthroughs to see the app and learn the workflow before you start.</p>
+      <p class="text-xs text-dim leading-relaxed" data-i18n="installGuide.linuxText">The tutorial videos show the templates, PDF tools and library in action. They are the fastest way to understand what is available and what is being improved next.</p>
+      <div class="flex flex-col sm:flex-row gap-3 mt-6">
+        <a href="#tutorials" data-tutorial-link class="btn-primary text-sm font-medium px-5 py-3 rounded-full text-white text-center" data-i18n="installGuide.linuxButton">Watch how it works</a>
+        <a href="https://www.youtube.com/playlist?list=PLSz7LZhSrk8Y" target="_blank" rel="noopener" class="btn-ghost text-sm font-medium px-5 py-3 rounded-full text-white text-center" data-i18n="installGuide.linuxPlaylist">See all tutorials</a>
       </div>
     </div>
 
@@ -1494,8 +1527,8 @@ tailwind.config = {
   <div class="relative max-w-6xl mx-auto">
     <div class="reveal text-center mb-12">
       <p class="text-xs text-secondary font-mono uppercase tracking-widest mb-4" data-i18n="tutorials.badge">Tutorials</p>
-      <h2 class="font-display font-medium text-3xl sm:text-4xl md:text-5xl tracking-tight mb-4" data-i18n="tutorials.heading">See the workflow before you download</h2>
-      <p class="text-muted text-base sm:text-lg max-w-3xl mx-auto leading-relaxed" data-i18n="tutorials.subheading">Short explanation videos show how MaktabatyPro turns recurring documents into a repeatable, faster process. Start with video 2 for a practical look at templates.</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl md:text-5xl tracking-tight mb-4" data-i18n="tutorials.heading">شاهد طريقة العمل</h2>
+      <p class="text-muted text-base sm:text-lg max-w-3xl mx-auto leading-relaxed" data-i18n="tutorials.subheading">ابدأ بالشرح العملي، ثم شاهد الفيديوهات الأخرى لتتعرف على الأدوات الحالية والتحديثات التي نضيفها إلى MaktabatyPro.</p>
     </div>
 
     <div class="reveal grid grid-cols-1 lg:grid-cols-[1.35fr_0.65fr] gap-6 items-stretch">
@@ -1507,7 +1540,7 @@ tailwind.config = {
       <div class="rounded-2xl border border-white/10 bg-gradient-to-br from-accent/10 via-white/[0.03] to-secondary/10 p-7 sm:p-8 flex flex-col justify-between">
         <div>
           <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-6"><i data-lucide="play-circle" class="w-6 h-6 text-secondary"></i></div>
-          <h3 class="font-display text-xl font-medium mb-3" data-i18n="tutorials.videoTitle">Video 2 · Template examples</h3>
+          <h3 class="font-display text-xl font-medium mb-3" data-i18n="tutorials.videoTitle">الفيديو 2 · أمثلة القوالب</h3>
           <p class="text-sm text-muted leading-relaxed" data-i18n="tutorials.videoDescription">See how reusable templates become the starting point for faster, more consistent documents.</p>
         </div>
         <div class="mt-8">
@@ -1515,8 +1548,37 @@ tailwind.config = {
             <span data-i18n="tutorials.openPlaylist">Open the full video playlist</span>
             <i data-lucide="external-link" class="w-4 h-4"></i>
           </a>
-          <p class="text-[11px] text-dim leading-relaxed mt-4" data-i18n="tutorials.playlistNote">More practical explanations are available in the MaktabatyPro playlist.</p>
+          <p class="text-[11px] text-dim leading-relaxed mt-4" data-i18n="tutorials.playlistNote">تجد شروحات عملية إضافية في قائمة فيديوهات MaktabatyPro.</p>
         </div>
+      </div>
+    </div>
+
+    <div class="reveal mt-12 rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8">
+      <div class="flex items-start gap-3 mb-7">
+        <span class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center shrink-0"><i data-lucide="library" class="w-5 h-5 text-accent-light"></i></span>
+        <div>
+          <p class="text-xs text-accent font-mono uppercase tracking-widest mb-2" data-i18n="tutorials.moreBadge">فيديوهات إضافية</p>
+          <h3 class="font-display text-xl sm:text-2xl font-medium mb-2" data-i18n="tutorials.moreHeading">تعرّف على الأدوات والتحديثات القادمة</h3>
+          <p class="text-sm text-muted leading-relaxed max-w-3xl" data-i18n="tutorials.moreText">تتطور قائمة الفيديوهات مع تطور المنتج. شاهد المقاطع الأخرى لتتعلم طريقة العمل الحالية وتتابع ما سيصل لاحقًا.</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <a href="https://www.youtube.com/watch?v=7qWrCTsNyMg&list=PLSz7LZhSrk8Y&index=1" target="_blank" rel="noopener" class="group rounded-xl border border-white/10 bg-surface/40 overflow-hidden hover:border-accent/40 transition-colors">
+          <div class="relative aspect-video overflow-hidden bg-black"><img src="https://i.ytimg.com/vi/7qWrCTsNyMg/hqdefault.jpg" alt="Introduction and downloading MaktabatyPro" data-i18n-alt="tutorials.video1.title" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"><span class="absolute inset-0 flex items-center justify-center"><span class="w-10 h-10 rounded-full bg-black/70 border border-white/20 flex items-center justify-center"><i data-lucide="play" class="w-4 h-4 text-white fill-white"></i></span></span></div>
+          <div class="p-4"><h4 class="text-sm font-medium text-white mb-2" data-i18n="tutorials.video1.title">مقدمة وكيفية تحميل برنامج MaktabatyPro</h4><p class="text-xs text-muted leading-relaxed mb-3" data-i18n="tutorials.video1.text">ابدأ من البداية وتعرّف على طريقة الحصول على التطبيق.</p><span class="text-[11px] text-accent-light" data-i18n="tutorials.watch">مشاهدة الفيديو</span></div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=8YMGf_qkFnI&list=PLSz7LZhSrk8Y&index=3" target="_blank" rel="noopener" class="group rounded-xl border border-white/10 bg-surface/40 overflow-hidden hover:border-secondary/40 transition-colors">
+          <div class="relative aspect-video overflow-hidden bg-black"><img src="https://i.ytimg.com/vi/8YMGf_qkFnI/hqdefault.jpg" alt="PDF tools" data-i18n-alt="tutorials.video3.title" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"><span class="absolute inset-0 flex items-center justify-center"><span class="w-10 h-10 rounded-full bg-black/70 border border-white/20 flex items-center justify-center"><i data-lucide="play" class="w-4 h-4 text-white fill-white"></i></span></span></div>
+          <div class="p-4"><h4 class="text-sm font-medium text-white mb-2" data-i18n="tutorials.video3.title">أدوات PDF</h4><p class="text-xs text-muted leading-relaxed mb-3" data-i18n="tutorials.video3.text">شاهد صندوق أدوات PDF الذي يجمع الأعمال الشائعة في مكان واحد.</p><span class="text-[11px] text-secondary" data-i18n="tutorials.watch">مشاهدة الفيديو</span></div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=rdj91An0rgc&list=PLSz7LZhSrk8Y&index=4" target="_blank" rel="noopener" class="group rounded-xl border border-white/10 bg-surface/40 overflow-hidden hover:border-amber-400/40 transition-colors">
+          <div class="relative aspect-video overflow-hidden bg-black"><img src="https://i.ytimg.com/vi/rdj91An0rgc/hqdefault.jpg" alt="Pricing explanation" data-i18n-alt="tutorials.video4.title" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"><span class="absolute inset-0 flex items-center justify-center"><span class="w-10 h-10 rounded-full bg-black/70 border border-white/20 flex items-center justify-center"><i data-lucide="play" class="w-4 h-4 text-white fill-white"></i></span></span></div>
+          <div class="p-4"><h4 class="text-sm font-medium text-white mb-2" data-i18n="tutorials.video4.title">شرح السعر</h4><p class="text-xs text-muted leading-relaxed mb-3" data-i18n="tutorials.video4.text">تعرّف على التجربة والقياسي والمتعدد وطريقة الترقية لاحقًا.</p><span class="text-[11px] text-amber-300" data-i18n="tutorials.watch">مشاهدة الفيديو</span></div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=LvaVWafiC6Y&list=PLSz7LZhSrk8Y&index=5" target="_blank" rel="noopener" class="group rounded-xl border border-white/10 bg-surface/40 overflow-hidden hover:border-green-400/40 transition-colors">
+          <div class="relative aspect-video overflow-hidden bg-black"><img src="https://i.ytimg.com/vi/LvaVWafiC6Y/hqdefault.jpg" alt="PDF Library" data-i18n-alt="tutorials.video5.title" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"><span class="absolute inset-0 flex items-center justify-center"><span class="w-10 h-10 rounded-full bg-black/70 border border-white/20 flex items-center justify-center"><i data-lucide="play" class="w-4 h-4 text-white fill-white"></i></span></span></div>
+          <div class="p-4"><h4 class="text-sm font-medium text-white mb-2" data-i18n="tutorials.video5.title">مكتبة PDF</h4><p class="text-xs text-muted leading-relaxed mb-3" data-i18n="tutorials.video5.text">شاهد كيف تنظم ملفات PDF المصدرة وتصل إليها بسهولة.</p><span class="text-[11px] text-green-300" data-i18n="tutorials.watch">مشاهدة الفيديو</span></div>
+        </a>
       </div>
     </div>
   </div>
@@ -1550,7 +1612,7 @@ tailwind.config = {
 </footer>
 
 <script src="lang/all.js"></script>
-<script src="js/app.js?v=20260821-fr-default-tutorials"></script>
+<script src="js/app.js?v=20260821-ar-default-oneminute"></script>
 <script>
 (function () {
   // ---------- Mobile nav ----------

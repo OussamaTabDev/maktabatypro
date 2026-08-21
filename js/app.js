@@ -5,10 +5,17 @@ document.addEventListener('DOMContentLoaded', async () => {
   function detectLanguage() {
     const params = new URLSearchParams(window.location.search);
     const urlLang = params.get('lang');
-    if (urlLang && ['en', 'fr', 'ar'].includes(urlLang)) return urlLang;
+    if (urlLang && ['en', 'fr', 'ar'].includes(urlLang)) {
+      window.__shouldPromptLanguage = false;
+      return urlLang;
+    }
     const stored = localStorage.getItem('maktabaty_lang');
-    if (stored && ['en', 'fr', 'ar'].includes(stored)) return stored;
-    return 'fr';
+    if (stored && ['en', 'fr', 'ar'].includes(stored)) {
+      window.__shouldPromptLanguage = false;
+      return stored;
+    }
+    window.__shouldPromptLanguage = true;
+    return 'ar';
   }
 
   function applyTranslations(translations) {
@@ -59,7 +66,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   async function loadTranslations(lang) {
     try {
-      const res = await fetch(`lang/${lang}.json?v=20260821-fr-default-tutorials`);
+      const res = await fetch(`lang/${lang}.json?v=20260821-ar-default-oneminute`);
       if (res.ok) return res.json();
     } catch (e) {}
     if (window.__langPack && window.__langPack[lang]) {
@@ -175,8 +182,45 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  // ======================== LANGUAGE PROMPT ========================
+  const languagePrompt = document.getElementById('languagePrompt');
+  const languagePromptOverlay = document.getElementById('languagePromptOverlay');
+  const languagePromptClose = document.getElementById('languagePromptClose');
+  const languagePromptKeep = document.getElementById('languagePromptKeep');
+
+  function closeLanguagePrompt() {
+    if (!languagePrompt) return;
+    languagePrompt.classList.add('invisible', 'opacity-0');
+    document.body.style.overflow = '';
+  }
+
+  function openLanguagePrompt() {
+    if (!languagePrompt || !window.__shouldPromptLanguage) return;
+    languagePrompt.classList.remove('invisible', 'opacity-0');
+    document.body.style.overflow = 'hidden';
+  }
+
+  if (languagePromptOverlay) languagePromptOverlay.addEventListener('click', closeLanguagePrompt);
+  if (languagePromptClose) languagePromptClose.addEventListener('click', closeLanguagePrompt);
+  if (languagePromptKeep) languagePromptKeep.addEventListener('click', () => {
+    localStorage.setItem('maktabaty_lang', 'ar');
+    closeLanguagePrompt();
+  });
+  document.querySelectorAll('[data-language-choice]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const lang = button.getAttribute('data-language-choice');
+      if (!lang) return;
+      closeLanguagePrompt();
+      await window.switchLanguage(lang);
+    });
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLanguagePrompt();
+  });
+
   // ======================== INIT I18N ========================
   await initI18n();
+  if (window.__shouldPromptLanguage) window.setTimeout(openLanguagePrompt, 450);
   renderLimitedOfferCountdown();
   window.setInterval(renderLimitedOfferCountdown, 1000);
 
@@ -193,6 +237,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const versionEl = document.getElementById('downloadChooserVersion');
 
   let latestVersion = null;
+  let currentDownloadExt = null;
 
   async function refreshLatestVersion() {
     if (!versionWrap || !versionEl) return;
@@ -230,6 +275,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (downloadChooserOverlay) downloadChooserOverlay.addEventListener('click', closeDownloadChooser);
 
   async function downloadAsset(ext) {
+    currentDownloadExt = ext;
     const options = document.querySelectorAll('.download-option');
     options.forEach(opt => {
       opt.disabled = true;
@@ -288,6 +334,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   function openInstallGuide() {
     if (!installGuideModal) return;
+    const isLinuxDownload = ['.deb', '.AppImage', '.rpm'].includes(currentDownloadExt);
+    const windowsGuide = document.getElementById('windowsInstallGuide');
+    const linuxGuide = document.getElementById('linuxInstallGuide');
+    if (windowsGuide) windowsGuide.hidden = isLinuxDownload;
+    if (linuxGuide) linuxGuide.hidden = !isLinuxDownload;
     installGuideModal.classList.remove('invisible', 'opacity-0');
     document.body.style.overflow = 'hidden';
   }
@@ -301,6 +352,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (closeInstallGuideBtn) closeInstallGuideBtn.addEventListener('click', closeInstallGuide);
   if (installGuideDoneBtn) installGuideDoneBtn.addEventListener('click', closeInstallGuide);
   if (installGuideOverlay) installGuideOverlay.addEventListener('click', closeInstallGuide);
+  document.querySelectorAll('[data-tutorial-link]').forEach((link) => {
+    link.addEventListener('click', closeInstallGuide);
+  });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeInstallGuide();
   });
