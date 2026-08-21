@@ -448,48 +448,58 @@ tailwind.config = {
     </div>
 
     <!-- Before / After -->
-    <div class="reveal grid grid-cols-1 md:grid-cols-2 gap-6 mb-20 mt-12">
-      <div class="bg-surface/30 border border-white/8 rounded-2xl p-6 sm:p-8">
-        <div class="flex items-start justify-between gap-4 mb-7">
-          <div>
-            <p class="text-xs text-red-300/80 font-mono uppercase tracking-wider mb-2" data-i18n="features.old.label">الطريقة القديمة</p>
-            <h3 class="font-display text-xl sm:text-2xl font-medium text-white" data-i18n="features.old.time">حوالي 10 دقائق</h3>
-          </div>
-          <span class="w-10 h-10 rounded-xl bg-red-500/10 border border-red-400/15 flex items-center justify-center shrink-0"><i data-lucide="clock-3" class="w-5 h-5 text-red-300/80"></i></span>
-        </div>
-        <div class="space-y-2.5">
-          <div class="old-step text-sm text-muted flex items-start gap-3 rounded-xl px-3 py-2.5"><span class="w-6 h-6 rounded-lg bg-white/5 text-dim text-[11px] flex items-center justify-center shrink-0">01</span><i data-lucide="search" class="w-4 h-4 text-dim mt-1 shrink-0"></i><span data-i18n="features.old.step1">البحث عن القالب في المتصفح</span></div>
-          <div class="old-step text-sm text-muted flex items-start gap-3 rounded-xl px-3 py-2.5"><span class="w-6 h-6 rounded-lg bg-white/5 text-dim text-[11px] flex items-center justify-center shrink-0">02</span><i data-lucide="download" class="w-4 h-4 text-dim mt-1 shrink-0"></i><span data-i18n="features.old.step2">تنزيله بصيغة Word أو PDF</span></div>
-          <div class="old-step text-sm text-muted flex items-start gap-3 rounded-xl px-3 py-2.5"><span class="w-6 h-6 rounded-lg bg-white/5 text-dim text-[11px] flex items-center justify-center shrink-0">03</span><i data-lucide="pen-line" class="w-4 h-4 text-dim mt-1 shrink-0"></i><span data-i18n="features.old.step3">فتحه وملء كل حقل يدويًا</span></div>
-          <div class="old-step text-sm text-muted flex items-start gap-3 rounded-xl px-3 py-2.5"><span class="w-6 h-6 rounded-lg bg-white/5 text-dim text-[11px] flex items-center justify-center shrink-0">04</span><i data-lucide="calendar-clock" class="w-4 h-4 text-dim mt-1 shrink-0"></i><span data-i18n="features.old.step4">حساب التواريخ والأعمار والتفاصيل بنفسك</span></div>
-          <div class="old-step text-sm text-muted flex items-start gap-3 rounded-xl px-3 py-2.5"><span class="w-6 h-6 rounded-lg bg-white/5 text-dim text-[11px] flex items-center justify-center shrink-0">05</span><i data-lucide="hash" class="w-4 h-4 text-dim mt-1 shrink-0"></i><span data-i18n="features.old.step5">تحويل الأعداد إلى كلمات يدويًا</span></div>
-          <div class="old-step text-sm text-muted flex items-start gap-3 rounded-xl px-3 py-2.5"><span class="w-6 h-6 rounded-lg bg-white/5 text-dim text-[11px] flex items-center justify-center shrink-0">06</span><i data-lucide="globe-2" class="w-4 h-4 text-dim mt-1 shrink-0"></i><span data-i18n="features.old.step6">رفع الملف إلى أداة أخرى لتحويله إلى PDF</span></div>
-          <div class="old-step text-sm text-muted flex items-start gap-3 rounded-xl px-3 py-2.5"><span class="w-6 h-6 rounded-lg bg-white/5 text-dim text-[11px] flex items-center justify-center shrink-0">07</span><i data-lucide="refresh-cw" class="w-4 h-4 text-dim mt-1 shrink-0"></i><span data-i18n="features.old.step7">مراجعة، تعديل، إعادة الرفع… ثم تكرار العملية</span></div>
-        </div>
-        <div class="mt-7 pt-5 border-t border-white/5 flex items-center gap-2 text-sm text-red-200/80"><i data-lucide="timer" class="w-4 h-4"></i><span data-i18n="features.old.result">النتيجة: حوالي 10 دقائق لكل وثيقة</span></div>
+    <div class="reveal mb-20 mt-12">
+      <div class="flex items-center justify-center gap-3 mb-7">
+        <span class="inline-flex items-center gap-2 rounded-full border border-rose-300/25 bg-rose-400/10 px-4 py-2 text-xs font-medium text-rose-100"><i data-lucide="x-circle" class="w-4 h-4 text-rose-300"></i><span data-i18n="features.old.label">الطريقة القديمة</span></span>
+        <span class="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-dim"><i data-lucide="arrow-left-right" class="w-4 h-4"></i></span>
+        <span class="inline-flex items-center gap-2 rounded-full border border-accent/35 bg-accent/15 px-4 py-2 text-xs font-medium text-white"><i data-lucide="check-circle-2" class="w-4 h-4 text-accent-light"></i><span data-i18n="features.new.label">مع MaktabatyPro</span></span>
       </div>
 
-      <div class="bg-surface/30 border border-accent/20 rounded-2xl p-6 sm:p-8 relative overflow-hidden">
-        <div class="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-accent/10 blur-3xl pointer-events-none"></div>
-        <div class="relative flex items-start justify-between gap-4 mb-7">
-          <div>
-            <p class="text-xs text-accent-light font-mono uppercase tracking-wider mb-2" data-i18n="features.new.label">مع MaktabatyPro</p>
-            <h3 class="font-display text-xl sm:text-2xl font-medium text-white" data-i18n="features.new.time">حوالي دقيقة واحدة</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+        <div class="group relative flex flex-col rounded-3xl border border-white/15 bg-white/[0.055] p-6 sm:p-8 shadow-[0_18px_50px_rgba(0,0,0,0.16)] transition-colors hover:bg-white/[0.075]">
+          <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-rose-300/60 to-transparent"></div>
+          <div class="flex items-start justify-between gap-4 border-b border-white/10 pb-6 mb-5">
+            <div>
+              <p class="text-xs font-mono uppercase tracking-[0.18em] text-rose-200/90 mb-2" data-i18n="features.old.label">الطريقة القديمة</p>
+              <h3 class="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-white" data-i18n="features.old.time">حوالي 10 دقائق</h3>
+            </div>
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-rose-300/25 bg-rose-400/12"><i data-lucide="clock-3" class="w-5 h-5 text-rose-200"></i></span>
           </div>
-          <span class="w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0"><i data-lucide="zap" class="w-5 h-5 text-accent-light"></i></span>
+          <div class="space-y-2">
+            <div class="old-step flex items-center gap-3 rounded-2xl border border-white/8 bg-black/15 px-3.5 py-3 text-sm text-slate-200 transition-colors group-hover:border-white/12"><span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[11px] font-semibold text-white">01</span><i data-lucide="search" class="w-4 h-4 shrink-0 text-rose-200/80"></i><span data-i18n="features.old.step1">البحث عن القالب في المتصفح</span></div>
+            <div class="old-step flex items-center gap-3 rounded-2xl border border-white/8 bg-black/15 px-3.5 py-3 text-sm text-slate-200 transition-colors group-hover:border-white/12"><span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[11px] font-semibold text-white">02</span><i data-lucide="download" class="w-4 h-4 shrink-0 text-rose-200/80"></i><span data-i18n="features.old.step2">تنزيله بصيغة Word أو PDF</span></div>
+            <div class="old-step flex items-center gap-3 rounded-2xl border border-white/8 bg-black/15 px-3.5 py-3 text-sm text-slate-200 transition-colors group-hover:border-white/12"><span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[11px] font-semibold text-white">03</span><i data-lucide="pen-line" class="w-4 h-4 shrink-0 text-rose-200/80"></i><span data-i18n="features.old.step3">فتحه وملء كل حقل يدويًا</span></div>
+            <div class="old-step flex items-center gap-3 rounded-2xl border border-white/8 bg-black/15 px-3.5 py-3 text-sm text-slate-200 transition-colors group-hover:border-white/12"><span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[11px] font-semibold text-white">04</span><i data-lucide="calendar-clock" class="w-4 h-4 shrink-0 text-rose-200/80"></i><span data-i18n="features.old.step4">حساب التواريخ والأعمار والتفاصيل بنفسك</span></div>
+            <div class="old-step flex items-center gap-3 rounded-2xl border border-white/8 bg-black/15 px-3.5 py-3 text-sm text-slate-200 transition-colors group-hover:border-white/12"><span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[11px] font-semibold text-white">05</span><i data-lucide="hash" class="w-4 h-4 shrink-0 text-rose-200/80"></i><span data-i18n="features.old.step5">تحويل الأعداد إلى كلمات يدويًا</span></div>
+            <div class="old-step flex items-center gap-3 rounded-2xl border border-white/8 bg-black/15 px-3.5 py-3 text-sm text-slate-200 transition-colors group-hover:border-white/12"><span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[11px] font-semibold text-white">06</span><i data-lucide="globe-2" class="w-4 h-4 shrink-0 text-rose-200/80"></i><span data-i18n="features.old.step6">رفع الملف إلى أداة أخرى لتحويله إلى PDF</span></div>
+            <div class="old-step flex items-center gap-3 rounded-2xl border border-white/8 bg-black/15 px-3.5 py-3 text-sm text-slate-200 transition-colors group-hover:border-white/12"><span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[11px] font-semibold text-white">07</span><i data-lucide="refresh-cw" class="w-4 h-4 shrink-0 text-rose-200/80"></i><span data-i18n="features.old.step7">مراجعة، تعديل، إعادة الرفع… ثم تكرار العملية</span></div>
+          </div>
+          <div class="mt-6 flex items-center gap-2 border-t border-white/10 pt-5 text-sm font-medium text-rose-100"><i data-lucide="timer" class="w-4 h-4"></i><span data-i18n="features.old.result">النتيجة: حوالي 10 دقائق لكل وثيقة</span></div>
         </div>
-        <div class="relative space-y-2.5">
-          <div class="new-step text-sm flex items-start gap-3 rounded-xl bg-accent/[0.04] px-3 py-2.5"><span class="w-6 h-6 rounded-lg bg-accent/10 text-accent-light text-[11px] flex items-center justify-center shrink-0">01</span><i data-lucide="folder-open" class="w-4 h-4 text-accent-light mt-1 shrink-0"></i><span data-i18n="features.new.step1">اختر القالب من مكتبتك</span></div>
-          <div class="new-step text-sm flex items-start gap-3 rounded-xl bg-accent/[0.04] px-3 py-2.5"><span class="w-6 h-6 rounded-lg bg-accent/10 text-accent-light text-[11px] flex items-center justify-center shrink-0">02</span><i data-lucide="pen-line" class="w-4 h-4 text-accent-light mt-1 shrink-0"></i><span data-i18n="features.new.step2">أدخل المعلومات مرة واحدة</span></div>
-          <div class="new-step text-sm flex items-start gap-3 rounded-xl bg-accent/[0.04] px-3 py-2.5"><span class="w-6 h-6 rounded-lg bg-accent/10 text-accent-light text-[11px] flex items-center justify-center shrink-0">03</span><i data-lucide="sparkles" class="w-4 h-4 text-accent-light mt-1 shrink-0"></i><span data-i18n="features.new.step3">التواريخ والحسابات تُنجز تلقائيًا</span></div>
-          <div class="new-step text-sm flex items-start gap-3 rounded-xl bg-accent/[0.04] px-3 py-2.5"><span class="w-6 h-6 rounded-lg bg-accent/10 text-accent-light text-[11px] flex items-center justify-center shrink-0">04</span><i data-lucide="git-branch" class="w-4 h-4 text-accent-light mt-1 shrink-0"></i><span data-i18n="features.new.step4">الحقول الشرطية تظهر وتختفي حسب البيانات</span></div>
-          <div class="new-step text-sm flex items-start gap-3 rounded-xl bg-accent/[0.04] px-3 py-2.5"><span class="w-6 h-6 rounded-lg bg-accent/10 text-accent-light text-[11px] flex items-center justify-center shrink-0">05</span><i data-lucide="eye" class="w-4 h-4 text-accent-light mt-1 shrink-0"></i><span data-i18n="features.new.step5">شاهد النتيجة مباشرة أثناء التعبئة</span></div>
-          <div class="new-step text-sm flex items-start gap-3 rounded-xl bg-accent/[0.04] px-3 py-2.5"><span class="w-6 h-6 rounded-lg bg-accent/10 text-accent-light text-[11px] flex items-center justify-center shrink-0">06</span><i data-lucide="file-output" class="w-4 h-4 text-accent-light mt-1 shrink-0"></i><span data-i18n="features.new.step6">صدّر الوثيقة إلى PDF فورًا — بدون إنترنت</span></div>
-        </div>
-        <div class="relative mt-7 pt-5 border-t border-accent/15">
-          <p class="text-sm text-accent-light font-medium mb-2" data-i18n="features.new.result">النتيجة: حوالي دقيقة واحدة</p>
-          <p class="text-sm text-muted leading-relaxed" data-i18n="features.new.summary">من البحث والنسخ والحساب والتحويل… إلى تعبئة واحدة وملف جاهز.</p>
-          <p class="text-xs text-dim mt-3" data-i18n="features.new.tagline">MaktabatyPro. أنجز وثائقك في وقت أقل.</p>
+
+        <div class="group relative flex flex-col overflow-hidden rounded-3xl border border-accent/45 bg-gradient-to-br from-accent/20 via-[#14152b]/90 to-secondary/12 p-6 sm:p-8 shadow-[0_22px_70px_rgba(124,58,237,0.20)] transition-transform hover:-translate-y-0.5">
+          <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-accent-light via-secondary to-accent"></div>
+          <div class="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-accent/20 blur-3xl pointer-events-none"></div>
+          <div class="relative flex items-start justify-between gap-4 border-b border-accent/20 pb-6 mb-5">
+            <div>
+              <p class="text-xs font-mono uppercase tracking-[0.18em] text-accent-light mb-2" data-i18n="features.new.label">مع MaktabatyPro</p>
+              <h3 class="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-white" data-i18n="features.new.time">حوالي دقيقة واحدة</h3>
+            </div>
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-accent/35 bg-accent/20"><i data-lucide="zap" class="w-5 h-5 text-accent-light"></i></span>
+          </div>
+          <div class="relative space-y-2">
+            <div class="new-step flex items-center gap-3 rounded-2xl border border-accent/20 bg-white/[0.07] px-3.5 py-3 text-sm font-medium text-white"><span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-accent/25 text-[11px] font-semibold text-white">01</span><i data-lucide="folder-open" class="w-4 h-4 shrink-0 text-accent-light"></i><span data-i18n="features.new.step1">اختر القالب من مكتبتك</span></div>
+            <div class="new-step flex items-center gap-3 rounded-2xl border border-accent/20 bg-white/[0.07] px-3.5 py-3 text-sm font-medium text-white"><span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-accent/25 text-[11px] font-semibold text-white">02</span><i data-lucide="pen-line" class="w-4 h-4 shrink-0 text-accent-light"></i><span data-i18n="features.new.step2">أدخل المعلومات مرة واحدة</span></div>
+            <div class="new-step flex items-center gap-3 rounded-2xl border border-accent/20 bg-white/[0.07] px-3.5 py-3 text-sm font-medium text-white"><span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-accent/25 text-[11px] font-semibold text-white">03</span><i data-lucide="sparkles" class="w-4 h-4 shrink-0 text-accent-light"></i><span data-i18n="features.new.step3">التواريخ والحسابات تُنجز تلقائيًا</span></div>
+            <div class="new-step flex items-center gap-3 rounded-2xl border border-accent/20 bg-white/[0.07] px-3.5 py-3 text-sm font-medium text-white"><span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-accent/25 text-[11px] font-semibold text-white">04</span><i data-lucide="git-branch" class="w-4 h-4 shrink-0 text-accent-light"></i><span data-i18n="features.new.step4">الحقول الشرطية تظهر وتختفي حسب البيانات</span></div>
+            <div class="new-step flex items-center gap-3 rounded-2xl border border-accent/20 bg-white/[0.07] px-3.5 py-3 text-sm font-medium text-white"><span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-accent/25 text-[11px] font-semibold text-white">05</span><i data-lucide="eye" class="w-4 h-4 shrink-0 text-accent-light"></i><span data-i18n="features.new.step5">شاهد النتيجة مباشرة أثناء التعبئة</span></div>
+            <div class="new-step flex items-center gap-3 rounded-2xl border border-accent/20 bg-white/[0.07] px-3.5 py-3 text-sm font-medium text-white"><span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-accent/25 text-[11px] font-semibold text-white">06</span><i data-lucide="file-output" class="w-4 h-4 shrink-0 text-accent-light"></i><span data-i18n="features.new.step6">صدّر الوثيقة إلى PDF فورًا — بدون إنترنت</span></div>
+          </div>
+          <div class="relative mt-6 border-t border-accent/25 pt-5">
+            <p class="mb-2 flex items-center gap-2 text-sm font-semibold text-accent-light"><i data-lucide="check-check" class="w-4 h-4"></i><span data-i18n="features.new.result">النتيجة: حوالي دقيقة واحدة</span></p>
+            <p class="text-sm leading-relaxed text-slate-200" data-i18n="features.new.summary">من البحث والنسخ والحساب والتحويل… إلى تعبئة واحدة وملف جاهز.</p>
+            <p class="mt-3 text-xs text-slate-300" data-i18n="features.new.tagline">MaktabatyPro. أنجز وثائقك في وقت أقل.</p>
+          </div>
         </div>
       </div>
     </div>
