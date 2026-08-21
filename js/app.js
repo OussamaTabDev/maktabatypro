@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (urlLang && ['en', 'fr', 'ar'].includes(urlLang)) return urlLang;
     const stored = localStorage.getItem('maktabaty_lang');
     if (stored && ['en', 'fr', 'ar'].includes(stored)) return stored;
-    return 'en';
+    return 'fr';
   }
 
   function applyTranslations(translations) {
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   async function loadTranslations(lang) {
     try {
-      const res = await fetch(`lang/${lang}.json?v=20260821-use-cases-offer`);
+      const res = await fetch(`lang/${lang}.json?v=20260821-fr-default-tutorials`);
       if (res.ok) return res.json();
     } catch (e) {}
     if (window.__langPack && window.__langPack[lang]) {

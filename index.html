@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="fr" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,7 +30,7 @@
 <link rel="icon" href="assets/icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/lucide@0.469.0"></script>
 <script type="application/ld+json">
@@ -215,27 +215,42 @@ tailwind.config = {
     font-variant-numeric: tabular-nums;
   }
 
-  [dir="rtl"] .font-display,
-  [dir="rtl"] body {
+  html[dir="rtl"] body {
     font-family: 'Noto Sans Arabic', 'Inter', sans-serif;
+    text-rendering: optimizeLegibility;
   }
-  [dir="rtl"] .gradient-text {
+  html[dir="rtl"] .font-display,
+  html[dir="rtl"] h1,
+  html[dir="rtl"] h2,
+  html[dir="rtl"] h3,
+  html[dir="rtl"] h4 {
+    font-family: 'Noto Kufi Arabic', 'Noto Sans Arabic', 'Inter', sans-serif;
+    letter-spacing: 0;
+    line-height: 1.45;
+  }
+  html[dir="rtl"] h1 { line-height: 1.3; }
+  html[dir="rtl"] .gradient-text {
     direction: ltr;
     display: inline-block;
   }
-  [dir="rtl"] .ml-auto { margin-left: 0; margin-right: auto; }
-  [dir="rtl"] .ml-1 { margin-left: 0; margin-right: 0.25rem; }
-  [dir="rtl"] .ml-2 { margin-left: 0; margin-right: 0.5rem; }
-  [dir="rtl"] .text-left { text-align: right; }
-  [dir="rtl"] .sm\\:text-left { text-align: right; }
-  [dir="rtl"] .space-x-3 > :not([hidden]) ~ :not([hidden]) { margin-left: 0; margin-right: 0.75rem; }
-  [dir="rtl"] i[data-lucide="arrow-right"],
-  [dir="rtl"] i[data-lucide="chevron-down"],
-  [dir="rtl"] i[data-lucide="external-link"] { transform: scaleX(-1); }
-  [dir="rtl"] .tracking-tighter { letter-spacing: -0.01em; }
-  [dir="rtl"] .tracking-tight { letter-spacing: -0.005em; }
-  [dir="rtl"] .uppercase { letter-spacing: 0.02em; }
-  [dir="rtl"] .font-mono { font-family: 'Noto Sans Arabic', 'Courier New', monospace; }
+  html[dir="rtl"] .ml-auto { margin-left: 0; margin-right: auto; }
+  html[dir="rtl"] .ml-1 { margin-left: 0; margin-right: 0.25rem; }
+  html[dir="rtl"] .ml-2 { margin-left: 0; margin-right: 0.5rem; }
+  html[dir="rtl"] .text-left,
+  html[dir="rtl"] .sm\\:text-left { text-align: right; }
+  html[dir="rtl"] .space-x-3 > :not([hidden]) ~ :not([hidden]) { margin-left: 0; margin-right: 0.75rem; }
+  html[dir="rtl"] i[data-lucide="arrow-right"],
+  html[dir="rtl"] i[data-lucide="chevron-down"],
+  html[dir="rtl"] i[data-lucide="external-link"] { transform: scaleX(-1); }
+  html[dir="rtl"] .tracking-tighter,
+  html[dir="rtl"] .tracking-tight { letter-spacing: 0; }
+  html[dir="rtl"] .uppercase { letter-spacing: 0.02em; }
+  html[dir="rtl"] .font-mono { font-family: 'Noto Sans Arabic', 'Courier New', monospace; }
+  html[dir="rtl"] .download-option,
+  html[dir="rtl"] .faq-trigger { text-align: right; }
+  html[dir="rtl"] #closeModal,
+  html[dir="rtl"] #closeDownloadChooser,
+  html[dir="rtl"] #closeInstallGuide { right: auto; left: 1rem; }
 
   .download-option {
     cursor: pointer;
@@ -572,6 +587,65 @@ tailwind.config = {
     </div>
 
     <p class="reveal text-center text-sm text-muted mt-10" data-i18n="useCases.footer">Different professions, same need: less retyping, fewer tools, and more control over sensitive documents.</p>
+  </div>
+</section>
+
+<!-- WORKFLOW PROOF -->
+<section id="proof" class="relative px-6 py-24 overflow-hidden">
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[760px] h-[420px] bg-accent/5 rounded-full blur-[140px]"></div>
+  <div class="relative max-w-6xl mx-auto">
+    <div class="reveal text-center mb-14">
+      <p class="text-xs text-accent font-mono uppercase tracking-widest mb-4" data-i18n="proof.badge">How it works in real work</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl md:text-5xl tracking-tight mb-4" data-i18n="proof.heading">A better workflow for every document-heavy day</h2>
+      <p class="text-muted text-base sm:text-lg max-w-3xl mx-auto leading-relaxed" data-i18n="proof.subheading">MaktabatyPro replaces scattered tools and repeated typing with one clear path: build once, fill quickly, review carefully, and export with confidence.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <article class="reveal reveal-delay-1 card-hover bg-surface/40 border border-white/5 rounded-2xl p-7">
+        <div class="flex items-center justify-between gap-3 mb-5">
+          <div class="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center"><i data-lucide="file-check-2" class="w-5 h-5 text-accent-light"></i></div>
+          <span class="text-[10px] text-accent-light font-mono uppercase tracking-wider">01</span>
+        </div>
+        <h3 class="font-display text-lg font-medium mb-3" data-i18n="proof.card1.title">Recurring certificates and requests</h3>
+        <p class="text-sm text-muted leading-relaxed mb-5" data-i18n="proof.card1.text">Prepare a template once, then fill names, IDs, addresses, dates, choices and signatures without rebuilding the page every time.</p>
+        <p class="text-xs text-white/80 border-t border-white/10 pt-4" data-i18n="proof.card1.result">One template · many finished files</p>
+      </article>
+
+      <article class="reveal reveal-delay-2 card-hover bg-surface/40 border border-white/5 rounded-2xl p-7">
+        <div class="flex items-center justify-between gap-3 mb-5">
+          <div class="w-11 h-11 rounded-xl bg-secondary/10 flex items-center justify-center"><i data-lucide="table-2" class="w-5 h-5 text-secondary"></i></div>
+          <span class="text-[10px] text-secondary font-mono uppercase tracking-wider">02</span>
+        </div>
+        <h3 class="font-display text-lg font-medium mb-3" data-i18n="proof.card2.title">Bulk and table work</h3>
+        <p class="text-sm text-muted leading-relaxed mb-5" data-i18n="proof.card2.text">Import CSV or spreadsheet-style rows, repeat groups for children or items, handle conditions and tables, and create a consistent batch without copying and pasting.</p>
+        <p class="text-xs text-white/80 border-t border-white/10 pt-4" data-i18n="proof.card2.result">Less retyping · fewer mistakes</p>
+      </article>
+
+      <article class="reveal reveal-delay-3 card-hover bg-surface/40 border border-white/5 rounded-2xl p-7">
+        <div class="flex items-center justify-between gap-3 mb-5">
+          <div class="w-11 h-11 rounded-xl bg-green-500/10 flex items-center justify-center"><i data-lucide="shield-check" class="w-5 h-5 text-green-400"></i></div>
+          <span class="text-[10px] text-green-400 font-mono uppercase tracking-wider">03</span>
+        </div>
+        <h3 class="font-display text-lg font-medium mb-3" data-i18n="proof.card3.title">Sensitive client information</h3>
+        <p class="text-sm text-muted leading-relaxed mb-5" data-i18n="proof.card3.text">Keep templates, filled data, PDF history and exports on the device. Work offline while keeping a familiar workflow for Arabic and French documents.</p>
+        <p class="text-xs text-white/80 border-t border-white/10 pt-4" data-i18n="proof.card3.result">Offline by design</p>
+      </article>
+    </div>
+
+    <div class="reveal mt-8 rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-6 sm:px-8">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="w-9 h-9 rounded-xl bg-accent/10 flex items-center justify-center"><i data-lucide="route" class="w-4 h-4 text-accent-light"></i></span>
+        <div>
+          <p class="text-[10px] text-accent font-mono uppercase tracking-widest" data-i18n="proof.process.badge">The MaktabatyPro rhythm</p>
+          <h3 class="font-display text-lg sm:text-xl font-medium" data-i18n="proof.process.heading">Build once. Fill clearly. Export confidently.</h3>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="flex gap-3"><span class="text-accent-light font-display text-xl">01</span><div><h4 class="text-sm font-medium mb-1" data-i18n="proof.process1.title">Build once</h4><p class="text-xs text-muted leading-relaxed" data-i18n="proof.process1.text">Create a reusable template with fields, logic, loops and tables.</p></div></div>
+        <div class="flex gap-3"><span class="text-secondary font-display text-xl">02</span><div><h4 class="text-sm font-medium mb-1" data-i18n="proof.process2.title">Fill clearly</h4><p class="text-xs text-muted leading-relaxed" data-i18n="proof.process2.text">Enter information in a focused form with live preview and helpful defaults.</p></div></div>
+        <div class="flex gap-3"><span class="text-green-400 font-display text-xl">03</span><div><h4 class="text-sm font-medium mb-1" data-i18n="proof.process3.title">Export confidently</h4><p class="text-xs text-muted leading-relaxed" data-i18n="proof.process3.text">Check the final pages, then print or save a clean PDF without leaving the workflow.</p></div></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1414,6 +1488,40 @@ tailwind.config = {
   </div>
 </section>
 
+<!-- TUTORIALS -->
+<section id="tutorials" class="relative px-6 py-24 overflow-hidden">
+  <div class="absolute inset-0 grid-pattern opacity-60"></div>
+  <div class="relative max-w-6xl mx-auto">
+    <div class="reveal text-center mb-12">
+      <p class="text-xs text-secondary font-mono uppercase tracking-widest mb-4" data-i18n="tutorials.badge">Tutorials</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl md:text-5xl tracking-tight mb-4" data-i18n="tutorials.heading">See the workflow before you download</h2>
+      <p class="text-muted text-base sm:text-lg max-w-3xl mx-auto leading-relaxed" data-i18n="tutorials.subheading">Short explanation videos show how MaktabatyPro turns recurring documents into a repeatable, faster process. Start with video 2 for a practical look at templates.</p>
+    </div>
+
+    <div class="reveal grid grid-cols-1 lg:grid-cols-[1.35fr_0.65fr] gap-6 items-stretch">
+      <div class="rounded-2xl border border-white/10 bg-surface/50 overflow-hidden shadow-2xl">
+        <div class="aspect-video bg-black">
+          <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/a4loFFDua7o?rel=0&modestbranding=1" title="MaktabatyPro tutorial video 2 — template examples" data-i18n-title="tutorials.iframeTitle" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-gradient-to-br from-accent/10 via-white/[0.03] to-secondary/10 p-7 sm:p-8 flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-6"><i data-lucide="play-circle" class="w-6 h-6 text-secondary"></i></div>
+          <h3 class="font-display text-xl font-medium mb-3" data-i18n="tutorials.videoTitle">Video 2 · Template examples</h3>
+          <p class="text-sm text-muted leading-relaxed" data-i18n="tutorials.videoDescription">See how reusable templates become the starting point for faster, more consistent documents.</p>
+        </div>
+        <div class="mt-8">
+          <a href="https://www.youtube.com/playlist?list=PLSz7LZhSrk8Y" target="_blank" rel="noopener" class="btn-ghost text-sm font-medium px-5 py-3 rounded-full text-white inline-flex items-center gap-2">
+            <span data-i18n="tutorials.openPlaylist">Open the full video playlist</span>
+            <i data-lucide="external-link" class="w-4 h-4"></i>
+          </a>
+          <p class="text-[11px] text-dim leading-relaxed mt-4" data-i18n="tutorials.playlistNote">More practical explanations are available in the MaktabatyPro playlist.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer class="border-t border-white/5 px-6 py-10">
   <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
@@ -1442,7 +1550,7 @@ tailwind.config = {
 </footer>
 
 <script src="lang/all.js"></script>
-<script src="js/app.js?v=20260821-use-cases-offer"></script>
+<script src="js/app.js?v=20260821-fr-default-tutorials"></script>
 <script>
 (function () {
   // ---------- Mobile nav ----------
