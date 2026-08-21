@@ -87,15 +87,22 @@ document.addEventListener('DOMContentLoaded', async () => {
   let currentTranslations = {};
 
   // ======================== LIMITED-TIME MULTI OFFER ========================
-  const OFFER_DEADLINE = '2026-08-18T23:59:59+01:00';
+  // Promotion is active through 25 August 2026 in Morocco (UTC+1).
+  const OFFER_DEADLINE = '2026-08-26T00:00:00+01:00';
 
   function renderLimitedOfferCountdown() {
     const banner = document.getElementById('limitedOfferBanner');
     if (!banner) return;
 
-    const deadline = new Date(banner.dataset.offerDeadline || OFFER_DEADLINE).getTime();
+    const deadline = Date.parse(banner.dataset.offerDeadline || OFFER_DEADLINE);
     const remaining = Math.max(0, deadline - Date.now());
-    const active = remaining > 0;
+    const active = Number.isFinite(deadline) && remaining > 0;
+
+    // Hide the entire promotion after expiry; do not leave a stale zero countdown
+    // or an expired-sales message visible to visitors.
+    banner.hidden = !active;
+    banner.setAttribute('aria-hidden', String(!active));
+    banner.classList.toggle('hidden', !active);
     const totalSeconds = Math.floor(remaining / 1000);
     const days = Math.floor(totalSeconds / 86400);
     const hours = Math.floor((totalSeconds % 86400) / 3600);
@@ -119,8 +126,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (countdownWrap) countdownWrap.style.display = active ? 'flex' : 'none';
     if (note) {
       note.textContent = active
-        ? t('pricing.offer.activeNote', 'Offer price valid until 18 August 2026 at 23:59 Morocco time.')
-        : t('pricing.offer.expiredNote', 'This limited-time offer has ended. Contact us for current Multi pricing.');
+        ? t('pricing.offer.activeNote', 'Offer price valid until 25 August 2026 at 23:59 Morocco time.')
+        : '';
       note.classList.toggle('text-amber-200/80', active);
       note.classList.toggle('text-red-300/80', !active);
     }

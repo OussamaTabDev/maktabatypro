@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title data-i18n="meta.title">MaktabatyPro — Offline Moroccan Document Management</title>
-<meta name="description" content="MaktabatyPro fills administrative documents in 2 minutes with smart offline templates, 30 PDF tools, and zero data uploads. Built for Moroccan public writers. Limited-time Multi offer: 3 PCs for 499 MAD.">
+<meta name="description" content="MaktabatyPro fills recurring documents in 2 minutes with smart offline templates, bulk fill, 30 PDF tools, and zero data uploads. Built for Moroccan administrative offices, legal professionals, associations, schools, and small businesses.">
 <meta name="keywords" content="gestion documents hors ligne, public writer software Morocco, PDF tools offline, template administratif Maroc, écrivain public logiciel">
 <link rel="canonical" href="https://maktabatypro.ma/">
 <meta name="robots" content="index, follow">
@@ -14,7 +14,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MaktabatyPro">
 <meta property="og:title" content="MaktabatyPro — Fill Documents in 2 Minutes, 100% Offline">
-<meta property="og:description" content="Smart templates, 30 PDF tools, and full document management. Your data never leaves your device. Limited-time Multi offer: 3 PCs for 499 MAD. Made in Morocco for public writers and administrative professionals.">
+<meta property="og:description" content="Smart templates, bulk fill, 30 PDF tools, and full document management. Your data never leaves your device. Limited-time Multi offer: 3 PCs for 499 MAD. Made in Morocco for administrative offices, legal professionals, associations, schools, and small businesses.">
 <meta property="og:image" content="assets/main_image.png">
 <meta property="og:url" content="https://maktabatypro.ma/">
 <meta property="og:locale" content="en_US">
@@ -40,11 +40,11 @@
   "name": "MaktabatyPro",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Windows, macOS, Linux, Web (PWA)",
-  "description": "Offline document management software for Moroccan public writers and administrative professionals. Smart templates, 30 PDF tools, and local-only data storage.",
+  "description": "Offline document management software for Moroccan administrative offices, legal professionals, associations, schools, and small businesses. Smart templates, bulk fill, 30 PDF tools, and local-only data storage.",
   "offers": [
     { "@type": "Offer", "name": "Trial", "price": "0", "priceCurrency": "USD" },
     { "@type": "Offer", "name": "Standard", "price": "299", "priceCurrency": "MAD" },
-    { "@type": "Offer", "name": "Multi", "price": "499", "priceCurrency": "MAD", "priceValidUntil": "2026-08-18" }
+    { "@type": "Offer", "name": "Multi", "price": "499", "priceCurrency": "MAD", "priceValidUntil": "2026-08-25" }
   ]
 }
 </script>
@@ -280,7 +280,7 @@ tailwind.config = {
     <a href="#features" class="text-xs text-muted hover:text-white transition-colors" data-i18n="nav.features">Features</a>
     <a href="#privacy" class="text-xs text-muted hover:text-white transition-colors" data-i18n="nav.privacy">Privacy</a>
     <a href="#pricing" class="text-xs text-muted hover:text-white transition-colors" data-i18n="nav.pricing">Pricing</a>
-    <a href="#for-offices" class="text-xs text-muted hover:text-white transition-colors" data-i18n="nav.forOffices">For offices</a>
+    <a href="#use-cases" class="text-xs text-muted hover:text-white transition-colors" data-i18n="nav.forOffices">For offices</a>
   </div>
   <a href="#" class="download-btn btn-primary text-xs font-medium px-4 py-2 rounded-full text-white ml-2 hidden sm:inline-flex" data-i18n="nav.startFreeTrial">Start Free Trial</a>
   <button id="mobileNavToggle" type="button" class="md:hidden flex items-center justify-center w-8 h-8 text-white" aria-expanded="false" aria-controls="mobileNavMenu" aria-label="Open menu">
@@ -295,7 +295,7 @@ tailwind.config = {
     <a href="#features" class="mobile-nav-link text-sm text-muted hover:text-white transition-colors py-3 border-b border-white/5" data-i18n="nav.features">Features</a>
     <a href="#privacy" class="mobile-nav-link text-sm text-muted hover:text-white transition-colors py-3 border-b border-white/5" data-i18n="nav.privacy">Privacy</a>
     <a href="#pricing" class="mobile-nav-link text-sm text-muted hover:text-white transition-colors py-3 border-b border-white/5" data-i18n="nav.pricing">Pricing</a>
-    <a href="#for-offices" class="mobile-nav-link text-sm text-muted hover:text-white transition-colors py-3 border-b border-white/5" data-i18n="nav.forOffices">For offices</a>
+    <a href="#use-cases" class="mobile-nav-link text-sm text-muted hover:text-white transition-colors py-3 border-b border-white/5" data-i18n="nav.forOffices">For offices</a>
     <a href="#faq" class="mobile-nav-link text-sm text-muted hover:text-white transition-colors py-3" data-i18n="nav.faq">FAQ</a>
     <a href="#" class="download-btn btn-primary text-sm font-medium px-4 py-3 rounded-full text-white text-center mt-4" data-i18n="nav.startFreeTrial">Start Free Trial</a>
   </div>
@@ -529,72 +529,49 @@ tailwind.config = {
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section id="testimonials" class="relative px-6 py-24">
-  <div class="max-w-5xl mx-auto">
+<!-- USE CASES -->
+<section id="use-cases" class="relative px-6 py-24">
+  <div class="max-w-6xl mx-auto">
     <div class="reveal text-center mb-14">
-      <p class="text-xs text-accent font-mono uppercase tracking-widest mb-4" data-i18n="testimonials.badge">Trusted By</p>
-      <h2 class="font-display font-medium text-3xl sm:text-4xl tracking-tight mb-4" data-i18n="testimonials.heading">
-        Public writers across Morocco
-      </h2>
-      <p class="text-muted text-base max-w-xl mx-auto" data-i18n="testimonials.subheading">A sample of the kind of feedback we hear most often. Replace with your own verified customer quotes before launch.</p>
+      <p class="text-xs text-accent font-mono uppercase tracking-widest mb-4" data-i18n="useCases.badge">Built for your workflow</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl md:text-5xl tracking-tight mb-4" data-i18n="useCases.heading">One workspace for the work you do every day</h2>
+      <p class="text-muted text-base sm:text-lg max-w-3xl mx-auto leading-relaxed" data-i18n="useCases.subheading">MaktabatyPro helps people who prepare recurring documents, process private information, and need reliable PDF output without building a new workflow from scratch.</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="reveal reveal-delay-1 card-hover bg-surface/30 border border-white/5 rounded-2xl p-7 flex flex-col">
-        <div class="flex gap-1 mb-4" aria-label="5 out of 5 stars">
-          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
-          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
-          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
-          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
-          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
-        </div>
-        <p class="text-sm text-muted leading-relaxed mb-6 flex-1" data-i18n="testimonials.quote1.text">"I used to spend most of my morning retyping the same requests. Now I fill a template, check the preview, and print. Clients notice the difference too."</p>
-        <div class="flex items-center gap-3 pt-4 border-t border-white/5">
-          <div class="w-9 h-9 rounded-full bg-accent/10 flex items-center justify-center text-accent-light font-display text-sm font-medium" data-i18n="testimonials.quote1.initials">K.B.</div>
-          <div>
-            <div class="text-xs font-medium text-white" data-i18n="testimonials.quote1.name">Karim B.</div>
-            <div class="text-[11px] text-dim" data-i18n="testimonials.quote1.role">Public writer, Casablanca</div>
-          </div>
-        </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="reveal reveal-delay-1 card-hover bg-surface/30 border border-white/5 rounded-2xl p-7">
+        <div class="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-5"><i data-lucide="landmark" class="w-5 h-5 text-accent-light"></i></div>
+        <h3 class="font-display text-lg font-medium mb-3" data-i18n="useCases.card1.title">Administrative offices & communes</h3>
+        <p class="text-sm text-muted leading-relaxed" data-i18n="useCases.card1.text">Prepare certificates, requests, declarations, and recurring forms with reusable templates, conditional fields, and clean print-ready output.</p>
       </div>
-
-      <div class="reveal reveal-delay-2 card-hover bg-surface/30 border border-white/5 rounded-2xl p-7 flex flex-col">
-        <div class="flex gap-1 mb-4" aria-label="5 out of 5 stars">
-          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
-          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
-          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
-          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
-          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
-        </div>
-        <p class="text-sm text-muted leading-relaxed mb-6 flex-1" data-i18n="testimonials.quote2.text">"Knowing that client IDs and addresses never touch an online tool matters a lot in my line of work. The batch fill feature alone saves me an hour on busy days."</p>
-        <div class="flex items-center gap-3 pt-4 border-t border-white/5">
-          <div class="w-9 h-9 rounded-full bg-secondary/10 flex items-center justify-center text-secondary font-display text-sm font-medium" data-i18n="testimonials.quote2.initials">S.A.</div>
-          <div>
-            <div class="text-xs font-medium text-white" data-i18n="testimonials.quote2.name">Sanaa A.</div>
-            <div class="text-[11px] text-dim" data-i18n="testimonials.quote2.role">Administrative assistant, Rabat</div>
-          </div>
-        </div>
+      <div class="reveal reveal-delay-2 card-hover bg-surface/30 border border-white/5 rounded-2xl p-7">
+        <div class="w-11 h-11 rounded-xl bg-secondary/10 flex items-center justify-center mb-5"><i data-lucide="briefcase-business" class="w-5 h-5 text-secondary"></i></div>
+        <h3 class="font-display text-lg font-medium mb-3" data-i18n="useCases.card2.title">Public writers & service desks</h3>
+        <p class="text-sm text-muted leading-relaxed" data-i18n="useCases.card2.text">Fill the same document for many clients, keep names and IDs on the device, and use Arabic or French fields without repetitive retyping.</p>
       </div>
-
-      <div class="reveal reveal-delay-3 card-hover bg-surface/30 border border-white/5 rounded-2xl p-7 flex flex-col">
-        <div class="flex gap-1 mb-4" aria-label="5 out of 5 stars">
-          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
-          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
-          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
-          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
-          <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
-        </div>
-        <p class="text-sm text-muted leading-relaxed mb-6 flex-1" data-i18n="testimonials.quote3.text">"One license, three computers in the office, no internet required at our branch with a weak connection. It just works the same everywhere."</p>
-        <div class="flex items-center gap-3 pt-4 border-t border-white/5">
-          <div class="w-9 h-9 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400 font-display text-sm font-medium" data-i18n="testimonials.quote3.initials">Y.T.</div>
-          <div>
-            <div class="text-xs font-medium text-white" data-i18n="testimonials.quote3.name">Youssef T.</div>
-            <div class="text-[11px] text-dim" data-i18n="testimonials.quote3.role">Office manager, Tangier</div>
-          </div>
-        </div>
+      <div class="reveal reveal-delay-3 card-hover bg-surface/30 border border-white/5 rounded-2xl p-7">
+        <div class="w-11 h-11 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5"><i data-lucide="scale" class="w-5 h-5 text-blue-400"></i></div>
+        <h3 class="font-display text-lg font-medium mb-3" data-i18n="useCases.card3.title">Lawyers, notaries & legal work</h3>
+        <p class="text-sm text-muted leading-relaxed" data-i18n="useCases.card3.text">Build structured mandates, contracts, notices, and client documents with required fields, dates, numbers, and controlled PDF exports.</p>
+      </div>
+      <div class="reveal reveal-delay-1 card-hover bg-surface/30 border border-white/5 rounded-2xl p-7">
+        <div class="w-11 h-11 rounded-xl bg-green-500/10 flex items-center justify-center mb-5"><i data-lucide="graduation-cap" class="w-5 h-5 text-green-400"></i></div>
+        <h3 class="font-display text-lg font-medium mb-3" data-i18n="useCases.card4.title">Associations & schools</h3>
+        <p class="text-sm text-muted leading-relaxed" data-i18n="useCases.card4.text">Handle registrations, member lists, certificates, attendance records, and batch documents with loops, tables, and spreadsheet imports.</p>
+      </div>
+      <div class="reveal reveal-delay-2 card-hover bg-surface/30 border border-white/5 rounded-2xl p-7">
+        <div class="w-11 h-11 rounded-xl bg-amber-500/10 flex items-center justify-center mb-5"><i data-lucide="calculator" class="w-5 h-5 text-amber-300"></i></div>
+        <h3 class="font-display text-lg font-medium mb-3" data-i18n="useCases.card5.title">Small businesses & accountants</h3>
+        <p class="text-sm text-muted leading-relaxed" data-i18n="useCases.card5.text">Reuse invoices, quotations, delivery documents, statements, and internal forms while keeping a searchable local PDF library.</p>
+      </div>
+      <div class="reveal reveal-delay-3 card-hover bg-surface/30 border border-white/5 rounded-2xl p-7">
+        <div class="w-11 h-11 rounded-xl bg-purple-500/10 flex items-center justify-center mb-5"><i data-lucide="user-round" class="w-5 h-5 text-purple-300"></i></div>
+        <h3 class="font-display text-lg font-medium mb-3" data-i18n="useCases.card6.title">Independent professionals</h3>
+        <p class="text-sm text-muted leading-relaxed" data-i18n="useCases.card6.text">Work offline from a laptop or several office PCs, customize templates as your work changes, and export without monthly software fees.</p>
       </div>
     </div>
+
+    <p class="reveal text-center text-sm text-muted mt-10" data-i18n="useCases.footer">Different professions, same need: less retyping, fewer tools, and more control over sensitive documents.</p>
   </div>
 </section>
 
@@ -918,12 +895,12 @@ tailwind.config = {
       <p class="text-muted text-base" data-i18n="pricing.subheading">No subscriptions. Pay once, use forever.</p>
     </div>
 
-    <div id="limitedOfferBanner" data-offer-deadline="2026-08-18T23:59:59+01:00" class="reveal mb-8 rounded-2xl border border-amber-400/30 bg-gradient-to-r from-amber-500/10 via-accent/10 to-blue-500/10 px-5 py-5 sm:px-7" aria-live="polite">
+    <div id="limitedOfferBanner" data-offer-deadline="2026-08-26T00:00:00+01:00" class="reveal mb-8 rounded-2xl border border-amber-400/30 bg-gradient-to-r from-amber-500/10 via-accent/10 to-blue-500/10 px-5 py-5 sm:px-7" aria-live="polite">
       <div class="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p class="text-[10px] font-mono uppercase tracking-widest text-amber-300" data-i18n="pricing.offer.badge">Limited-time offer</p>
           <h3 class="mt-1 font-display text-xl font-semibold text-white" data-i18n="pricing.offer.title">Multi: 3 PCs for 499 MAD</h3>
-          <p class="mt-1 text-xs text-muted" data-i18n="pricing.offer.text">Lifetime license · Offer ends 18 August 2026</p>
+          <p class="mt-1 text-xs text-muted" data-i18n="pricing.offer.text">Lifetime license · Offer ends 25 August 2026</p>
         </div>
         <div id="offerCountdownWrap" class="flex items-center gap-2" aria-label="Limited-time offer countdown">
           <div class="min-w-[54px] rounded-xl border border-white/10 bg-black/20 px-2 py-2 text-center"><div id="offerCountdownDays" class="font-display text-xl font-semibold text-white">00</div><div class="text-[9px] uppercase tracking-wider text-dim" data-i18n="pricing.offer.days">Days</div></div>
@@ -935,7 +912,7 @@ tailwind.config = {
           <div class="min-w-[54px] rounded-xl border border-white/10 bg-black/20 px-2 py-2 text-center"><div id="offerCountdownSeconds" class="font-display text-xl font-semibold text-white">00</div><div class="text-[9px] uppercase tracking-wider text-dim" data-i18n="pricing.offer.seconds">Seconds</div></div>
         </div>
       </div>
-      <p id="offerCountdownNote" class="mt-4 text-xs text-amber-200/80" data-i18n="pricing.offer.activeNote">Offer price valid until 18 August 2026 at 23:59 Morocco time.</p>
+      <p id="offerCountdownNote" class="mt-4 text-xs text-amber-200/80" data-i18n="pricing.offer.activeNote">Offer price valid until 25 August 2026 at 23:59 Morocco time.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
