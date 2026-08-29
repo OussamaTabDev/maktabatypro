@@ -172,8 +172,8 @@ tailwind.config = {
   }
 
   .template-mockup {
-    background: #0a0a0a;
-    border: 1px solid rgba(255,255,255,0.06);
+    background: #0d0d14;
+    border: 1px solid rgba(90,97,112,0.35);
     border-radius: 12px;
     overflow: hidden;
   }
@@ -318,6 +318,7 @@ tailwind.config = {
     <a href="#privacy" class="text-xs text-muted hover:text-white transition-colors" data-i18n="nav.privacy">Privacy</a>
     <a href="#pricing" class="text-xs text-muted hover:text-white transition-colors" data-i18n="nav.pricing">Pricing</a>
     <a href="#use-cases" class="text-xs text-muted hover:text-white transition-colors" data-i18n="nav.forOffices">For offices</a>
+    <a href="docs.html" class="text-xs text-muted hover:text-white transition-colors" data-i18n="nav.docs">Docs</a>
   </div>
   <a href="#" class="download-btn btn-primary text-xs font-medium px-4 py-2 rounded-full text-white ml-2 hidden sm:inline-flex" data-i18n="nav.startFreeTrial">Start Free Trial</a>
   <button id="mobileNavToggle" type="button" class="md:hidden flex items-center justify-center w-8 h-8 text-white" aria-expanded="false" aria-controls="mobileNavMenu" aria-label="Open menu">
@@ -334,6 +335,7 @@ tailwind.config = {
     <a href="#pricing" class="mobile-nav-link text-sm text-muted hover:text-white transition-colors py-3 border-b border-white/5" data-i18n="nav.pricing">Pricing</a>
     <a href="#use-cases" class="mobile-nav-link text-sm text-muted hover:text-white transition-colors py-3 border-b border-white/5" data-i18n="nav.forOffices">For offices</a>
     <a href="#faq" class="mobile-nav-link text-sm text-muted hover:text-white transition-colors py-3" data-i18n="nav.faq">FAQ</a>
+    <a href="docs.html" class="mobile-nav-link text-sm text-muted hover:text-white transition-colors py-3 border-b border-white/5" data-i18n="nav.docs">Docs</a>
     <a href="#" class="download-btn btn-primary text-sm font-medium px-4 py-3 rounded-full text-white text-center mt-4" data-i18n="nav.startFreeTrial">Start Free Trial</a>
   </div>
 </div>
@@ -517,7 +519,7 @@ tailwind.config = {
       </div>
       <div class="reveal reveal-delay-3 card-hover bg-surface/30 border border-white/5 rounded-xl p-6">
         <i data-lucide="layers" class="w-5 h-5 text-accent-light mb-4"></i>
-        <h3 class="font-display text-sm font-medium mb-2" data-i18n="features.capability.loopFields.title">Loop Fields</h3>
+        <h3 class="font-display text-sm font-medium mb-2" data-i18n="features.capability.loopFields.title">Loop Fields & Tables</h3>
         <p class="text-xs text-muted leading-relaxed" data-i18n="features.capability.loopFields.text">Repeatable field groups — children's names, multiple references, item lists. Add, remove, reorder rows dynamically.</p>
       </div>
       <div class="reveal reveal-delay-1 card-hover bg-surface/30 border border-white/5 rounded-xl p-6">
@@ -539,6 +541,7 @@ tailwind.config = {
 
     <div class="reveal text-center mt-12">
       <p class="text-sm text-muted" data-i18n="features.savings">Doing 50+ documents a day? That's <span class="text-white font-medium">2.5 hours saved daily</span>. Over a month — <span class="text-accent-light font-medium">50 hours</span>.</p>
+      <p class="text-sm text-muted mt-4"><span data-i18n="features.more">And much more — signatures, amount-in-words, encrypted backup, and more. </span><a href="#" class="download-btn text-accent-light hover:text-white font-medium transition-colors" data-i18n="features.moreDownload">Download the app</a> <a href="docs.html" class="text-accent-light hover:text-white font-medium transition-colors" data-i18n="features.moreDocs">or read the docs</a></p>
     </div>
   </div>
 </section>
@@ -696,12 +699,12 @@ tailwind.config = {
         <p class="text-xs text-secondary font-mono uppercase tracking-widest mb-4" data-i18n="privacy.badge">Privacy & Security</p>
         <h2 class="font-display font-medium text-3xl sm:text-4xl tracking-tight mb-6">
           <span data-i18n="privacy.heading1">Your documents.</span><br>
-          <span class="gradient-text-vertical" data-i18n="privacy.heading2">Your device. Period.</span>
+          <span class="gradient-text" data-i18n="privacy.heading2">Your device. Period.</span>
         </h2>
         <div class="space-y-5">
           <div class="flex gap-4">
-            <div class="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-              <i data-lucide="wifi-off" class="w-4 h-4 text-green-400"></i>
+            <div class="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i data-lucide="wifi-off" class="w-4 h-4 text-accent-light"></i>
             </div>
             <div>
               <h4 class="text-sm font-medium mb-1" data-i18n="privacy.feature1.title">Zero network requests</h4>
@@ -709,8 +712,8 @@ tailwind.config = {
             </div>
           </div>
           <div class="flex gap-4">
-            <div class="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-              <i data-lucide="hard-drive" class="w-4 h-4 text-green-400"></i>
+            <div class="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i data-lucide="hard-drive" class="w-4 h-4 text-accent-light"></i>
             </div>
             <div>
               <h4 class="text-sm font-medium mb-1" data-i18n="privacy.feature2.title">Local storage only</h4>
@@ -718,8 +721,8 @@ tailwind.config = {
             </div>
           </div>
           <div class="flex gap-4">
-            <div class="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-              <i data-lucide="user-check" class="w-4 h-4 text-green-400"></i>
+            <div class="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i data-lucide="user-check" class="w-4 h-4 text-accent-light"></i>
             </div>
             <div>
               <h4 class="text-sm font-medium mb-1" data-i18n="privacy.feature3.title">No account required</h4>
@@ -727,8 +730,8 @@ tailwind.config = {
             </div>
           </div>
           <div class="flex gap-4">
-            <div class="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-              <i data-lucide="lock" class="w-4 h-4 text-green-400"></i>
+            <div class="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i data-lucide="lock" class="w-4 h-4 text-accent-light"></i>
             </div>
             <div>
               <h4 class="text-sm font-medium mb-1" data-i18n="privacy.feature4.title">PDF encryption built-in</h4>
@@ -744,43 +747,43 @@ tailwind.config = {
             <div class="w-3 h-3 rounded-full bg-red-500/40"></div>
             <div class="w-3 h-3 rounded-full bg-amber-500/40"></div>
             <div class="w-3 h-3 rounded-full bg-green-500/40"></div>
-            <span class="text-[10px] text-dim ml-2 font-mono" data-i18n="privacy.mockup.title">maktabatypro — offline</span>
+            <span class="text-[10px] text-muted ml-2 font-mono" data-i18n="privacy.mockup.title">maktabatypro — offline</span>
           </div>
           <div class="space-y-3">
-            <div class="flex items-center gap-2 text-[11px] text-dim">
-              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-green-400"></i>
+            <div class="flex items-center gap-2 text-[11px] text-muted">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-accent-light"></i>
               <span data-i18n="privacy.mockup.row1.label">No outgoing connections</span>
-              <span class="ml-auto text-green-400/80" data-i18n="privacy.mockup.row1.status">Secure</span>
+              <span class="ml-auto text-accent-light font-medium" data-i18n="privacy.mockup.row1.status">Secure</span>
             </div>
-            <div class="h-px bg-white/5"></div>
-            <div class="flex items-center gap-2 text-[11px] text-dim">
-              <i data-lucide="database" class="w-3.5 h-3.5 text-green-400"></i>
+            <div class="h-px bg-border/40"></div>
+            <div class="flex items-center gap-2 text-[11px] text-muted">
+              <i data-lucide="database" class="w-3.5 h-3.5 text-accent-light"></i>
               <span data-i18n="privacy.mockup.row2.label">Storage: Local IndexedDB</span>
-              <span class="ml-auto text-green-400/80" data-i18n="privacy.mockup.row2.status">Local</span>
+              <span class="ml-auto text-accent-light font-medium" data-i18n="privacy.mockup.row2.status">Local</span>
             </div>
-            <div class="h-px bg-white/5"></div>
-            <div class="flex items-center gap-2 text-[11px] text-dim">
-              <i data-lucide="cloud-off" class="w-3.5 h-3.5 text-green-400"></i>
+            <div class="h-px bg-border/40"></div>
+            <div class="flex items-center gap-2 text-[11px] text-muted">
+              <i data-lucide="cloud-off" class="w-3.5 h-3.5 text-accent-light"></i>
               <span data-i18n="privacy.mockup.row3.label">Cloud sync</span>
-              <span class="ml-auto text-green-400/80" data-i18n="privacy.mockup.row3.status">Disabled</span>
+              <span class="ml-auto text-accent-light font-medium" data-i18n="privacy.mockup.row3.status">Disabled</span>
             </div>
-            <div class="h-px bg-white/5"></div>
-            <div class="flex items-center gap-2 text-[11px] text-dim">
-              <i data-lucide="fingerprint" class="w-3.5 h-3.5 text-green-400"></i>
+            <div class="h-px bg-border/40"></div>
+            <div class="flex items-center gap-2 text-[11px] text-muted">
+              <i data-lucide="fingerprint" class="w-3.5 h-3.5 text-accent-light"></i>
               <span data-i18n="privacy.mockup.row4.label">Telemetry / Analytics</span>
-              <span class="ml-auto text-green-400/80" data-i18n="privacy.mockup.row4.status">None</span>
+              <span class="ml-auto text-accent-light font-medium" data-i18n="privacy.mockup.row4.status">None</span>
             </div>
-            <div class="h-px bg-white/5"></div>
-            <div class="flex items-center gap-2 text-[11px] text-dim">
-              <i data-lucide="key" class="w-3.5 h-3.5 text-green-400"></i>
+            <div class="h-px bg-border/40"></div>
+            <div class="flex items-center gap-2 text-[11px] text-muted">
+              <i data-lucide="key" class="w-3.5 h-3.5 text-accent-light"></i>
               <span data-i18n="privacy.mockup.row5.label">Account required</span>
-              <span class="ml-auto text-green-400/80" data-i18n="privacy.mockup.row5.status">No</span>
+              <span class="ml-auto text-accent-light font-medium" data-i18n="privacy.mockup.row5.status">No</span>
             </div>
-            <div class="h-px bg-white/5"></div>
-            <div class="flex items-center gap-2 text-[11px] text-dim">
-              <i data-lucide="wifi" class="w-3.5 h-3.5 text-green-400"></i>
+            <div class="h-px bg-border/40"></div>
+            <div class="flex items-center gap-2 text-[11px] text-muted">
+              <i data-lucide="wifi" class="w-3.5 h-3.5 text-accent-light"></i>
               <span data-i18n="privacy.mockup.row6.label">Internet needed</span>
-              <span class="ml-auto text-green-400/80" data-i18n="privacy.mockup.row6.status">No</span>
+              <span class="ml-auto text-accent-light font-medium" data-i18n="privacy.mockup.row6.status">No</span>
             </div>
           </div>
         </div>
@@ -1595,6 +1598,34 @@ tailwind.config = {
         <a href="https://www.youtube.com/watch?v=LvaVWafiC6Y&list=PLSz7LZhSrk8Y&index=5" target="_blank" rel="noopener" class="group rounded-xl border border-white/10 bg-surface/40 overflow-hidden hover:border-green-400/40 transition-colors">
           <div class="relative aspect-video overflow-hidden bg-black"><img src="https://i.ytimg.com/vi/LvaVWafiC6Y/hqdefault.jpg" alt="PDF Library" data-i18n-alt="tutorials.video5.title" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"><span class="absolute inset-0 flex items-center justify-center"><span class="w-10 h-10 rounded-full bg-black/70 border border-white/20 flex items-center justify-center"><i data-lucide="play" class="w-4 h-4 text-white fill-white"></i></span></span></div>
           <div class="p-4"><h4 class="text-sm font-medium text-white mb-2" data-i18n="tutorials.video5.title">مكتبة PDF</h4><p class="text-xs text-muted leading-relaxed mb-3" data-i18n="tutorials.video5.text">شاهد كيف تنظم ملفات PDF المصدرة وتصل إليها بسهولة.</p><span class="text-[11px] text-green-300" data-i18n="tutorials.watch">مشاهدة الفيديو</span></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCUMENTATION CTA -->
+<section class="relative px-6 py-24 overflow-hidden">
+  <div class="absolute inset-0 grid-pattern opacity-50"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-accent/8 rounded-full blur-[130px] pointer-events-none"></div>
+  <div class="relative max-w-5xl mx-auto">
+    <div class="reveal rounded-2xl border border-white/10 bg-gradient-to-br from-accent/10 via-white/[0.03] to-secondary/10 p-8 sm:p-12 text-center card-hover">
+      <span class="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-6"><i data-lucide="book-open" class="w-7 h-7 text-accent-light"></i></span>
+      <p class="text-xs text-accent font-mono uppercase tracking-widest mb-4" data-i18n="docs.badge">Reference</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl md:text-5xl tracking-tight mb-5" data-i18n="docs.bandHeading">
+        Go deeper into the template language
+      </h2>
+      <p class="text-muted text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-9" data-i18n="docs.bandText">
+        The complete MaktabatyPro template language reference: variables, conditionals, loops & tables, macros, calculations, and errors — with hands-on examples.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="docs.html" class="btn-primary text-sm font-medium px-8 py-4 rounded-full text-white inline-flex items-center gap-2">
+          <span data-i18n="tutorials.docsButton">Explore the template language docs</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <a href="#tutorials" class="btn-ghost text-sm font-medium px-8 py-4 rounded-full text-muted inline-flex items-center gap-2">
+          <span data-i18n="tutorials.watch">Watch video</span>
+          <i data-lucide="play" class="w-4 h-4"></i>
         </a>
       </div>
     </div>

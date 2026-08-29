@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   async function loadTranslations(lang) {
     try {
-      const res = await fetch(`lang/${lang}.json?v=20260821-ar-default-oneminute`);
+      const res = await fetch(`lang/${lang}.json?v=20260829-looptables`);
       if (res.ok) return res.json();
     } catch (e) {}
     if (window.__langPack && window.__langPack[lang]) {

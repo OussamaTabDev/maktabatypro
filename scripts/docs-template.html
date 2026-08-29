@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="docs.title">الوثائق الشاملة — لغة قوالب MaktabatyPro</title>
+<meta name="description" content="المرجع الكامل للغة قوالب MaktabatyPro: المتغيرات، الشروط، الحلقات، الجداول، الماكرو، الحسابات، والأخطاء — مع أمثلة عملية لكل ميزة.">
+<link rel="icon" href="assets/icon.webp">
+<meta name="theme-color" content="#0b0b12">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@0.469.0"></script>
+<script>
+tailwind.config = {
+  darkMode: ['class'],
+  theme: {
+    extend: {
+      colors: {
+        background: '#0b0b12',
+        surface: '#10101a',
+        text: '#eef0f6',
+        accent: '#a78bfa',
+        'accent-light': '#c7b8ff',
+        secondary: '#7ec8ff',
+        muted: '#a7adba',
+        dim: '#7b8290',
+        primary: '#a78bfa',
+        'primary-foreground': '#ffffff',
+        foreground: '#eef0f6',
+        'card': '#12121c',
+        'card-foreground': '#f2f3f9',
+        'muted-foreground': '#a7adba',
+        'border': '#5a6170',
+        ring: '#a78bfa',
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        display: ['Space Grotesk', 'sans-serif'],
+      },
+    }
+  }
+}
+</script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: #0b0b12; color: #e8eaf2; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #0b0b12; }
+  ::-webkit-scrollbar-thumb { background: #2a2a38; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #3a3a4c; }
+
+  /* Editorial top hairline — a thin violet fade across the page */
+  body::before {
+    content: "";
+    position: fixed;
+    inset-inline: 0;
+    top: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(167,139,250,0.55) 30%, rgba(126,200,255,0.35) 70%, transparent);
+    z-index: 80;
+    pointer-events: none;
+  }
+
+  .nav-blur { backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+
+  .gradient-text {
+    background: linear-gradient(90deg, #a78bfa, #818cf8, #e4e4ec);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, #7c3aed, #8b5cf6);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  .btn-primary:hover { transform: scale(1.02); box-shadow: 0 0 30px rgba(139, 92, 246, 0.35); }
+  .btn-ghost {
+    border: 1px solid rgba(90,97,112,0.5);
+    background: rgba(255,255,255,0.05);
+    transition: all 0.3s ease;
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(167,139,250,0.45); }
+
+  /* Faint grid, only behind the hero */
+  .hero-grid {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 72% 62% at 50% 12%, black 25%, transparent 72%);
+    -webkit-mask-image: radial-gradient(ellipse 72% 62% at 50% 12%, black 25%, transparent 72%);
+  }
+
+  /* Doc bodies — one language is visible, all three rendered */
+  .doc-body { display: none; }
+  .doc-body.active { display: block; }
+
+  /* Generated code blocks: keep wrapping, roomy lines */
+  .doc-body pre {
+    max-width: 100%;
+    tab-size: 2;
+  }
+  .doc-body pre code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  /* ── Editorial retheme of generated content ────────────────────────── */
+
+  /* Chapter cards: solid layered cards with quiet gray borders */
+  .doc-body section[id] {
+    border: 1px solid rgba(90,97,112,0.3);
+    border-radius: 1rem;
+    background: #12121c;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+  }
+
+  /* Code blocks: near-black well with a quiet violet rail on the left */
+  .doc-body .relative.bg-background {
+    background: #0c0c15;
+    border-color: rgba(90,97,112,0.3);
+    box-shadow: inset 2px 0 0 rgba(167,139,250,0.30);
+  }
+  .doc-body .relative.bg-background > div:first-child {
+    background: rgba(255,255,255,0.03);
+    border-color: rgba(255,255,255,0.07);
+  }
+
+  /* Copy button hover: soft violet instead of near-white wash */
+  .doc-body .relative.bg-background button.hover\:bg-muted\/80:hover { background: rgba(167,139,250,0.14); }
+
+  /* Table/panel title bars: dark neutral so white text stays readable */
+  .doc-body .bg-muted\/60 { background: rgba(255,255,255,0.06); }
+
+  /* Unify every generated content border to a quiet gray (~30% opacity):
+     neutral outlines, callouts, tables, code wells, dashed placeholders.
+     Bare `border` boxes (spec cards, examples) inherit white otherwise. */
+  .doc-body .border,
+  .doc-body .border-border,
+  .doc-body .border-border\/30,
+  .doc-body .border-border\/40,
+  .doc-body .border-border\/50,
+  .doc-body .border-border\/60,
+  .doc-body .border-blue-500\/30,
+  .doc-body .border-amber-500\/30,
+  .doc-body .border-green-500\/30,
+  .doc-body .border-green-500\/20,
+  .doc-body .border-red-500\/30,
+  .doc-body .border-red-500\/20,
+  .doc-body .border-primary\/20 { border-color: rgba(90,97,112,0.3); }
+
+  .doc-body .border-dashed { border-color: rgba(90,97,112,0.3); }
+
+  /* Table row separators inherit text color by default (near-white) — gray them */
+  .doc-body table tr { border-color: rgba(90,97,112,0.3); }
+
+  /* Syntax pills (`:type`, `!`, `|option=value`): low-opacity, not solid gray */
+  .doc-body code.bg-muted { background: rgba(167,139,250,0.12); }
+
+  /* Step-number bubbles: keep white-on-violet readable */
+  .doc-body .bg-primary { background: #7c3aed; }
+
+  /* Semantic colors tuned for the dark page (source ships light+dark pairs) */
+  .doc-body .text-green-600 { color: #34d399; }
+  .doc-body .text-blue-600 { color: #60a5fa; }
+  .doc-body .text-red-600 { color: #fb7185; }
+  .doc-body .text-amber-500 { color: #fbbf24; }
+
+  /* Sidebar active state — violet tint + inline accent bar */
+  .docs-toc-btn { position: relative; }
+  .docs-toc-btn.active {
+    background: rgba(167,139,250,0.10);
+    color: #cdc0ff;
+    border-color: rgba(167,139,250,0.28);
+  }
+  .docs-toc-btn.active::before {
+    content: "";
+    position: absolute;
+    inset-block: 22%;
+    inset-inline-start: 3px;
+    width: 2px;
+    border-radius: 2px;
+    background: #a78bfa;
+  }
+  .docs-toc-btn.active svg { color: #a78bfa; }
+
+  /* Quick chips */
+  .quick-chip { transition: all 0.2s ease; }
+  .quick-chip:hover { border-color: rgba(167,139,250,0.45) !important; color: #cdc0ff !important; }
+  .quick-chip.active {
+    background: rgba(167,139,250,0.12);
+    color: #cdc0ff;
+    border-color: rgba(167,139,250,0.38);
+  }
+
+  /* Reveal for the CTA only */
+  .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s cubic-bezier(0.16,1,0.3,1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body class="font-sans antialiased">
+
+<!-- NAV -->
+<nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 nav-blur bg-background/70 border border-border/50 rounded-full px-5 py-2.5 flex items-center gap-6 w-[calc(100%-2rem)] sm:w-auto justify-between sm:justify-start transition-colors" id="nav">
+  <a href="index.html" class="font-display font-semibold text-sm tracking-tight flex items-center gap-2">
+    <span class="w-7 h-7 rounded-lg flex items-center justify-center"><img src="assets/icon.webp" alt="M" class="w-full h-full object-contain"></span>
+    <span class="hidden sm:inline" data-i18n="nav.brand">MaktabatyPro</span>
+  </a>
+  <div class="hidden md:flex items-center gap-5">
+    <a href="index.html#features" class="text-xs text-muted hover:text-white transition-colors" data-i18n="nav.features">Features</a>
+    <a href="index.html#privacy" class="text-xs text-muted hover:text-white transition-colors" data-i18n="nav.privacy">Privacy</a>
+    <a href="index.html#pricing" class="text-xs text-muted hover:text-white transition-colors" data-i18n="nav.pricing">Pricing</a>
+    <a href="index.html#use-cases" class="text-xs text-muted hover:text-white transition-colors" data-i18n="nav.forOffices">For offices</a>
+    <a href="#" class="text-xs font-medium text-accent hover:text-accent-light transition-colors" data-i18n="nav.docs" aria-current="page">Docs</a>
+  </div>
+  <a href="index.html" class="btn-primary text-xs font-medium px-4 py-2 rounded-full text-white hidden sm:inline-flex" data-i18n="nav.startFreeTrial">Start Free Trial</a>
+  <button id="mobileNavToggle" type="button" class="md:hidden flex items-center justify-center w-8 h-8 text-white" aria-expanded="false" aria-controls="mobileNavMenu" aria-label="Open menu">
+    <i data-lucide="menu" class="w-5 h-5"></i>
+  </button>
+</nav>
+
+<!-- MOBILE NAV MENU -->
+<div id="mobileNavMenu" class="fixed inset-0 z-40 hidden md:!hidden">
+  <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="mobileNavOverlay"></div>
+  <div class="absolute top-24 left-4 right-4 bg-card border border-border/50 rounded-2xl p-6 flex flex-col gap-1 shadow-2xl shadow-black/40">
+    <a href="index.html#features" class="mobile-nav-link text-sm text-muted hover:text-white transition-colors py-3 border-b border-border/40" data-i18n="nav.features">Features</a>
+    <a href="index.html#privacy" class="mobile-nav-link text-sm text-muted hover:text-white transition-colors py-3 border-b border-border/40" data-i18n="nav.privacy">Privacy</a>
+    <a href="index.html#pricing" class="mobile-nav-link text-sm text-muted hover:text-white transition-colors py-3 border-b border-border/40" data-i18n="nav.pricing">Pricing</a>
+    <a href="index.html#use-cases" class="mobile-nav-link text-sm text-muted hover:text-white transition-colors py-3 border-b border-border/40" data-i18n="nav.forOffices">For offices</a>
+    <a href="#" class="mobile-nav-link text-sm text-accent font-medium py-3" data-i18n="nav.docs" aria-current="page">Docs</a>
+    <a href="index.html" class="btn-primary text-sm font-medium px-4 py-3 rounded-full text-white text-center mt-4" data-i18n="nav.startFreeTrial">Start Free Trial</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="relative px-6 pt-36 pb-12 overflow-hidden">
+  <div class="absolute inset-0 hero-grid pointer-events-none"></div>
+  <div class="absolute -top-44 left-1/2 -translate-x-1/2 w-[640px] h-[380px] bg-primary/[0.06] rounded-full blur-[130px] pointer-events-none"></div>
+  <div class="relative z-10 max-w-4xl mx-auto text-center">
+    <p id="docsHeroBadge" class="text-[11px] text-accent font-mono uppercase tracking-[0.28em] mb-5 inline-flex items-center gap-3">
+      <span class="w-8 h-px bg-primary/30"></span>
+      <span data-i18n="docs.badge">Documentation Reference</span>
+      <span class="w-8 h-px bg-primary/30"></span>
+    </p>
+    <h1 id="docsHeroTitle" class="reveal visible font-display font-medium text-4xl sm:text-5xl md:text-[3.4rem] tracking-tight leading-[1.08] mb-5">
+      الوثائق الشاملة — لغة قوالب MaktabatyPro
+    </h1>
+    <p id="docsHeroSubtitle" class="text-muted text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-8"></p>
+    <div id="docsHeroChips" class="flex flex-wrap items-center justify-center gap-2 mb-8"></div>
+    <a href="index.html" class="inline-flex items-center gap-2 text-xs text-dim hover:text-accent transition-colors">
+      <i data-lucide="chevron-right" class="w-4 h-4 rtl:rotate-180"></i>
+      <span data-i18n="docs.siteBack">Back to homepage</span>
+    </a>
+  </div>
+</section>
+
+<!-- DOC BODY -->
+<main class="relative px-4 sm:px-6 pb-24" id="docMain">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Mobile TOC toggle -->
+    <div class="lg:hidden flex items-center justify-between mb-6">
+      <button type="button" id="mobileTocToggle" class="btn-ghost text-xs font-medium px-4 py-2.5 rounded-full text-white inline-flex items-center gap-2">
+        <i data-lucide="list" class="w-4 h-4"></i>
+        <span id="mobileTocLabel" data-i18n="docs.contents">Contents</span>
+      </button>
+      <button type="button" id="scrollTopSmall" class="btn-ghost text-xs font-medium px-4 py-2.5 rounded-full text-white inline-flex items-center gap-2">
+        <i data-lucide="arrow-up" class="w-4 h-4"></i>
+      </button>
+    </div>
+
+    <div class="grid lg:grid-cols-[280px_1fr] gap-8 lg:gap-10">
+
+      <!-- SIDEBAR -->
+      <aside class="hidden lg:block">
+        <div class="lg:sticky lg:top-24 rounded-xl border border-border/50 bg-card backdrop-blur-md p-3.5 space-y-3 max-h-[calc(100vh-8rem)] overflow-y-auto doc-scroll">
+          <div class="flex items-center gap-2.5 px-1 pb-2.5 border-b border-border/40 mb-2">
+            <span class="p-1.5 rounded-lg bg-primary/10"><i data-lucide="list" class="h-3.5 w-3.5 text-accent-light"></i></span>
+            <span class="text-sm font-semibold font-display tracking-tight" data-i18n="docs.contents">Contents</span>
+            <span id="docsTocCount" class="text-[10px] text-muted border border-border/50 rounded-full px-1.5 py-0.5 ms-auto"></span>
+          </div>
+          <div class="relative">
+            <i data-lucide="search" class="h-3.5 w-3.5 absolute top-1/2 -translate-y-1/2 ltr:left-3 rtl:right-3 text-dim"></i>
+            <input id="docsSearch" type="text"
+              class="w-full h-9 text-[13px] rounded-lg bg-white/[0.05] border border-border/50 ltr:pl-9 rtl:pr-9 px-3 text-foreground placeholder:text-dim focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/10 transition-colors"
+              data-i18n-placeholder="docs.search">
+          </div>
+          <nav id="docsSidebar" class="space-y-0.5" role="navigation" aria-label="Contents"></nav>
+        </div>
+      </aside>
+
+      <!-- MAIN -->
+      <div class="min-w-0">
+
+        <!-- Quick nav chips (desktop) -->
+        <div id="docsQuickChips" class="hidden md:flex flex-wrap items-center gap-2 pb-6 mb-6 border-b border-border/40"></div>
+
+        <!-- Language bodies injected by build -->
+        <!--__DOC_BODIES__-->
+
+        <!-- Prev / Next -->
+        <div class="flex items-center justify-between gap-4 pt-8 border-t border-border/50 mt-8">
+          <button type="button" id="docsPrev" class="btn-ghost rounded-xl px-5 py-4 text-sm text-muted hover:text-white transition-colors inline-flex items-center gap-2 max-w-[45%] flex-1">
+            <i data-lucide="chevron-left" id="docsPrevIcon" class="w-4 h-4 shrink-0"></i>
+            <span class="text-center text-xs truncate" id="docsPrevLabel"></span>
+          </button>
+          <button type="button" id="docsNext" class="btn-ghost rounded-xl px-5 py-4 text-sm text-muted hover:text-white transition-colors inline-flex items-center gap-2 max-w-[45%] flex-1">
+            <span class="text-center text-xs truncate" id="docsNextLabel"></span>
+            <i data-lucide="chevron-right" id="docsNextIcon" class="w-4 h-4 shrink-0"></i>
+          </button>
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="reveal relative overflow-hidden rounded-2xl border border-border/50 bg-card p-8 sm:p-12 text-center mt-10">
+          <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[420px] h-[260px] bg-primary/[0.07] rounded-full blur-[110px] pointer-events-none"></div>
+          <div class="relative">
+            <span class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-5"><i data-lucide="sparkles" class="w-6 h-6 text-accent-light"></i></span>
+            <h2 class="font-display text-2xl sm:text-3xl font-medium mb-4">
+              <span data-i18n="cta.heading1">Stop uploading your documents</span><br>
+              <span class="gradient-text" data-i18n="cta.heading2">to strangers' servers.</span>
+            </h2>
+            <p class="text-muted text-sm sm:text-base mb-8 max-w-lg mx-auto leading-relaxed" data-i18n="cta.paragraph">Join professionals across Morocco who switched to offline document management. Your data, your device, your control.</p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a href="index.html" class="btn-primary text-sm font-medium px-8 py-3.5 rounded-full text-white w-full sm:w-auto" data-i18n="cta.button">Download MaktabatyPro</a>
+              <a href="index.html" class="btn-ghost text-sm font-medium px-8 py-3.5 rounded-full text-white w-full sm:w-auto" data-i18n="docs.siteBack">Back to homepage</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- MOBILE TOC DRAWER -->
+<div id="mobileTocDrawer" class="fixed inset-0 z-40 hidden lg:!hidden">
+  <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="mobileTocOverlay"></div>
+  <div class="absolute top-20 left-4 right-4 bottom-20 bg-card border border-border/50 rounded-2xl p-5 flex flex-col gap-3 overflow-hidden shadow-2xl shadow-black/40">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="p-1.5 rounded-lg bg-primary/10"><i data-lucide="list" class="h-4 w-4 text-accent-light"></i></span>
+        <span class="text-base font-semibold font-display" data-i18n="docs.contents">Contents</span>
+      </div>
+      <button type="button" id="mobileTocClose" class="w-8 h-8 flex items-center justify-center text-muted hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
+    </div>
+    <nav id="mobileTocList" class="overflow-y-auto doc-scroll pb-2 space-y-0.5"></nav>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="relative border-t border-border/40 px-6 py-10 mt-4">
+  <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
+    <div class="flex items-center gap-2">
+      <img src="assets/icon.webp" alt="M" class="w-6 h-6 rounded-md object-contain">
+      <span class="font-display text-sm font-medium" data-i18n="footer.brand">MaktabatyPro</span>
+    </div>
+    <p class="text-xs text-dim" data-i18n="footer.tagline">Made in Morocco · 100% Offline · Your data stays yours</p>
+    <div class="flex items-center gap-4">
+      <button type="button" data-lang="ar" class="text-[11px] text-dim cursor-pointer hover:text-accent transition-colors bg-transparent border-0 p-0">العربية</button>
+      <button type="button" data-lang="fr" class="text-[11px] text-dim cursor-pointer hover:text-accent transition-colors bg-transparent border-0 p-0">Français</button>
+      <button type="button" data-lang="en" class="text-[11px] text-dim cursor-pointer hover:text-accent transition-colors bg-transparent border-0 p-0">English</button>
+    </div>
+  </div>
+  <div class="max-w-5xl mx-auto border-t border-border/40 pt-5 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-xs text-dim">
+    <a href="https://facebook.com/ostabdev" target="_blank" rel="noopener" class="flex items-center gap-1.5 hover:text-white transition-colors">
+      <i data-lucide="facebook" class="w-3.5 h-3.5"></i> <span data-i18n="footer.facebook">ostabdev</span>
+    </a>
+    <span class="flex items-center gap-1.5">
+      <i data-lucide="phone" class="w-3.5 h-3.5"></i> <span data-i18n="footer.phone">212627348901</span>
+    </span>
+    <a href="mailto:maktabapro@gmail.com" class="flex items-center gap-1.5 hover:text-white transition-colors">
+      <i data-lucide="mail" class="w-3.5 h-3.5"></i> <span data-i18n="footer.email">maktabapro@gmail.com</span>
+    </a>
+  </div>
+</footer>
+
+<script src="lang/all.js"></script>
+<script>
+/*__DOC_META__*/
+</script>
+<script src="js/docs.js?v=20260829-redesign"></script>
+</body>
+</html>
