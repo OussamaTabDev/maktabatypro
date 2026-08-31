@@ -246,7 +246,7 @@ function markCopyButtons(root) {
 // 4. Extract table-of-contents labels from the TSX source (authoritative).
 // ─────────────────────────────────────────────────────────────────────────────
 
-const tocRe = /\{\s*id:\s*'([^']+)',\s*icon:\s*[A-Za-z0-9_]+,\s*label:\s*tx\(\s*'([^']*)',\s*'([^']*)',\s*'([^']*)'\s*\)\s*\}/g;
+const tocRe = /\{\s*id:\s*'([^']+)',\s*icon:\s*[A-Za-z0-9_]+,\s*label:\s*tx\(\s*'([^']*)',\s*'([^']*)',\s*'([^']*)'(?:,\s*'[^']*')*\s*\)\s*\}/g;
 const tocRaw = [];
 let tm;
 while ((tm = tocRe.exec(src)) !== null) {
