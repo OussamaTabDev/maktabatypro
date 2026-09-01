@@ -194,14 +194,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.body.style.overflow = '';
   }
 
-  function openLanguagePrompt() {
-    if (!languagePrompt || !window.__shouldPromptLanguage) return;
+  function openLanguagePrompt(force) {
+    if (!languagePrompt) return;
+    if (!force && !window.__shouldPromptLanguage) return;
     languagePrompt.classList.remove('invisible', 'opacity-0');
     document.body.style.overflow = 'hidden';
   }
 
   if (languagePromptOverlay) languagePromptOverlay.addEventListener('click', closeLanguagePrompt);
   if (languagePromptClose) languagePromptClose.addEventListener('click', closeLanguagePrompt);
+  const navLanguageToggle = document.getElementById('navLanguageToggle');
+  if (navLanguageToggle) navLanguageToggle.addEventListener('click', () => {
+    if (typeof closeMobileNav === 'function') closeMobileNav();
+    openLanguagePrompt(true);
+  });
   if (languagePromptKeep) languagePromptKeep.addEventListener('click', () => {
     localStorage.setItem('maktabaty_lang', 'ar');
     closeLanguagePrompt();

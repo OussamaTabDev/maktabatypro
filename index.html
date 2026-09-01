@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title data-i18n="meta.title">MaktabatyPro — إدارة الوثائق المغربية دون اتصال</title>
-<meta name="description" content="MaktabatyPro fills recurring documents in 1 minute with smart offline templates, bulk fill, 30 PDF tools, and zero data uploads. Built for Moroccan administrative offices, legal professionals, associations, schools, and small businesses.">
-<meta name="keywords" content="gestion documents hors ligne, public writer software Morocco, PDF tools offline, template administratif Maroc, écrivain public logiciel">
+<meta name="description" content="The offline workspace to design smart templates, automate calculations, and archive your administrative documents locally. 100% offline, zero monthly fees. Built for Moroccan public writers, legal professionals, associations, schools, and small businesses.">
+<meta name="keywords" content="gestion documents hors ligne, public writer software Morocco, archive documents local, template administratif Maroc, écrivain public logiciel">
 <link rel="canonical" href="https://maktabatypro.ma/">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#050505">
@@ -13,8 +13,8 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MaktabatyPro">
-<meta property="og:title" content="MaktabatyPro — Fill Documents in 1 Minute, 100% Offline">
-<meta property="og:description" content="Smart templates, bulk fill, 30 PDF tools, and full document management. Your data never leaves your device. Limited-time Multi offer: 3 PCs for 499 MAD. Made in Morocco for administrative offices, legal professionals, associations, schools, and small businesses.">
+<meta property="og:title" content="Design templates once, generate documents in seconds — 100% offline">
+<meta property="og:description" content="Smart templates, auto-updating dates and calculations, PDF tools, and a local archive for your client documents. No cloud uploads, no internet required. Pay once, use forever. Made in Morocco.">
 <meta property="og:image" content="assets/main_image.webp">
 <meta property="og:url" content="https://maktabatypro.ma/">
 <meta property="og:locale" content="en_US">
@@ -23,8 +23,8 @@
 
 <!-- Twitter card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="MaktabatyPro — Fill Documents in 1 Minute, 100% Offline">
-<meta name="twitter:description" content="Smart templates, 30 PDF tools, zero uploads. Made in Morocco for public writers and administrative professionals.">
+<meta name="twitter:title" content="Design templates once, generate documents in seconds — 100% offline">
+<meta name="twitter:description" content="Smart templates, automatic calculations, PDF tools, and a searchable local archive. Your client data stays on your device. Made in Morocco.">
 <meta name="twitter:image" content="assets/main_image.webp">
 
 <link rel="icon" href="assets/icon.webp">
@@ -40,7 +40,7 @@
   "name": "MaktabatyPro",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Windows, macOS, Linux, Web (PWA)",
-  "description": "Offline document management software for Moroccan administrative offices, legal professionals, associations, schools, and small businesses. Smart templates, bulk fill, 30 PDF tools, and local-only data storage.",
+  "description": "Offline workspace to design smart templates, automate calculations, and archive administrative documents locally. 100% offline, no monthly fees. For Moroccan administrative offices, legal professionals, associations, schools, and small businesses.",
   "offers": [
     { "@type": "Offer", "name": "Trial", "price": "0", "priceCurrency": "USD" },
     { "@type": "Offer", "name": "Standard", "price": "299", "priceCurrency": "MAD" },
@@ -321,6 +321,9 @@ tailwind.config = {
     <a href="docs.html" class="text-xs text-muted hover:text-white transition-colors" data-i18n="nav.docs">Docs</a>
   </div>
   <a href="#" class="download-btn btn-primary text-xs font-medium px-4 py-2 rounded-full text-white ml-2 hidden sm:inline-flex" data-i18n="nav.startFreeTrial">Start Free Trial</a>
+  <button id="navLanguageToggle" type="button" class="flex items-center justify-center w-8 h-8 text-muted hover:text-white transition-colors" aria-label="Change language" aria-haspopup="dialog">
+    <i data-lucide="languages" class="w-4 h-4"></i>
+  </button>
   <button id="mobileNavToggle" type="button" class="md:hidden flex items-center justify-center w-8 h-8 text-white" aria-expanded="false" aria-controls="mobileNavMenu" aria-label="Open menu">
     <i data-lucide="menu" class="w-5 h-5"></i>
   </button>
@@ -348,12 +351,12 @@ tailwind.config = {
 
   <div class="relative z-10 max-w-4xl mx-auto text-center">
     <h1 class="reveal reveal-delay-1 font-display font-medium text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tighter leading-[0.9] mb-6">
-      <span class="gradient-text-vertical" data-i18n="hero.title1">املأ الوثائق</span><br>
-      <span class="gradient-text" data-i18n="hero.title2">في دقيقة واحدة</span>
+      <span class="gradient-text-vertical" data-i18n="hero.title1">صمم قوالبك مرة واحدة</span><br>
+      <span class="gradient-text" data-i18n="hero.title2">وأنجز وثائقك في ثوانٍ</span>
     </h1>
 
     <p class="reveal reveal-delay-2 text-muted text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10 drop-shadow-xl" style="text-shadow: 0 4px 30px rgba(0,0,0,0.8), 0 2px 10px rgba(0,0,0,0.5);" data-i18n="hero.paragraph">
-      Templates, PDF tools, and document management — all offline. Your data never leaves your device. Built for <span class="text-white/90 font-medium">public writers</span> and administrative professionals.
+      مساحة عمل دون اتصال لبناء قوالب ذكية وأتمتة الحسابات وأرشفة وثائقك الإدارية محليًا. صُمم للكتاب العموميين والمهنيين الإداريين في المغرب.
     </p>
 
     <div class="reveal reveal-delay-3 flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
@@ -374,8 +377,8 @@ tailwind.config = {
       </div>
       <div class="w-px h-10 bg-white/10"></div>
       <div class="text-center">
-        <div class="font-display text-2xl sm:text-3xl font-semibold stat-number" data-i18n="hero.stats.pdfTools">30</div>
-        <div class="text-[11px] text-dim-blur uppercase tracking-wider mt-1" data-i18n="hero.stats.pdfToolsLabel">PDF Tools</div>
+        <div class="font-display text-2xl sm:text-3xl font-semibold stat-number" data-i18n="hero.stats.pdfTools">100%</div>
+        <div class="text-[11px] text-dim-blur uppercase tracking-wider mt-1" data-i18n="hero.stats.pdfToolsLabel">Offline</div>
       </div>
       <div class="w-px h-10 bg-white/10"></div>
       <div class="text-center">
@@ -408,11 +411,11 @@ tailwind.config = {
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div class="reveal reveal-delay-1 card-hover bg-surface/50 border border-white/5 rounded-2xl p-8">
-        <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center mb-5">
-          <i data-lucide="eye-off" class="w-5 h-5 text-red-400"></i>
+        <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center mb-5">
+          <i data-lucide="shield-check" class="w-5 h-5 text-green-400"></i>
         </div>
-        <h3 class="font-display text-lg font-medium mb-3" data-i18n="problem.card1.title">Your data gets sold</h3>
-        <p class="text-sm text-muted leading-relaxed" data-i18n="problem.card1.text">Every PDF uploaded to iLovePDF, Smallpdf, or similar services becomes their data. Your clients' names, IDs, addresses — packaged and sold to data brokers.</p>
+        <h3 class="font-display text-lg font-medium mb-3" data-i18n="problem.card1.title">Keep client data 100% local</h3>
+        <p class="text-sm text-muted leading-relaxed" data-i18n="problem.card1.text">No cloud uploads, no internet required. Complete privacy for sensitive legal and personal IDs — handled entirely on your device.</p>
       </div>
 
       <div class="reveal reveal-delay-2 card-hover bg-surface/50 border border-white/5 rounded-2xl p-8">
@@ -508,9 +511,9 @@ tailwind.config = {
     <!-- Template capabilities -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       <div class="reveal reveal-delay-1 card-hover bg-surface/30 border border-white/5 rounded-xl p-6">
-        <i data-lucide="variable" class="w-5 h-5 text-accent-light mb-4"></i>
-        <h3 class="font-display text-sm font-medium mb-2" data-i18n="features.capability.smartVariables.title">Smart Variables</h3>
-        <p class="text-xs text-muted leading-relaxed" data-i18n="features.capability.smartVariables.text"><code class="text-accent/80 bg-accent/5 px-1.5 py-0.5 rounded text-[11px]">{{TODAY}}</code>, <code class="text-accent/80 bg-accent/5 px-1.5 py-0.5 rounded text-[11px]">{{CURRENT_YEAR}}</code>, auto-serial numbers — inserted and calculated automatically.</p>
+        <i data-lucide="calendar-clock" class="w-5 h-5 text-accent-light mb-4"></i>
+        <h3 class="font-display text-sm font-medium mb-2" data-i18n="features.capability.smartVariables.title">Auto-updating Dates & Serial Numbers</h3>
+        <p class="text-xs text-muted leading-relaxed" data-i18n="features.capability.smartVariables.text">Today's date, the current year, and serial numbers — inserted and updated automatically. No manual entry needed.</p>
       </div>
       <div class="reveal reveal-delay-2 card-hover bg-surface/30 border border-white/5 rounded-xl p-6">
         <i data-lucide="git-branch" class="w-5 h-5 text-accent-light mb-4"></i>
@@ -518,14 +521,14 @@ tailwind.config = {
         <p class="text-xs text-muted leading-relaxed" data-i18n="features.capability.conditionalFields.text">Show or hide sections based on what the user selects. If gender = female, show specific fields. No more irrelevant sections.</p>
       </div>
       <div class="reveal reveal-delay-3 card-hover bg-surface/30 border border-white/5 rounded-xl p-6">
-        <i data-lucide="layers" class="w-5 h-5 text-accent-light mb-4"></i>
-        <h3 class="font-display text-sm font-medium mb-2" data-i18n="features.capability.loopFields.title">Loop Fields & Tables</h3>
-        <p class="text-xs text-muted leading-relaxed" data-i18n="features.capability.loopFields.text">Repeatable field groups — children's names, multiple references, item lists. Add, remove, reorder rows dynamically.</p>
+        <i data-lucide="users" class="w-5 h-5 text-accent-light mb-4"></i>
+        <h3 class="font-display text-sm font-medium mb-2" data-i18n="features.capability.loopFields.title">Dynamic Client Lists</h3>
+        <p class="text-xs text-muted leading-relaxed" data-i18n="features.capability.loopFields.text">Easily add rows for multiple family members, clients, or invoice items — add, remove, and reorder as needed.</p>
       </div>
       <div class="reveal reveal-delay-1 card-hover bg-surface/30 border border-white/5 rounded-xl p-6">
         <i data-lucide="calculator" class="w-5 h-5 text-accent-light mb-4"></i>
-        <h3 class="font-display text-sm font-medium mb-2" data-i18n="features.capability.mathExpressions.title">Math Expressions</h3>
-        <p class="text-xs text-muted leading-relaxed" data-i18n="features.capability.mathExpressions.text"><code class="text-accent/80 bg-accent/5 px-1.5 py-0.5 rounded text-[11px]">{{FIELD1 + FIELD2}}</code>, age from birth date, sum of amounts — all calculated live.</p>
+        <h3 class="font-display text-sm font-medium mb-2" data-i18n="features.capability.mathExpressions.title">Live Calculations</h3>
+        <p class="text-xs text-muted leading-relaxed" data-i18n="features.capability.mathExpressions.text">Automatically calculates age from birth dates, converts numbers to words, or sums amounts — live as you type.</p>
       </div>
       <div class="reveal reveal-delay-2 card-hover bg-surface/30 border border-white/5 rounded-xl p-6">
         <i data-lucide="users" class="w-5 h-5 text-accent-light mb-4"></i>
@@ -566,7 +569,7 @@ tailwind.config = {
       <div class="reveal reveal-delay-2 card-hover bg-surface/40 border border-white/5 rounded-2xl p-7">
         <div class="w-11 h-11 rounded-xl bg-secondary/10 flex items-center justify-center mb-5"><i data-lucide="users-round" class="w-5 h-5 text-secondary"></i></div>
         <h3 class="font-display text-lg font-medium mb-3" data-i18n="commercial.card2.title">For offices and teams</h3>
-        <p class="text-sm text-muted leading-relaxed" data-i18n="commercial.card2.text">The limited-time Multi offer includes 3 PCs for 499 MAD, with +249 MAD for each additional PC according to the offer.</p>
+        <p class="text-sm text-muted leading-relaxed" data-i18n="commercial.card2.text">Perfect for offices: get 3 PC licenses for 499 MAD to equip your whole team. Limited-time offer — the standard plan includes 2 PCs.</p>
       </div>
       <div class="reveal reveal-delay-3 card-hover bg-surface/40 border border-white/5 rounded-2xl p-7">
         <div class="w-11 h-11 rounded-xl bg-green-500/10 flex items-center justify-center mb-5"><i data-lucide="shield-check" class="w-5 h-5 text-green-400"></i></div>
@@ -578,7 +581,7 @@ tailwind.config = {
     <div class="reveal mt-8 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 rounded-2xl border border-accent/20 bg-gradient-to-r from-accent/10 via-white/[0.03] to-secondary/10 px-6 py-6 sm:px-8">
       <div>
         <h3 class="font-display text-xl font-medium text-white mb-2" data-i18n="commercial.offer.title">Start with the 3-day free trial</h3>
-        <p class="text-sm text-muted leading-relaxed max-w-3xl" data-i18n="commercial.offer.text">Then choose Standard at 299 MAD for 1 PC, or the limited-time Multi offer at 499 MAD for 3 PCs. Lifetime license wording applies according to the displayed offer terms.</p>
+        <p class="text-sm text-muted leading-relaxed max-w-3xl" data-i18n="commercial.offer.text">Pay once, use forever. No hidden fees, no monthly subscriptions. Choose Standard at 299 MAD for 1 PC, or the limited-time Multi offer at 499 MAD for 3 PCs.</p>
         <p class="mt-2 text-xs text-dim" data-i18n="commercial.note">No monthly subscription. One clear workspace for recurring documents, templates, and PDF work.</p>
       </div>
       <a href="#pricing" class="btn-primary text-sm font-medium px-6 py-3 rounded-full text-white whitespace-nowrap" data-i18n="commercial.offer.button">See the offers</a>
@@ -691,7 +694,8 @@ tailwind.config = {
   </div>
 </section>
 
-<!-- PRIVACY -->
+<!-- PRIVACY SECTION (hidden) start -->
+<!--
 <section id="privacy" class="relative px-6 py-24">
   <div class="max-w-5xl mx-auto">
     <div class="reveal grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -792,6 +796,8 @@ tailwind.config = {
     </div>
   </div>
 </section>
+-->
+<!-- PRIVACY SECTION (hidden) end -->
 
 <!-- PDF TOOLS -->
 <section class="relative px-6 py-24">
@@ -907,6 +913,36 @@ tailwind.config = {
         </div>
         <!-- Gradient fade at bottom -->
         <div class="absolute bottom-0 left-0 right-0 h-16 md:h-20 bg-gradient-to-t from-background via-background/90 to-transparent pointer-events-none"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCAL ARCHIVE -->
+<section class="relative px-6 py-24 overflow-hidden">
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[420px] bg-green-500/5 rounded-full blur-[140px]"></div>
+  <div class="relative max-w-6xl mx-auto">
+    <div class="reveal text-center mb-14">
+      <p class="text-xs text-green-400 font-mono uppercase tracking-widest mb-4" data-i18n="localArchive.badge">Local Archive</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl md:text-5xl tracking-tight mb-4" data-i18n="localArchive.heading">Every past document, one search away</h2>
+      <p class="text-muted text-base sm:text-lg max-w-3xl mx-auto leading-relaxed" data-i18n="localArchive.subheading">Your finished documents live in a searchable local archive on your device — find, retrieve, and re-print any client document instantly, without digging through Windows folders.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div class="reveal reveal-delay-1 card-hover bg-surface/40 border border-white/5 rounded-2xl p-7">
+        <div class="w-11 h-11 rounded-xl bg-green-500/10 flex items-center justify-center mb-5"><i data-lucide="search" class="w-5 h-5 text-green-400"></i></div>
+        <h3 class="font-display text-lg font-medium mb-3" data-i18n="localArchive.feature1.title">Search in seconds</h3>
+        <p class="text-sm text-muted leading-relaxed" data-i18n="localArchive.feature1.text">Find any past document by client name, number, or keyword — without scrolling through folders.</p>
+      </div>
+      <div class="reveal reveal-delay-2 card-hover bg-surface/40 border border-white/5 rounded-2xl p-7">
+        <div class="w-11 h-11 rounded-xl bg-green-500/10 flex items-center justify-center mb-5"><i data-lucide="rotate-ccw" class="w-5 h-5 text-green-400"></i></div>
+        <h3 class="font-display text-lg font-medium mb-3" data-i18n="localArchive.feature2.title">Retrieve & re-print anytime</h3>
+        <p class="text-sm text-muted leading-relaxed" data-i18n="localArchive.feature2.text">Reopen and re-print a client's certificate or request with one click — no need to rebuild it.</p>
+      </div>
+      <div class="reveal reveal-delay-3 card-hover bg-surface/40 border border-white/5 rounded-2xl p-7">
+        <div class="w-11 h-11 rounded-xl bg-green-500/10 flex items-center justify-center mb-5"><i data-lucide="tag" class="w-5 h-5 text-green-400"></i></div>
+        <h3 class="font-display text-lg font-medium mb-3" data-i18n="localArchive.feature3.title">Tag & organize</h3>
+        <p class="text-sm text-muted leading-relaxed" data-i18n="localArchive.feature3.text">Tag documents by client or type, add notes, and keep your archive ready to print at any moment.</p>
       </div>
     </div>
   </div>
@@ -1183,7 +1219,7 @@ tailwind.config = {
             <span data-i18n="pricing.multi.feature6">All future updates included</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-dim mt-2">
-            <span id="multiExtraText" class="text-[11px] leading-relaxed" data-i18n="pricing.multi.extratext">Limited-time offer includes 3 PCs. Additional PC: +249 MAD.</span>
+            <span id="multiExtraText" class="text-[11px] leading-relaxed" data-i18n="pricing.multi.extratext">Limited-time offer: 3 PC licenses for 499 MAD to equip your whole office. After 25 August 2026, the standard offer includes 2 PCs.</span>
           </li>
         </ul>
         <a id="multiOfferButton" href="#" class="get-started-btn btn-ghost text-sm font-medium px-6 py-3.5 rounded-full text-center text-muted w-full border-secondary/20 hover:border-secondary/40 hover:bg-secondary/5" data-i18n="pricing.multi.button">Get Multi</a>
