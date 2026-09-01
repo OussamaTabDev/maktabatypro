@@ -569,7 +569,7 @@ tailwind.config = {
       <div class="reveal reveal-delay-2 card-hover bg-surface/40 border border-white/5 rounded-2xl p-7">
         <div class="w-11 h-11 rounded-xl bg-secondary/10 flex items-center justify-center mb-5"><i data-lucide="users-round" class="w-5 h-5 text-secondary"></i></div>
         <h3 class="font-display text-lg font-medium mb-3" data-i18n="commercial.card2.title">For offices and teams</h3>
-        <p class="text-sm text-muted leading-relaxed" data-i18n="commercial.card2.text">Perfect for offices: get 3 PC licenses for 499 MAD to equip your whole team. Limited-time offer — the standard plan includes 2 PCs.</p>
+        <p class="text-sm text-muted leading-relaxed" data-i18n="commercial.card2.text">Perfect for offices: get 2 PC licenses for 499 MAD to equip your whole team — add more machines anytime.</p>
       </div>
       <div class="reveal reveal-delay-3 card-hover bg-surface/40 border border-white/5 rounded-2xl p-7">
         <div class="w-11 h-11 rounded-xl bg-green-500/10 flex items-center justify-center mb-5"><i data-lucide="shield-check" class="w-5 h-5 text-green-400"></i></div>
@@ -581,7 +581,7 @@ tailwind.config = {
     <div class="reveal mt-8 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 rounded-2xl border border-accent/20 bg-gradient-to-r from-accent/10 via-white/[0.03] to-secondary/10 px-6 py-6 sm:px-8">
       <div>
         <h3 class="font-display text-xl font-medium text-white mb-2" data-i18n="commercial.offer.title">Start with the 3-day free trial</h3>
-        <p class="text-sm text-muted leading-relaxed max-w-3xl" data-i18n="commercial.offer.text">Pay once, use forever. No hidden fees, no monthly subscriptions. Choose Standard at 299 MAD for 1 PC, or the limited-time Multi offer at 499 MAD for 3 PCs.</p>
+        <p class="text-sm text-muted leading-relaxed max-w-3xl" data-i18n="commercial.offer.text">Pay once, use forever. No hidden fees, no monthly subscriptions. Choose Standard at 299 MAD for 1 PC, or Multi at 499 MAD for 2 PCs.</p>
         <p class="mt-2 text-xs text-dim" data-i18n="commercial.note">No monthly subscription. One clear workspace for recurring documents, templates, and PDF work.</p>
       </div>
       <a href="#pricing" class="btn-primary text-sm font-medium px-6 py-3 rounded-full text-white whitespace-nowrap" data-i18n="commercial.offer.button">See the offers</a>
@@ -918,6 +918,48 @@ tailwind.config = {
   </div>
 </section>
 
+
+<!-- MORE TOOLS -->
+<section class="relative px-6 py-24">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal text-center mb-14">
+      <p class="text-xs text-secondary font-mono uppercase tracking-widest mb-4" data-i18n="moreTools.badge">Extra Tools</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl tracking-tight" data-i18n="moreTools.heading">
+        Everything you need to manage your documents in one place
+      </h2>
+    </div>
+
+    <div class="reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-6 flex gap-4">
+        <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+          <i data-lucide="folder-open" class="w-5 h-5 text-blue-400"></i>
+        </div>
+        <div>
+          <h3 class="font-display text-sm font-medium mb-1" data-i18n="moreTools.card1.title">Archive & PDF Library</h3>
+          <p class="text-xs text-muted leading-relaxed" data-i18n="moreTools.card1.text">Store, organize, and tag all your documents and PDFs in one safe place. Quick search, one-click re-printing, and full tracking of your work archive — without jumping between Windows folders.</p>
+        </div>
+      </div>
+      <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-6 flex gap-4">
+        <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+          <i data-lucide="type" class="w-5 h-5 text-amber-400"></i>
+        </div>
+        <div>
+          <h3 class="font-display text-sm font-medium mb-1" data-i18n="moreTools.card4.title">Advanced Text Editor</h3>
+          <p class="text-xs text-muted leading-relaxed" data-i18n="moreTools.card4.text">Edit letters, correspondence, and administrative documents freely inside the app. Direct export to PDF and Word (DOCX) in a clean, print-ready format.</p>
+        </div>
+      </div>
+      <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-6 flex gap-4">
+        <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center flex-shrink-0">
+          <i data-lucide="file-down" class="w-5 h-5 text-cyan-400"></i>
+        </div>
+        <div>
+          <h3 class="font-display text-sm font-medium mb-1" data-i18n="moreTools.card5.title">Full PDF Toolbox</h3>
+          <p class="text-xs text-muted leading-relaxed" data-i18n="moreTools.card5.text">More than 30 tools to process PDFs fully offline: merge, split, compress for government portal upload limits, convert images, and protect files — fast, never uploading documents online.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- LOCAL ARCHIVE -->
 <section class="relative px-6 py-24 overflow-hidden">
   <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[420px] bg-green-500/5 rounded-full blur-[140px]"></div>
@@ -948,74 +990,7 @@ tailwind.config = {
   </div>
 </section>
 
-<!-- MORE TOOLS -->
-<section class="relative px-6 py-24">
-  <div class="max-w-5xl mx-auto">
-    <div class="reveal text-center mb-14">
-      <p class="text-xs text-secondary font-mono uppercase tracking-widest mb-4" data-i18n="moreTools.badge">More Tools</p>
-      <h2 class="font-display font-medium text-3xl sm:text-4xl tracking-tight" data-i18n="moreTools.heading">
-        Everything in one place
-      </h2>
-    </div>
 
-    <div class="reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-6 flex gap-4">
-        <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
-          <i data-lucide="folder-open" class="w-5 h-5 text-blue-400"></i>
-        </div>
-        <div>
-          <h3 class="font-display text-sm font-medium mb-1" data-i18n="moreTools.card1.title">PDF Library</h3>
-          <p class="text-xs text-muted leading-relaxed" data-i18n="moreTools.card1.text">Store, organize, search, and tag your PDFs. Calendar view, reminders, notes, and analytics.</p>
-        </div>
-      </div>
-      <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-6 flex gap-4">
-        <div class="w-10 h-10 rounded-lg bg-pink-500/10 flex items-center justify-center flex-shrink-0">
-          <i data-lucide="credit-card" class="w-5 h-5 text-pink-400"></i>
-        </div>
-        <div>
-          <h3 class="font-display text-sm font-medium mb-1" data-i18n="moreTools.card2.title">Card Designer</h3>
-          <p class="text-xs text-muted leading-relaxed" data-i18n="moreTools.card2.text">Visual canvas for card and badge layouts. Drag, resize, align, export to PDF.</p>
-        </div>
-      </div>
-      <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-6 flex gap-4">
-        <div class="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0">
-          <i data-lucide="calendar" class="w-5 h-5 text-green-400"></i>
-        </div>
-        <div>
-          <h3 class="font-display text-sm font-medium mb-1" data-i18n="moreTools.card3.title">Calendar Planning</h3>
-          <p class="text-xs text-muted leading-relaxed" data-i18n="moreTools.card3.text">Schedule documents on a calendar. Month view, heatmap, drag-and-drop, conflict detection.</p>
-        </div>
-      </div>
-      <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-6 flex gap-4">
-        <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center flex-shrink-0">
-          <i data-lucide="type" class="w-5 h-5 text-amber-400"></i>
-        </div>
-        <div>
-          <h3 class="font-display text-sm font-medium mb-1" data-i18n="moreTools.card4.title">Rich Text Editor</h3>
-          <p class="text-xs text-muted leading-relaxed" data-i18n="moreTools.card4.text">Full WYSIWYG editor. Save documents, export to PDF or DOCX with formatting intact.</p>
-        </div>
-      </div>
-      <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-6 flex gap-4">
-        <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center flex-shrink-0">
-          <i data-lucide="file-down" class="w-5 h-5 text-cyan-400"></i>
-        </div>
-        <div>
-          <h3 class="font-display text-sm font-medium mb-1" data-i18n="moreTools.card5.title">File Compressor</h3>
-          <p class="text-xs text-muted leading-relaxed" data-i18n="moreTools.card5.text">Compress images and PDFs locally. Batch processing with size comparison stats.</p>
-        </div>
-      </div>
-      <div class="card-hover bg-surface/30 border border-white/5 rounded-xl p-6 flex gap-4">
-        <div class="w-10 h-10 rounded-lg bg-violet-500/10 flex items-center justify-center flex-shrink-0">
-          <i data-lucide="link" class="w-5 h-5 text-violet-400"></i>
-        </div>
-        <div>
-          <h3 class="font-display text-sm font-medium mb-1" data-i18n="moreTools.card6.title">Link Library</h3>
-          <p class="text-xs text-muted leading-relaxed" data-i18n="moreTools.card6.text">Curated bookmarks for admin services. Auto-tag, auto-categorize, import browser bookmarks.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- PLATFORM -->
 <section class="relative px-6 py-20">
@@ -1045,26 +1020,6 @@ tailwind.config = {
         Simple. Transparent.
       </h2>
       <p class="text-muted text-base" data-i18n="pricing.subheading">No subscriptions. Pay once, use forever.</p>
-    </div>
-
-    <div id="limitedOfferBanner" data-offer-deadline="2026-08-26T00:00:00+01:00" class="reveal mb-8 rounded-2xl border border-amber-400/30 bg-gradient-to-r from-amber-500/10 via-accent/10 to-blue-500/10 px-5 py-5 sm:px-7" aria-live="polite">
-      <div class="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <p class="text-[10px] font-mono uppercase tracking-widest text-amber-300" data-i18n="pricing.offer.badge">Limited-time offer</p>
-          <h3 class="mt-1 font-display text-xl font-semibold text-white" data-i18n="pricing.offer.title">Multi: 3 PCs for 499 MAD</h3>
-          <p class="mt-1 text-xs text-muted" data-i18n="pricing.offer.text">Lifetime license · Offer ends 25 August 2026</p>
-        </div>
-        <div id="offerCountdownWrap" class="flex items-center gap-2" aria-label="Limited-time offer countdown">
-          <div class="min-w-[54px] rounded-xl border border-white/10 bg-black/20 px-2 py-2 text-center"><div id="offerCountdownDays" class="font-display text-xl font-semibold text-white">00</div><div class="text-[9px] uppercase tracking-wider text-dim" data-i18n="pricing.offer.days">Days</div></div>
-          <span class="text-dim">:</span>
-          <div class="min-w-[54px] rounded-xl border border-white/10 bg-black/20 px-2 py-2 text-center"><div id="offerCountdownHours" class="font-display text-xl font-semibold text-white">00</div><div class="text-[9px] uppercase tracking-wider text-dim" data-i18n="pricing.offer.hours">Hours</div></div>
-          <span class="text-dim">:</span>
-          <div class="min-w-[54px] rounded-xl border border-white/10 bg-black/20 px-2 py-2 text-center"><div id="offerCountdownMinutes" class="font-display text-xl font-semibold text-white">00</div><div class="text-[9px] uppercase tracking-wider text-dim" data-i18n="pricing.offer.minutes">Minutes</div></div>
-          <span class="text-dim">:</span>
-          <div class="min-w-[54px] rounded-xl border border-white/10 bg-black/20 px-2 py-2 text-center"><div id="offerCountdownSeconds" class="font-display text-xl font-semibold text-white">00</div><div class="text-[9px] uppercase tracking-wider text-dim" data-i18n="pricing.offer.seconds">Seconds</div></div>
-        </div>
-      </div>
-      <p id="offerCountdownNote" class="mt-4 text-xs text-amber-200/80" data-i18n="pricing.offer.activeNote">Offer price valid until 25 August 2026 at 23:59 Morocco time.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -1147,7 +1102,7 @@ tailwind.config = {
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-accent-light flex-shrink-0 mt-0.5"></i>
-            <span data-i18n="pricing.standard.feature4">Card designer, calendar, rich editor</span>
+            <span data-i18n="pricing.standard.feature4">Built-in text editor for letters & documents</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-accent-light flex-shrink-0 mt-0.5"></i>
@@ -1186,7 +1141,7 @@ tailwind.config = {
           </div>
           <div class="flex items-center gap-1.5 mt-2">
             <i data-lucide="monitor" class="w-3.5 h-3.5 text-secondary"></i>
-            <span id="multiMachines" class="text-[11px] text-secondary" data-i18n="pricing.multi.machines">3 machines included</span>
+            <span id="multiMachines" class="text-[11px] text-secondary" data-i18n="pricing.multi.machines">2 machines included</span>
           </div>
           <div class="flex items-center gap-1.5 mt-1">
             <i data-lucide="infinity" class="w-3.5 h-3.5 text-green-400"></i>
@@ -1200,7 +1155,7 @@ tailwind.config = {
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-secondary flex-shrink-0 mt-0.5"></i>
-            <span id="multiFeature2" data-i18n="pricing.multi.feature2"><strong class="text-white">3 machines included</strong> — one license for all</span>
+            <span id="multiFeature2" data-i18n="pricing.multi.feature2"><strong class="text-white">2 machines included</strong> — one license for both</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-muted">
             <i data-lucide="check" class="w-4 h-4 text-secondary flex-shrink-0 mt-0.5"></i>
@@ -1219,7 +1174,7 @@ tailwind.config = {
             <span data-i18n="pricing.multi.feature6">All future updates included</span>
           </li>
           <li class="flex items-start gap-2.5 text-sm text-dim mt-2">
-            <span id="multiExtraText" class="text-[11px] leading-relaxed" data-i18n="pricing.multi.extratext">Limited-time offer: 3 PC licenses for 499 MAD to equip your whole office. After 25 August 2026, the standard offer includes 2 PCs.</span>
+            <span id="multiExtraText" class="text-[11px] leading-relaxed" data-i18n="pricing.multi.extratext">Regular Multi plan: 2 PCs included. Add more machines anytime for +249 MAD each.</span>
           </li>
         </ul>
         <a id="multiOfferButton" href="#" class="get-started-btn btn-ghost text-sm font-medium px-6 py-3.5 rounded-full text-center text-muted w-full border-secondary/20 hover:border-secondary/40 hover:bg-secondary/5" data-i18n="pricing.multi.button">Get Multi</a>
@@ -1241,13 +1196,72 @@ tailwind.config = {
     </div>
 
     <p class="reveal text-center text-xs text-dim mt-8" data-i18n="pricing.footer">One-time payment. No subscriptions. No hidden fees. Standard & Multi licenses are valid forever.</p>
-    <!-- <div class="reveal flex items-center justify-center gap-2 mt-4">
-      <i data-lucide="shield-check" class="w-3.5 h-3.5 text-green-400"></i>
-      <p class="text-center text-xs text-green-400/90" data-i18n="pricing.guarantee">3-day money-back guarantee — not a fit? Get a full refund, no questions asked.</p>
-    </div> -->
   </div>
 </section>
 
+
+<!-- TUTORIALS -->
+<section id="tutorials" class="relative px-6 py-24 overflow-hidden">
+  <div class="absolute inset-0 grid-pattern opacity-60"></div>
+  <div class="relative max-w-6xl mx-auto">
+    <div class="reveal text-center mb-12">
+      <p class="text-xs text-secondary font-mono uppercase tracking-widest mb-4" data-i18n="tutorials.badge">Tutorials</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl md:text-5xl tracking-tight mb-4" data-i18n="tutorials.heading">شاهد طريقة العمل</h2>
+      <p class="text-muted text-base sm:text-lg max-w-3xl mx-auto leading-relaxed" data-i18n="tutorials.subheading">ابدأ بالشرح العملي، ثم شاهد الفيديوهات الأخرى لتتعرف على الأدوات الحالية والتحديثات التي نضيفها إلى MaktabatyPro.</p>
+    </div>
+
+    <div class="reveal grid grid-cols-1 lg:grid-cols-[1.35fr_0.65fr] gap-6 items-stretch">
+      <div class="rounded-2xl border border-white/10 bg-surface/50 overflow-hidden shadow-2xl">
+        <div class="aspect-video bg-black">
+          <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/a4loFFDua7o?rel=0&modestbranding=1" title="MaktabatyPro tutorial video 2 — template examples" data-i18n-title="tutorials.iframeTitle" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-gradient-to-br from-accent/10 via-white/[0.03] to-secondary/10 p-7 sm:p-8 flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-6"><i data-lucide="play-circle" class="w-6 h-6 text-secondary"></i></div>
+          <h3 class="font-display text-xl font-medium mb-3" data-i18n="tutorials.videoTitle">الفيديو 2 · أمثلة القوالب</h3>
+          <p class="text-sm text-muted leading-relaxed" data-i18n="tutorials.videoDescription">See how reusable templates become the starting point for faster, more consistent documents.</p>
+        </div>
+        <div class="mt-8">
+          <a href="https://www.youtube.com/playlist?list=PLSz7LZhSrk8Y" target="_blank" rel="noopener" class="btn-ghost text-sm font-medium px-5 py-3 rounded-full text-white inline-flex items-center gap-2">
+            <span data-i18n="tutorials.openPlaylist">Open the full video playlist</span>
+            <i data-lucide="external-link" class="w-4 h-4"></i>
+          </a>
+          <p class="text-[11px] text-dim leading-relaxed mt-4" data-i18n="tutorials.playlistNote">تجد شروحات عملية إضافية في قائمة فيديوهات MaktabatyPro.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal mt-12 rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8">
+      <div class="flex items-start gap-3 mb-7">
+        <span class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center shrink-0"><i data-lucide="library" class="w-5 h-5 text-accent-light"></i></span>
+        <div>
+          <p class="text-xs text-accent font-mono uppercase tracking-widest mb-2" data-i18n="tutorials.moreBadge">فيديوهات إضافية</p>
+          <h3 class="font-display text-xl sm:text-2xl font-medium mb-2" data-i18n="tutorials.moreHeading">تعرّف على الأدوات والتحديثات القادمة</h3>
+          <p class="text-sm text-muted leading-relaxed max-w-3xl" data-i18n="tutorials.moreText">تتطور قائمة الفيديوهات مع تطور المنتج. شاهد المقاطع الأخرى لتتعلم طريقة العمل الحالية وتتابع ما سيصل لاحقًا.</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <a href="https://www.youtube.com/watch?v=7qWrCTsNyMg&list=PLSz7LZhSrk8Y&index=1" target="_blank" rel="noopener" class="group rounded-xl border border-white/10 bg-surface/40 overflow-hidden hover:border-accent/40 transition-colors">
+          <div class="relative aspect-video overflow-hidden bg-black"><img src="https://i.ytimg.com/vi/7qWrCTsNyMg/hqdefault.jpg" alt="Introduction and downloading MaktabatyPro" data-i18n-alt="tutorials.video1.title" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"><span class="absolute inset-0 flex items-center justify-center"><span class="w-10 h-10 rounded-full bg-black/70 border border-white/20 flex items-center justify-center"><i data-lucide="play" class="w-4 h-4 text-white fill-white"></i></span></span></div>
+          <div class="p-4"><h4 class="text-sm font-medium text-white mb-2" data-i18n="tutorials.video1.title">مقدمة وكيفية تحميل برنامج MaktabatyPro</h4><p class="text-xs text-muted leading-relaxed mb-3" data-i18n="tutorials.video1.text">ابدأ من البداية وتعرّف على طريقة الحصول على التطبيق.</p><span class="text-[11px] text-accent-light" data-i18n="tutorials.watch">مشاهدة الفيديو</span></div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=8YMGf_qkFnI&list=PLSz7LZhSrk8Y&index=3" target="_blank" rel="noopener" class="group rounded-xl border border-white/10 bg-surface/40 overflow-hidden hover:border-secondary/40 transition-colors">
+          <div class="relative aspect-video overflow-hidden bg-black"><img src="https://i.ytimg.com/vi/8YMGf_qkFnI/hqdefault.jpg" alt="PDF tools" data-i18n-alt="tutorials.video3.title" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"><span class="absolute inset-0 flex items-center justify-center"><span class="w-10 h-10 rounded-full bg-black/70 border border-white/20 flex items-center justify-center"><i data-lucide="play" class="w-4 h-4 text-white fill-white"></i></span></span></div>
+          <div class="p-4"><h4 class="text-sm font-medium text-white mb-2" data-i18n="tutorials.video3.title">أدوات PDF</h4><p class="text-xs text-muted leading-relaxed mb-3" data-i18n="tutorials.video3.text">شاهد صندوق أدوات PDF الذي يجمع الأعمال الشائعة في مكان واحد.</p><span class="text-[11px] text-secondary" data-i18n="tutorials.watch">مشاهدة الفيديو</span></div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=rdj91An0rgc&list=PLSz7LZhSrk8Y&index=4" target="_blank" rel="noopener" class="group rounded-xl border border-white/10 bg-surface/40 overflow-hidden hover:border-amber-400/40 transition-colors">
+          <div class="relative aspect-video overflow-hidden bg-black"><img src="https://i.ytimg.com/vi/rdj91An0rgc/hqdefault.jpg" alt="Pricing explanation" data-i18n-alt="tutorials.video4.title" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"><span class="absolute inset-0 flex items-center justify-center"><span class="w-10 h-10 rounded-full bg-black/70 border border-white/20 flex items-center justify-center"><i data-lucide="play" class="w-4 h-4 text-white fill-white"></i></span></span></div>
+          <div class="p-4"><h4 class="text-sm font-medium text-white mb-2" data-i18n="tutorials.video4.title">شرح السعر</h4><p class="text-xs text-muted leading-relaxed mb-3" data-i18n="tutorials.video4.text">تعرّف على التجربة والقياسي والمتعدد وطريقة الترقية لاحقًا.</p><span class="text-[11px] text-amber-300" data-i18n="tutorials.watch">مشاهدة الفيديو</span></div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=LvaVWafiC6Y&list=PLSz7LZhSrk8Y&index=5" target="_blank" rel="noopener" class="group rounded-xl border border-white/10 bg-surface/40 overflow-hidden hover:border-green-400/40 transition-colors">
+          <div class="relative aspect-video overflow-hidden bg-black"><img src="https://i.ytimg.com/vi/LvaVWafiC6Y/hqdefault.jpg" alt="PDF Library" data-i18n-alt="tutorials.video5.title" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"><span class="absolute inset-0 flex items-center justify-center"><span class="w-10 h-10 rounded-full bg-black/70 border border-white/20 flex items-center justify-center"><i data-lucide="play" class="w-4 h-4 text-white fill-white"></i></span></span></div>
+          <div class="p-4"><h4 class="text-sm font-medium text-white mb-2" data-i18n="tutorials.video5.title">مكتبة PDF</h4><p class="text-xs text-muted leading-relaxed mb-3" data-i18n="tutorials.video5.text">شاهد كيف تنظم ملفات PDF المصدرة وتصل إليها بسهولة.</p><span class="text-[11px] text-green-300" data-i18n="tutorials.watch">مشاهدة الفيديو</span></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- FAQ -->
 <section id="faq" class="relative px-6 py-24">
   <div class="max-w-3xl mx-auto">
@@ -1295,16 +1309,6 @@ tailwind.config = {
         </button>
         <div class="faq-panel px-6 overflow-hidden" style="max-height:0;">
           <p class="text-sm text-muted leading-relaxed pb-5" data-i18n="faq.q4.answer">Yes, at any time — contact us and pay only the difference between the two licenses. Your templates, library, and settings carry over automatically.</p>
-        </div>
-      </div>
-
-      <div class="faq-item bg-surface/30 border border-white/5 rounded-xl overflow-hidden">
-        <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5" aria-expanded="false">
-          <span class="text-sm font-medium text-white" data-i18n="faq.q5.question">Do you offer refunds?</span>
-          <i data-lucide="plus" class="faq-icon w-4 h-4 text-accent-light flex-shrink-0 transition-transform"></i>
-        </button>
-        <div class="faq-panel px-6 overflow-hidden" style="max-height:0;">
-          <p class="text-sm text-muted leading-relaxed pb-5" data-i18n="faq.q5.answer">Yes — every paid license comes with a 3-day money-back guarantee. If MaktabatyPro isn't a fit, contact us and we'll refund you in full, no questions asked.</p>
         </div>
       </div>
 
@@ -1577,68 +1581,7 @@ tailwind.config = {
   </div>
 </section>
 
-<!-- TUTORIALS -->
-<section id="tutorials" class="relative px-6 py-24 overflow-hidden">
-  <div class="absolute inset-0 grid-pattern opacity-60"></div>
-  <div class="relative max-w-6xl mx-auto">
-    <div class="reveal text-center mb-12">
-      <p class="text-xs text-secondary font-mono uppercase tracking-widest mb-4" data-i18n="tutorials.badge">Tutorials</p>
-      <h2 class="font-display font-medium text-3xl sm:text-4xl md:text-5xl tracking-tight mb-4" data-i18n="tutorials.heading">شاهد طريقة العمل</h2>
-      <p class="text-muted text-base sm:text-lg max-w-3xl mx-auto leading-relaxed" data-i18n="tutorials.subheading">ابدأ بالشرح العملي، ثم شاهد الفيديوهات الأخرى لتتعرف على الأدوات الحالية والتحديثات التي نضيفها إلى MaktabatyPro.</p>
-    </div>
 
-    <div class="reveal grid grid-cols-1 lg:grid-cols-[1.35fr_0.65fr] gap-6 items-stretch">
-      <div class="rounded-2xl border border-white/10 bg-surface/50 overflow-hidden shadow-2xl">
-        <div class="aspect-video bg-black">
-          <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/a4loFFDua7o?rel=0&modestbranding=1" title="MaktabatyPro tutorial video 2 — template examples" data-i18n-title="tutorials.iframeTitle" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-      </div>
-      <div class="rounded-2xl border border-white/10 bg-gradient-to-br from-accent/10 via-white/[0.03] to-secondary/10 p-7 sm:p-8 flex flex-col justify-between">
-        <div>
-          <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-6"><i data-lucide="play-circle" class="w-6 h-6 text-secondary"></i></div>
-          <h3 class="font-display text-xl font-medium mb-3" data-i18n="tutorials.videoTitle">الفيديو 2 · أمثلة القوالب</h3>
-          <p class="text-sm text-muted leading-relaxed" data-i18n="tutorials.videoDescription">See how reusable templates become the starting point for faster, more consistent documents.</p>
-        </div>
-        <div class="mt-8">
-          <a href="https://www.youtube.com/playlist?list=PLSz7LZhSrk8Y" target="_blank" rel="noopener" class="btn-ghost text-sm font-medium px-5 py-3 rounded-full text-white inline-flex items-center gap-2">
-            <span data-i18n="tutorials.openPlaylist">Open the full video playlist</span>
-            <i data-lucide="external-link" class="w-4 h-4"></i>
-          </a>
-          <p class="text-[11px] text-dim leading-relaxed mt-4" data-i18n="tutorials.playlistNote">تجد شروحات عملية إضافية في قائمة فيديوهات MaktabatyPro.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="reveal mt-12 rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8">
-      <div class="flex items-start gap-3 mb-7">
-        <span class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center shrink-0"><i data-lucide="library" class="w-5 h-5 text-accent-light"></i></span>
-        <div>
-          <p class="text-xs text-accent font-mono uppercase tracking-widest mb-2" data-i18n="tutorials.moreBadge">فيديوهات إضافية</p>
-          <h3 class="font-display text-xl sm:text-2xl font-medium mb-2" data-i18n="tutorials.moreHeading">تعرّف على الأدوات والتحديثات القادمة</h3>
-          <p class="text-sm text-muted leading-relaxed max-w-3xl" data-i18n="tutorials.moreText">تتطور قائمة الفيديوهات مع تطور المنتج. شاهد المقاطع الأخرى لتتعلم طريقة العمل الحالية وتتابع ما سيصل لاحقًا.</p>
-        </div>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <a href="https://www.youtube.com/watch?v=7qWrCTsNyMg&list=PLSz7LZhSrk8Y&index=1" target="_blank" rel="noopener" class="group rounded-xl border border-white/10 bg-surface/40 overflow-hidden hover:border-accent/40 transition-colors">
-          <div class="relative aspect-video overflow-hidden bg-black"><img src="https://i.ytimg.com/vi/7qWrCTsNyMg/hqdefault.jpg" alt="Introduction and downloading MaktabatyPro" data-i18n-alt="tutorials.video1.title" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"><span class="absolute inset-0 flex items-center justify-center"><span class="w-10 h-10 rounded-full bg-black/70 border border-white/20 flex items-center justify-center"><i data-lucide="play" class="w-4 h-4 text-white fill-white"></i></span></span></div>
-          <div class="p-4"><h4 class="text-sm font-medium text-white mb-2" data-i18n="tutorials.video1.title">مقدمة وكيفية تحميل برنامج MaktabatyPro</h4><p class="text-xs text-muted leading-relaxed mb-3" data-i18n="tutorials.video1.text">ابدأ من البداية وتعرّف على طريقة الحصول على التطبيق.</p><span class="text-[11px] text-accent-light" data-i18n="tutorials.watch">مشاهدة الفيديو</span></div>
-        </a>
-        <a href="https://www.youtube.com/watch?v=8YMGf_qkFnI&list=PLSz7LZhSrk8Y&index=3" target="_blank" rel="noopener" class="group rounded-xl border border-white/10 bg-surface/40 overflow-hidden hover:border-secondary/40 transition-colors">
-          <div class="relative aspect-video overflow-hidden bg-black"><img src="https://i.ytimg.com/vi/8YMGf_qkFnI/hqdefault.jpg" alt="PDF tools" data-i18n-alt="tutorials.video3.title" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"><span class="absolute inset-0 flex items-center justify-center"><span class="w-10 h-10 rounded-full bg-black/70 border border-white/20 flex items-center justify-center"><i data-lucide="play" class="w-4 h-4 text-white fill-white"></i></span></span></div>
-          <div class="p-4"><h4 class="text-sm font-medium text-white mb-2" data-i18n="tutorials.video3.title">أدوات PDF</h4><p class="text-xs text-muted leading-relaxed mb-3" data-i18n="tutorials.video3.text">شاهد صندوق أدوات PDF الذي يجمع الأعمال الشائعة في مكان واحد.</p><span class="text-[11px] text-secondary" data-i18n="tutorials.watch">مشاهدة الفيديو</span></div>
-        </a>
-        <a href="https://www.youtube.com/watch?v=rdj91An0rgc&list=PLSz7LZhSrk8Y&index=4" target="_blank" rel="noopener" class="group rounded-xl border border-white/10 bg-surface/40 overflow-hidden hover:border-amber-400/40 transition-colors">
-          <div class="relative aspect-video overflow-hidden bg-black"><img src="https://i.ytimg.com/vi/rdj91An0rgc/hqdefault.jpg" alt="Pricing explanation" data-i18n-alt="tutorials.video4.title" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"><span class="absolute inset-0 flex items-center justify-center"><span class="w-10 h-10 rounded-full bg-black/70 border border-white/20 flex items-center justify-center"><i data-lucide="play" class="w-4 h-4 text-white fill-white"></i></span></span></div>
-          <div class="p-4"><h4 class="text-sm font-medium text-white mb-2" data-i18n="tutorials.video4.title">شرح السعر</h4><p class="text-xs text-muted leading-relaxed mb-3" data-i18n="tutorials.video4.text">تعرّف على التجربة والقياسي والمتعدد وطريقة الترقية لاحقًا.</p><span class="text-[11px] text-amber-300" data-i18n="tutorials.watch">مشاهدة الفيديو</span></div>
-        </a>
-        <a href="https://www.youtube.com/watch?v=LvaVWafiC6Y&list=PLSz7LZhSrk8Y&index=5" target="_blank" rel="noopener" class="group rounded-xl border border-white/10 bg-surface/40 overflow-hidden hover:border-green-400/40 transition-colors">
-          <div class="relative aspect-video overflow-hidden bg-black"><img src="https://i.ytimg.com/vi/LvaVWafiC6Y/hqdefault.jpg" alt="PDF Library" data-i18n-alt="tutorials.video5.title" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"><span class="absolute inset-0 flex items-center justify-center"><span class="w-10 h-10 rounded-full bg-black/70 border border-white/20 flex items-center justify-center"><i data-lucide="play" class="w-4 h-4 text-white fill-white"></i></span></span></div>
-          <div class="p-4"><h4 class="text-sm font-medium text-white mb-2" data-i18n="tutorials.video5.title">مكتبة PDF</h4><p class="text-xs text-muted leading-relaxed mb-3" data-i18n="tutorials.video5.text">شاهد كيف تنظم ملفات PDF المصدرة وتصل إليها بسهولة.</p><span class="text-[11px] text-green-300" data-i18n="tutorials.watch">مشاهدة الفيديو</span></div>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- DOCUMENTATION CTA -->
 <section class="relative px-6 py-24 overflow-hidden">
@@ -1647,16 +1590,16 @@ tailwind.config = {
   <div class="relative max-w-5xl mx-auto">
     <div class="reveal rounded-2xl border border-white/10 bg-gradient-to-br from-accent/10 via-white/[0.03] to-secondary/10 p-8 sm:p-12 text-center card-hover">
       <span class="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-6"><i data-lucide="book-open" class="w-7 h-7 text-accent-light"></i></span>
-      <p class="text-xs text-accent font-mono uppercase tracking-widest mb-4" data-i18n="docs.badge">Reference</p>
+      <p class="text-xs text-accent font-mono uppercase tracking-widest mb-4" data-i18n="docs.badge">Guides</p>
       <h2 class="font-display font-medium text-3xl sm:text-4xl md:text-5xl tracking-tight mb-5" data-i18n="docs.bandHeading">
-        Go deeper into the template language
+        Explore Advanced Template Features & Automations
       </h2>
       <p class="text-muted text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-9" data-i18n="docs.bandText">
-        The complete MaktabatyPro template language reference: variables, conditionals, loops & tables, macros, calculations, and errors — with hands-on examples.
+        Everything you need to build smarter documents: auto-updating dates, live calculations, conditional sections, and dynamic client lists — with step-by-step examples.
       </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <a href="docs.html" class="btn-primary text-sm font-medium px-8 py-4 rounded-full text-white inline-flex items-center gap-2">
-          <span data-i18n="tutorials.docsButton">Explore the template language docs</span>
+          <span data-i18n="tutorials.docsButton">Explore the full guide</span>
           <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </a>
         <a href="#tutorials" class="btn-ghost text-sm font-medium px-8 py-4 rounded-full text-muted inline-flex items-center gap-2">
