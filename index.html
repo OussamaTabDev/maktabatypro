@@ -396,42 +396,76 @@ tailwind.config = {
 </section>
 
 <!-- PROBLEM -->
-<section class="relative px-20 py-24 ">
-  <div class="absolute inset-0 pointer-events-none select-none">
-    <img src="assets/left_1.webp" alt="" loading="lazy" decoding="async" class="absolute bottom-0 left-4 md:left-20 w-80 md:w-96 h-auto opacity-70 translate-y-1/4 translate-x-1/4">
-    <img src="assets/right_1.webp" alt="" loading="lazy" decoding="async" class="absolute bottom-0 right-4 md:right-48 w-80 md:w-96 h-auto opacity-70 translate-y-1/4">
-  </div>
-  <div class="max-w-5xl mx-auto relative z-10">
-    <div class="reveal text-center mb-16">
+<section class="relative px-6 py-24 overflow-hidden">
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-accent/5 rounded-full blur-[150px]"></div>
+
+  <div class="relative max-w-5xl mx-auto">
+    <div class="reveal text-center mb-14">
       <p class="text-xs text-accent font-mono uppercase tracking-widest mb-4" data-i18n="problem.badge">The Problem</p>
       <h2 class="font-display font-medium text-3xl sm:text-4xl md:text-5xl tracking-tight" data-i18n="problem.heading">
-        You deserve better than this
+        Old way vs. MaktabatyPro
       </h2>
+      <p class="text-muted text-base sm:text-lg max-w-3xl mx-auto leading-relaxed mt-4" data-i18n="problem.subheading">
+        Compare your working day today with what you could achieve.
+      </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="reveal reveal-delay-1 card-hover bg-surface/50 border border-white/5 rounded-2xl p-8">
-        <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center mb-5">
-          <i data-lucide="shield-check" class="w-5 h-5 text-green-400"></i>
+    <div class="space-y-5">
+      <div class="reveal card-hover bg-surface/30 border border-white/5 rounded-2xl overflow-hidden">
+        <div class="flex items-center gap-3 px-6 py-4 border-b border-white/5">
+          <div class="w-9 h-9 rounded-lg bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="clock" class="w-5 h-5 text-amber-400"></i>
+          </div>
+          <h3 class="font-display text-base font-medium" data-i18n="problem.card1.title">Hours lost to copy & paste</h3>
         </div>
-        <h3 class="font-display text-lg font-medium mb-3" data-i18n="problem.card1.title">Keep client data 100% local</h3>
-        <p class="text-sm text-muted leading-relaxed" data-i18n="problem.card1.text">No cloud uploads, no internet required. Complete privacy for sensitive legal and personal IDs — handled entirely on your device.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-white/5">
+          <div class="px-6 py-5">
+            <p class="text-xs font-medium text-dim mb-1.5" data-i18n="problem.card1.oldLabel">The old way</p>
+            <p class="text-sm text-muted leading-relaxed" data-i18n="problem.card1.oldText">Entering the same client data by hand in every form, calculating dates and ages, and writing amounts in words yourself.</p>
+          </div>
+          <div class="px-6 py-5 bg-accent/5">
+            <p class="text-xs font-medium text-accent-light mb-1.5" data-i18n="problem.card1.newLabel">With MaktabatyPro</p>
+            <p class="text-sm text-muted leading-relaxed" data-i18n="problem.card1.newText">Enter the data once and the app handles the calculations and dates automatically.</p>
+          </div>
+        </div>
       </div>
 
-      <div class="reveal reveal-delay-2 card-hover bg-surface/50 border border-white/5 rounded-2xl p-8">
-        <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-5">
-          <i data-lucide="clock" class="w-5 h-5 text-amber-400"></i>
+      <div class="reveal reveal-delay-1 card-hover bg-surface/30 border border-white/5 rounded-2xl overflow-hidden">
+        <div class="flex items-center gap-3 px-6 py-4 border-b border-white/5">
+          <div class="w-9 h-9 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="puzzle" class="w-5 h-5 text-blue-400"></i>
+          </div>
+          <h3 class="font-display text-base font-medium" data-i18n="problem.card2.title">Software & website chaos</h3>
         </div>
-        <h3 class="font-display text-lg font-medium mb-3" data-i18n="problem.card2.title">10+ minutes per document</h3>
-        <p class="text-sm text-muted leading-relaxed" data-i18n="problem.card2.text">Manually typing the same fields, calculating dates, converting numbers to words. Repetitive work that eats hours from your day — every single day.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-white/5">
+          <div class="px-6 py-5">
+            <p class="text-xs font-medium text-dim mb-1.5" data-i18n="problem.card2.oldLabel">The old way</p>
+            <p class="text-sm text-muted leading-relaxed" data-i18n="problem.card2.oldText">Opening 4 different sites to compress, merge, and edit your PDF files.</p>
+          </div>
+          <div class="px-6 py-5 bg-accent/5">
+            <p class="text-xs font-medium text-accent-light mb-1.5" data-i18n="problem.card2.newLabel">With MaktabatyPro</p>
+            <p class="text-sm text-muted leading-relaxed" data-i18n="problem.card2.newText">A complete toolbox bringing everything you need together in one program on your computer.</p>
+          </div>
+        </div>
       </div>
 
-      <div class="reveal reveal-delay-3 card-hover bg-surface/50 border border-white/5 rounded-2xl p-8">
-        <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5">
-          <i data-lucide="puzzle" class="w-5 h-5 text-blue-400"></i>
+      <div class="reveal reveal-delay-2 card-hover bg-surface/30 border border-white/5 rounded-2xl overflow-hidden">
+        <div class="flex items-center gap-3 px-6 py-4 border-b border-white/5">
+          <div class="w-9 h-9 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="shield-check" class="w-5 h-5 text-green-400"></i>
+          </div>
+          <h3 class="font-display text-base font-medium" data-i18n="problem.card3.title">Constant privacy worry</h3>
         </div>
-        <h3 class="font-display text-lg font-medium mb-3" data-i18n="problem.card3.title">Too many tools</h3>
-        <p class="text-sm text-muted leading-relaxed" data-i18n="problem.card3.text">One site for merging, another for splitting, a third for filling templates, a fourth for compression. No unified workflow, no consistency.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-white/5">
+          <div class="px-6 py-5">
+            <p class="text-xs font-medium text-dim mb-1.5" data-i18n="problem.card3.oldLabel">The old way</p>
+            <p class="text-sm text-muted leading-relaxed" data-i18n="problem.card3.oldText">Uploading your clients' personal documents to free tools on the internet.</p>
+          </div>
+          <div class="px-6 py-5 bg-accent/5">
+            <p class="text-xs font-medium text-accent-light mb-1.5" data-i18n="problem.card3.newLabel">With MaktabatyPro</p>
+            <p class="text-sm text-muted leading-relaxed" data-i18n="problem.card3.newText">100% local work with no internet — nothing ever leaves your computer.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
