@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="MaktabatyPro">
 <meta property="og:title" content="Design templates once, generate documents in seconds — 100% offline">
 <meta property="og:description" content="Smart templates, auto-updating dates and calculations, PDF tools, and a local archive for your client documents. No cloud uploads, no internet required. Pay once, use forever. Made in Morocco.">
-<meta property="og:image" content="assets/main_image_.webp">
+<meta property="og:image" content="assets/main_image_ar.webp">
 <meta property="og:url" content="https://maktabatypro.ma/">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="fr_FR">
@@ -25,7 +25,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Design templates once, generate documents in seconds — 100% offline">
 <meta name="twitter:description" content="Smart templates, automatic calculations, PDF tools, and a searchable local archive. Your client data stays on your device. Made in Morocco.">
-<meta name="twitter:image" content="assets/main_image_.webp">
+<meta name="twitter:image" content="assets/main_image_ar.webp">
 
 <link rel="icon" href="assets/icon.webp">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -479,8 +479,9 @@ tailwind.config = {
   <div class="relative z-10 w-full max-w-6xl mx-auto mt-4">
     <div class="absolute -inset-x-8 -top-8 h-3/4 bg-accent/30 blur-[100px] rounded-full pointer-events-none"></div>
     <div data-tilt class="relative transparent rounded-t-2xl border border-white/15 border-b-0  overflow-hidden shadow-[0_-24px_90px_-24px_rgba(255,122,26,.45)]">
-      <img 
-        src="assets/main_image_.webp" 
+      <img
+        id="heroImage"
+        src="assets/main_image_ar.webp" 
         alt="MaktabatyPro" 
         width="1699" height="950" 
         loading="eager" fetchpriority="high" decoding="async" 
@@ -816,7 +817,7 @@ tailwind.config = {
     <div class="reveal text-center"><span class="text-xs text-accent-light font-medium" data-i18n="showcase.badge"></span><h2 class="font-display text-3xl sm:text-5xl font-medium mt-3 mb-4" data-i18n="showcase.heading"></h2><p class="text-muted max-w-xl mx-auto" data-i18n="showcase.sub"></p></div>
     <div class="reveal flex flex-col lg:flex-row items-center gap-10 lg:gap-16 mt-20">
       <div class="lg:w-5/12"><h3 class="font-display text-2xl sm:text-3xl font-medium mb-4" data-i18n="showcase.editor.title"></h3><p class="text-muted mb-6" data-i18n="showcase.editor.text"></p><ul class="space-y-2 text-sm text-muted"><li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 mt-1.5 text-accent shrink-0"></i><span data-i18n="showcase.editor.b1"></span></li><li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 mt-1.5 text-accent shrink-0"></i><span data-i18n="showcase.editor.b2"></span></li><li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 mt-1.5 text-accent shrink-0"></i><span data-i18n="showcase.editor.b3"></span></li></ul></div>
-      <div class="lg:w-7/12 w-full rounded-2xl border border-white/10 bg-surface overflow-hidden shadow-[0_30px_80px_-30px_rgba(255,122,26,.3)]"><img src="assets/editor_.png" alt="" loading="lazy" class="w-full h-auto"></div>
+      <div class="lg:w-7/12 w-full rounded-2xl border border-white/10 bg-surface overflow-hidden shadow-[0_30px_80px_-30px_rgba(255,122,26,.3)]"><img src="assets/editor_.webp" alt="" loading="lazy" class="w-full h-auto"></div>
     </div>
     <div class="reveal flex flex-col lg:flex-row lg:flex-row-reverse items-center gap-10 lg:gap-16 mt-20">
       <div class="lg:w-5/12"><h3 class="font-display text-2xl sm:text-3xl font-medium mb-4" data-i18n="showcase.templates.title"></h3><p class="text-muted mb-6" data-i18n="showcase.templates.text"></p><ul class="space-y-2 text-sm text-muted"><li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 mt-1.5 text-accent shrink-0"></i><span data-i18n="showcase.templates.b1"></span></li><li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 mt-1.5 text-accent shrink-0"></i><span data-i18n="showcase.templates.b2"></span></li><li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 mt-1.5 text-accent shrink-0"></i><span data-i18n="showcase.templates.b3"></span></li></ul></div>
@@ -824,11 +825,11 @@ tailwind.config = {
     </div>
     <div class="reveal flex flex-col lg:flex-row items-center gap-10 lg:gap-16 mt-20">
       <div class="lg:w-5/12"><h3 class="font-display text-2xl sm:text-3xl font-medium mb-4" data-i18n="showcase.layout.title"></h3><p class="text-muted mb-6" data-i18n="showcase.layout.text"></p><ul class="space-y-2 text-sm text-muted"><li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 mt-1.5 text-accent shrink-0"></i><span data-i18n="showcase.layout.b1"></span></li><li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 mt-1.5 text-accent shrink-0"></i><span data-i18n="showcase.layout.b2"></span></li><li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 mt-1.5 text-accent shrink-0"></i><span data-i18n="showcase.layout.b3"></span></li></ul></div>
-      <div class="lg:w-7/12 w-full rounded-2xl border border-white/10 bg-surface overflow-hidden shadow-[0_30px_80px_-30px_rgba(255,122,26,.3)]"><img src="assets/fill.png" alt="" loading="lazy" class="w-full h-auto"></div>
+      <div class="lg:w-7/12 w-full rounded-2xl border border-white/10 bg-surface overflow-hidden shadow-[0_30px_80px_-30px_rgba(255,122,26,.3)]"><img src="assets/fill.webp" alt="" loading="lazy" class="w-full h-auto"></div>
     </div>
     <div class="reveal flex flex-col lg:flex-row lg:flex-row-reverse items-center gap-10 lg:gap-16 mt-20">
       <div class="lg:w-5/12"><h3 class="font-display text-2xl sm:text-3xl font-medium mb-4" data-i18n="showcase.pdf.title"></h3><p class="text-muted mb-6" data-i18n="showcase.pdf.text"></p><ul class="space-y-2 text-sm text-muted"><li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 mt-1.5 text-accent shrink-0"></i><span data-i18n="showcase.pdf.b1"></span></li><li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 mt-1.5 text-accent shrink-0"></i><span data-i18n="showcase.pdf.b2"></span></li><li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 mt-1.5 text-accent shrink-0"></i><span data-i18n="showcase.pdf.b3"></span></li></ul></div>
-      <div class="lg:w-7/12 w-full rounded-2xl border border-white/10 bg-surface overflow-hidden shadow-[0_30px_80px_-30px_rgba(255,122,26,.3)]"><img src="assets/pdf.png" alt="" loading="lazy" class="w-full h-auto"></div>
+      <div class="lg:w-7/12 w-full rounded-2xl border border-white/10 bg-surface overflow-hidden shadow-[0_30px_80px_-30px_rgba(255,122,26,.3)]"><img src="assets/pdf.webp" alt="" loading="lazy" class="w-full h-auto"></div>
     </div>
   </div>
 </section>

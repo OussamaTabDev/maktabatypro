@@ -75,6 +75,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     throw new Error(`Failed to load translations for ${lang}`);
   }
 
+  function updateHeroImage(lang) {
+    const img = document.getElementById('heroImage');
+    if (!img) return;
+    const l = ['ar', 'fr', 'en'].includes(lang) ? lang : 'ar';
+    const src = `assets/main_image_${l}.webp`;
+    if (img.getAttribute('src') === src) return;
+    if (l === 'ar') {
+      img.src = src;
+      return;
+    }
+    // _fr / _en may not exist yet — probe first, fall back to _ar
+    const probe = new Image();
+    probe.onload = () => { img.src = src; };
+    probe.onerror = () => { img.src = 'assets/main_image_ar.webp'; };
+    probe.src = src;
+  }
+
   window.switchLanguage = async function switchLanguage(lang) {
     localStorage.setItem('maktabaty_lang', lang);
     try {
@@ -82,6 +99,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       applyTranslations(currentTranslations);
       setLanguageDirection(lang);
       updateActiveLangButton(lang);
+      updateHeroImage(lang);
       if (typeof lucide !== 'undefined' && lucide.createIcons) {
         lucide.createIcons();
       }
@@ -110,6 +128,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       applyTranslations(currentTranslations);
       setLanguageDirection(lang);
       updateActiveLangButton(lang);
+      updateHeroImage(lang);
     } catch (err) {
       console.error('Initial i18n load failed:', err);
     }
