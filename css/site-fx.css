@@ -1,0 +1,115 @@
+/* ==========================================================================
+   Site-wide effects: interactive circuit background, section rail, scroll progress,
+   cursor spotlight on cards, hours-saved calculator, hero tilt.
+   Behaviour lives in js/site-fx.js. Reduced motion is respected there and at the bottom of this file.
+   ========================================================================== */
+
+:root { --fx-acc: #ff7a1a; --fx-acc2: #ffa05c; --fx-acc3: #ffd0a1; --fx-line: rgba(130, 160, 230, .18); --fx-dim: #8c98b5; }
+
+/* ---------- interactive background ---------- */
+.fx-bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+.grid-pattern { display: none; }            /* the canvas grid replaces the old static one */
+.fb::before { display: none; }              /* ...and the board no longer needs its own dots */
+
+/* ---------- scroll progress ---------- */
+.fx-progress { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 70; pointer-events: none; background: transparent; }
+.fx-progress i { display: block; height: 100%; width: 100%; transform-origin: left center; transform: scaleX(0); background: linear-gradient(90deg, #ff7a1a, #ffc08a); box-shadow: 0 0 12px rgba(255, 122, 26, .8); }
+html[dir="rtl"] .fx-progress i { transform-origin: right center; }
+
+/* ---------- section rail ---------- */
+.fx-rail { position: fixed; top: 50%; inset-inline-end: 12px; z-index: 45; display: none; flex-direction: column; transform: translateY(-50%); opacity: 0; pointer-events: none; transition: opacity .4s ease; }
+.fx-rail.show { opacity: 1; pointer-events: auto; }
+@media (min-width: 1280px) { .fx-rail { display: flex; } }
+.fx-rail a { position: relative; display: block; width: 18px; height: 26px; }
+.fx-rail a i { position: absolute; left: 50%; top: 50%; width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; border-radius: 50%; background: #34456b; transition: background .25s ease, transform .25s ease, box-shadow .25s ease; }
+.fx-rail a span {
+  position: absolute; top: 50%; inset-inline-end: 24px; padding: 4px 10px; border-radius: 999px; white-space: nowrap; font-size: 11.5px; line-height: 1.3; color: #cfd8f3;
+  background: rgba(11, 19, 34, .92); border: 1px solid var(--fx-line); opacity: 0; transform: translateY(-50%); transition: opacity .25s ease, color .25s ease, border-color .25s ease; pointer-events: none;
+}
+.fx-rail a:hover i, .fx-rail a:focus-visible i { background: var(--fx-acc2); transform: scale(1.35); }
+.fx-rail a:hover span, .fx-rail a:focus-visible span { opacity: 1; }
+.fx-rail a.on i { background: var(--fx-acc); transform: scale(1.5); box-shadow: 0 0 0 4px rgba(255, 122, 26, .18), 0 0 12px var(--fx-acc); }
+.fx-rail a.on span { opacity: .95; color: var(--fx-acc3); border-color: rgba(255, 122, 26, .45); }
+#nav a.fx-cur { color: #fff; }
+
+/* ---------- cursor spotlight on cards and nodes ---------- */
+@property --spa { syntax: '<number>'; inherits: false; initial-value: 0; }
+.card-hover, .fb-node, .pricing-popular, .fx-calc {
+  --spa: 0;
+  background-image: radial-gradient(300px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 122, 26, calc(var(--spa) * .13)), transparent 70%);
+  transition: --spa .35s ease, border-color .35s ease, box-shadow .35s ease, transform .4s cubic-bezier(.16, 1, .3, 1);
+}
+.card-hover:hover, .fb-node:hover, .pricing-popular:hover, .fx-calc:hover { --spa: 1; }
+
+/* ---------- hero tilt ---------- */
+[data-tilt] { transform-style: preserve-3d; transition: transform .25s ease-out; will-change: transform; }
+
+/* ---------- hours-saved calculator ---------- */
+.fx-calc { position: relative; max-width: 880px; margin: 64px auto 0; padding: 26px; border-radius: 20px; border: 1px solid var(--fx-line); background-color: rgba(14, 23, 43, .72); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.fx-calc-head { text-align: center; margin-bottom: 22px; display: flex; flex-direction: column; gap: 6px; }
+.fx-calc-grid { display: grid; gap: 28px; align-items: center; }
+@media (min-width: 768px) { .fx-calc-grid { grid-template-columns: 1fr 1.1fr; } }
+.fx-calc-in { display: flex; flex-direction: column; gap: 22px; }
+.fx-range { display: flex; flex-direction: column; gap: 10px; }
+.fx-range-t { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 13px; color: #cfd8f3; }
+.fx-range-t output { font: 600 18px/1 'Space Grotesk', Inter, sans-serif; color: var(--fx-acc3); font-variant-numeric: tabular-nums; }
+.fx-range input[type="range"] {
+  -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 6px; outline-offset: 6px; cursor: pointer; --p: 50%;
+  background: linear-gradient(to right, var(--fx-acc) 0, var(--fx-acc2) var(--p), rgba(255, 255, 255, .1) var(--p), rgba(255, 255, 255, .1) 100%);
+}
+html[dir="rtl"] .fx-range input[type="range"] { background: linear-gradient(to left, var(--fx-acc) 0, var(--fx-acc2) var(--p), rgba(255, 255, 255, .1) var(--p), rgba(255, 255, 255, .1) 100%); }
+.fx-range input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 3px solid var(--fx-acc); box-shadow: 0 0 0 5px rgba(255, 122, 26, .18), 0 0 16px rgba(255, 122, 26, .6); transition: transform .15s ease; }
+.fx-range input[type="range"]::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 3px solid var(--fx-acc); box-shadow: 0 0 0 5px rgba(255, 122, 26, .18), 0 0 16px rgba(255, 122, 26, .6); }
+.fx-range input[type="range"]:active::-webkit-slider-thumb { transform: scale(1.18); }
+
+.fx-calc-out { display: flex; flex-direction: column; gap: 16px; }
+.fx-big { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.fx-big b { font: 600 clamp(44px, 7vw, 64px)/1 'Space Grotesk', Inter, sans-serif; color: #fff; font-variant-numeric: tabular-nums; text-shadow: 0 0 40px rgba(255, 122, 26, .5); }
+.fx-big span { font-size: 14px; color: var(--fx-acc3); }
+.fx-bars { display: flex; flex-direction: column; gap: 9px; }
+.fx-bar-row { display: grid; grid-template-columns: 9em 1fr 4.6em; align-items: center; gap: 10px; font-size: 12px; color: var(--fx-dim); }
+.fx-bar-row em { font-style: normal; text-align: end; font: 500 11.5px 'JetBrains Mono', ui-monospace, monospace; color: #cfd8f3; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.fx-bar { display: block; height: 8px; border-radius: 8px; background: rgba(255, 255, 255, .06); overflow: hidden; }
+.fx-bar u { display: block; height: 100%; width: 100%; border-radius: 8px; background: #3a4a72; transition: width .45s cubic-bezier(.2, .8, .2, 1); }
+.fx-bar-app u { background: linear-gradient(90deg, var(--fx-acc), #ffc08a); box-shadow: 0 0 12px rgba(255, 122, 26, .7); }
+.fx-bar-app { color: var(--fx-acc3); }
+.fx-month { margin: 0; font-size: 14px; color: var(--fx-dim); }
+.fx-month b { font: 600 20px 'Space Grotesk', Inter, sans-serif; color: #fff; font-variant-numeric: tabular-nums; margin-inline-end: 4px; }
+.fx-calc-note { margin: 22px 0 0; text-align: center; font-size: 11.5px; line-height: 1.6; color: #66728f; }
+
+/* ---------- board extras (rules focus, ready chip, token interactions) ---------- */
+.fb-rules li { cursor: pointer; }
+.fb-rules li:hover, .fb-rules li:focus-visible, .fb-rules li.pin { background: rgba(255, 122, 26, .12); color: #fff; }
+.fb-rules li.pin { box-shadow: inset 0 0 0 1px rgba(255, 122, 26, .5); }
+.fb-rules .fb-n { margin-inline-start: auto; align-self: center; flex: none; font: 500 11px/1 var(--fb-mono, monospace); color: var(--fb-acc3, #ffd0a1); padding: 4px 7px; border-radius: 6px; background: rgba(255, 122, 26, .12); opacity: 0; transition: opacity .3s ease; font-style: normal; }
+.fb-rules li.use .fb-n { opacity: 1; }
+.fb-rules .fb-n:empty { display: none; }
+.fb-code[data-focus] .tx, .fb-code[data-focus] .tf-b, .fb-code[data-focus] .tf-n, .fb-code[data-focus] .tf-t, .fb-code[data-focus] .tf-r, .fb-code[data-focus] .tf-o, .fb-code[data-focus] .tf-k { opacity: .22; transition: opacity .25s ease; }
+.fb-code[data-focus="r1"] .tx, .fb-code[data-focus="r2"] .tf-n, .fb-code[data-focus="r3"] .tf-t, .fb-code[data-focus="r4"] .tf-r, .fb-code[data-focus="r5"] .tf-o, .fb-code[data-focus="r6"] .tf-k { opacity: 1; }
+.fb-code[data-focus="r2"] .tf-n, .fb-code[data-focus="r3"] .tf-t, .fb-code[data-focus="r4"] .tf-r, .fb-code[data-focus="r5"] .tf-o, .fb-code[data-focus="r6"] .tf-k { background: rgba(255, 122, 26, .22); border-radius: 4px; box-shadow: 0 0 0 2px rgba(255, 122, 26, .22); }
+.fb-code[data-focus="r7"] { border-color: rgba(255, 122, 26, .6); box-shadow: 0 0 0 1px rgba(255, 122, 26, .3), 0 0 30px -8px rgba(255, 122, 26, .6); }
+.fb-code[data-focus="r7"] .tx, .fb-code[data-focus="r7"] .tf-b, .fb-code[data-focus="r7"] .tf-n, .fb-code[data-focus="r7"] .tf-t, .fb-code[data-focus="r7"] .tf-r, .fb-code[data-focus="r7"] .tf-o, .fb-code[data-focus="r7"] .tf-k { opacity: 1; }
+.tok[data-f] { cursor: pointer; transition: background .2s ease, box-shadow .2s ease; }
+.tok[data-f]:hover, .tok[data-f]:focus-visible { background: rgba(255, 122, 26, .28); box-shadow: 0 0 0 1px rgba(255, 160, 92, .7); outline: none; }
+.tok.lit { animation: fb-flash 1.1s ease-out; }
+
+.fb-ready {
+  position: absolute; z-index: 25; top: 10px; inset-inline-end: 10px; display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 999px;
+  font: 500 12px/1.2 Inter, sans-serif; color: #ffe3c9; background: rgba(11, 19, 34, .92); border: 1px solid rgba(255, 122, 26, .55); box-shadow: 0 8px 30px -10px rgba(0, 0, 0, .6);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); transition: color .3s ease, border-color .3s ease; pointer-events: none;
+}
+.fb-ready .fb-led { background: var(--fb-acc, #ff7a1a); box-shadow: 0 0 0 3px rgba(255, 122, 26, .2), 0 0 10px var(--fb-acc, #ff7a1a); animation: fb-breathe 1.8s ease-in-out infinite; }
+.fb-ready b { font-weight: 600; color: #fff; }
+.fb-ready.ok { color: #d6ffe5; border-color: rgba(74, 222, 128, .55); }
+.fb-ready.ok .fb-led { background: #4ade80; box-shadow: 0 0 0 3px rgba(74, 222, 128, .2), 0 0 10px #4ade80; animation: none; }
+.fb-ready.pop { animation: fx-pop .6s cubic-bezier(.2, 1.4, .3, 1); }
+@keyframes fx-pop { 0% { transform: scale(.85); } 60% { transform: scale(1.08); } 100% { transform: scale(1); } }
+#dm-panel-host [data-field-id].fb-ping { animation: fb-pop 1.4s ease-out 2; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-tilt] { transform: none !important; }
+  .fx-bar u { transition: none; }
+}
+
+/* decorative glows are wider than a phone: never let them create sideways panning */
+html { overflow-x: clip; }

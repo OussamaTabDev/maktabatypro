@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   async function loadTranslations(lang) {
     try {
-      const res = await fetch(`lang/${lang}.json?v=20260829-looptables`);
+      const res = await fetch(`lang/${lang}.json?v=20261011-pick`);
       if (res.ok) return res.json();
     } catch (e) {}
     if (window.__langPack && window.__langPack[lang]) {
@@ -84,6 +84,16 @@ document.addEventListener('DOMContentLoaded', async () => {
       updateActiveLangButton(lang);
       if (typeof lucide !== 'undefined' && lucide.createIcons) {
         lucide.createIcons();
+      }
+      // Refresh the live-demo template selector labels + active panel (labels are baked into the panel HTML)
+      if (typeof window.refreshDemoLang === 'function') {
+        try { window.refreshDemoLang(); } catch (e) {}
+      }
+      if (typeof window.refreshFlowLang === 'function') {
+        try { window.refreshFlowLang(); } catch (e) {}
+      }
+      if (typeof window.refreshFxLang === 'function') {
+        try { window.refreshFxLang(); } catch (e) {}
       }
     } catch (err) {
       console.error('Language switch failed:', err);
@@ -155,6 +165,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // ======================== INIT I18N ========================
   await initI18n();
+  if (typeof window.refreshFlowLang === 'function') { try { window.refreshFlowLang(); } catch (e) {} }
+  if (typeof window.refreshFxLang === 'function') { try { window.refreshFxLang(); } catch (e) {} }
   if (window.__shouldPromptLanguage) window.setTimeout(openLanguagePrompt, 450);
 
   // ======================== LUCIDE ICONS ========================

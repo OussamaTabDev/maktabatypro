@@ -1,0 +1,61 @@
+/* Theme tokens for the pasted app panel (shadcn-style classes). Scoped so the landing page palette is untouched. */
+#dm-panel-host{--background:11 19 34;--foreground:255 255 255;--card:19 30 54;--card-foreground:255 255 255;--muted:30 42 68;--muted-foreground:161 161 170;--primary:255 122 26;--primary-foreground:26 13 0;--secondary:30 42 68;--destructive:239 68 68;--accent:30 42 68;--accent-foreground:255 255 255;--border:42 56 88;--input:42 56 88;--ring:255 122 26;color:rgb(var(--foreground));color-scheme:dark;font-family:Cairo,"Noto Sans Arabic",Inter,sans-serif}
+#dm-panel-host *{border-color:rgb(var(--border))}
+#dm-panel-host>div{flex:1;min-width:0}
+/* Radix scroll-area wraps content in display:table, which grows to max-content; keep it to the panel width */
+#dm-panel-host [data-radix-scroll-area-viewport]>div{display:block!important;min-width:0!important;width:100%}
+#dm-panel-host button{cursor:pointer;font-family:inherit}
+#dm-panel-host input,#dm-panel-host textarea{font-family:inherit}
+@keyframes dm-fill-enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+#dm-panel-host .fill-enter{animation:dm-fill-enter .35s ease-out both}
+#dm-panel-host .dm-flash{border-color:rgb(var(--destructive))!important}
+#dm-panel-host .bg-background{background-color:rgb(var(--background))}
+#dm-panel-host .bg-background\/30{background-color:rgb(var(--background) / 0.3)}
+#dm-panel-host .bg-card{background-color:rgb(var(--card))}
+#dm-panel-host .bg-card\/30{background-color:rgb(var(--card) / 0.3)}
+#dm-panel-host .bg-card\/45{background-color:rgb(var(--card) / 0.45)}
+#dm-panel-host .bg-destructive{background-color:rgb(var(--destructive))}
+#dm-panel-host .bg-muted-foreground\/50{background-color:rgb(var(--muted-foreground) / 0.5)}
+#dm-panel-host .bg-muted\/40{background-color:rgb(var(--muted) / 0.4)}
+#dm-panel-host .bg-muted\/50{background-color:rgb(var(--muted) / 0.5)}
+#dm-panel-host .bg-muted\/60{background-color:rgb(var(--muted) / 0.6)}
+#dm-panel-host .bg-primary{background-color:rgb(var(--primary))}
+#dm-panel-host .bg-primary\/10{background-color:rgb(var(--primary) / 0.1)}
+#dm-panel-host .bg-primary\/60{background-color:rgb(var(--primary) / 0.6)}
+#dm-panel-host .bg-secondary\/80{background-color:rgb(var(--secondary) / 0.8)}
+#dm-panel-host .border-border{border-color:rgb(var(--border))}
+#dm-panel-host .border-border\/45{border-color:rgb(var(--border) / 0.45)}
+#dm-panel-host .border-border\/50{border-color:rgb(var(--border) / 0.5)}
+#dm-panel-host .border-border\/60{border-color:rgb(var(--border) / 0.6)}
+#dm-panel-host .border-destructive{border-color:rgb(var(--destructive))}
+#dm-panel-host .border-input{border-color:rgb(var(--input))}
+#dm-panel-host .border-primary{border-color:rgb(var(--primary))}
+#dm-panel-host .file\:text-foreground::file-selector-button{color:rgb(var(--foreground))}
+#dm-panel-host .focus-visible\:ring-ring:focus-visible{--tw-ring-color:rgb(var(--ring))}
+#dm-panel-host .focus-within\:bg-primary\/\[0\.02\]:focus-within{background-color:rgb(var(--primary) / 0.02)}
+#dm-panel-host .focus-within\:border-primary\/35:focus-within{border-color:rgb(var(--primary) / 0.35)}
+#dm-panel-host .focus\:ring-ring:focus{--tw-ring-color:rgb(var(--ring))}
+#dm-panel-host .hover\:bg-accent:hover{background-color:rgb(var(--accent))}
+#dm-panel-host .hover\:bg-card\/65:hover{background-color:rgb(var(--card) / 0.65)}
+#dm-panel-host .hover\:bg-muted:hover{background-color:rgb(var(--muted))}
+#dm-panel-host .hover\:bg-primary\/10:hover{background-color:rgb(var(--primary) / 0.1)}
+#dm-panel-host .hover\:bg-primary\/90:hover{background-color:rgb(var(--primary) / 0.9)}
+#dm-panel-host .hover\:border-border\/70:hover{border-color:rgb(var(--border) / 0.7)}
+#dm-panel-host .hover\:border-primary\/40:hover{border-color:rgb(var(--primary) / 0.4)}
+#dm-panel-host .hover\:border-primary\/50:hover{border-color:rgb(var(--primary) / 0.5)}
+#dm-panel-host .hover\:text-accent-foreground:hover{color:rgb(var(--accent-foreground))}
+#dm-panel-host .hover\:text-destructive:hover{color:rgb(var(--destructive))}
+#dm-panel-host .hover\:text-primary:hover{color:rgb(var(--primary))}
+#dm-panel-host .placeholder\:text-muted-foreground::placeholder{color:rgb(var(--muted-foreground))}
+#dm-panel-host .ring-offset-background{--tw-ring-offset-color:rgb(var(--background))}
+#dm-panel-host .text-card-foreground{color:rgb(var(--card-foreground))}
+#dm-panel-host .text-destructive{color:rgb(var(--destructive))}
+#dm-panel-host .text-foreground{color:rgb(var(--foreground))}
+#dm-panel-host .text-muted-foreground{color:rgb(var(--muted-foreground))}
+#dm-panel-host .text-primary{color:rgb(var(--primary))}
+#dm-panel-host .text-primary-foreground{color:rgb(var(--primary-foreground))}
+/* paper preview */
+#dm-stage{overflow:hidden;position:relative}
+#dm-paper{background:#fff;color:#000;width:794px;min-height:1123px;padding:76px;box-sizing:border-box;transform-origin:top right;position:absolute;right:0;top:0;box-shadow:0 10px 40px rgba(0,0,0,.35)}
+#dm-paper *{box-sizing:border-box}
+#dm-paper p{margin:0 0 .8em;min-height:1em}
